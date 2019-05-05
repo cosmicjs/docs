@@ -1,0 +1,28 @@
+{
+  "name": "cosmicjs-docs",
+  "version": "0.1.0-alpha",
+  "description": "CosmicJS documentation site",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vuepress dev src",
+    "build": "vuepress build src",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cosmicjs/docs.git"
+  },
+  "keywords": [
+    "documentation",
+    "cosmicjs"
+  ],
+  "author": "Ben Hong <bencodezen@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cosmicjs/docs/issues"
+  },
+  "homepage": "https://github.com/cosmicjs/docs#readme",
+  "devDependencies": {
+    "vuepress": "^1.0.0-alpha.47"
+  }
+}
