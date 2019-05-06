@@ -1,7 +1,7 @@
 module.exports = {
   siteTitle: 'Cosmic JS',
   themeConfig: {
-    logo: '/cosmicjs.svg',
+    logo: '/cosmicjs-logo.png',
     repo: 'cosmicjs/docs',
     docsDir: 'src',
     editLinks: true,
