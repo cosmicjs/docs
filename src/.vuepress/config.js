@@ -32,7 +32,10 @@ module.exports = {
       },
       {
         title: 'GraphQL API',
-        path: '/graphql-api/'
+        path: '/graphql-api/',
+        children: [
+          ['/graphql-api/', 'Introduction']
+        ]
       },
       {
         title: 'CLI',

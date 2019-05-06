@@ -23,7 +23,7 @@ https://graphql.cosmicjs.com/v1
 
 Returns Objects from a Bucket by querying by `bucket_slug`.
 
-### Try it
+**Try it**
 
 <iframe src="https://graphql.cosmicjs.com/v1?query=%7B%0A%20%20objects(bucket_slug%3A%20%22creative-agency%22%2C%20limit%3A%204)%20%7B%0A%20%20%20%20title%0A%20%20%20%20type_slug%0A%20%20%7D%0A%7D" frameborder="0" style="width: 100%; height: 470px;"></iframe>
 
@@ -35,7 +35,7 @@ To see the REST equivalent, visit [https://api.cosmicjs.com/v1/creative-agency/o
 
 Returns Objects from a Bucket by querying by `bucket_slug` and `type_slug`.
 
-### Try it
+**Try it**
 
 <iframe src="https://graphql.cosmicjs.com/v1?query=%7B%0A%20%20objectsByType(bucket_slug%3A%20%22creative-agency%22%2C%20type_slug%3A%20%22team-members%22%2C%20limit%3A%204%2C%20skip%3A%202)%20%7B%0A%20%20%20%20title%0A%20%20%20%20metadata%0A%20%20%20%20type_slug%0A%20%20%7D%0A%7D" frameborder="0" style="width: 100%; height: 870px;"></iframe>
 
@@ -47,7 +47,7 @@ To see the REST equivalent, visit [https://api.cosmicjs.com/v1/creative-agency/o
 
 Returns a single Object by querying by `bucket_slug` and `slug`.
 
-### Try it out
+**Try it**
 
 <iframe src="https://graphql.cosmicjs.com/v1?query=%7B%0A%20%20object(bucket_slug%3A%20%22creative-agency%22%2C%20slug%3A%20%22about%22)%20%7B%0A%20%20%20%20title%0A%20%20%20%20metadata%0A%20%20%7D%0A%7D" frameborder="0" style="width: 100%; height: 450px;"></iframe>
 
