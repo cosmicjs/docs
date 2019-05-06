@@ -19,6 +19,13 @@
       :to="item.path"
       @click.native="$emit('toggle')"
     >
+      <img 
+        v-if="item.icon"
+        class="sidebar-icon"
+        :src="`/icons/${item.icon}.svg`" 
+        width="30" 
+        height="30" 
+      />
       <span>{{ item.title }}</span>
       <span
         class="arrow"
@@ -128,4 +135,7 @@ export default {
   transition height .1s ease-out
   font-size 0.95em
   overflow hidden
+
+.sidebar-icon
+  margin-right 8px
 </style>

@@ -224,7 +224,8 @@ function resolveItem (item, pages, base, groupDepth = 1) {
     const children = item.children || []
     if (children.length === 0 && item.path) {
       return Object.assign(resolvePage(pages, item.path, base), {
-        title: item.title
+        title: item.title,
+        icon: item.icon ? item.icon : ''
       })
     }
     return {
@@ -233,7 +234,8 @@ function resolveItem (item, pages, base, groupDepth = 1) {
       title: item.title,
       sidebarDepth: item.sidebarDepth,
       children: children.map(child => resolveItem(child, pages, base, groupDepth + 1)),
-      collapsable: item.collapsable !== false
+      collapsable: item.collapsable !== false,
+      icon: item.icon ? item.icon : ''
     }
   }
 }

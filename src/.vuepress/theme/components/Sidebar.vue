@@ -27,7 +27,8 @@ export default {
     margin 0
     list-style-type none
   a
-    display inline-block
+    display flex
+    align-items center
   .nav-links
     display none
     border-bottom 1px solid $borderColor
