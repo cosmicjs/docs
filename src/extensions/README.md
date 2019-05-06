@@ -1,7 +1,3 @@
----
-sidebar: auto
----
-
 # Extensions
 
 Create custom experiences in your Bucket Dashboard.

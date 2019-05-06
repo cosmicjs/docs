@@ -6,7 +6,46 @@ module.exports = {
     docsDir: 'src',
     editLinks: true,
     editLinkText: 'Edit this page',
-    lastUpdated: 'Last Updated'
+    lastUpdated: 'Last Updated',
+    displayAllHeaders: true,
+    sidebarDepth: 2,
+    sidebar: [
+      {
+        title: 'Home',
+        path: '/'
+      },
+      {
+        title: 'REST API',
+        path: '/rest-api/',
+        depth: 2,
+        type: 'group'
+      },
+      {
+        title: 'GraphQL API',
+        path: '/graphql-api/',
+        depth: 2
+      },
+      {
+        title: 'CLI',
+        path: '/cli/',
+        depth: 2
+      },
+      {
+        title: 'Functions',
+        path: '/functions/',
+        depth: 2
+      },
+      {
+        title: 'Webhooks',
+        path: '/webhooks/',
+        depth: 2
+      },
+      {
+        title: 'Extensions',
+        path: '/extensions/',
+        depth: 2
+      }
+    ]
   },
   head: [
     ['link', {

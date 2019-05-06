@@ -1,7 +1,3 @@
----
-sidebar: auto
----
-
 # Cosmic Functions
 
 Deploy code without having to manage infrastructure.

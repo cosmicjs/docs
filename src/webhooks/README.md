@@ -1,7 +1,3 @@
----
-sidebar: auto
----
-
 # CosmicJS Webhooks
 
 Learn how to use Cosmic JS Webhooks to make external requests

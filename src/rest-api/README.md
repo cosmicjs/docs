@@ -1,8 +1,3 @@
----
-sidebar: auto
-depth: 3
----
-
 # REST API
 
 ## Introduction
