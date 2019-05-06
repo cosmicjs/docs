@@ -7,7 +7,6 @@ module.exports = {
     editLinks: true,
     editLinkText: 'Edit this page',
     lastUpdated: 'Last Updated',
-    displayAllHeaders: true,
     sidebarDepth: 2,
     sidebar: [
       {
@@ -17,33 +16,39 @@ module.exports = {
       {
         title: 'REST API',
         path: '/rest-api/',
-        depth: 2,
-        type: 'group'
+        children: [
+          ['/rest-api/', 'Introduction'],
+          '/rest-api/errors',
+          '/rest-api/authentication',
+          '/rest-api/buckets',
+          '/rest-api/users',
+          '/rest-api/object-types',
+          '/rest-api/objects',
+          '/rest-api/metafields',
+          '/rest-api/media',
+          '/rest-api/webhooks',
+          '/rest-api/extensions'
+        ]
       },
       {
         title: 'GraphQL API',
-        path: '/graphql-api/',
-        depth: 2
+        path: '/graphql-api/'
       },
       {
         title: 'CLI',
-        path: '/cli/',
-        depth: 2
+        path: '/cli/'
       },
       {
         title: 'Functions',
-        path: '/functions/',
-        depth: 2
+        path: '/functions/'
       },
       {
         title: 'Webhooks',
-        path: '/webhooks/',
-        depth: 2
+        path: '/webhooks/'
       },
       {
         title: 'Extensions',
-        path: '/extensions/',
-        depth: 2
+        path: '/extensions/'
       }
     ]
   },
