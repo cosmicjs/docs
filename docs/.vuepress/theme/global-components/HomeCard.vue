@@ -11,6 +11,9 @@ export default {
     },
     description: {
       type: String
+    },
+    icon: {
+      type: String
     }
   }
 }
@@ -18,11 +21,19 @@ export default {
 
 <template>
 	<div class="home-card">
-    <p class="home-card-title">
-      <a :href="url" >{{ title }}</a>
-    </p>
-    <slot></slot>
-    <a :href="url" class="home-card-btn">Learn more</a>
+    <img 
+      v-if="icon"
+      class="home-card-icon"
+      :src="icon" 
+      :alt="`${title} Icon`" 
+    />
+    <div>
+      <p class="home-card-title">
+        <a :href="url" >{{ title }}</a>
+      </p>
+      <slot></slot>
+      <a :href="url" class="home-card-btn">Learn more</a>
+    </div>
   </div>
 </template>
 
@@ -30,13 +41,19 @@ export default {
 @require '../styles/config'
 
 .home-card {
+  display: flex;
+  align-items: center;
+
   box-shadow: rgba(0,21,64,.14) 0 2px 6px, rgba(0,21,64,.05) 0 10px 20px;
   border-radius: 20px;
   border: 14px solid #fff;
   background: #fff;
-  text-align: center;
   padding: 10px 0;
   margin-bottom: 30px;
+}
+
+.home-card-description {
+  margin-top: 10px;
 }
 
 .home-card-title {
@@ -61,5 +78,12 @@ export default {
   border-radius: 3px;
   background-color: $accentColor;
   color: #fff;
+}
+
+.home-card-icon {
+  width: 40px;
+  height: 40px;
+  margin-right: 15px;
+  padding: 10px;
 }
 </style>
