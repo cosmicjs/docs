@@ -13,7 +13,7 @@ To setup the local environment:
 
 ### Development
 
-This will create a local web server at `http://localhost:8080` if nothing is running on that port. It has hot module reloading and will detect most changes you make.*
+This will create a local web server at `http://localhost:8080/docs/` if nothing is running on that port. It has hot module reloading and will detect most changes you make.*
 
 ```
 $ yarn run dev
@@ -23,7 +23,7 @@ $ yarn run dev
 
 ### Build
 
-This will compile the package you want for deploying to production. It will create a folder in `src/.vuepress/dist`.
+This will compile the package you want for deploying to production. It will create a folder in `docs/.vuepress/dist`.
 
 ```
 $ yarn build
