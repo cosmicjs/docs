@@ -53,5 +53,6 @@ module.exports = {
       rel: "stylesheet",
       type: "text/css"
     }]
-  ]
+  ],
+  plugins: ['tabs']
 }

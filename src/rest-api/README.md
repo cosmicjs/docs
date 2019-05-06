@@ -6,10 +6,24 @@ The Cosmic JS REST API helps you easily manage data and files for websites and a
 
 Some code samples are runnable using [Runkit](https://runkit.com/home).
 
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab bash
 ```
 # API Endpoint
 https://api.cosmicjs.com
 ```
+:::
+
+
+::: tab javascript
+``` javascript
+// Install the NPM package
+npm install cosmicjs
+```
+:::
+
+::::
 
 ## Getting Started
 
@@ -43,13 +57,16 @@ Send your `email` and `password` to receive your access token. Your access token
 | email     | true     | String | Your Cosmic JS login email    |
 | password  | true     | String | Your Cosmic JS login password |
 
-### Definition
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab bash
+**Definition**
 
 ```
 POST https://api.cosmicjs.com/v1/authenticate
 ```
 
-### Example Request
+**Example Request**
 
 ```bash
 # With shell, you can just pass your email and password
@@ -58,7 +75,7 @@ curl -X POST "https://api.cosmicjs.com/v1/authenticate" \
 -d "password=yourpassword"
 ```
 
-### Example Response
+**Example Response**
 
 ```json
 {
@@ -67,6 +84,42 @@ curl -X POST "https://api.cosmicjs.com/v1/authenticate" \
 	"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXV.eyJlbWFpbCI6InNwaXJvbnl..."
 }
 ```
+:::
+
+
+::: tab javascript
+**Definition**
+
+```js
+Cosmic.authenticate()
+```
+
+**Example Request**
+
+```js
+const Cosmic = require('cosmicjs')() // double parentheses to init function without token
+Cosmic.authenticate({
+  email: 'you@youremail.com',
+  password: 'yourpassword'
+}).then(data => {
+    console.log(data)
+}).catch(err => {
+    console.log(err)
+})
+```
+
+**Example Response**
+
+```json
+{
+  "success": true,
+  "message": "Token created successfully.",
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXV.eyJlbWFpbCI6InNwaXJvbnl..."
+}
+```
+:::
+
+::::
 
 ## Buckets
 
@@ -88,13 +141,16 @@ curl -X POST "https://api.cosmicjs.com/v1/authenticate" \
 | webhooks      |          | Array  | Populate your Bucket with [Webhooks](/webhooks). See [Webhooks](/webhooks) for model.         |
 | extensions    |          | Array  | Populate your Bucket with [Extensions](/extensions). See [Extensions](/extensions) for model. |
 
-#### Definition
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab bash
+**Definition**
 
 ```
 POST https://api.cosmicjs.com/v1/buckets
 ```
 
-#### Example Request
+**Example Request**
 
 ```bash
 curl -X POST "https://api.cosmicjs.com/v1/buckets" \
@@ -103,7 +159,7 @@ curl -X POST "https://api.cosmicjs.com/v1/buckets" \
 -d '{"title": "My New Bucket"}'
 ```
 
-#### Example Response
+**Example Response**
 
 ```json
 {
@@ -114,6 +170,46 @@ curl -X POST "https://api.cosmicjs.com/v1/buckets" \
 	}
 }
 ```
+:::
+
+
+::: tab javascript
+**Definition**
+
+```js
+Cosmic.addBucket()
+```
+
+**Example Request**
+
+```js
+const Cosmic = require('cosmicjs')({
+  token: 'your-token-from-auth-request' // required
+})
+Cosmic.addBucket({
+  title: 'My New Bucket',
+  slug: 'my-new-bucket' // must be unique across all Buckets in system
+}).then(data => {
+  console.log(data)
+}).catch(err => {
+  console.log(err)
+})
+```
+
+**Example Response**
+
+```json
+{
+  "bucket": {
+    "_id": "55b3d557df0fb1df7600004b",
+    "slug": "my-new-bucket",
+    "title": "My New Bucket"
+  }
+}
+```
+:::
+
+::::
 
 ### Get Buckets
 
