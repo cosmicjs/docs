@@ -22,7 +22,7 @@
       <img 
         v-if="item.icon"
         class="sidebar-icon"
-        :src="`/icons/${item.icon}.svg`" 
+        :src="item.icon" 
         width="30" 
         height="30" 
       />

@@ -15,6 +15,7 @@ module.exports = {
       },
       {
         title: 'REST API',
+        icon: '/icons/npm.svg',
         path: '/rest-api/',
         children: [
           ['/rest-api/', 'Introduction'],
@@ -32,23 +33,28 @@ module.exports = {
       },
       {
         title: 'GraphQL API',
-        path: '/graphql-api/'
+        path: '/graphql-api/',
+        icon: '/icons/graphql.svg'
       },
       {
         title: 'CLI',
-        path: '/cli/'
+        path: '/cli/',
+        icon: '/icons/terminal.svg'
       },
       {
         title: 'Functions',
-        path: '/functions/'
+        path: '/functions/',
+        icon: '/icons/function.svg'
       },
       {
         title: 'Webhooks',
-        path: '/webhooks/'
+        path: '/webhooks/',
+        icon: '/icons/webhooks.png'
       },
       {
         title: 'Extensions',
-        path: '/extensions/'
+        path: '/extensions/',
+        icon: '/icons/puzzle-piece.svg'
       }
     ]
   },
