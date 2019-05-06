@@ -1,17 +1,15 @@
-
 # Media
 
 ### Add Media
 
 The only required post value is the `media` object. You can also add optional `folder` and `metadata` params.
 
-| Parameter | Required | Type | Description |
-| --------- | -------- | ---- | ----------- |
-|media|	required|	Media Object (see below)|	Media object with specific properties|
-|folder|		|String|	Media folder slug|
-|metadata|		|Object|	Key / value data store|
-|write_key	|	|String|	Your Bucket write key|
-
+| Parameter | Required | Type                     | Description                           |
+| --------- | -------- | ------------------------ | ------------------------------------- |
+| media     | required | Media Object (see below) | Media object with specific properties |
+| folder    |          | String                   | Media folder slug                     |
+| metadata  |          | Object                   | Key / value data store                |
+| write_key |          | String                   | Your Bucket write key                 |
 
 #### Media Object
 
@@ -30,11 +28,11 @@ You can add the folder parameter to get Media from a certain folder.
 
 [Imgix](https://imgix.com/) is included with every account. You can use the Imgix suite of image processing tools on the URL provided by the `imgix_url` property value. Check out the [Imgix documentation](https://docs.imgix.com/) for more info.
 
-| Parameter | Required | Type | Description |
-| --------- | -------- | ---- | ----------- |
-|pretty|		|File|	Media object|
-|folder|		|String|	Media folder slug|
-|read_key|		|String|	Your Bucket read key|
+| Parameter | Required | Type   | Description          |
+| --------- | -------- | ------ | -------------------- |
+| pretty    |          | File   | Media object         |
+| folder    |          | String | Media folder slug    |
+| read_key  |          | String | Your Bucket read key |
 
 ### Delete Media
 
