@@ -1,30 +1,30 @@
+---
+sidebarDepth: 2
+---
+
 # Extensions
 
-Create custom experiences in your Bucket Dashboard.
+Cosmic JS Extensions enable you to customize the Cosmic JS Dashboard experience to create custom experiences in your Bucket Dashboard.
 Pre-built Extensions are available for demo and install.
-
-## What Are Cosmic JS Extensions?
-
-Cosmic JS Extensions enable you to customize the Cosmic JS Dashboard experience.
 
 ![Screenshot of CosmicJS dashboard](/screenshots/dashboard-screenshot.jpg)
 
-### Getting started
+## Getting started
 
 Go to _Your Bucket > Settings > Extensions_. There are [pre-built Extensions available for install](https://cosmicjs.com/extensions) to extend the functionality of your Bucket. All of the code is open source. You can also build your own Extensions. They are simply [JAMstack](https://jamstack.org/) apps (static web app built using HTML / CSS / JavaScript).
 
-#### Adding an extension
+### Adding an extension
 
 1. Go to _Your Bucket > Extensions > Add Extension_
 1. You can add either an Extension that points to a URL (https required, X-Frame Options enabled) or upload a zip file that contains a static web app.
 
-### How to add an Extension via URL
+## How to add an Extension via URL
 
 You can add an Extension by URL (https required, X-Frame Options enabled), title and icon.
 
 ![Screenshot of adding extension by URL](/screenshots/add-extension-url.png)
 
-#### Query parameters
+### Query parameters
 
 After adding your Extension, query parameters are attached to the URL for easy connection to your Bucket. The format looks like this:
 
@@ -39,7 +39,7 @@ https://my-custom-webapp.netlify.com?bucket_slug=your-bucket-slug&read_key=your-
 | write_key            | Your Bucket write key. Needed for writes to your Bucket if this value is set in your Bucket > Settings > Basic.                                               |
 | [custom key / value] | You can add unlimited custom query pamaters such as 3rd-party API keys to connect to different services. Find this in your Cosmic JS Extension settings page. |
 
-### How to add a static web app extension
+## How to add a static web app extension
 
 Check out the [Extension Starter](https://github.com/cosmicjs/extension-starter) to see a basic HTML / CSS / JavaScript example.
 
@@ -51,7 +51,7 @@ Add a static web app Extension to your Bucket by uploading a zipped folder that 
 ├── index.html
 ```
 
-#### Extension settings
+### Extension settings
 
 The `extension.json` file sets information about your Extension. Add an optional [Font Awesome icon](http://fontawesome.io/icons/) to create a custom icon in the side nav. Add an image URL as the thumbnail image next to your Extension. Example:
 
@@ -63,7 +63,7 @@ The `extension.json` file sets information about your Extension. Add an optional
 }
 ```
 
-#### Optional import data
+### Optional import data
 
 Along with the Extension info, you can import data to the destination Bucket. By adding an `objects` array, you are able to import Objects. By adding an `object_types` array, you are able to import Object Types.
 
@@ -132,7 +132,7 @@ Along with the Extension info, you can import data to the destination Bucket. By
 }
 ```
 
-#### Preparing Your Extension for Upload
+### Preparing Your Extension for Upload
 
 The static site folder contents:
 
@@ -146,7 +146,7 @@ Then upload the Extension to your Cosmic JS Bucket located in *Your Bucket > Ext
 
 ![Screenshot of add extension](/screenshots/add-extension-zip.png)
 
-### Want to build Extensions for us?
+## Want to build Extensions for us?
 
 Submit your idea to the [Cosmic JS contribution page](https://cosmicjs.com/contribute). We'll showcase your awesome Cosmic JS Extension and you'll get free stuff. 😎
 

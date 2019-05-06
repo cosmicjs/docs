@@ -1,3 +1,7 @@
+---
+sidebarDepth: 2
+---
+
 # Cosmic JS GraphQL API
 
 Learn how to connect your Cosmic JS Bucket through GraphQL queries to the Cosmic JS API.

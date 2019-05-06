@@ -1,4 +1,4 @@
-# Cosmic Functions
+# Cosmic JS Functions
 
 Deploy code without having to manage infrastructure.
 
@@ -10,14 +10,14 @@ https://cosmicjs.com/contribute
 
 You can deploy Node.js functions to AWS through your Bucket Dashboard located at _Your Bucket > Settings > Functions_. AWS Lambda functions are infinitely scalable, highly cost effective ([AWS gives you 1M requests per month free](https://aws.amazon.com/lambda/pricing/)), and you never have to pay for idle server time. **You can have unlimited Functions in your Cosmic JS Bucket and the feature is 100% free to use.**
 
-### What's required?
+## What's required?
 
 1. Your AWS access key and secret key. [How to find these](/functions)
 2. Node.js codebase (zip or link to git repo) that follows Lambda requirements
 
 Make sure your codebase includes the following required files:
 
-### Entry file
+## Entry file
 
 The `index.js` file of your codebase will need to export a `handler` function and follow the format for [AWS Lambda Node.js function handling](https://docs.aws.amazon.com/lambda/latest/dg/nodejs-prog-model-handler.html). The version of Node.js deployed is `v8.10` which means you can use the [async / await pattern](https://aws.amazon.com/blogs/compute/node-js-8-10-runtime-now-available-in-aws-lambda/). Here's a simple Hello World example:
 
@@ -35,7 +35,7 @@ module.exports.handler = function(event, context, callback) {
 }
 ```
 
-### Function config file
+## Function config file
 
 The `function.json` file includes information that Cosmic JS uses to deploy your function. Here's an example:
 
@@ -61,7 +61,7 @@ The `function.json` file includes information that Cosmic JS uses to deploy your
 }
 ```
 
-#### `function.json` Properties
+### `function.json` Properties
 
 | Key            | Type   | Description                                                                        |
 | -------------- | ------ | ---------------------------------------------------------------------------------- |
@@ -74,7 +74,7 @@ The `function.json` file includes information that Cosmic JS uses to deploy your
 | routes         | Array  | Function routes: properties include path (string), method (string) and cors (bool) |
 | dynamic_routes | Bool   | Allows dynamic routes to your function. Overrides the routes property.             |
 
-### Dynamic Routes
+## Dynamic Routes
 
 Your Function can serve dynamic routes, like an Express application (see the Serverless Starter). To make routes dynamic, add the `dynamic_routes` property set to `true` in your `function.json` file:
 
@@ -102,10 +102,10 @@ res.json({ message: 'Your dynamic slug is ' + req.params.slug });
 module.exports.handler = serverless(app);
 ```
 
-### Install your Function
+## Install your Function
 Go to *Your Bucket > Settings > Functions* to deploy a new Function. Whether you install from git repo URL or .zip file, make sure to include both `index.js` and `function.json` files in your codebase.
 
-### Deploy your Function
+## Deploy your Function
 
 After your Function is installed, follow these steps:
 
@@ -114,7 +114,7 @@ After your Function is installed, follow these steps:
 1. Add any other required environment variables.
 1. Click "Deploy Function".
 
-### Examples
+## Examples
 View these Function examples on GitHub:
 
 - [Function Starter](https://github.com/cosmicjs/function-starter)

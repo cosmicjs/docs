@@ -7,7 +7,6 @@ module.exports = {
     editLinks: true,
     editLinkText: 'Edit this page',
     lastUpdated: 'Last Updated',
-    sidebarDepth: 2,
     sidebar: [
       {
         title: 'Home',
@@ -32,10 +31,7 @@ module.exports = {
       },
       {
         title: 'GraphQL API',
-        path: '/graphql-api/',
-        children: [
-          ['/graphql-api/', 'Introduction']
-        ]
+        path: '/graphql-api/'
       },
       {
         title: 'CLI',
