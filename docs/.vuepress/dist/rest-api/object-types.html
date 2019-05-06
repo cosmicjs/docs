@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Object Types</title>
+    <meta name="description" content="">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300,600" rel="stylesheet" type="text/css">
+    
+    <link rel="preload" href="/assets/css/0.styles.ded04c55.css" as="style"><link rel="preload" href="/assets/js/app.49d4aebf.js" as="script"><link rel="preload" href="/assets/js/4.3da7f85d.js" as="script"><link rel="preload" href="/assets/js/3.2e0e9e48.js" as="script"><link rel="preload" href="/assets/js/20.d84be341.js" as="script"><link rel="prefetch" href="/assets/js/10.b24d0db6.js"><link rel="prefetch" href="/assets/js/11.b7c75101.js"><link rel="prefetch" href="/assets/js/12.4c26375b.js"><link rel="prefetch" href="/assets/js/13.f5c2e2ad.js"><link rel="prefetch" href="/assets/js/14.303ebba3.js"><link rel="prefetch" href="/assets/js/15.5f49498b.js"><link rel="prefetch" href="/assets/js/16.ca007755.js"><link rel="prefetch" href="/assets/js/17.e75a4a7a.js"><link rel="prefetch" href="/assets/js/18.825dc893.js"><link rel="prefetch" href="/assets/js/19.fd10e9e5.js"><link rel="prefetch" href="/assets/js/21.3ab63a5e.js"><link rel="prefetch" href="/assets/js/22.40f105ef.js"><link rel="prefetch" href="/assets/js/23.5b777f34.js"><link rel="prefetch" href="/assets/js/24.9bab26b0.js"><link rel="prefetch" href="/assets/js/25.1a08d7ae.js"><link rel="prefetch" href="/assets/js/5.c7bc2dec.js"><link rel="prefetch" href="/assets/js/6.6e56fd16.js"><link rel="prefetch" href="/assets/js/7.03666c24.js"><link rel="prefetch" href="/assets/js/8.6df36b8f.js"><link rel="prefetch" href="/assets/js/9.d78b2453.js"><link rel="prefetch" href="/assets/js/vendors~docsearch.d61069ea.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.ded04c55.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/cosmicjs-logo.png" alt="" class="logo"> <!----></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"> <a href="https://github.com/cosmicjs/docs" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"> <a href="https://github.com/cosmicjs/docs" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><a href="/" class="sidebar-link">Home</a></li><li><section class="sidebar-group collapsable depth-0"><a href="/rest-api/" class="sidebar-heading clickable router-link-active open"><!----> <span>REST API</span> <span class="arrow down"></span></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/rest-api/" class="sidebar-link">Introduction</a></li><li><a href="/rest-api/errors.html" class="sidebar-link">Errors</a></li><li><a href="/rest-api/authentication.html" class="sidebar-link">Authentication</a></li><li><a href="/rest-api/buckets.html" class="sidebar-link">Buckets</a></li><li><a href="/rest-api/users.html" class="sidebar-link">Users</a></li><li><a href="/rest-api/object-types.html" class="active sidebar-link">Object Types</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/rest-api/object-types.html#add-object-type" class="sidebar-link">Add Object Type</a></li><li class="sidebar-sub-header"><a href="/rest-api/object-types.html#get-object-types" class="sidebar-link">Get Object Types</a></li><li class="sidebar-sub-header"><a href="/rest-api/object-types.html#edit-object-type" class="sidebar-link">Edit Object Type</a></li><li class="sidebar-sub-header"><a href="/rest-api/object-types.html#delete-object-type" class="sidebar-link">Delete Object Type</a></li></ul></li><li><a href="/rest-api/objects.html" class="sidebar-link">Objects</a></li><li><a href="/rest-api/metafields.html" class="sidebar-link">Metafields</a></li><li><a href="/rest-api/media.html" class="sidebar-link">Media</a></li><li><a href="/rest-api/webhooks.html" class="sidebar-link">Webhooks</a></li><li><a href="/rest-api/extensions.html" class="sidebar-link">Extensions</a></li></ul></section></li><li><a href="/graphql-api/" class="sidebar-link">GraphQL API</a></li><li><a href="/cli/" class="sidebar-link">CLI</a></li><li><a href="/functions/" class="sidebar-link">Functions</a></li><li><a href="/webhooks/" class="sidebar-link">Webhooks</a></li><li><a href="/extensions/" class="sidebar-link">Extensions</a></li></ul> </aside> <main class="page"> <div class="content default"><h1 id="object-types"><a href="#object-types" aria-hidden="true" class="header-anchor">#</a> Object Types</h1> <h2 id="add-object-type"><a href="#add-object-type" aria-hidden="true" class="header-anchor">#</a> Add Object Type</h2> <p>Add a new Object Type to your Bucket.</p> <table><thead><tr><th>Parameter</th> <th>Required</th> <th>Type</th> <th>Description</th></tr></thead> <tbody><tr><td>title</td> <td>required</td> <td>String</td> <td>Plural title of your Object Type</td></tr> <tr><td>slug</td> <td></td> <td>String</td> <td>Plural slug of your Object Type</td></tr> <tr><td>singular</td> <td></td> <td>String</td> <td>Singular title of your Object Type</td></tr> <tr><td>metafields</td> <td></td> <td>Array</td> <td>Default Metafields for each Object in this type</td></tr> <tr><td>pretty</td> <td></td> <td>Enum</td> <td>true, Makes the response more reader-friendly</td></tr> <tr><td>write_key</td> <td></td> <td>String</td> <td>Restrict write access to your Bucket</td></tr></tbody></table> <div class="tabs-component"><ul role="tablist" class="tabs-component-tabs"></ul> <div class="tabs-component-panels"><section aria-hidden="true" id="bash" role="tabpanel" class="tabs-component-panel" style="display:none;"><p><strong>Definition</strong></p> <div class="language- extra-class"><pre class="language-text"><code>POST https://api.cosmicjs.com/v1/:bucket_slug/add-object-type
+</code></pre></div><p><strong>Example Request</strong></p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+	<span class="token property">&quot;title&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Pages&quot;</span><span class="token punctuation">,</span>
+	<span class="token property">&quot;singular&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Page&quot;</span><span class="token punctuation">,</span>
+	<span class="token property">&quot;slug&quot;</span><span class="token operator">:</span> <span class="token string">&quot;pages&quot;</span><span class="token punctuation">,</span>
+	<span class="token property">&quot;metafields&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+		<span class="token punctuation">{</span>
+			<span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;text&quot;</span><span class="token punctuation">,</span>
+			<span class="token property">&quot;title&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Headline&quot;</span><span class="token punctuation">,</span>
+			<span class="token property">&quot;key&quot;</span><span class="token operator">:</span> <span class="token string">&quot;headline&quot;</span><span class="token punctuation">,</span>
+			<span class="token property">&quot;required&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span>
+		<span class="token punctuation">}</span><span class="token punctuation">,</span>
+		<span class="token punctuation">{</span>
+			<span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;file&quot;</span><span class="token punctuation">,</span>
+			<span class="token property">&quot;title&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Hero&quot;</span><span class="token punctuation">,</span>
+			<span class="token property">&quot;key&quot;</span><span class="token operator">:</span> <span class="token string">&quot;hero&quot;</span><span class="token punctuation">,</span>
+			<span class="token property">&quot;required&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p><strong>Example Response</strong></p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+	<span class="token property">&quot;object_type&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+		<span class="token property">&quot;slug&quot;</span><span class="token operator">:</span> <span class="token string">&quot;pages&quot;</span><span class="token punctuation">,</span>
+		<span class="token property">&quot;title&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Pages&quot;</span><span class="token punctuation">,</span>
+		<span class="token property">&quot;singular&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Page&quot;</span><span class="token punctuation">,</span>
+		<span class="token property">&quot;metafields&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+			<span class="token punctuation">{</span>
+				<span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;text&quot;</span><span class="token punctuation">,</span>
+				<span class="token property">&quot;title&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Headline&quot;</span><span class="token punctuation">,</span>
+				<span class="token property">&quot;key&quot;</span><span class="token operator">:</span> <span class="token string">&quot;headline&quot;</span><span class="token punctuation">,</span>
+				<span class="token property">&quot;required&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span>
+			<span class="token punctuation">}</span><span class="token punctuation">,</span>
+			<span class="token punctuation">{</span>
+				<span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;file&quot;</span><span class="token punctuation">,</span>
+				<span class="token property">&quot;title&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Hero&quot;</span><span class="token punctuation">,</span>
+				<span class="token property">&quot;key&quot;</span><span class="token operator">:</span> <span class="token string">&quot;hero&quot;</span><span class="token punctuation">,</span>
+				<span class="token property">&quot;required&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span>
+			<span class="token punctuation">}</span>
+		<span class="token punctuation">]</span><span class="token punctuation">,</span>
+		<span class="token property">&quot;created_at&quot;</span><span class="token operator">:</span> <span class="token string">&quot;2017-05-30T02:06:35.373Z&quot;</span><span class="token punctuation">,</span>
+		<span class="token property">&quot;metadata&quot;</span><span class="token operator">:</span> <span class="token null keyword">null</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div></section> <section aria-hidden="true" id="javascript" role="tabpanel" class="tabs-component-panel" style="display:none;"></section> <p><strong>Definition</strong></p> <div class="language-js extra-class"><pre class="language-js"><code>bucket<span class="token punctuation">.</span><span class="token function">addObjectType</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre></div><p><strong>Example Request</strong></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> bucket <span class="token operator">=</span> Cosmic<span class="token punctuation">.</span><span class="token function">bucket</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+	slug<span class="token punctuation">:</span> <span class="token string">'bucket-slug'</span><span class="token punctuation">,</span>
+	write_key<span class="token punctuation">:</span> <span class="token string">''</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> params <span class="token operator">=</span> <span class="token punctuation">{</span>
+	title<span class="token punctuation">:</span> <span class="token string">'Pages'</span><span class="token punctuation">,</span>
+	singular<span class="token punctuation">:</span> <span class="token string">'Page'</span><span class="token punctuation">,</span>
+	slug<span class="token punctuation">:</span> <span class="token string">'pages'</span><span class="token punctuation">,</span>
+	metafields<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+		<span class="token punctuation">{</span>
+			type<span class="token punctuation">:</span> <span class="token string">'text'</span><span class="token punctuation">,</span>
+			title<span class="token punctuation">:</span> <span class="token string">'Headline'</span><span class="token punctuation">,</span>
+			key<span class="token punctuation">:</span> <span class="token string">'headline'</span><span class="token punctuation">,</span>
+			required<span class="token punctuation">:</span> <span class="token boolean">true</span>
+		<span class="token punctuation">}</span><span class="token punctuation">,</span>
+		<span class="token punctuation">{</span>
+			type<span class="token punctuation">:</span> <span class="token string">'file'</span><span class="token punctuation">,</span>
+			title<span class="token punctuation">:</span> <span class="token string">'Hero'</span><span class="token punctuation">,</span>
+			key<span class="token punctuation">:</span> <span class="token string">'hero'</span><span class="token punctuation">,</span>
+			required<span class="token punctuation">:</span> <span class="token boolean">true</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+bucket
+	<span class="token punctuation">.</span><span class="token function">addObjectType</span><span class="token punctuation">(</span>params<span class="token punctuation">)</span>
+	<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">data</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+		console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span>
+	<span class="token punctuation">}</span><span class="token punctuation">)</span>
+	<span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token parameter">err</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+		console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
+	<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p><strong>Example Response</strong></p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+	<span class="token property">&quot;object_type&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+		<span class="token property">&quot;slug&quot;</span><span class="token operator">:</span> <span class="token string">&quot;pages&quot;</span><span class="token punctuation">,</span>
+		<span class="token property">&quot;title&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Pages&quot;</span><span class="token punctuation">,</span>
+		<span class="token property">&quot;singular&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Page&quot;</span><span class="token punctuation">,</span>
+		<span class="token property">&quot;metafields&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+			<span class="token punctuation">{</span>
+				<span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;text&quot;</span><span class="token punctuation">,</span>
+				<span class="token property">&quot;title&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Headline&quot;</span><span class="token punctuation">,</span>
+				<span class="token property">&quot;key&quot;</span><span class="token operator">:</span> <span class="token string">&quot;headline&quot;</span><span class="token punctuation">,</span>
+				<span class="token property">&quot;required&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span>
+			<span class="token punctuation">}</span><span class="token punctuation">,</span>
+			<span class="token punctuation">{</span>
+				<span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;file&quot;</span><span class="token punctuation">,</span>
+				<span class="token property">&quot;title&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Hero&quot;</span><span class="token punctuation">,</span>
+				<span class="token property">&quot;key&quot;</span><span class="token operator">:</span> <span class="token string">&quot;hero&quot;</span><span class="token punctuation">,</span>
+				<span class="token property">&quot;required&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span>
+			<span class="token punctuation">}</span>
+		<span class="token punctuation">]</span><span class="token punctuation">,</span>
+		<span class="token property">&quot;created_at&quot;</span><span class="token operator">:</span> <span class="token string">&quot;2017-05-30T02:06:35.373Z&quot;</span><span class="token punctuation">,</span>
+		<span class="token property">&quot;metadata&quot;</span><span class="token operator">:</span> <span class="token null keyword">null</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div></div> <h2 id="get-object-types"><a href="#get-object-types" aria-hidden="true" class="header-anchor">#</a> Get Object Types</h2> <p>Get all Object Types in your Bucket.</p> <table><thead><tr><th>Parameter</th> <th>Required</th> <th>Type</th> <th>Description</th></tr></thead> <tbody><tr><td>pretty</td> <td></td> <td>Enum</td> <td>true, Makes the response more reader-friendly</td></tr> <tr><td>read_key</td> <td></td> <td>String</td> <td>Restrict read access to your Bucket</td></tr></tbody></table> <div class="tabs-component"><ul role="tablist" class="tabs-component-tabs"></ul> <div class="tabs-component-panels"><section aria-hidden="true" id="bash" role="tabpanel" class="tabs-component-panel" style="display:none;"><p><strong>Definition</strong></p> <div class="language- extra-class"><pre class="language-text"><code>GET https://api.cosmicjs.com/v1/:bucket_slug/object-types
+</code></pre></div><p>Example Request</p> <p>curl &quot;https://api.cosmicjs.com/v1/wedding-site/object-types&quot;</p></section> <section aria-hidden="true" id="javascript" role="tabpanel" class="tabs-component-panel" style="display:none;"><p><strong>Definition</strong></p> <div class="language-js extra-class"><pre class="language-js"><code>bucket<span class="token punctuation">.</span><span class="token function">getObjectTypes</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre></div><p><strong>Example Request</strong></p> <iframe src="https://runkit.com/e?name=runkit-embed-0&amp;preamble=&amp;location=https%3A%2F%2Fcosmicjs.github.io%2Frest-api-docs%2F&amp;minHeight=&amp;gutterStyle=outside&amp;usedDeprecatedOptions=%5B%5D&amp;base64source=Y29uc3QgQ29zbWljID0gcmVxdWlyZSgnY29zbWljanMnKQpjb25zdCBhcGkgPSBDb3NtaWMoKQpjb25zdCBidWNrZXQgPSBhcGkuYnVja2V0KHsKICBzbHVnOiAnc2ltcGxlLWJsb2ctd2Vic2l0ZScKfSkKY29uc3QgZGF0YSA9IChhd2FpdCBidWNrZXQuZ2V0T2JqZWN0VHlwZXMoKSkub2JqZWN0X3R5cGVz" frameborder="0" name="runkit-embed-0" style="height:166px;width:calc(100% + 200px);padding:0px;margin:0px 0px 0px calc(-100px);border:0px;background-color:transparent;"></iframe></section></div></div> <h2 id="edit-object-type"><a href="#edit-object-type" aria-hidden="true" class="header-anchor">#</a> Edit Object Type</h2> <p>Edit an existing Object Type in your Bucket.</p> <table><thead><tr><th>Parameter</th> <th>Required</th> <th>Type</th> <th>Description</th></tr></thead> <tbody><tr><td>slug</td> <td>required</td> <td>String</td> <td>Plural slug of your Object Type</td></tr> <tr><td>title</td> <td></td> <td>String</td> <td>Singular title of your Object Type</td></tr> <tr><td>metafields</td> <td></td> <td>Array</td> <td>Default Metafields for each Object in this type</td></tr> <tr><td>write_key</td> <td></td> <td>String</td> <td>Restrict write access to your Bucket</td></tr></tbody></table> <div class="tabs-component"><ul role="tablist" class="tabs-component-tabs"></ul> <div class="tabs-component-panels"><section aria-hidden="true" id="bash" role="tabpanel" class="tabs-component-panel" style="display:none;"><p><strong>Definition</strong></p> <div class="language- extra-class"><pre class="language-text"><code>PUT https://api.cosmicjs.com/v1/:bucket_slug/edit-object-type
+</code></pre></div><p><strong>Example Request</strong></p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+	<span class="token property">&quot;slug&quot;</span><span class="token operator">:</span> <span class="token string">&quot;pages&quot;</span><span class="token punctuation">,</span>
+	<span class="token property">&quot;metafields&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+		<span class="token punctuation">{</span>
+			<span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;text&quot;</span><span class="token punctuation">,</span>
+			<span class="token property">&quot;title&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Headline&quot;</span><span class="token punctuation">,</span>
+			<span class="token property">&quot;key&quot;</span><span class="token operator">:</span> <span class="token string">&quot;headline&quot;</span><span class="token punctuation">,</span>
+			<span class="token property">&quot;required&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span>
+		<span class="token punctuation">}</span><span class="token punctuation">,</span>
+		<span class="token punctuation">{</span>
+			<span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;file&quot;</span><span class="token punctuation">,</span>
+			<span class="token property">&quot;title&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Hero&quot;</span><span class="token punctuation">,</span>
+			<span class="token property">&quot;key&quot;</span><span class="token operator">:</span> <span class="token string">&quot;hero&quot;</span><span class="token punctuation">,</span>
+			<span class="token property">&quot;required&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span>
+		<span class="token punctuation">}</span><span class="token punctuation">,</span>
+		<span class="token punctuation">{</span>
+			<span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;text&quot;</span><span class="token punctuation">,</span>
+			<span class="token property">&quot;title&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Tagline&quot;</span><span class="token punctuation">,</span>
+			<span class="token property">&quot;key&quot;</span><span class="token operator">:</span> <span class="token string">&quot;tagline&quot;</span><span class="token punctuation">,</span>
+			<span class="token property">&quot;required&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p><strong>Example Response</strong></p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+	<span class="token property">&quot;object_type&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+		<span class="token property">&quot;slug&quot;</span><span class="token operator">:</span> <span class="token string">&quot;pages&quot;</span><span class="token punctuation">,</span>
+		<span class="token property">&quot;title&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Pages&quot;</span><span class="token punctuation">,</span>
+		<span class="token property">&quot;singular&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Page&quot;</span><span class="token punctuation">,</span>
+		<span class="token property">&quot;metafields&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+			<span class="token punctuation">{</span>
+				<span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;text&quot;</span><span class="token punctuation">,</span>
+				<span class="token property">&quot;title&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Headline&quot;</span><span class="token punctuation">,</span>
+				<span class="token property">&quot;key&quot;</span><span class="token operator">:</span> <span class="token string">&quot;headline&quot;</span><span class="token punctuation">,</span>
+				<span class="token property">&quot;required&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span>
+			<span class="token punctuation">}</span><span class="token punctuation">,</span>
+			<span class="token punctuation">{</span>
+				<span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;file&quot;</span><span class="token punctuation">,</span>
+				<span class="token property">&quot;title&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Hero&quot;</span><span class="token punctuation">,</span>
+				<span class="token property">&quot;key&quot;</span><span class="token operator">:</span> <span class="token string">&quot;hero&quot;</span><span class="token punctuation">,</span>
+				<span class="token property">&quot;required&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span>
+			<span class="token punctuation">}</span><span class="token punctuation">,</span>
+			<span class="token punctuation">{</span>
+				<span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;text&quot;</span><span class="token punctuation">,</span>
+				<span class="token property">&quot;title&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Tagline&quot;</span><span class="token punctuation">,</span>
+				<span class="token property">&quot;key&quot;</span><span class="token operator">:</span> <span class="token string">&quot;tagline&quot;</span><span class="token punctuation">,</span>
+				<span class="token property">&quot;required&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span>
+			<span class="token punctuation">}</span>
+		<span class="token punctuation">]</span><span class="token punctuation">,</span>
+		<span class="token property">&quot;modified_at&quot;</span><span class="token operator">:</span> <span class="token string">&quot;2017-05-30T02:10:35.373Z&quot;</span><span class="token punctuation">,</span>
+		<span class="token property">&quot;created_at&quot;</span><span class="token operator">:</span> <span class="token string">&quot;2017-05-30T02:06:35.373Z&quot;</span><span class="token punctuation">,</span>
+		<span class="token property">&quot;metadata&quot;</span><span class="token operator">:</span> <span class="token null keyword">null</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div></section> <section aria-hidden="true" id="javascript" role="tabpanel" class="tabs-component-panel" style="display:none;"><p><strong>Definition</strong></p> <div class="language-js extra-class"><pre class="language-js"><code>bucket<span class="token punctuation">.</span><span class="token function">editObjectType</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre></div><p><strong>Example Request</strong></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> bucket <span class="token operator">=</span> Cosmic<span class="token punctuation">.</span><span class="token function">bucket</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+	slug<span class="token punctuation">:</span> <span class="token string">'bucket-slug'</span><span class="token punctuation">,</span>
+	write_key<span class="token punctuation">:</span> <span class="token string">''</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+bucket
+	<span class="token punctuation">.</span><span class="token function">editObjectType</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+		slug<span class="token punctuation">:</span> <span class="token string">'posts'</span><span class="token punctuation">,</span>
+		title<span class="token punctuation">:</span> <span class="token string">'New Posts Title'</span>
+	<span class="token punctuation">}</span><span class="token punctuation">)</span>
+	<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">data</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+		console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span>
+	<span class="token punctuation">}</span><span class="token punctuation">)</span>
+	<span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token parameter">err</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+		console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
+	<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p><strong>Example Response</strong></p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+	<span class="token property">&quot;object_type&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+		<span class="token property">&quot;slug&quot;</span><span class="token operator">:</span> <span class="token string">&quot;pages&quot;</span><span class="token punctuation">,</span>
+		<span class="token property">&quot;title&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Pages&quot;</span><span class="token punctuation">,</span>
+		<span class="token property">&quot;singular&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Page&quot;</span><span class="token punctuation">,</span>
+		<span class="token property">&quot;metafields&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+			<span class="token punctuation">{</span>
+				<span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;text&quot;</span><span class="token punctuation">,</span>
+				<span class="token property">&quot;title&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Headline&quot;</span><span class="token punctuation">,</span>
+				<span class="token property">&quot;key&quot;</span><span class="token operator">:</span> <span class="token string">&quot;headline&quot;</span><span class="token punctuation">,</span>
+				<span class="token property">&quot;required&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span>
+			<span class="token punctuation">}</span><span class="token punctuation">,</span>
+			<span class="token punctuation">{</span>
+				<span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;file&quot;</span><span class="token punctuation">,</span>
+				<span class="token property">&quot;title&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Hero&quot;</span><span class="token punctuation">,</span>
+				<span class="token property">&quot;key&quot;</span><span class="token operator">:</span> <span class="token string">&quot;hero&quot;</span><span class="token punctuation">,</span>
+				<span class="token property">&quot;required&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span>
+			<span class="token punctuation">}</span><span class="token punctuation">,</span>
+			<span class="token punctuation">{</span>
+				<span class="token property">&quot;type&quot;</span><span class="token operator">:</span> <span class="token string">&quot;text&quot;</span><span class="token punctuation">,</span>
+				<span class="token property">&quot;title&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Tagline&quot;</span><span class="token punctuation">,</span>
+				<span class="token property">&quot;key&quot;</span><span class="token operator">:</span> <span class="token string">&quot;tagline&quot;</span><span class="token punctuation">,</span>
+				<span class="token property">&quot;required&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span>
+			<span class="token punctuation">}</span>
+		<span class="token punctuation">]</span><span class="token punctuation">,</span>
+		<span class="token property">&quot;modified_at&quot;</span><span class="token operator">:</span> <span class="token string">&quot;2017-05-30T02:10:35.373Z&quot;</span><span class="token punctuation">,</span>
+		<span class="token property">&quot;created_at&quot;</span><span class="token operator">:</span> <span class="token string">&quot;2017-05-30T02:06:35.373Z&quot;</span><span class="token punctuation">,</span>
+		<span class="token property">&quot;metadata&quot;</span><span class="token operator">:</span> <span class="token null keyword">null</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div></section></div></div> <h2 id="delete-object-type"><a href="#delete-object-type" aria-hidden="true" class="header-anchor">#</a> Delete Object Type</h2> <p>Delete an existing Object Type from your Bucket. * This does not delete Objects in this Object Type.</p> <table><thead><tr><th>Parameter</th> <th>Required</th> <th>Type</th> <th>Description</th></tr></thead> <tbody><tr><td>write_key</td> <td></td> <td>String</td> <td>Restrict write access to your Bucket</td></tr></tbody></table> <div class="tabs-component"><ul role="tablist" class="tabs-component-tabs"></ul> <div class="tabs-component-panels"><section aria-hidden="true" id="bash" role="tabpanel" class="tabs-component-panel" style="display:none;"><p><strong>Definition</strong></p> <div class="language- extra-class"><pre class="language-text"><code>DELETE https://api.cosmicjs.com/v1/:bucket_slug/object-types/:type_slug
+</code></pre></div><p><em>Example Request Body</em></p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+	<span class="token property">&quot;write_key&quot;</span><span class="token operator">:</span> <span class="token string">&quot;your-key-added-in-bucket-settings&quot;</span> <span class="token comment">// optional</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p><strong>Example Response</strong></p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+	<span class="token property">&quot;status&quot;</span><span class="token operator">:</span> <span class="token string">&quot;200&quot;</span><span class="token punctuation">,</span>
+	<span class="token property">&quot;message&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Object Type deleted.&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre></div></section> <section aria-hidden="true" id="javascript" role="tabpanel" class="tabs-component-panel" style="display:none;"><p><strong>Definition</strong></p> <div class="language-js extra-class"><pre class="language-js"><code>bucket<span class="token punctuation">.</span><span class="token function">deleteObjectType</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre></div><p><strong>Example Request Body</strong></p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> bucket <span class="token operator">=</span> Cosmic<span class="token punctuation">.</span><span class="token function">bucket</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+	slug<span class="token punctuation">:</span> <span class="token string">'bucket-slug'</span><span class="token punctuation">,</span>
+	write_key<span class="token punctuation">:</span> <span class="token string">''</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+bucket
+	<span class="token punctuation">.</span><span class="token function">deleteObjectType</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+		slug<span class="token punctuation">:</span> <span class="token string">'posts'</span>
+	<span class="token punctuation">}</span><span class="token punctuation">)</span>
+	<span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">data</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+		console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span>
+	<span class="token punctuation">}</span><span class="token punctuation">)</span>
+	<span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token parameter">err</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+		console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span>
+	<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><p><strong>Example Response</strong></p> <div class="language-json extra-class"><pre class="language-json"><code><span class="token punctuation">{</span>
+	<span class="token property">&quot;status&quot;</span><span class="token operator">:</span> <span class="token string">&quot;200&quot;</span><span class="token punctuation">,</span>
+	<span class="token property">&quot;message&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Object Type deleted.&quot;</span>
+<span class="token punctuation">}</span>
+</code></pre></div></section></div></div></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/cosmicjs/docs/edit/master/src/rest-api/object-types.md" target="_blank" rel="noopener noreferrer">Edit this page</a> <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></div> <div class="last-updated"><span class="prefix">Last Updated: </span> <span class="time">5/6/2019, 1:04:13 AM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/rest-api/users.html" class="prev">
+          Users
+        </a></span> <span class="next"><a href="/rest-api/objects.html">
+          Objects
+        </a>
+        →
+      </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.49d4aebf.js" defer></script><script src="/assets/js/4.3da7f85d.js" defer></script><script src="/assets/js/3.2e0e9e48.js" defer></script><script src="/assets/js/20.d84be341.js" defer></script>
+  </body>
+</html>
