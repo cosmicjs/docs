@@ -37,24 +37,24 @@ POST https://api.cosmicjs.com/v1/:bucket_slug/add-object
 
 ```json
 {
-  "title": "Cosmic JS Example",
-  "type_slug": "examples",
-  "content": "Learning the Cosmic JS API is really fun and so easy",
-  "metafields": [
-    {
-      "key": "Headline",
-      "type": "text",
-      "value": "Learn Cosmic JS!"
-    },
-    {
-      "key": "Author",
-      "type": "text",
-      "value": "Quasar Jones"
-    }
-  ],
-  "options": {
-    "slug_field": false
-  }
+	"title": "Cosmic JS Example",
+	"type_slug": "examples",
+	"content": "Learning the Cosmic JS API is really fun and so easy",
+	"metafields": [
+		{
+			"key": "Headline",
+			"type": "text",
+			"value": "Learn Cosmic JS!"
+		},
+		{
+			"key": "Author",
+			"type": "text",
+			"value": "Quasar Jones"
+		}
+	],
+	"options": {
+		"slug_field": false
+	}
 }
 ```
 
@@ -62,36 +62,36 @@ POST https://api.cosmicjs.com/v1/:bucket_slug/add-object
 
 ```json
 {
-  "object": {
-    "slug": "cosmic-js-example",
-    "title": "Cosmic JS Example",
-    "content": "Learning the Cosmic JS API is really fun and so easy",
-    "metafields": [
-      {
-        "title": "Headline",
-        "key": "headline",
-        "type": "text",
-        "value": "Learn Cosmic JS!"
-      },
-      {
-        "title": "Author",
-        "key": "author",
-        "type": "text",
-        "value": "Quasar Jones"
-      }
-    ],
-    "bucket": "568c5bbefd0dce302c000001",
-    "type_slug": "examples",
-    "created_at": "2016-01-06T00:28:39.982Z",
-    "_id": "568c5fb72f0c5d532d000001",
-    "options": {
-      "slug_field": false
-    }
-  }
+	"object": {
+		"slug": "cosmic-js-example",
+		"title": "Cosmic JS Example",
+		"content": "Learning the Cosmic JS API is really fun and so easy",
+		"metafields": [
+			{
+				"title": "Headline",
+				"key": "headline",
+				"type": "text",
+				"value": "Learn Cosmic JS!"
+			},
+			{
+				"title": "Author",
+				"key": "author",
+				"type": "text",
+				"value": "Quasar Jones"
+			}
+		],
+		"bucket": "568c5bbefd0dce302c000001",
+		"type_slug": "examples",
+		"created_at": "2016-01-06T00:28:39.982Z",
+		"_id": "568c5fb72f0c5d532d000001",
+		"options": {
+			"slug_field": false
+		}
+	}
 }
 ```
-:::
 
+:::
 
 ::: tab javascript
 **Definition**
@@ -104,68 +104,72 @@ bucket.addObject()
 
 ```js
 const params = {
-  "title": "Cosmic JS Example",
-  "type_slug": "examples",
-  "content": "Learning the Cosmic JS API is really fun and so easy",
-  "metafields": [
-    {
-      "key": "Headline",
-      "type": "text",
-      "value": "Learn Cosmic JS!"
-    },
-    {
-      "key": "Author",
-      "type": "text",
-      "value": "Quasar Jones"
-    }
-  ],
-  "options": {
-    "slug_field": false
-  }
+	title: 'Cosmic JS Example',
+	type_slug: 'examples',
+	content: 'Learning the Cosmic JS API is really fun and so easy',
+	metafields: [
+		{
+			key: 'Headline',
+			type: 'text',
+			value: 'Learn Cosmic JS!'
+		},
+		{
+			key: 'Author',
+			type: 'text',
+			value: 'Quasar Jones'
+		}
+	],
+	options: {
+		slug_field: false
+	}
 }
 const bucket = Cosmic.bucket({
-  slug: 'bucket-slug',
-  write_key: ''
+	slug: 'bucket-slug',
+	write_key: ''
 })
-bucket.addObject(params).then(data => {
-  console.log(data)
-}).catch(err => {
-  console.log(err)
-})
+bucket
+	.addObject(params)
+	.then(data => {
+		console.log(data)
+	})
+	.catch(err => {
+		console.log(err)
+	})
 ```
 
 **Example Response**
 
 ```json
 {
-  "object": {
-    "slug": "cosmic-js-example",
-    "title": "Cosmic JS Example",
-    "content": "Learning the Cosmic JS API is really fun and so easy",
-    "metafields": [
-      {
-        "title": "Headline",
-        "key": "headline",
-        "type": "text",
-        "value": "Learn Cosmic JS!"
-      },
-      {
-        "title": "Author",
-        "key": "author",
-        "type": "text",
-        "value": "Quasar Jones"
-      }
-    ],
-    "bucket": "568c5bbefd0dce302c000001",
-    "type_slug": "examples",
-    "created_at": "2016-01-06T00:28:39.982Z",
-    "_id": "568c5fb72f0c5d532d000001",
-    "options": {
-      "slug_field": false
-    }
-  }
+	"object": {
+		"slug": "cosmic-js-example",
+		"title": "Cosmic JS Example",
+		"content": "Learning the Cosmic JS API is really fun and so easy",
+		"metafields": [
+			{
+				"title": "Headline",
+				"key": "headline",
+				"type": "text",
+				"value": "Learn Cosmic JS!"
+			},
+			{
+				"title": "Author",
+				"key": "author",
+				"type": "text",
+				"value": "Quasar Jones"
+			}
+		],
+		"bucket": "568c5bbefd0dce302c000001",
+		"type_slug": "examples",
+		"created_at": "2016-01-06T00:28:39.982Z",
+		"_id": "568c5fb72f0c5d532d000001",
+		"options": {
+			"slug_field": false
+		}
+	}
 }
 ```
+
 :::
 
 ::::
@@ -191,6 +195,7 @@ Returns Objects from your Bucket.
 | filters[connected_to] |          | String | Returns Objects that reference the specified Object ID (String) |
 | pretty                |          | Enum   | true, Makes the response more reader-friendly                   |
 | read_key              |          | String | Your Bucket read key                                            |
+
 :::: tabs :options="{ useUrlFragment: false }"
 
 ::: tab bash
@@ -205,8 +210,8 @@ GET https://api.cosmicjs.com/:bucket_slug/objects
 ```bash
 curl "https://api.cosmicjs.com/v1/wedding-site/objects?pretty=true&hide_metafields=true&limit=2"
 ```
-:::
 
+:::
 
 ::: tab javascript
 **Definition**
@@ -240,8 +245,8 @@ GET https://api.cosmicjs.com/v1/:bucket_slug/objects?type=:type_slug
 ```bash
 curl "https://api.cosmicjs.com/v1/wedding-site/objects?type=groomsmen&limit=3"
 ```
-:::
 
+:::
 
 ::: tab javascript
 
@@ -250,7 +255,7 @@ curl "https://api.cosmicjs.com/v1/wedding-site/objects?type=groomsmen&limit=3"
 
 ```js
 bucket.getObjects({
-  // params
+	// params
 })
 ```
 
@@ -279,15 +284,15 @@ GET https://api.cosmicjs.com/v1/:bucket_slug/objects?type=:type_slug&filters[_id
 ```bash
 curl "https://api.cosmicjs.com/v1/wedding-site/objects?type=groomsmen&metafield_key=official-title&metafield_value=Best%20Man"
 ```
-:::
 
+:::
 
 ::: tab javascript
 **Definition**
 
 ```js
 bucket.getObjects({
-  // params
+	// params
 })
 ```
 
@@ -326,8 +331,8 @@ GET https://api.cosmicjs.com/:bucket_slug/object/:slug
 ```bash
 curl "https://api.cosmicjs.com/v1/wedding-site/object/registry"
 ```
-:::
 
+:::
 
 ::: tab javascript
 **Definition**
@@ -347,19 +352,19 @@ bucket.getObject()
 
 Edit an existing Object in your Bucket.
 
-| Parameter              | Required | Type   | Description                                                        |
-| ---------------------- | -------- | ------ | ------------------------------------------------------------------ |
-| slug                   | required | String | Unique identifier for your Object                                  |
-| type_slug              |          | String | Object Type                                                        |
-| title                  |          | String | Your Bucket title                                                  |
-| content                |          | String | Add Content to your Object                                         |
-| status                 |          | Enum   | draft, published, defaults to published                            |
-| options.slug_field     |          | Bool   | Set to false to hide the slug field                                |
-| options.content_editor |          | Bool   | Set to false to hide the content editor                            |
-| metafields             |          | Array  | Add Metafields to your Object. See Metafields Model.               |
-| locale                 |          | String | Edit Object locale                                                 |
-| write_key              |          | String | Your Bucket write key                                              |
-| publish_at             |          | Number | UNIX millisecond timestamp. Publish automatically at a later time. |
+| Parameter              | Required | Type   | Description                                                                             |
+| ---------------------- | -------- | ------ | --------------------------------------------------------------------------------------- |
+| slug                   | required | String | Unique identifier for your Object                                                       |
+| type_slug              |          | String | Object Type                                                                             |
+| title                  |          | String | Your Bucket title                                                                       |
+| content                |          | String | Add Content to your Object                                                              |
+| status                 |          | Enum   | draft, published, defaults to published                                                 |
+| options.slug_field     |          | Bool   | Set to false to hide the slug field                                                     |
+| options.content_editor |          | Bool   | Set to false to hide the content editor                                                 |
+| metafields             |          | Array  | Add Metafields to your Object. See [Metafields Model](/rest-api/metafields.html#model). |
+| locale                 |          | String | Edit Object locale                                                                      |
+| write_key              |          | String | Your Bucket write key                                                                   |
+| publish_at             |          | Number | UNIX millisecond timestamp. Publish automatically at a later time.                      |
 
 :::: tabs :options="{ useUrlFragment: false }"
 
@@ -374,23 +379,23 @@ PUT https://api.cosmicjs.com/v1/:bucket_slug/edit-object
 
 ```json
 {
-  "slug": "cosmic-js-example",
-  "title": "New Title Edit",
-  "content": "This is some rad test content...",
-  "metafields": [
-    {
-      "title": "Headline",
-      "key": "headline",
-      "value": "Something Big is Coming",
-      "type": "text"
-    },
-    {
-      "title": "Subheadline",
-      "key": "subheadline",
-      "value": "I bet you want to know what it is...",
-      "type": "text"
-    }
-  ]
+	"slug": "cosmic-js-example",
+	"title": "New Title Edit",
+	"content": "This is some rad test content...",
+	"metafields": [
+		{
+			"title": "Headline",
+			"key": "headline",
+			"value": "Something Big is Coming",
+			"type": "text"
+		},
+		{
+			"title": "Subheadline",
+			"key": "subheadline",
+			"value": "I bet you want to know what it is...",
+			"type": "text"
+		}
+	]
 }
 ```
 
@@ -398,33 +403,33 @@ PUT https://api.cosmicjs.com/v1/:bucket_slug/edit-object
 
 ```json
 {
-  "object": {
-    "_id": "568c5fb72f0c5d532d000001",
-    "slug": "cosmic-js-example",
-    "title": "New Title Edit",
-    "content": "This is some rad test content...",
-    "metafields": [
-      {
-        "title": "Headline",
-        "key": "headline",
-        "value": "Something Big is Coming",
-        "type": "text"
-      },
-      {
-        "title": "Subheadline",
-        "key": "subheadline",
-        "value": "I bet you want to know what it is...",
-        "type": "text"
-      }
-    ],
-    "bucket": "568c5bbefd0dce302c000001",
-    "type_slug": "examples",
-    "created": "2016-01-06T00:28:39.982Z"
-  }
+	"object": {
+		"_id": "568c5fb72f0c5d532d000001",
+		"slug": "cosmic-js-example",
+		"title": "New Title Edit",
+		"content": "This is some rad test content...",
+		"metafields": [
+			{
+				"title": "Headline",
+				"key": "headline",
+				"value": "Something Big is Coming",
+				"type": "text"
+			},
+			{
+				"title": "Subheadline",
+				"key": "subheadline",
+				"value": "I bet you want to know what it is...",
+				"type": "text"
+			}
+		],
+		"bucket": "568c5bbefd0dce302c000001",
+		"type_slug": "examples",
+		"created": "2016-01-06T00:28:39.982Z"
+	}
 }
 ```
-:::
 
+:::
 
 ::: tab javascript
 **Definition**
@@ -437,48 +442,52 @@ bucket.editObject()
 
 ```js
 const bucket = Cosmic.bucket({
-  slug: 'bucket-slug',
-  write_key: ''
+	slug: 'bucket-slug',
+	write_key: ''
 })
-bucket.editObject({
-  slug: 'cosmic-js-example',
-  title: 'New Title Edit'
-}).then(data => {
-  console.log(data)
-}).catch(err => {
-  console.log(err)
-})
+bucket
+	.editObject({
+		slug: 'cosmic-js-example',
+		title: 'New Title Edit'
+	})
+	.then(data => {
+		console.log(data)
+	})
+	.catch(err => {
+		console.log(err)
+	})
 ```
 
 **Example Response**
 
 ```json
 {
-  "object": {
-    "_id": "568c5fb72f0c5d532d000001",
-    "slug": "cosmic-js-example",
-    "title": "New Title Edit",
-    "content": "This is some rad test content...",
-    "metafields": [
-      {
-        "title": "Headline",
-        "key": "headline",
-        "value": "Something Big is Coming",
-        "type": "text"
-      },
-      {
-        "title": "Subheadline",
-        "key": "subheadline",
-        "value": "I bet you want to know what it is...",
-        "type": "text"
-      }
-    ],
-    "bucket": "568c5bbefd0dce302c000001",
-    "type_slug": "examples",
-    "created": "2016-01-06T00:28:39.982Z"
-  }
+	"object": {
+		"_id": "568c5fb72f0c5d532d000001",
+		"slug": "cosmic-js-example",
+		"title": "New Title Edit",
+		"content": "This is some rad test content...",
+		"metafields": [
+			{
+				"title": "Headline",
+				"key": "headline",
+				"value": "Something Big is Coming",
+				"type": "text"
+			},
+			{
+				"title": "Subheadline",
+				"key": "subheadline",
+				"value": "I bet you want to know what it is...",
+				"type": "text"
+			}
+		],
+		"bucket": "568c5bbefd0dce302c000001",
+		"type_slug": "examples",
+		"created": "2016-01-06T00:28:39.982Z"
+	}
 }
 ```
+
 :::
 
 ::::
@@ -505,7 +514,7 @@ DELETE https://api.cosmicjs.com/v1/:bucket_slug/objects/:object_slug
 
 ```json
 {
-  "write_key": "your-key-added-in-bucket-settings"
+	"write_key": "your-key-added-in-bucket-settings"
 }
 ```
 
@@ -513,12 +522,12 @@ DELETE https://api.cosmicjs.com/v1/:bucket_slug/objects/:object_slug
 
 ```json
 {
-  "status": "200",
-  "message": "Object deleted"
+	"status": "200",
+	"message": "Object deleted"
 }
 ```
-:::
 
+:::
 
 ::: tab javascript
 **Definition**
@@ -531,26 +540,30 @@ bucket.deleteObject()
 
 ```js
 const bucket = Cosmic.bucket({
-  slug: 'bucket-slug',
-  write_key: ''
+	slug: 'bucket-slug',
+	write_key: ''
 })
-bucket.deleteObject({
-  slug: 'cosmic-js-example'
-}).then(data => {
-  console.log(data)
-}).catch(err => {
-  console.log(err)
-})
+bucket
+	.deleteObject({
+		slug: 'cosmic-js-example'
+	})
+	.then(data => {
+		console.log(data)
+	})
+	.catch(err => {
+		console.log(err)
+	})
 ```
 
 **Example Response**
 
 ```json
 {
-  "status": "200",
-  "message": "Object deleted"
+	"status": "200",
+	"message": "Object deleted"
 }
 ```
+
 :::
 
 ::::

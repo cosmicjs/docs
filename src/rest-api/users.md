@@ -25,8 +25,8 @@ POST https://api.cosmicjs.com/v1/:bucket_slug/users
 
 ```json
 {
-  "email": "newuser@example.com",
-  "role": "editor"
+	"email": "newuser@example.com",
+	"role": "editor"
 }
 ```
 
@@ -34,12 +34,12 @@ POST https://api.cosmicjs.com/v1/:bucket_slug/users
 
 ```json
 {
-  "status": 200,
-  "message": "User added."
+	"status": 200,
+	"message": "User added."
 }
 ```
-:::
 
+:::
 
 ::: tab javascript
 **Definition**
@@ -52,30 +52,34 @@ bucket.addUser()
 
 ```js
 const bucket = Cosmic.bucket({
-  slug: 'bucket-slug',
-  write_key: ''
+	slug: 'bucket-slug',
+	write_key: ''
 })
 const params = {
-  "email": "newuser@example.com",
-  "role": "editor",
-  "first_name": "Quasar",
-  "last_name": "Jones"
+	email: 'newuser@example.com',
+	role: 'editor',
+	first_name: 'Quasar',
+	last_name: 'Jones'
 }
-bucket.addUser(params).then(data => {
-  console.log(data)
-}).catch(err => {
-  console.log(err)
-})
+bucket
+	.addUser(params)
+	.then(data => {
+		console.log(data)
+	})
+	.catch(err => {
+		console.log(err)
+	})
 ```
 
 **Example Response**
 
 ```json
 {
-  "status": 200,
-  "message": "User added."
+	"status": 200,
+	"message": "User added."
 }
 ```
+
 :::
 
 ::::
@@ -104,43 +108,43 @@ curl "https://api.cosmicjs.com/v1/creative-agency/users" \
 
 ```json
 {
-  "users": [
-    {
-      "_id": "5357ef811693be2118000001",
-      "first_name": "Starman",
-      "last_name": "Jones",
-      "email": "starman@milkyway.com",
-      "username": "starman",
-      "bio": "Enjoy traveling at the speed of light, black holes and supernovas are my jam.",
-      "avatar_url": "https://cosmicjs.imgix.net/1c3690c0-9dbc-11e7-b30d-b3b3f0076a4f-me.jpg",
-      "website": "https://starman.com",
-      "twitter": "https://twitter.com/starman",
-      "linkedin": "http://linkedin.com/in/starman",
-      "github": "http://github.com/starman",
-      "company": "Starman Inc.",
-      "location": "Neptune"
-    },
-    {
-      "_id": "56d66b2f903a79b904000001",
-      "first_name": "Quasar",
-      "last_name": "Jones",
-      "email": "quasar@milkyway.com",
-      "username": "quasar",
-      "bio": "I contain massive black holes and may evolve into a galaxy.",
-      "avatar_url": "https://cosmic-s3.imgix.net/08544a00-eaa3-11e7-8c73-5dadcfada90e-wave.jpg",
-      "website": "https://quasar.com",
-      "twitter": "https://twitter.com/quasar",
-      "linkedin": "http://linkedin.com/in/quasar",
-      "github": "http://github.com/quasar",
-      "company": "Quasar Inc.",
-      "location": "Titan"
-    }
-  ],
-  "total": 2
+	"users": [
+		{
+			"_id": "5357ef811693be2118000001",
+			"first_name": "Starman",
+			"last_name": "Jones",
+			"email": "starman@milkyway.com",
+			"username": "starman",
+			"bio": "Enjoy traveling at the speed of light, black holes and supernovas are my jam.",
+			"avatar_url": "https://cosmicjs.imgix.net/1c3690c0-9dbc-11e7-b30d-b3b3f0076a4f-me.jpg",
+			"website": "https://starman.com",
+			"twitter": "https://twitter.com/starman",
+			"linkedin": "http://linkedin.com/in/starman",
+			"github": "http://github.com/starman",
+			"company": "Starman Inc.",
+			"location": "Neptune"
+		},
+		{
+			"_id": "56d66b2f903a79b904000001",
+			"first_name": "Quasar",
+			"last_name": "Jones",
+			"email": "quasar@milkyway.com",
+			"username": "quasar",
+			"bio": "I contain massive black holes and may evolve into a galaxy.",
+			"avatar_url": "https://cosmic-s3.imgix.net/08544a00-eaa3-11e7-8c73-5dadcfada90e-wave.jpg",
+			"website": "https://quasar.com",
+			"twitter": "https://twitter.com/quasar",
+			"linkedin": "http://linkedin.com/in/quasar",
+			"github": "http://github.com/quasar",
+			"company": "Quasar Inc.",
+			"location": "Titan"
+		}
+	],
+	"total": 2
 }
 ```
-:::
 
+:::
 
 ::: tab javascript
 **Definition**
@@ -153,54 +157,58 @@ bucket.getUsers()
 
 ```js
 const bucket = Cosmic.bucket({
-  slug: 'bucket-slug'
+	slug: 'bucket-slug'
 })
-bucket.getUsers().then(data => {
-  console.log(data)
-}).catch(err => {
-  console.log(err)
-})
+bucket
+	.getUsers()
+	.then(data => {
+		console.log(data)
+	})
+	.catch(err => {
+		console.log(err)
+	})
 ```
 
 **Example Response**
 
 ```json
 {
-  "users": [
-    {
-      "_id": "5357ef811693be2118000001",
-      "first_name": "Starman",
-      "last_name": "Jones",
-      "email": "starman@milkyway.com",
-      "username": "starman",
-      "bio": "Enjoy traveling at the speed of light, black holes and supernovas are my jam.",
-      "avatar_url": "https://cosmicjs.imgix.net/1c3690c0-9dbc-11e7-b30d-b3b3f0076a4f-me.jpg",
-      "website": "https://starman.com",
-      "twitter": "https://twitter.com/starman",
-      "linkedin": "http://linkedin.com/in/starman",
-      "github": "http://github.com/starman",
-      "company": "Starman Inc.",
-      "location": "Neptune"
-    },
-    {
-      "_id": "56d66b2f903a79b904000001",
-      "first_name": "Quasar",
-      "last_name": "Jones",
-      "email": "quasar@milkyway.com",
-      "username": "quasar",
-      "bio": "I contain massive black holes and may evolve into a galaxy.",
-      "avatar_url": "https://cosmic-s3.imgix.net/08544a00-eaa3-11e7-8c73-5dadcfada90e-wave.jpg",
-      "website": "https://quasar.com",
-      "twitter": "https://twitter.com/quasar",
-      "linkedin": "http://linkedin.com/in/quasar",
-      "github": "http://github.com/quasar",
-      "company": "Quasar Inc.",
-      "location": "Titan"
-    }
-  ],
-  "total": 2
+	"users": [
+		{
+			"_id": "5357ef811693be2118000001",
+			"first_name": "Starman",
+			"last_name": "Jones",
+			"email": "starman@milkyway.com",
+			"username": "starman",
+			"bio": "Enjoy traveling at the speed of light, black holes and supernovas are my jam.",
+			"avatar_url": "https://cosmicjs.imgix.net/1c3690c0-9dbc-11e7-b30d-b3b3f0076a4f-me.jpg",
+			"website": "https://starman.com",
+			"twitter": "https://twitter.com/starman",
+			"linkedin": "http://linkedin.com/in/starman",
+			"github": "http://github.com/starman",
+			"company": "Starman Inc.",
+			"location": "Neptune"
+		},
+		{
+			"_id": "56d66b2f903a79b904000001",
+			"first_name": "Quasar",
+			"last_name": "Jones",
+			"email": "quasar@milkyway.com",
+			"username": "quasar",
+			"bio": "I contain massive black holes and may evolve into a galaxy.",
+			"avatar_url": "https://cosmic-s3.imgix.net/08544a00-eaa3-11e7-8c73-5dadcfada90e-wave.jpg",
+			"website": "https://quasar.com",
+			"twitter": "https://twitter.com/quasar",
+			"linkedin": "http://linkedin.com/in/quasar",
+			"github": "http://github.com/quasar",
+			"company": "Quasar Inc.",
+			"location": "Titan"
+		}
+	],
+	"total": 2
 }
 ```
+
 :::
 
 ::::
@@ -211,7 +219,7 @@ Get a single user from your Bucket. Authentication token is required in the head
 
 | Parameter | Required | Type   | Description                      |
 | --------- | -------- | ------ | -------------------------------- |
-| id        | true     | String | User's id (found as `_id` param) |
+| id        | required | String | User's id (found as `_id` param) |
 
 :::: tabs :options="{ useUrlFragment: false }"
 
@@ -226,25 +234,25 @@ GET https://api.cosmicjs.com/v1/:bucket_slug/users/:user_id
 
 ```json
 {
-  "user": {
-    "_id": "5357ef811693be2118000001",
-    "first_name": "Starman",
-    "last_name": "Jones",
-    "email": "starman@milkyway.com",
-    "username": "starman",
-    "bio": "Enjoy traveling at the speed of light, black holes and supernovas are my jam.",
-    "avatar_url": "https://cosmicjs.imgix.net/1c3690c0-9dbc-11e7-b30d-b3b3f0076a4f-me.jpg",
-    "website": "https://starman.com",
-    "twitter": "https://twitter.com/starman",
-    "linkedin": "http://linkedin.com/in/starman",
-    "github": "http://github.com/starman",
-    "company": "Starman Inc.",
-    "location": "Neptune"
-  }
+	"user": {
+		"_id": "5357ef811693be2118000001",
+		"first_name": "Starman",
+		"last_name": "Jones",
+		"email": "starman@milkyway.com",
+		"username": "starman",
+		"bio": "Enjoy traveling at the speed of light, black holes and supernovas are my jam.",
+		"avatar_url": "https://cosmicjs.imgix.net/1c3690c0-9dbc-11e7-b30d-b3b3f0076a4f-me.jpg",
+		"website": "https://starman.com",
+		"twitter": "https://twitter.com/starman",
+		"linkedin": "http://linkedin.com/in/starman",
+		"github": "http://github.com/starman",
+		"company": "Starman Inc.",
+		"location": "Neptune"
+	}
 }
 ```
-:::
 
+:::
 
 ::: tab javascript
 **Definition**
@@ -267,23 +275,24 @@ bucket.getUser(params).then(data => {
 
 ```json
 {
-  "user": {
-    "_id": "5357ef811693be2118000001",
-    "first_name": "Starman",
-    "last_name": "Jones",
-    "email": "starman@milkyway.com",
-    "username": "starman",
-    "bio": "Enjoy traveling at the speed of light, black holes and supernovas are my jam.",
-    "avatar_url": "https://cosmicjs.imgix.net/1c3690c0-9dbc-11e7-b30d-b3b3f0076a4f-me.jpg",
-    "website": "https://starman.com",
-    "twitter": "https://twitter.com/starman",
-    "linkedin": "http://linkedin.com/in/starman",
-    "github": "http://github.com/starman",
-    "company": "Starman Inc.",
-    "location": "Neptune"
-  }
+	"user": {
+		"_id": "5357ef811693be2118000001",
+		"first_name": "Starman",
+		"last_name": "Jones",
+		"email": "starman@milkyway.com",
+		"username": "starman",
+		"bio": "Enjoy traveling at the speed of light, black holes and supernovas are my jam.",
+		"avatar_url": "https://cosmicjs.imgix.net/1c3690c0-9dbc-11e7-b30d-b3b3f0076a4f-me.jpg",
+		"website": "https://starman.com",
+		"twitter": "https://twitter.com/starman",
+		"linkedin": "http://linkedin.com/in/starman",
+		"github": "http://github.com/starman",
+		"company": "Starman Inc.",
+		"location": "Neptune"
+	}
 }
 ```
+
 :::
 
 ::::

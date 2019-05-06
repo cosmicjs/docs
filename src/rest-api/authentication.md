@@ -4,8 +4,8 @@ Send your `email` and `password` to receive your access token. Your access token
 
 | Parameter | Required | Type   | Description                   |
 | --------- | -------- | ------ | ----------------------------- |
-| email     | true     | String | Your Cosmic JS login email    |
-| password  | true     | String | Your Cosmic JS login password |
+| email     | required | String | Your Cosmic JS login email    |
+| password  | required | String | Your Cosmic JS login password |
 
 :::: tabs :options="{ useUrlFragment: false }"
 
@@ -34,8 +34,8 @@ curl -X POST "https://api.cosmicjs.com/v1/authenticate" \
 	"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXV.eyJlbWFpbCI6InNwaXJvbnl..."
 }
 ```
-:::
 
+:::
 
 ::: tab javascript
 **Definition**
@@ -49,24 +49,27 @@ Cosmic.authenticate()
 ```js
 const Cosmic = require('cosmicjs')() // double parentheses to init function without token
 Cosmic.authenticate({
-  email: 'you@youremail.com',
-  password: 'yourpassword'
-}).then(data => {
-    console.log(data)
-}).catch(err => {
-    console.log(err)
+	email: 'you@youremail.com',
+	password: 'yourpassword'
 })
+	.then(data => {
+		console.log(data)
+	})
+	.catch(err => {
+		console.log(err)
+	})
 ```
 
 **Example Response**
 
 ```json
 {
-  "success": true,
-  "message": "Token created successfully.",
-  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXV.eyJlbWFpbCI6InNwaXJvbnl..."
+	"success": true,
+	"message": "Token created successfully.",
+	"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXV.eyJlbWFpbCI6InNwaXJvbnl..."
 }
 ```
+
 :::
 
 ::::

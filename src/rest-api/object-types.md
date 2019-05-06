@@ -4,14 +4,14 @@
 
 Add a new Object Type to your Bucket.
 
-| Parameter  | Required | Type                             | Description                                     |
-| ---------- | -------- | -------------------------------- | ----------------------------------------------- |
-| title      | required | String | Plural title of your Object Type |
-| slug       |          | String                           | Plural slug of your Object Type                 |
-| singular   |          | String                           | Singular title of your Object Type              |
-| metafields |          | Array                            | Default Metafields for each Object in this type |
-| pretty     |          | Enum                             | true, Makes the response more reader-friendly   |
-| write_key  |          | String                           | Restrict write access to your Bucket            |
+| Parameter  | Required | Type   | Description                                     |
+| ---------- | -------- | ------ | ----------------------------------------------- |
+| title      | required | String | Plural title of your Object Type                |
+| slug       |          | String | Plural slug of your Object Type                 |
+| singular   |          | String | Singular title of your Object Type              |
+| metafields |          | Array  | Default Metafields for each Object in this type |
+| pretty     |          | Enum   | true, Makes the response more reader-friendly   |
+| write_key  |          | String | Restrict write access to your Bucket            |
 
 :::: tabs :options="{ useUrlFragment: false }"
 
@@ -26,23 +26,23 @@ POST https://api.cosmicjs.com/v1/:bucket_slug/add-object-type
 
 ```json
 {
-  "title": "Pages",
-  "singular": "Page",
-  "slug": "pages",
-  "metafields": [
-    {
-      "type": "text",
-      "title": "Headline",
-      "key": "headline",
-      "required": true
-    },
-    {
-      "type": "file",
-      "title": "Hero",
-      "key": "hero",
-      "required": true
-    }
-  ]
+	"title": "Pages",
+	"singular": "Page",
+	"slug": "pages",
+	"metafields": [
+		{
+			"type": "text",
+			"title": "Headline",
+			"key": "headline",
+			"required": true
+		},
+		{
+			"type": "file",
+			"title": "Hero",
+			"key": "hero",
+			"required": true
+		}
+	]
 }
 ```
 
@@ -50,29 +50,30 @@ POST https://api.cosmicjs.com/v1/:bucket_slug/add-object-type
 
 ```json
 {
-  "object_type": {
-    "slug": "pages",
-    "title": "Pages",
-    "singular": "Page",
-    "metafields": [
-      {
-        "type": "text",
-        "title": "Headline",
-        "key": "headline",
-        "required": true
-      },
-      {
-        "type": "file",
-        "title": "Hero",
-        "key": "hero",
-        "required": true
-      }
-    ],
-    "created_at": "2017-05-30T02:06:35.373Z",
-    "metadata": null
-  }
+	"object_type": {
+		"slug": "pages",
+		"title": "Pages",
+		"singular": "Page",
+		"metafields": [
+			{
+				"type": "text",
+				"title": "Headline",
+				"key": "headline",
+				"required": true
+			},
+			{
+				"type": "file",
+				"title": "Hero",
+				"key": "hero",
+				"required": true
+			}
+		],
+		"created_at": "2017-05-30T02:06:35.373Z",
+		"metadata": null
+	}
 }
 ```
+
 :::
 
 ::: tab javascript
@@ -88,62 +89,66 @@ bucket.addObjectType()
 
 ```js
 const bucket = Cosmic.bucket({
-  slug: 'bucket-slug',
-  write_key: ''
+	slug: 'bucket-slug',
+	write_key: ''
 })
 const params = {
-  "title": "Pages",
-  "singular": "Page",
-  "slug": "pages",
-  "metafields": [
-    {
-      "type": "text",
-      "title": "Headline",
-      "key": "headline",
-      "required": true
-    },
-    {
-      "type": "file",
-      "title": "Hero",
-      "key": "hero",
-      "required": true
-    }
-  ]
+	title: 'Pages',
+	singular: 'Page',
+	slug: 'pages',
+	metafields: [
+		{
+			type: 'text',
+			title: 'Headline',
+			key: 'headline',
+			required: true
+		},
+		{
+			type: 'file',
+			title: 'Hero',
+			key: 'hero',
+			required: true
+		}
+	]
 }
-bucket.addObjectType(params).then(data => {
-  console.log(data)
-}).catch(err => {
-  console.log(err)
-})
+bucket
+	.addObjectType(params)
+	.then(data => {
+		console.log(data)
+	})
+	.catch(err => {
+		console.log(err)
+	})
 ```
 
 **Example Response**
 
 ```json
 {
-  "object_type": {
-    "slug": "pages",
-    "title": "Pages",
-    "singular": "Page",
-    "metafields": [
-      {
-        "type": "text",
-        "title": "Headline",
-        "key": "headline",
-        "required": true
-      },
-      {
-        "type": "file",
-        "title": "Hero",
-        "key": "hero",
-        "required": true
-      }
-    ],
-    "created_at": "2017-05-30T02:06:35.373Z",
-    "metadata": null
-  }
+	"object_type": {
+		"slug": "pages",
+		"title": "Pages",
+		"singular": "Page",
+		"metafields": [
+			{
+				"type": "text",
+				"title": "Headline",
+				"key": "headline",
+				"required": true
+			},
+			{
+				"type": "file",
+				"title": "Hero",
+				"key": "hero",
+				"required": true
+			}
+		],
+		"created_at": "2017-05-30T02:06:35.373Z",
+		"metadata": null
+	}
 }
 ```
+
 ::::
 
 ## Get Object Types
@@ -208,27 +213,27 @@ PUT https://api.cosmicjs.com/v1/:bucket_slug/edit-object-type
 
 ```json
 {
-  "slug": "pages",
-  "metafields": [
-    {
-      "type": "text",
-      "title": "Headline",
-      "key": "headline",
-      "required": true
-    },
-    {
-      "type": "file",
-      "title": "Hero",
-      "key": "hero",
-      "required": true
-    },
-    {
-      "type": "text",
-      "title": "Tagline",
-      "key": "tagline",
-      "required": true
-    }
-  ]
+	"slug": "pages",
+	"metafields": [
+		{
+			"type": "text",
+			"title": "Headline",
+			"key": "headline",
+			"required": true
+		},
+		{
+			"type": "file",
+			"title": "Hero",
+			"key": "hero",
+			"required": true
+		},
+		{
+			"type": "text",
+			"title": "Tagline",
+			"key": "tagline",
+			"required": true
+		}
+	]
 }
 ```
 
@@ -236,36 +241,37 @@ PUT https://api.cosmicjs.com/v1/:bucket_slug/edit-object-type
 
 ```json
 {
-  "object_type": {
-    "slug": "pages",
-    "title": "Pages",
-    "singular": "Page",
-    "metafields": [
-      {
-        "type": "text",
-        "title": "Headline",
-        "key": "headline",
-        "required": true
-      },
-      {
-        "type": "file",
-        "title": "Hero",
-        "key": "hero",
-        "required": true
-      },
-      {
-        "type": "text",
-        "title": "Tagline",
-        "key": "tagline",
-        "required": true
-      }
-    ],
-    "modified_at": "2017-05-30T02:10:35.373Z",
-    "created_at": "2017-05-30T02:06:35.373Z",
-    "metadata": null
-  }
+	"object_type": {
+		"slug": "pages",
+		"title": "Pages",
+		"singular": "Page",
+		"metafields": [
+			{
+				"type": "text",
+				"title": "Headline",
+				"key": "headline",
+				"required": true
+			},
+			{
+				"type": "file",
+				"title": "Hero",
+				"key": "hero",
+				"required": true
+			},
+			{
+				"type": "text",
+				"title": "Tagline",
+				"key": "tagline",
+				"required": true
+			}
+		],
+		"modified_at": "2017-05-30T02:10:35.373Z",
+		"created_at": "2017-05-30T02:06:35.373Z",
+		"metadata": null
+	}
 }
 ```
+
 :::
 
 ::: tab javascript
@@ -279,53 +285,57 @@ bucket.editObjectType()
 
 ```js
 const bucket = Cosmic.bucket({
-  slug: 'bucket-slug',
-  write_key: ''
+	slug: 'bucket-slug',
+	write_key: ''
 })
-bucket.editObjectType({
-  slug: 'posts',
-  title: 'New Posts Title'
-}).then(data => {
-  console.log(data)
-}).catch(err => {
-  console.log(err)
-})
+bucket
+	.editObjectType({
+		slug: 'posts',
+		title: 'New Posts Title'
+	})
+	.then(data => {
+		console.log(data)
+	})
+	.catch(err => {
+		console.log(err)
+	})
 ```
 
 **Example Response**
 
 ```json
 {
-  "object_type": {
-    "slug": "pages",
-    "title": "Pages",
-    "singular": "Page",
-    "metafields": [
-      {
-        "type": "text",
-        "title": "Headline",
-        "key": "headline",
-        "required": true
-      },
-      {
-        "type": "file",
-        "title": "Hero",
-        "key": "hero",
-        "required": true
-      },
-      {
-        "type": "text",
-        "title": "Tagline",
-        "key": "tagline",
-        "required": true
-      }
-    ],
-    "modified_at": "2017-05-30T02:10:35.373Z",
-    "created_at": "2017-05-30T02:06:35.373Z",
-    "metadata": null
-  }
+	"object_type": {
+		"slug": "pages",
+		"title": "Pages",
+		"singular": "Page",
+		"metafields": [
+			{
+				"type": "text",
+				"title": "Headline",
+				"key": "headline",
+				"required": true
+			},
+			{
+				"type": "file",
+				"title": "Hero",
+				"key": "hero",
+				"required": true
+			},
+			{
+				"type": "text",
+				"title": "Tagline",
+				"key": "tagline",
+				"required": true
+			}
+		],
+		"modified_at": "2017-05-30T02:10:35.373Z",
+		"created_at": "2017-05-30T02:06:35.373Z",
+		"metadata": null
+	}
 }
 ```
+
 :::
 
 ::::
@@ -347,11 +357,11 @@ Delete an existing Object Type from your Bucket. \* This does not delete Objects
 DELETE https://api.cosmicjs.com/v1/:bucket_slug/object-types/:type_slug
 ```
 
-*Example Request Body*
+_Example Request Body_
 
 ```json
 {
-  "write_key": "your-key-added-in-bucket-settings" // optional
+	"write_key": "your-key-added-in-bucket-settings" // optional
 }
 ```
 
@@ -359,10 +369,11 @@ DELETE https://api.cosmicjs.com/v1/:bucket_slug/object-types/:type_slug
 
 ```json
 {
-  "status": "200",
-  "message": "Object Type deleted."
+	"status": "200",
+	"message": "Object Type deleted."
 }
 ```
+
 :::
 
 ::: tab javascript
@@ -376,26 +387,30 @@ bucket.deleteObjectType()
 
 ```js
 const bucket = Cosmic.bucket({
-  slug: 'bucket-slug',
-  write_key: ''
+	slug: 'bucket-slug',
+	write_key: ''
 })
-bucket.deleteObjectType({
-  slug: 'posts'
-}).then(data => {
-  console.log(data)
-}).catch(err => {
-  console.log(err)
-})
+bucket
+	.deleteObjectType({
+		slug: 'posts'
+	})
+	.then(data => {
+		console.log(data)
+	})
+	.catch(err => {
+		console.log(err)
+	})
 ```
 
 **Example Response**
 
 ```json
 {
-  "status": "200",
-  "message": "Object Type deleted."
+	"status": "200",
+	"message": "Object Type deleted."
 }
 ```
+
 :::
 
 ::::

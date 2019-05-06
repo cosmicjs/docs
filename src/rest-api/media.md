@@ -24,12 +24,12 @@ POST https://api.cosmicjs.com/v1/:bucket_slug/media
 
 ```json
 {
-  "media": "your-media-object",
-  "folder": "your-folder-slug",
-  "metadata": {
-    "caption": "Beautiful picture of the beach",
-    "credit": "Tyler Jackson"
-  }
+	"media": "your-media-object",
+	"folder": "your-folder-slug",
+	"metadata": {
+		"caption": "Beautiful picture of the beach",
+		"credit": "Tyler Jackson"
+	}
 }
 ```
 
@@ -37,31 +37,31 @@ POST https://api.cosmicjs.com/v1/:bucket_slug/media
 
 ```json
 {
-  "media": {
-    "name": "c20391e0-b8a4-11e6-8836-fbdfd6956b31-bird.jpg",
-    "original_name": "bird.jpg",
-    "size": 457307,
-    "type": "image/jpeg",
-    "bucket": "5839c67f0d3201c114000004",
-    "created": "2016-12-02T15:34:05.054Z",
-    "location": "https://cosmicjs.com/uploads",
-    "url": "https://s3-us-west-2.amazonaws.com/cosmicjs/c20391e0-b8a4-11e6-8836-fbdfd6956b31-bird.jpg",
-    "imgix_url": "https://cosmic-s3.imgix.net/c20391e0-b8a4-11e6-8836-fbdfd6956b31-bird.jpg",
-    "metadata": [
-      {
-        "key": "caption",
-        "value": "Beautiful picture of the beach"
-      },
-      {
-        "key": "credit",
-        "value": "Tyler Jackson"
-      }
-    ]
-  }
+	"media": {
+		"name": "c20391e0-b8a4-11e6-8836-fbdfd6956b31-bird.jpg",
+		"original_name": "bird.jpg",
+		"size": 457307,
+		"type": "image/jpeg",
+		"bucket": "5839c67f0d3201c114000004",
+		"created": "2016-12-02T15:34:05.054Z",
+		"location": "https://cosmicjs.com/uploads",
+		"url": "https://s3-us-west-2.amazonaws.com/cosmicjs/c20391e0-b8a4-11e6-8836-fbdfd6956b31-bird.jpg",
+		"imgix_url": "https://cosmic-s3.imgix.net/c20391e0-b8a4-11e6-8836-fbdfd6956b31-bird.jpg",
+		"metadata": [
+			{
+				"key": "caption",
+				"value": "Beautiful picture of the beach"
+			},
+			{
+				"key": "credit",
+				"value": "Tyler Jackson"
+			}
+		]
+	}
 }
 ```
-:::
 
+:::
 
 ::: tab javascript
 **Definition**
@@ -74,26 +74,29 @@ bucket.addMedia()
 
 ```js
 const bucket = Cosmic.bucket({
-  slug: 'bucket-slug',
-  write_key: ''
+	slug: 'bucket-slug',
+	write_key: ''
 })
 
 const media_object = req.files[0] // Using Multer
 // OR:
 // const media_object = { originalname: filename, buffer: filedata } // Not using Multer
 
-bucket.addMedia({
-  media: media_object,
-  folder: 'your-folder-slug',
-  metadata: {
-    caption: 'Beautiful picture of the beach',
-    credit: 'Tyler Jackson'
-  }
-}).then(data => {
-  console.log(data)
-}).catch(err => {
-  console.log(err)
-})
+bucket
+	.addMedia({
+		media: media_object,
+		folder: 'your-folder-slug',
+		metadata: {
+			caption: 'Beautiful picture of the beach',
+			credit: 'Tyler Jackson'
+		}
+	})
+	.then(data => {
+		console.log(data)
+	})
+	.catch(err => {
+		console.log(err)
+	})
 
 /*
 As an example, another popular upload library for express is [express-fileupload](https://www.npmjs.com/package/express-fileupload). File objects obtained through this have the following properties:
@@ -104,8 +107,8 @@ req.files.foo.data: A buffer representation of your file
 
 // In order to pass the file `req.files.foo` to Cosmic you would do:
 const media_object = {
-  originalname: req.files.foo.name,
-  buffer: req.files.foo.data,
+	originalname: req.files.foo.name,
+	buffer: req.files.foo.data
 }
 ```
 
@@ -113,29 +116,30 @@ const media_object = {
 
 ```json
 {
-  "media": {
-    "name": "c20391e0-b8a4-11e6-8836-fbdfd6956b31-bird.jpg",
-    "original_name": "bird.jpg",
-    "size": 457307,
-    "type": "image/jpeg",
-    "bucket": "5839c67f0d3201c114000004",
-    "created": "2016-12-02T15:34:05.054Z",
-    "location": "https://cosmicjs.com/uploads",
-    "url": "https://s3-us-west-2.amazonaws.com/cosmicjs/c20391e0-b8a4-11e6-8836-fbdfd6956b31-bird.jpg",
-    "imgix_url": "https://cosmic-s3.imgix.net/c20391e0-b8a4-11e6-8836-fbdfd6956b31-bird.jpg",
-    "metadata": [
-      {
-        "key": "caption",
-        "value": "Beautiful picture of the beach"
-      },
-      {
-        "key": "credit",
-        "value": "Tyler Jackson"
-      }
-    ]
-  }
+	"media": {
+		"name": "c20391e0-b8a4-11e6-8836-fbdfd6956b31-bird.jpg",
+		"original_name": "bird.jpg",
+		"size": 457307,
+		"type": "image/jpeg",
+		"bucket": "5839c67f0d3201c114000004",
+		"created": "2016-12-02T15:34:05.054Z",
+		"location": "https://cosmicjs.com/uploads",
+		"url": "https://s3-us-west-2.amazonaws.com/cosmicjs/c20391e0-b8a4-11e6-8836-fbdfd6956b31-bird.jpg",
+		"imgix_url": "https://cosmic-s3.imgix.net/c20391e0-b8a4-11e6-8836-fbdfd6956b31-bird.jpg",
+		"metadata": [
+			{
+				"key": "caption",
+				"value": "Beautiful picture of the beach"
+			},
+			{
+				"key": "credit",
+				"value": "Tyler Jackson"
+			}
+		]
+	}
 }
 ```
+
 :::
 
 ::::
@@ -167,8 +171,8 @@ GET https://api.cosmicjs.com/v1/:bucket_slug/media
 ```bash
 curl "https://api.cosmicjs.com/v1/wedding-site/media?pretty=true&folder=groomsmen&limit=3"
 ```
-:::
 
+:::
 
 ::: tab javascript
 **Definition**
@@ -215,7 +219,7 @@ DELETE https://api.cosmicjs.com/v1/:bucket_slug/media/:media_id
 
 ```json
 {
-  "write_key": "your-key-added-in-bucket-settings"
+	"write_key": "your-key-added-in-bucket-settings"
 }
 ```
 
@@ -223,12 +227,12 @@ DELETE https://api.cosmicjs.com/v1/:bucket_slug/media/:media_id
 
 ```json
 {
-  "status": "200",
-  "message": "Object Type deleted."
+	"status": "200",
+	"message": "Object Type deleted."
 }
 ```
-:::
 
+:::
 
 ::: tab javascript
 **Definition**
@@ -241,26 +245,30 @@ Cosmic.deleteMedia()
 
 ```js
 const bucket = Cosmic.bucket({
-  slug: 'bucket-slug',
-  write_key: ''
+	slug: 'bucket-slug',
+	write_key: ''
 })
-bucket.deleteMedia({
- id: '5a4b18e12fff7ec0e3c13c65'
-}).then(data => {
-  console.log(data)
-}).catch(err => {
-  console.log(err)
-})
+bucket
+	.deleteMedia({
+		id: '5a4b18e12fff7ec0e3c13c65'
+	})
+	.then(data => {
+		console.log(data)
+	})
+	.catch(err => {
+		console.log(err)
+	})
 ```
 
 **Example Response**
 
 ```json
 {
-  "status": "200",
-  "message": "Object Type deleted."
+	"status": "200",
+	"message": "Object Type deleted."
 }
 ```
+
 :::
 
 ::::

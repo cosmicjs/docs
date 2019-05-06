@@ -4,19 +4,19 @@
 
 `title` is the only required property. If no slug is present, the title will be [converted to a slug](https://www.npmjs.com/package/url-slug). See the table below for the other optional properties. The Bucket request matches the `bucket.json` file located in _Your Bucket Dashboard > Import / Export_.
 
-| Parameter     | Required | Type   | Description                                                                                   |
-| ------------- | -------- | ------ | --------------------------------------------------------------------------------------------- |
-| title         | true     | String | Your Bucket title                                                                             |
-| slug          |          | String | [URL-friendly](https://www.npmjs.com/package/url-slug) unique identifier                      |
-| read_key      |          | String | Restrict read access                                                                          |
-| write_key     |          | String | Restrict write access                                                                         |
-| cluster       |          | String | Add this Bucket to a Cluster. ID of existing Cluster                                          |
-| object_types  |          | Array  | Populate your Bucket with Object Types. See Object Types for model.                           |
-| objects       |          | Array  | Populate your Bucket with Objects. See Objects for model.                                     |
-| media         |          | Array  | Populate your Bucket with Media. See Media for model.                                         |
-| media_folders |          | Array  | Populate your Bucket with Media Folders. See Media for model.                                 |
-| webhooks      |          | Array  | Populate your Bucket with [Webhooks](/webhooks). See [Webhooks](/webhooks) for model.         |
-| extensions    |          | Array  | Populate your Bucket with [Extensions](/extensions). See [Extensions](/extensions) for model. |
+| Parameter     | Required | Type   | Description                                                                                        |
+| ------------- | -------- | ------ | -------------------------------------------------------------------------------------------------- |
+| title         | required | String | Your Bucket title                                                                                  |
+| slug          |          | String | [URL-friendly](https://www.npmjs.com/package/url-slug) unique identifier                           |
+| read_key      |          | String | Restrict read access                                                                               |
+| write_key     |          | String | Restrict write access                                                                              |
+| cluster       |          | String | Add this Bucket to a Cluster. ID of existing Cluster                                               |
+| object_types  |          | Array  | Populate your Bucket with Object Types. See [Object Types](/rest-api/object-types.html) for model. |
+| objects       |          | Array  | Populate your Bucket with Objects. See [Objects](/rest-api/objects.html) for model.                |
+| media         |          | Array  | Populate your Bucket with Media. See [Media](/rest-api/media.html) for model.                      |
+| media_folders |          | Array  | Populate your Bucket with Media Folders. See [Media](/rest-api/media.html) for model.              |
+| webhooks      |          | Array  | Populate your Bucket with [Webhooks](/webhooks). See [Webhooks](/webhooks) for model.              |
+| extensions    |          | Array  | Populate your Bucket with [Extensions](/extensions). See [Extensions](/extensions) for model.      |
 
 :::: tabs :options="{ useUrlFragment: false }"
 
@@ -47,8 +47,8 @@ curl -X POST "https://api.cosmicjs.com/v1/buckets" \
 	}
 }
 ```
-:::
 
+:::
 
 ::: tab javascript
 **Definition**
@@ -61,29 +61,32 @@ Cosmic.addBucket()
 
 ```js
 const Cosmic = require('cosmicjs')({
-  token: 'your-token-from-auth-request' // required
+	token: 'your-token-from-auth-request' // required
 })
 Cosmic.addBucket({
-  title: 'My New Bucket',
-  slug: 'my-new-bucket' // must be unique across all Buckets in system
-}).then(data => {
-  console.log(data)
-}).catch(err => {
-  console.log(err)
+	title: 'My New Bucket',
+	slug: 'my-new-bucket' // must be unique across all Buckets in system
 })
+	.then(data => {
+		console.log(data)
+	})
+	.catch(err => {
+		console.log(err)
+	})
 ```
 
 **Example Response**
 
 ```json
 {
-  "bucket": {
-    "_id": "55b3d557df0fb1df7600004b",
-    "slug": "my-new-bucket",
-    "title": "My New Bucket"
-  }
+	"bucket": {
+		"_id": "55b3d557df0fb1df7600004b",
+		"slug": "my-new-bucket",
+		"title": "My New Bucket"
+	}
 }
 ```
+
 :::
 
 ::::
@@ -139,8 +142,8 @@ Gets all Buckets connected to your account. Your authorization token in the head
 	]
 }
 ```
-:::
 
+:::
 
 ::: tab javascript
 **Definition**
@@ -153,44 +156,47 @@ Cosmic.getBuckets()
 
 ```js
 const Cosmic = require('cosmicjs')({
-  token: 'your-token-from-auth-request' // optional
+	token: 'your-token-from-auth-request' // optional
 })
-Cosmic.getBuckets().then(data => {
-  console.log(data)
-}).catch(err => {
-  console.log(err)
-})
+Cosmic.getBuckets()
+	.then(data => {
+		console.log(data)
+	})
+	.catch(err => {
+		console.log(err)
+	})
 ```
 
 **Example Response**
 
 ```json
 {
-  "buckets": [
-    {
-      "_id": "5a051c23ae05992b360005e7",
-      "slug": "my-first-bucket",
-      "title": "My First Bucket",
-      "created_at": "2017-11-10T03:25:23.807Z",
-      "modified_at": "2017-11-11T17:20:04.322Z"
-    },
-    {
-      "_id": "5a329f6769a130011900000c",
-      "slug": "my-second-bucket",
-      "title": "My Second Bucket",
-      "created_at": "2017-12-14T15:57:27.274Z",
-      "modified_at": "2018-01-14T04:06:29.630Z"
-    },
-    {
-      "_id": "5a329f6769a130011900000c",
-      "slug": "my-third-bucket",
-      "title": "My Third Bucket",
-      "created_at": "2017-12-14T15:57:27.274Z",
-      "modified_at": "2018-01-14T04:06:29.630Z"
-    }
-  ]
+	"buckets": [
+		{
+			"_id": "5a051c23ae05992b360005e7",
+			"slug": "my-first-bucket",
+			"title": "My First Bucket",
+			"created_at": "2017-11-10T03:25:23.807Z",
+			"modified_at": "2017-11-11T17:20:04.322Z"
+		},
+		{
+			"_id": "5a329f6769a130011900000c",
+			"slug": "my-second-bucket",
+			"title": "My Second Bucket",
+			"created_at": "2017-12-14T15:57:27.274Z",
+			"modified_at": "2018-01-14T04:06:29.630Z"
+		},
+		{
+			"_id": "5a329f6769a130011900000c",
+			"slug": "my-third-bucket",
+			"title": "My Third Bucket",
+			"created_at": "2017-12-14T15:57:27.274Z",
+			"modified_at": "2018-01-14T04:06:29.630Z"
+		}
+	]
 }
 ```
+
 :::
 
 ::::
@@ -201,7 +207,7 @@ For the NPM module:
 
 | Parameter | Required | Type   | Description           |
 | --------- | -------- | ------ | --------------------- |
-| slug      | true     | String | The Bucket slug       |
+| slug      | required | String | The Bucket slug       |
 | read_key  |          | String | Restrict read access  |
 | write_key |          | String | Restrict write access |
 
@@ -213,8 +219,8 @@ For the NPM module:
 ```bash
 curl "https://api.cosmicjs.com/v1/wedding-site"
 ```
-:::
 
+:::
 
 ::: tab javascript
 **Example Request**
@@ -222,19 +228,20 @@ curl "https://api.cosmicjs.com/v1/wedding-site"
 ```js
 // Use the Cosmic.bucket method to connect to different Buckets in your account.
 const Cosmic = require('cosmicjs')({
-  token: 'your-token-from-auth-request' // optional
+	token: 'your-token-from-auth-request' // optional
 })
 const bucket = Cosmic.bucket({
-  slug: 'my-first-bucket',
-  read_key: '',
-  write_key: ''
+	slug: 'my-first-bucket',
+	read_key: '',
+	write_key: ''
 })
 const bucket2 = Cosmic.bucket({
-  slug: 'my-other-bucket',
-  read_key: '',
-  write_key: ''
+	slug: 'my-other-bucket',
+	read_key: '',
+	write_key: ''
 })
 ```
+
 :::
 
 ::::
@@ -262,8 +269,8 @@ GET https://api.cosmicjs.com/v1/:bucket_slug
 ```bash
 curl "https://api.cosmicjs.com/v1/wedding-site"
 ```
-:::
 
+:::
 
 ::: tab javascript
 **Definition**
@@ -287,8 +294,8 @@ Deletes the whole Bucket. **This cannot be undone.**
 
 | Parameter | Required | Type   | Description                                              |
 | --------- | -------- | ------ | -------------------------------------------------------- |
-| id        | true     | String | The Bucket id found as "\_id"                            |
-| token     | true     | String | You can only delete Buckets that you have created / own. |
+| id        | required | String | The Bucket id found as "\_id"                            |
+| token     | required | String | You can only delete Buckets that you have created / own. |
 
 :::: tabs :options="{ useUrlFragment: false }"
 
@@ -310,12 +317,12 @@ curl -X DELETE "https://api.cosmicjs.com/v1/buckets/:bucket_id" \
 
 ```json
 {
-  "status": "200",
-  "message": "Bucket deleted"
+	"status": "200",
+	"message": "Bucket deleted"
 }
 ```
-:::
 
+:::
 
 ::: tab javascript
 **Definition**
@@ -343,10 +350,11 @@ Cosmic.deleteBucket({
 
 ```json
 {
-  "status": "200",
-  "message": "Bucket deleted"
+	"status": "200",
+	"message": "Bucket deleted"
 }
 ```
+
 :::
 
 ::::
@@ -359,14 +367,14 @@ The Bucket import method removes all current data: Object Types, Objects and Med
 
 The Bucket data schema matches the `bucket.json` file located in _Your Bucket Dashboard > Import / Export_.
 
-| Parameter     | Required | Type  | Description                                                         |
-| ------------- | -------- | ----- | ------------------------------------------------------------------- |
-| object_types  |          | Array | Populate your Bucket with Object Types. See Object Types for model. |
-| objects       |          | Array | Populate your Bucket with Objects. See Objects for model.           |
-| media         |          | Array | Populate your Bucket with Media. See Media for model.               |
-| media_folders |          | Array | Populate your Bucket with Media Folders. See Media for model.       |
-| webhooks      |          | Array | Populate your Bucket with Webhooks. See Webhooks for model.         |
-| extensions    |          | Array | Populate your Bucket with Extensions. See Extensions for model.     |
+| Parameter     | Required | Type  | Description                                                                                        |
+| ------------- | -------- | ----- | -------------------------------------------------------------------------------------------------- |
+| object_types  |          | Array | Populate your Bucket with Object Types. See [Object Types](/rest-api/object-types.html) for model. |
+| objects       |          | Array | Populate your Bucket with Objects. See [Objects](/rest-api/objects.html) for model.                |
+| media         |          | Array | Populate your Bucket with Media. See [Media](<(/rest-api/media.html)>) for model.                  |
+| media_folders |          | Array | Populate your Bucket with Media Folders. See [Media](/rest-api/media.html) for model.              |
+| webhooks      |          | Array | Populate your Bucket with Webhooks. See [Webhooks](/webhooks) for model.                           |
+| extensions    |          | Array | Populate your Bucket with Extensions. See [Extensions](/extensions) for model.                     |
 
 :::: tabs :options="{ useUrlFragment: false }"
 
@@ -388,12 +396,12 @@ curl -X DELETE "https://api.cosmicjs.com/v1/buckets/:bucket_id" \
 
 ```json
 {
-  "status": "200",
-  "message": "Bucket deleted"
+	"status": "200",
+	"message": "Bucket deleted"
 }
 ```
-:::
 
+:::
 
 ::: tab javascript
 **Definition**
@@ -437,6 +445,7 @@ Cosmic.importBucket(params).then(data => {
   }
 }
 ```
+
 :::
 
 ::::
@@ -472,13 +481,13 @@ curl -X POST "https://api.cosmicjs.com/v1/buckets/5ace13795a39fb49db87ac95/deplo
 
 ```json
 {
-  "code": 200,
-  "status": "success",
-  "message": "App deploying.  You will receive an email when the deployment is completed successfully."
+	"code": 200,
+	"status": "success",
+	"message": "App deploying.  You will receive an email when the deployment is completed successfully."
 }
 ```
-:::
 
+:::
 
 ::: tab javascript
 **Definition**
@@ -491,29 +500,32 @@ Cosmic.deployApp()
 
 ```js
 const Cosmic = require('cosmicjs')({
-  token: 'your-token-from-auth-request' // required
+	token: 'your-token-from-auth-request' // required
 })
 const params = {
-  "id": "5ace13795a39fb49db87ac95", // Bucket id found in Bucket Settings > Basic Settings
-  "repo_url": "https://github.com/cosmicjs/portfolio-website",
-  "repo_branch": "master"
+	id: '5ace13795a39fb49db87ac95', // Bucket id found in Bucket Settings > Basic Settings
+	repo_url: 'https://github.com/cosmicjs/portfolio-website',
+	repo_branch: 'master'
 }
-Cosmic.deployApp(params).then(data => {
-  console.log(data)
-}).catch(err => {
-  console.log(err)
-})
+Cosmic.deployApp(params)
+	.then(data => {
+		console.log(data)
+	})
+	.catch(err => {
+		console.log(err)
+	})
 ```
 
 **Example Response**
 
 ```json
 {
-  "code": 200,
-  "status": "success",
-  "message": "App deploying.  You will receive an email when the deployment is completed successfully."
+	"code": 200,
+	"status": "success",
+	"message": "App deploying.  You will receive an email when the deployment is completed successfully."
 }
 ```
+
 :::
 
 ::::

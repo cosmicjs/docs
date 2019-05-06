@@ -23,9 +23,9 @@ POST https://api.cosmicjs.com/v1/:bucket_slug/webhooks
 
 ```json
 {
-  "event": "object.created.published",
-  "endpoint": "http://my-listener.com",
-  "write_key": "your-key-added-in-bucket-settings"
+	"event": "object.created.published",
+	"endpoint": "http://my-listener.com",
+	"write_key": "your-key-added-in-bucket-settings"
 }
 ```
 
@@ -33,16 +33,16 @@ POST https://api.cosmicjs.com/v1/:bucket_slug/webhooks
 
 ```json
 {
-  "webhook": {
-      "id": "e39b2480-f043-11e7-ba08-234e3fae7762",
-      "title": "Object created and published",
-      "event": "object.created.published",
-      "endpoint": "http://my-listener.com"
-  }
+	"webhook": {
+		"id": "e39b2480-f043-11e7-ba08-234e3fae7762",
+		"title": "Object created and published",
+		"event": "object.created.published",
+		"endpoint": "http://my-listener.com"
+	}
 }
 ```
-:::
 
+:::
 
 ::: tab javascript
 **Definition**
@@ -55,31 +55,35 @@ bucket.addWebhooks()
 
 ```js
 const bucket = Cosmic.bucket({
-  slug: 'bucket-slug',
-  write_key: ''
+	slug: 'bucket-slug',
+	write_key: ''
 })
-bucket.addWebhook({
-  event: 'object.created.published',
-  endpoint: 'http://my-listener.com'
-}).then(data => {
-  console.log(data)
-}).catch(err => {
-  console.log(err)
-})
+bucket
+	.addWebhook({
+		event: 'object.created.published',
+		endpoint: 'http://my-listener.com'
+	})
+	.then(data => {
+		console.log(data)
+	})
+	.catch(err => {
+		console.log(err)
+	})
 ```
 
 **Example Response**
 
 ```json
 {
-  "webhook": {
-      "id": "e39b2480-f043-11e7-ba08-234e3fae7762",
-      "title": "Object created and published",
-      "event": "object.created.published",
-      "endpoint": "http://my-listener.com"
-  }
+	"webhook": {
+		"id": "e39b2480-f043-11e7-ba08-234e3fae7762",
+		"title": "Object created and published",
+		"event": "object.created.published",
+		"endpoint": "http://my-listener.com"
+	}
 }
 ```
+
 :::
 
 ::::
@@ -105,7 +109,7 @@ DELETE https://api.cosmicjs.com/v1/:bucket_slug/webhooks/:webhook_id
 
 ```json
 {
-  "write_key": "your-key-added-in-bucket-settings"
+	"write_key": "your-key-added-in-bucket-settings"
 }
 ```
 
@@ -113,12 +117,12 @@ DELETE https://api.cosmicjs.com/v1/:bucket_slug/webhooks/:webhook_id
 
 ```json
 {
-  "status": "200",
-  "message": "Webhook deleted."
+	"status": "200",
+	"message": "Webhook deleted."
 }
 ```
-:::
 
+:::
 
 ::: tab javascript
 **Definition**
@@ -131,26 +135,30 @@ Cosmic.deleteWebhook()
 
 ```js
 const bucket = Cosmic.bucket({
-  slug: 'bucket-slug',
-  write_key: ''
+	slug: 'bucket-slug',
+	write_key: ''
 })
-bucket.deleteWebhook({
-  id: 'c62defe0-5f93-11e7-8054-873245f0e98d'
-}).then(data => {
-  console.log(data)
-}).catch(err => {
-  console.log(err)
-})
+bucket
+	.deleteWebhook({
+		id: 'c62defe0-5f93-11e7-8054-873245f0e98d'
+	})
+	.then(data => {
+		console.log(data)
+	})
+	.catch(err => {
+		console.log(err)
+	})
 ```
 
 **Example Response**
 
 ```json
 {
-  "status": "200",
-  "message": "Webhook deleted."
+	"status": "200",
+	"message": "Webhook deleted."
 }
 ```
+
 :::
 
 ::::
