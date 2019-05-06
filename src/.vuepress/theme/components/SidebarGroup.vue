@@ -70,6 +70,8 @@ export default {
 </script>
 
 <style lang="stylus">
+@require '../styles/config'
+
 .sidebar-group
   .sidebar-group
     padding-left 0.5em
