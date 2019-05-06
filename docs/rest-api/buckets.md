@@ -11,12 +11,12 @@
 | read_key      |          | String | Restrict read access                                                                               |
 | write_key     |          | String | Restrict write access                                                                              |
 | cluster       |          | String | Add this Bucket to a Cluster. ID of existing Cluster                                               |
-| object_types  |          | Array  | Populate your Bucket with Object Types. See [Object Types](/rest-api/object-types.html) for model. |
-| objects       |          | Array  | Populate your Bucket with Objects. See [Objects](/rest-api/objects.html) for model.                |
-| media         |          | Array  | Populate your Bucket with Media. See [Media](/rest-api/media.html) for model.                      |
-| media_folders |          | Array  | Populate your Bucket with Media Folders. See [Media](/rest-api/media.html) for model.              |
-| webhooks      |          | Array  | Populate your Bucket with [Webhooks](/webhooks). See [Webhooks](/webhooks) for model.              |
-| extensions    |          | Array  | Populate your Bucket with [Extensions](/extensions). See [Extensions](/extensions) for model.      |
+| object_types  |          | Array  | Populate your Bucket with Object Types. See [Object Types](/docs/rest-api/object-types.html) for model. |
+| objects       |          | Array  | Populate your Bucket with Objects. See [Objects](/docs/rest-api/objects.html) for model.                |
+| media         |          | Array  | Populate your Bucket with Media. See [Media](/docs/rest-api/media.html) for model.                      |
+| media_folders |          | Array  | Populate your Bucket with Media Folders. See [Media](/docs/rest-api/media.html) for model.              |
+| webhooks      |          | Array  | Populate your Bucket with [Webhooks](/docs/webhooks). See [Webhooks](/docs/webhooks) for model.              |
+| extensions    |          | Array  | Populate your Bucket with [Extensions]/docs(/extensions). See [Extensions](/docs/extensions) for model.      |
 
 :::: tabs :options="{ useUrlFragment: false }"
 
@@ -373,8 +373,8 @@ The Bucket data schema matches the `bucket.json` file located in _Your Bucket Da
 | objects       |          | Array | Populate your Bucket with Objects. See [Objects](/rest-api/objects.html) for model.                |
 | media         |          | Array | Populate your Bucket with Media. See [Media](<(/rest-api/media.html)>) for model.                  |
 | media_folders |          | Array | Populate your Bucket with Media Folders. See [Media](/rest-api/media.html) for model.              |
-| webhooks      |          | Array | Populate your Bucket with Webhooks. See [Webhooks](/webhooks) for model.                           |
-| extensions    |          | Array | Populate your Bucket with Extensions. See [Extensions](/extensions) for model.                     |
+| webhooks      |          | Array | Populate your Bucket with Webhooks. See [Webhooks](/docs/webhooks) for model.                           |
+| extensions    |          | Array | Populate your Bucket with Extensions. See [Extensions](/docs/extensions) for model.                     |
 
 :::: tabs :options="{ useUrlFragment: false }"
 

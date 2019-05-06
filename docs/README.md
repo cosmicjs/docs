@@ -2,22 +2,22 @@
 sidebarDepth: 0
 cardData:
 - title: 'REST API'
-  url: '/rest-api/'
+  url: '/docs/rest-api/'
   description: '<p>Integrate your content using the <a href="https://www.npmjs.com/package/cosmicjs" target="_blank">NPM module</a> or directly to the REST API.</p>'
 - title: 'GraphQL API'
-  url: '/graphql-api/'
+  url: '/docs/graphql-api/'
   description: "<p>Use the GraphQL API to get only the data you need and nothing you don't.</p>"
 - title: 'CLI'
-  url: '/cli/'
+  url: '/docs/cli/'
   description: '<p>Use the power of Cosmic JS from the comfort of your command-line tool.</p>'
 - title: 'Functions'
-  url: '/functions/'
+  url: '/docs/functions/'
   description: '<p>Deploy code without having to manage server infrastructure.'
 - title: 'Webhooks'
-  url: '/webhooks/'
+  url: '/docs/webhooks/'
   description: "<p>Use the GraphQL API to get only the data you need and nothing you don't."
 - title: 'Extensions'
-  url: '/extensions/'
+  url: '/docs/extensions/'
   description: "<p>Use the GraphQL API to get only the data you need and nothing you don't."
 ---
 

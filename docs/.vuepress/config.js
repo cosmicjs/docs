@@ -1,5 +1,6 @@
 module.exports = {
   siteTitle: 'Cosmic JS',
+  base: '/docs/',
   themeConfig: {
     logo: '/cosmicjs-logo.png',
     repo: 'cosmicjs/docs',
