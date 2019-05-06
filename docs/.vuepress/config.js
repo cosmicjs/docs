@@ -3,7 +3,7 @@ module.exports = {
   themeConfig: {
     logo: '/cosmicjs-logo.png',
     repo: 'cosmicjs/docs',
-    docsDir: 'src',
+    docsDir: 'docs',
     editLinks: true,
     editLinkText: 'Edit this page',
     lastUpdated: 'Last Updated',
