@@ -80,11 +80,11 @@ Your Function can serve dynamic routes, like an Express application (see the Ser
 
 ```json
 {
-"title": "Dynamic Routes",
-"description": "A serverless function with dynamic routes.",
-"image_url": "https://cosmicjs.com/images/logos/serverless.svg",
-"stage": "dev",
-"dynamic_routes": true
+	"title": "Dynamic Routes",
+	"description": "A serverless function with dynamic routes.",
+	"image_url": "https://cosmicjs.com/images/logos/serverless.svg",
+	"stage": "dev",
+	"dynamic_routes": true
 }
 ```
 
@@ -96,7 +96,7 @@ const serverless = require('serverless-http')
 const express = require('express')
 const app = express()
 app.get('/:slug?', (req, res) => {
-res.json({ message: 'Your dynamic slug is ' + req.params.slug });
+	res.json({ message: 'Your dynamic slug is ' + req.params.slug });
 })
 
 module.exports.handler = serverless(app);
