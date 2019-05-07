@@ -121,7 +121,7 @@ export default {
     color inherit
   .arrow
     position relative
-    top -0.12em
+    top 0.02em
     left 0.5em
   &.clickable
     &.active
@@ -136,5 +136,5 @@ export default {
   overflow hidden
 
 .sidebar-icon
-  margin-right 8px
+  margin-right 15px
 </style>
