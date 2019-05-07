@@ -20,7 +20,7 @@ export default {
 </script>
 
 <template>
-	<div class="home-card">
+	<a :href="url" class="home-card">
     <img 
       v-if="icon"
       class="home-card-icon"
@@ -29,12 +29,11 @@ export default {
     />
     <div>
       <p class="home-card-title">
-        <a :href="url" >{{ title }}</a>
+        {{ title }}
       </p>
       <slot></slot>
-      <a :href="url" class="home-card-btn">Learn more</a>
     </div>
-  </div>
+  </a>
 </template>
 
 <style lang="stylus">
@@ -50,15 +49,19 @@ export default {
   background: #fff;
   padding: 10px 0;
   margin-bottom: 30px;
+  color: #2c3e50;
+  text-decoration: none !important;
 }
 
 .home-card-description {
   margin-top: 10px;
+  text-decoration: none;
 }
 
 .home-card-title {
   margin: 0;
   font-size: 1.4rem;
+  text-decoration: none;
 }
 
 .home-card-btn {
