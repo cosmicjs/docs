@@ -109,7 +109,7 @@ GET https://api.cosmicjs.com/v1/buckets
 curl "https://api.cosmicjs.com/v1/buckets" \
 -H "Authorization: Bearer <ACCESS_TOKEN>" \
 -H "Content-Type: application/json"
-Gets all Buckets connected to your account. Your authorization token in the header request is the only required property.
+# Gets all Buckets connected to your account. Your authorization token in the header request is the only required property.
 ```
 
 **Example Response**
