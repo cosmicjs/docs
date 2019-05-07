@@ -37,24 +37,24 @@ POST https://api.cosmicjs.com/v1/:bucket_slug/add-object
 
 ```json
 {
-	"title": "Cosmic JS Example",
-	"type_slug": "examples",
-	"content": "Learning the Cosmic JS API is really fun and so easy",
-	"metafields": [
-		{
-			"key": "Headline",
-			"type": "text",
-			"value": "Learn Cosmic JS!"
-		},
-		{
-			"key": "Author",
-			"type": "text",
-			"value": "Quasar Jones"
-		}
-	],
-	"options": {
-		"slug_field": false
-	}
+  "title": "Cosmic JS Example",
+  "type_slug": "examples",
+  "content": "Learning the Cosmic JS API is really fun and so easy",
+  "metafields": [
+    {
+      "key": "Headline",
+      "type": "text",
+      "value": "Learn Cosmic JS!"
+    },
+    {
+      "key": "Author",
+      "type": "text",
+      "value": "Quasar Jones"
+    }
+  ],
+  "options": {
+    "slug_field": false
+  }
 }
 ```
 
@@ -62,32 +62,32 @@ POST https://api.cosmicjs.com/v1/:bucket_slug/add-object
 
 ```json
 {
-	"object": {
-		"slug": "cosmic-js-example",
-		"title": "Cosmic JS Example",
-		"content": "Learning the Cosmic JS API is really fun and so easy",
-		"metafields": [
-			{
-				"title": "Headline",
-				"key": "headline",
-				"type": "text",
-				"value": "Learn Cosmic JS!"
-			},
-			{
-				"title": "Author",
-				"key": "author",
-				"type": "text",
-				"value": "Quasar Jones"
-			}
-		],
-		"bucket": "568c5bbefd0dce302c000001",
-		"type_slug": "examples",
-		"created_at": "2016-01-06T00:28:39.982Z",
-		"_id": "568c5fb72f0c5d532d000001",
-		"options": {
-			"slug_field": false
-		}
-	}
+  "object": {
+    "slug": "cosmic-js-example",
+    "title": "Cosmic JS Example",
+    "content": "Learning the Cosmic JS API is really fun and so easy",
+    "metafields": [
+      {
+        "title": "Headline",
+        "key": "headline",
+        "type": "text",
+        "value": "Learn Cosmic JS!"
+      },
+      {
+        "title": "Author",
+        "key": "author",
+        "type": "text",
+        "value": "Quasar Jones"
+      }
+    ],
+    "bucket": "568c5bbefd0dce302c000001",
+    "type_slug": "examples",
+    "created_at": "2016-01-06T00:28:39.982Z",
+    "_id": "568c5fb72f0c5d532d000001",
+    "options": {
+      "slug_field": false
+    }
+  }
 }
 ```
 
@@ -104,69 +104,69 @@ bucket.addObject()
 
 ```js
 const params = {
-	title: 'Cosmic JS Example',
-	type_slug: 'examples',
-	content: 'Learning the Cosmic JS API is really fun and so easy',
-	metafields: [
-		{
-			key: 'Headline',
-			type: 'text',
-			value: 'Learn Cosmic JS!'
-		},
-		{
-			key: 'Author',
-			type: 'text',
-			value: 'Quasar Jones'
-		}
-	],
-	options: {
-		slug_field: false
-	}
+  title: 'Cosmic JS Example',
+  type_slug: 'examples',
+  content: 'Learning the Cosmic JS API is really fun and so easy',
+  metafields: [
+    {
+      key: 'Headline',
+      type: 'text',
+      value: 'Learn Cosmic JS!'
+    },
+    {
+      key: 'Author',
+      type: 'text',
+      value: 'Quasar Jones'
+    }
+  ],
+  options: {
+    slug_field: false
+  }
 }
 const bucket = Cosmic.bucket({
-	slug: 'bucket-slug',
-	write_key: ''
+  slug: 'bucket-slug',
+  write_key: ''
 })
 bucket
-	.addObject(params)
-	.then(data => {
-		console.log(data)
-	})
-	.catch(err => {
-		console.log(err)
-	})
+  .addObject(params)
+  .then(data => {
+    console.log(data)
+  })
+  .catch(err => {
+    console.log(err)
+  })
 ```
 
 **Example Response**
 
 ```json
 {
-	"object": {
-		"slug": "cosmic-js-example",
-		"title": "Cosmic JS Example",
-		"content": "Learning the Cosmic JS API is really fun and so easy",
-		"metafields": [
-			{
-				"title": "Headline",
-				"key": "headline",
-				"type": "text",
-				"value": "Learn Cosmic JS!"
-			},
-			{
-				"title": "Author",
-				"key": "author",
-				"type": "text",
-				"value": "Quasar Jones"
-			}
-		],
-		"bucket": "568c5bbefd0dce302c000001",
-		"type_slug": "examples",
-		"created_at": "2016-01-06T00:28:39.982Z",
-		"_id": "568c5fb72f0c5d532d000001",
-		"options": {
-			"slug_field": false
-		}
-	}
+  "object": {
+    "slug": "cosmic-js-example",
+    "title": "Cosmic JS Example",
+    "content": "Learning the Cosmic JS API is really fun and so easy",
+    "metafields": [
+      {
+        "title": "Headline",
+        "key": "headline",
+        "type": "text",
+        "value": "Learn Cosmic JS!"
+      },
+      {
+        "title": "Author",
+        "key": "author",
+        "type": "text",
+        "value": "Quasar Jones"
+      }
+    ],
+    "bucket": "568c5bbefd0dce302c000001",
+    "type_slug": "examples",
+    "created_at": "2016-01-06T00:28:39.982Z",
+    "_id": "568c5fb72f0c5d532d000001",
+    "options": {
+      "slug_field": false
+    }
+  }
 }
 ```
 
@@ -255,7 +255,7 @@ curl "https://api.cosmicjs.com/v1/wedding-site/objects?type=groomsmen&limit=3"
 
 ```js
 bucket.getObjects({
-	// params
+  // params
 })
 ```
 
@@ -292,7 +292,7 @@ curl "https://api.cosmicjs.com/v1/wedding-site/objects?type=groomsmen&metafield_
 
 ```js
 bucket.getObjects({
-	// params
+  // params
 })
 ```
 
@@ -379,23 +379,23 @@ PUT https://api.cosmicjs.com/v1/:bucket_slug/edit-object
 
 ```json
 {
-	"slug": "cosmic-js-example",
-	"title": "New Title Edit",
-	"content": "This is some rad test content...",
-	"metafields": [
-		{
-			"title": "Headline",
-			"key": "headline",
-			"value": "Something Big is Coming",
-			"type": "text"
-		},
-		{
-			"title": "Subheadline",
-			"key": "subheadline",
-			"value": "I bet you want to know what it is...",
-			"type": "text"
-		}
-	]
+  "slug": "cosmic-js-example",
+  "title": "New Title Edit",
+  "content": "This is some rad test content...",
+  "metafields": [
+    {
+      "title": "Headline",
+      "key": "headline",
+      "value": "Something Big is Coming",
+      "type": "text"
+    },
+    {
+      "title": "Subheadline",
+      "key": "subheadline",
+      "value": "I bet you want to know what it is...",
+      "type": "text"
+    }
+  ]
 }
 ```
 
@@ -403,29 +403,29 @@ PUT https://api.cosmicjs.com/v1/:bucket_slug/edit-object
 
 ```json
 {
-	"object": {
-		"_id": "568c5fb72f0c5d532d000001",
-		"slug": "cosmic-js-example",
-		"title": "New Title Edit",
-		"content": "This is some rad test content...",
-		"metafields": [
-			{
-				"title": "Headline",
-				"key": "headline",
-				"value": "Something Big is Coming",
-				"type": "text"
-			},
-			{
-				"title": "Subheadline",
-				"key": "subheadline",
-				"value": "I bet you want to know what it is...",
-				"type": "text"
-			}
-		],
-		"bucket": "568c5bbefd0dce302c000001",
-		"type_slug": "examples",
-		"created": "2016-01-06T00:28:39.982Z"
-	}
+  "object": {
+    "_id": "568c5fb72f0c5d532d000001",
+    "slug": "cosmic-js-example",
+    "title": "New Title Edit",
+    "content": "This is some rad test content...",
+    "metafields": [
+      {
+        "title": "Headline",
+        "key": "headline",
+        "value": "Something Big is Coming",
+        "type": "text"
+      },
+      {
+        "title": "Subheadline",
+        "key": "subheadline",
+        "value": "I bet you want to know what it is...",
+        "type": "text"
+      }
+    ],
+    "bucket": "568c5bbefd0dce302c000001",
+    "type_slug": "examples",
+    "created": "2016-01-06T00:28:39.982Z"
+  }
 }
 ```
 
@@ -442,49 +442,49 @@ bucket.editObject()
 
 ```js
 const bucket = Cosmic.bucket({
-	slug: 'bucket-slug',
-	write_key: ''
+  slug: 'bucket-slug',
+  write_key: ''
 })
 bucket
-	.editObject({
-		slug: 'cosmic-js-example',
-		title: 'New Title Edit'
-	})
-	.then(data => {
-		console.log(data)
-	})
-	.catch(err => {
-		console.log(err)
-	})
+  .editObject({
+    slug: 'cosmic-js-example',
+    title: 'New Title Edit'
+  })
+  .then(data => {
+    console.log(data)
+  })
+  .catch(err => {
+    console.log(err)
+  })
 ```
 
 **Example Response**
 
 ```json
 {
-	"object": {
-		"_id": "568c5fb72f0c5d532d000001",
-		"slug": "cosmic-js-example",
-		"title": "New Title Edit",
-		"content": "This is some rad test content...",
-		"metafields": [
-			{
-				"title": "Headline",
-				"key": "headline",
-				"value": "Something Big is Coming",
-				"type": "text"
-			},
-			{
-				"title": "Subheadline",
-				"key": "subheadline",
-				"value": "I bet you want to know what it is...",
-				"type": "text"
-			}
-		],
-		"bucket": "568c5bbefd0dce302c000001",
-		"type_slug": "examples",
-		"created": "2016-01-06T00:28:39.982Z"
-	}
+  "object": {
+    "_id": "568c5fb72f0c5d532d000001",
+    "slug": "cosmic-js-example",
+    "title": "New Title Edit",
+    "content": "This is some rad test content...",
+    "metafields": [
+      {
+        "title": "Headline",
+        "key": "headline",
+        "value": "Something Big is Coming",
+        "type": "text"
+      },
+      {
+        "title": "Subheadline",
+        "key": "subheadline",
+        "value": "I bet you want to know what it is...",
+        "type": "text"
+      }
+    ],
+    "bucket": "568c5bbefd0dce302c000001",
+    "type_slug": "examples",
+    "created": "2016-01-06T00:28:39.982Z"
+  }
 }
 ```
 
@@ -514,7 +514,7 @@ DELETE https://api.cosmicjs.com/v1/:bucket_slug/objects/:object_slug
 
 ```json
 {
-	"write_key": "your-key-added-in-bucket-settings"
+  "write_key": "your-key-added-in-bucket-settings"
 }
 ```
 
@@ -522,8 +522,8 @@ DELETE https://api.cosmicjs.com/v1/:bucket_slug/objects/:object_slug
 
 ```json
 {
-	"status": "200",
-	"message": "Object deleted"
+  "status": "200",
+  "message": "Object deleted"
 }
 ```
 
@@ -540,27 +540,27 @@ bucket.deleteObject()
 
 ```js
 const bucket = Cosmic.bucket({
-	slug: 'bucket-slug',
-	write_key: ''
+  slug: 'bucket-slug',
+  write_key: ''
 })
 bucket
-	.deleteObject({
-		slug: 'cosmic-js-example'
-	})
-	.then(data => {
-		console.log(data)
-	})
-	.catch(err => {
-		console.log(err)
-	})
+  .deleteObject({
+    slug: 'cosmic-js-example'
+  })
+  .then(data => {
+    console.log(data)
+  })
+  .catch(err => {
+    console.log(err)
+  })
 ```
 
 **Example Response**
 
 ```json
 {
-	"status": "200",
-	"message": "Object deleted"
+  "status": "200",
+  "message": "Object deleted"
 }
 ```
 

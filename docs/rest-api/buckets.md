@@ -40,11 +40,11 @@ curl -X POST "https://api.cosmicjs.com/v1/buckets" \
 
 ```json
 {
-	"bucket": {
-		"_id": "55b3d557df0fb1df7600004b",
-		"slug": "my-new-bucket",
-		"title": "My New Bucket"
-	}
+  "bucket": {
+    "_id": "55b3d557df0fb1df7600004b",
+    "slug": "my-new-bucket",
+    "title": "My New Bucket"
+  }
 }
 ```
 
@@ -61,16 +61,16 @@ Cosmic.addBucket()
 
 ```js
 const Cosmic = require('cosmicjs')({
-	token: 'your-token-from-auth-request' // required
+  token: 'your-token-from-auth-request' // required
 })
 Cosmic.addBucket({
-	title: 'My New Bucket',
-	slug: 'my-new-bucket' // must be unique across all Buckets in system
+  title: 'My New Bucket',
+  slug: 'my-new-bucket' // must be unique across all Buckets in system
 }).then(data => {
-	console.log(data)
+  console.log(data)
 })
 .catch(err => {
-	console.log(err)
+  console.log(err)
 })
 ```
 
@@ -78,11 +78,11 @@ Cosmic.addBucket({
 
 ```json
 {
-	"bucket": {
-		"_id": "55b3d557df0fb1df7600004b",
-		"slug": "my-new-bucket",
-		"title": "My New Bucket"
-	}
+  "bucket": {
+    "_id": "55b3d557df0fb1df7600004b",
+    "slug": "my-new-bucket",
+    "title": "My New Bucket"
+  }
 }
 ```
 
@@ -116,29 +116,29 @@ Gets all Buckets connected to your account. Your authorization token in the head
 
 ```json
 {
-	"buckets": [
-		{
-			"_id": "5a051c23ae05992b360005e7",
-			"slug": "my-first-bucket",
-			"title": "My First Bucket",
-			"created_at": "2017-11-10T03:25:23.807Z",
-			"modified_at": "2017-11-11T17:20:04.322Z"
-		},
-		{
-			"_id": "5a329f6769a130011900000c",
-			"slug": "my-second-bucket",
-			"title": "My Second Bucket",
-			"created_at": "2017-12-14T15:57:27.274Z",
-			"modified_at": "2018-01-14T04:06:29.630Z"
-		},
-		{
-			"_id": "5a329f6769a130011900000c",
-			"slug": "my-third-bucket",
-			"title": "My Third Bucket",
-			"created_at": "2017-12-14T15:57:27.274Z",
-			"modified_at": "2018-01-14T04:06:29.630Z"
-		}
-	]
+  "buckets": [
+    {
+      "_id": "5a051c23ae05992b360005e7",
+      "slug": "my-first-bucket",
+      "title": "My First Bucket",
+      "created_at": "2017-11-10T03:25:23.807Z",
+      "modified_at": "2017-11-11T17:20:04.322Z"
+    },
+    {
+      "_id": "5a329f6769a130011900000c",
+      "slug": "my-second-bucket",
+      "title": "My Second Bucket",
+      "created_at": "2017-12-14T15:57:27.274Z",
+      "modified_at": "2018-01-14T04:06:29.630Z"
+    },
+    {
+      "_id": "5a329f6769a130011900000c",
+      "slug": "my-third-bucket",
+      "title": "My Third Bucket",
+      "created_at": "2017-12-14T15:57:27.274Z",
+      "modified_at": "2018-01-14T04:06:29.630Z"
+    }
+  ]
 }
 ```
 
@@ -155,44 +155,44 @@ Cosmic.getBuckets()
 
 ```js
 const Cosmic = require('cosmicjs')({
-	token: 'your-token-from-auth-request' // optional
+  token: 'your-token-from-auth-request' // optional
 })
 Cosmic.getBuckets()
-	.then(data => {
-		console.log(data)
-	})
-	.catch(err => {
-		console.log(err)
-	})
+  .then(data => {
+    console.log(data)
+  })
+  .catch(err => {
+    console.log(err)
+  })
 ```
 
 **Example Response**
 
 ```json
 {
-	"buckets": [
-		{
-			"_id": "5a051c23ae05992b360005e7",
-			"slug": "my-first-bucket",
-			"title": "My First Bucket",
-			"created_at": "2017-11-10T03:25:23.807Z",
-			"modified_at": "2017-11-11T17:20:04.322Z"
-		},
-		{
-			"_id": "5a329f6769a130011900000c",
-			"slug": "my-second-bucket",
-			"title": "My Second Bucket",
-			"created_at": "2017-12-14T15:57:27.274Z",
-			"modified_at": "2018-01-14T04:06:29.630Z"
-		},
-		{
-			"_id": "5a329f6769a130011900000c",
-			"slug": "my-third-bucket",
-			"title": "My Third Bucket",
-			"created_at": "2017-12-14T15:57:27.274Z",
-			"modified_at": "2018-01-14T04:06:29.630Z"
-		}
-	]
+  "buckets": [
+    {
+      "_id": "5a051c23ae05992b360005e7",
+      "slug": "my-first-bucket",
+      "title": "My First Bucket",
+      "created_at": "2017-11-10T03:25:23.807Z",
+      "modified_at": "2017-11-11T17:20:04.322Z"
+    },
+    {
+      "_id": "5a329f6769a130011900000c",
+      "slug": "my-second-bucket",
+      "title": "My Second Bucket",
+      "created_at": "2017-12-14T15:57:27.274Z",
+      "modified_at": "2018-01-14T04:06:29.630Z"
+    },
+    {
+      "_id": "5a329f6769a130011900000c",
+      "slug": "my-third-bucket",
+      "title": "My Third Bucket",
+      "created_at": "2017-12-14T15:57:27.274Z",
+      "modified_at": "2018-01-14T04:06:29.630Z"
+    }
+  ]
 }
 ```
 
@@ -227,17 +227,17 @@ curl "https://api.cosmicjs.com/v1/wedding-site"
 ```js
 // Use the Cosmic.bucket method to connect to different Buckets in your account.
 const Cosmic = require('cosmicjs')({
-	token: 'your-token-from-auth-request' // optional
+  token: 'your-token-from-auth-request' // optional
 })
 const bucket = Cosmic.bucket({
-	slug: 'my-first-bucket',
-	read_key: '',
-	write_key: ''
+  slug: 'my-first-bucket',
+  read_key: '',
+  write_key: ''
 })
 const bucket2 = Cosmic.bucket({
-	slug: 'my-other-bucket',
-	read_key: '',
-	write_key: ''
+  slug: 'my-other-bucket',
+  read_key: '',
+  write_key: ''
 })
 ```
 
@@ -316,8 +316,8 @@ curl -X DELETE "https://api.cosmicjs.com/v1/buckets/:bucket_id" \
 
 ```json
 {
-	"status": "200",
-	"message": "Bucket deleted"
+  "status": "200",
+  "message": "Bucket deleted"
 }
 ```
 
@@ -349,8 +349,8 @@ Cosmic.deleteBucket({
 
 ```json
 {
-	"status": "200",
-	"message": "Bucket deleted"
+  "status": "200",
+  "message": "Bucket deleted"
 }
 ```
 
@@ -395,8 +395,8 @@ curl -X DELETE "https://api.cosmicjs.com/v1/buckets/:bucket_id" \
 
 ```json
 {
-	"status": "200",
-	"message": "Bucket deleted"
+  "status": "200",
+  "message": "Bucket deleted"
 }
 ```
 

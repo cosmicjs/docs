@@ -8,9 +8,9 @@ All requests to your endpoint are sent via POST with the following Body:
 
 ```json
 {
-	"type": Event(String),
-	"created_at": Date(String),
-	"data": Object(object, media)
+  "type": Event(String),
+  "created_at": Date(String),
+  "data": Object(object, media)
 }
 ```
 

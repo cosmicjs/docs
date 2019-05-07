@@ -382,48 +382,48 @@ Reference the [Metafield model](https://cosmicjs.github.io/rest-api-docs/?javasc
 
 ```json
 {
-	"title": "Users",
-	"singular": "User",
-	"slug": "users",
-	"metafields": [
-		{
-			"key": "first_name",
-			"title": "First Name",
-			"type": "text",
-			"value": "",
-			"required": true,
-			"minlength": 2
-		},
-		{
-			"key": "last_name",
-			"title": "Last Name",
-			"type": "text",
-			"value": "",
-			"required": true,
-			"minlength": 2
-		},
-		{
-			"key": "email",
-			"title": "Email",
-			"type": "text",
-			"value": "",
-			"regex": "/^([a-z0-9_.-]+)@([da-z.-]+).([a-z.]{2,6})$/",
-			"regex_message": "You must enter a valid email."
-		},
-		{
-			"key": "avatar",
-			"title": "Avatar",
-			"type": "file",
-			"value": ""
-		},
-		{
-			"key": "tagline",
-			"title": "Tagline",
-			"type": "text",
-			"value": "",
-			"maxlength": 50
-		}
-	]
+  "title": "Users",
+  "singular": "User",
+  "slug": "users",
+  "metafields": [
+    {
+      "key": "first_name",
+      "title": "First Name",
+      "type": "text",
+      "value": "",
+      "required": true,
+      "minlength": 2
+    },
+    {
+      "key": "last_name",
+      "title": "Last Name",
+      "type": "text",
+      "value": "",
+      "required": true,
+      "minlength": 2
+    },
+    {
+      "key": "email",
+      "title": "Email",
+      "type": "text",
+      "value": "",
+      "regex": "/^([a-z0-9_.-]+)@([da-z.-]+).([a-z.]{2,6})$/",
+      "regex_message": "You must enter a valid email."
+    },
+    {
+      "key": "avatar",
+      "title": "Avatar",
+      "type": "file",
+      "value": ""
+    },
+    {
+      "key": "tagline",
+      "title": "Tagline",
+      "type": "text",
+      "value": "",
+      "maxlength": 50
+    }
+  ]
 }
 ```
 
@@ -434,48 +434,48 @@ Reference the [Metafield model](https://cosmicjs.github.io/rest-api-docs/?javasc
 
 ```json
 {
-	"title": "Users",
-	"singular": "User",
-	"slug": "users",
-	"metafields": [
-		{
-			"key": "first_name",
-			"title": "First Name",
-			"type": "text",
-			"value": "",
-			"required": true,
-			"minlength": 2
-		},
-		{
-			"key": "last_name",
-			"title": "Last Name",
-			"type": "text",
-			"value": "",
-			"required": true,
-			"minlength": 2
-		},
-		{
-			"key": "email",
-			"title": "Email",
-			"type": "text",
-			"value": "",
-			"regex": "/^([a-z0-9_.-]+)@([da-z.-]+).([a-z.]{2,6})$/",
-			"regex_message": "You must enter a valid email."
-		},
-		{
-			"key": "avatar",
-			"title": "Avatar",
-			"type": "file",
-			"value": ""
-		},
-		{
-			"key": "tagline",
-			"title": "Tagline",
-			"type": "text",
-			"value": "",
-			"maxlength": 50
-		}
-	]
+  "title": "Users",
+  "singular": "User",
+  "slug": "users",
+  "metafields": [
+    {
+      "key": "first_name",
+      "title": "First Name",
+      "type": "text",
+      "value": "",
+      "required": true,
+      "minlength": 2
+    },
+    {
+      "key": "last_name",
+      "title": "Last Name",
+      "type": "text",
+      "value": "",
+      "required": true,
+      "minlength": 2
+    },
+    {
+      "key": "email",
+      "title": "Email",
+      "type": "text",
+      "value": "",
+      "regex": "/^([a-z0-9_.-]+)@([da-z.-]+).([a-z.]{2,6})$/",
+      "regex_message": "You must enter a valid email."
+    },
+    {
+      "key": "avatar",
+      "title": "Avatar",
+      "type": "file",
+      "value": ""
+    },
+    {
+      "key": "tagline",
+      "title": "Tagline",
+      "type": "text",
+      "value": "",
+      "maxlength": 50
+    }
+  ]
 }
 ```
 
@@ -500,31 +500,31 @@ POST https://api.cosmicjs.com/v1/:bucket_slug/add-object
 
 ```json
 {
-	"title": "Blog Post Example",
-	"type_slug": "blog-posts",
-	"content": "This is some amazing blog content...",
-	"metafields": [
-		{
-			"title": "Headline",
-			"key": "headline",
-			"type": "text",
-			"value": "What I Learned Today"
-		},
-		{
-			"title": "Author",
-			"key": "author",
-			"type": "object",
-			"object_type": "authors",
-			"value": "5a4ab6e0cf2289b18a2f7599"
-		},
-		{
-			"title": "Categories",
-			"key": "categories",
-			"type": "objects",
-			"object_type": "categories",
-			"value": "5a4ab6e0cf2289b18a2f7599,5a49d524c1174db128ca2bce"
-		}
-	]
+  "title": "Blog Post Example",
+  "type_slug": "blog-posts",
+  "content": "This is some amazing blog content...",
+  "metafields": [
+    {
+      "title": "Headline",
+      "key": "headline",
+      "type": "text",
+      "value": "What I Learned Today"
+    },
+    {
+      "title": "Author",
+      "key": "author",
+      "type": "object",
+      "object_type": "authors",
+      "value": "5a4ab6e0cf2289b18a2f7599"
+    },
+    {
+      "title": "Categories",
+      "key": "categories",
+      "type": "objects",
+      "object_type": "categories",
+      "value": "5a4ab6e0cf2289b18a2f7599,5a49d524c1174db128ca2bce"
+    }
+  ]
 }
 ```
 
@@ -541,44 +541,44 @@ bucket.addObject()
 
 ```js
 const params = {
-	title: 'Blog Post Example',
-	type_slug: 'blog-posts',
-	content: 'This is some amazing blog content...',
-	metafields: [
-		{
-			title: 'Headline',
-			key: 'headline',
-			type: 'text',
-			value: 'What I Learned Today'
-		},
-		{
-			title: 'Author',
-			key: 'author',
-			type: 'object',
-			object_type: 'authors',
-			value: '5a4ab6e0cf2289b18a2f7599'
-		},
-		{
-			title: 'Categories',
-			key: 'categories',
-			type: 'objects',
-			object_type: 'categories',
-			value: '5a4ab6e0cf2289b18a2f7599,5a49d524c1174db128ca2bce'
-		}
-	]
+  title: 'Blog Post Example',
+  type_slug: 'blog-posts',
+  content: 'This is some amazing blog content...',
+  metafields: [
+    {
+      title: 'Headline',
+      key: 'headline',
+      type: 'text',
+      value: 'What I Learned Today'
+    },
+    {
+      title: 'Author',
+      key: 'author',
+      type: 'object',
+      object_type: 'authors',
+      value: '5a4ab6e0cf2289b18a2f7599'
+    },
+    {
+      title: 'Categories',
+      key: 'categories',
+      type: 'objects',
+      object_type: 'categories',
+      value: '5a4ab6e0cf2289b18a2f7599,5a49d524c1174db128ca2bce'
+    }
+  ]
 }
 const bucket = Cosmic.bucket({
-	slug: 'bucket-slug',
-	write_key: ''
+  slug: 'bucket-slug',
+  write_key: ''
 })
 bucket
-	.addObject(params)
-	.then(data => {
-		console.log(data)
-	})
-	.catch(err => {
-		console.log(err)
-	})
+  .addObject(params)
+  .then(data => {
+    console.log(data)
+  })
+  .catch(err => {
+    console.log(err)
+  })
 ```
 
 :::

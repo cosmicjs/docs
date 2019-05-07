@@ -22,8 +22,8 @@ POST https://api.cosmicjs.com/v1/:bucket_slug/extensions
 
 ```json
 {
-	"zip": "your-media-multipart-form-data",
-	"write_key": "your-key-added-in-bucket-settings"
+  "zip": "your-media-multipart-form-data",
+  "write_key": "your-key-added-in-bucket-settings"
 }
 ```
 
@@ -31,15 +31,15 @@ POST https://api.cosmicjs.com/v1/:bucket_slug/extensions
 
 ```json
 {
-	"extension": {
-		"id": "c62defe0-5f93-11e7-8054-873245f0e98d",
-		"title": "Amazon Product Search",
-		"image_url": "https://s3-us-west-2.amazonaws.com/cosmicjs/f1f1bd40-5dcd-11e7-b529-51f126a4b6ee-shopping-cart.jpg",
-		"url": "http://localhost:3000/extensions/c62defe0-5f93-11e7-8054-873245f0e98d/dist",
-		"zip_url": "http://localhost:3000/extensions/c62defe0-5f93-11e7-8054-873245f0e98d/src/build.zip",
-		"installed_at": "2017-07-03T02:03:14.825Z",
-		"font_awesome_class": "fa-shopping-basket"
-	}
+  "extension": {
+    "id": "c62defe0-5f93-11e7-8054-873245f0e98d",
+    "title": "Amazon Product Search",
+    "image_url": "https://s3-us-west-2.amazonaws.com/cosmicjs/f1f1bd40-5dcd-11e7-b529-51f126a4b6ee-shopping-cart.jpg",
+    "url": "http://localhost:3000/extensions/c62defe0-5f93-11e7-8054-873245f0e98d/dist",
+    "zip_url": "http://localhost:3000/extensions/c62defe0-5f93-11e7-8054-873245f0e98d/src/build.zip",
+    "installed_at": "2017-07-03T02:03:14.825Z",
+    "font_awesome_class": "fa-shopping-basket"
+  }
 }
 ```
 
@@ -56,8 +56,8 @@ bucket.addExtension()
 
 ```js
 const bucket = Cosmic.bucket({
-	slug: 'bucket-slug',
-	write_key: ''
+  slug: 'bucket-slug',
+  write_key: ''
 })
 
 const zip_object = req.files[0] // Using Multer
@@ -65,15 +65,15 @@ const zip_object = req.files[0] // Using Multer
 // const zip_object = { originalname: filename, buffer: filedata } // Not using Multer
 
 bucket
-	.addExtension({
-		zip: zip_object
-	})
-	.then(data => {
-		console.log(data)
-	})
-	.catch(err => {
-		console.log(err)
-	})
+  .addExtension({
+    zip: zip_object
+  })
+  .then(data => {
+    console.log(data)
+  })
+  .catch(err => {
+    console.log(err)
+  })
 /*
 As an example, another popular upload library for express is [express-fileupload](https://www.npmjs.com/package/express-fileupload). File objects obtained through this have the following properties:
 req.files.foo.name: "car.jpg"
@@ -83,8 +83,8 @@ req.files.foo.data: A buffer representation of your file
 
 // In order to pass the file `req.files.foo` to Cosmic you would do:
 const media_object = {
-	originalname: req.files.foo.name,
-	buffer: req.files.foo.data
+  originalname: req.files.foo.name,
+  buffer: req.files.foo.data
 }
 ```
 
@@ -92,15 +92,15 @@ const media_object = {
 
 ```json
 {
-	"extension": {
-		"id": "c62defe0-5f93-11e7-8054-873245f0e98d",
-		"title": "Amazon Product Search",
-		"image_url": "https://s3-us-west-2.amazonaws.com/cosmicjs/f1f1bd40-5dcd-11e7-b529-51f126a4b6ee-shopping-cart.jpg",
-		"url": "http://localhost:3000/extensions/c62defe0-5f93-11e7-8054-873245f0e98d/dist",
-		"zip_url": "http://localhost:3000/extensions/c62defe0-5f93-11e7-8054-873245f0e98d/src/build.zip",
-		"installed_at": "2017-07-03T02:03:14.825Z",
-		"font_awesome_class": "fa-shopping-basket"
-	}
+  "extension": {
+    "id": "c62defe0-5f93-11e7-8054-873245f0e98d",
+    "title": "Amazon Product Search",
+    "image_url": "https://s3-us-west-2.amazonaws.com/cosmicjs/f1f1bd40-5dcd-11e7-b529-51f126a4b6ee-shopping-cart.jpg",
+    "url": "http://localhost:3000/extensions/c62defe0-5f93-11e7-8054-873245f0e98d/dist",
+    "zip_url": "http://localhost:3000/extensions/c62defe0-5f93-11e7-8054-873245f0e98d/src/build.zip",
+    "installed_at": "2017-07-03T02:03:14.825Z",
+    "font_awesome_class": "fa-shopping-basket"
+  }
 }
 ```
 
@@ -138,7 +138,7 @@ DELETE https://api.cosmicjs.com/v1/:bucket_slug/extensions/:extension_id
 
 ```json
 {
-	"write_key": "your-key-added-in-bucket-settings"
+  "write_key": "your-key-added-in-bucket-settings"
 }
 ```
 
@@ -146,8 +146,8 @@ DELETE https://api.cosmicjs.com/v1/:bucket_slug/extensions/:extension_id
 
 ```json
 {
-	"status": "200",
-	"message": "Extension deleted."
+  "status": "200",
+  "message": "Extension deleted."
 }
 ```
 
@@ -164,27 +164,27 @@ Cosmic.deleteExtension()
 
 ```js
 const bucket = Cosmic.bucket({
-	slug: 'bucket-slug',
-	write_key: ''
+  slug: 'bucket-slug',
+  write_key: ''
 })
 bucket
-	.deleteExtension({
-		id: 'c62defe0-5f93-11e7-8054-873245f0e98d'
-	})
-	.then(data => {
-		console.log(data)
-	})
-	.catch(err => {
-		console.log(err)
-	})
+  .deleteExtension({
+    id: 'c62defe0-5f93-11e7-8054-873245f0e98d'
+  })
+  .then(data => {
+    console.log(data)
+  })
+  .catch(err => {
+    console.log(err)
+  })
 ```
 
 **Example Response**
 
 ```json
 {
-	"status": "200",
-	"message": "Extension deleted."
+  "status": "200",
+  "message": "Extension deleted."
 }
 ```
 

@@ -24,14 +24,14 @@ The `index.js` file of your codebase will need to export a `handler` function an
 ```js
 // index.js
 module.exports.handler = function(event, context, callback) {
-	const response = {
-		statusCode: 200,
-		headers: {
-			'Access-Control-Allow-Origin': '*' // Required for CORS support to work
-		},
-		body: 'Hello World ' + process.env.SOME_OPTIONAL_VAR
-	}
-	callback(null, response)
+  const response = {
+    statusCode: 200,
+    headers: {
+      'Access-Control-Allow-Origin': '*' // Required for CORS support to work
+    },
+    body: 'Hello World ' + process.env.SOME_OPTIONAL_VAR
+  }
+  callback(null, response)
 }
 ```
 
@@ -41,23 +41,23 @@ The `function.json` file includes information that Cosmic JS uses to deploy your
 
 ```json
 {
-	"title": "Hello World",
-	"description": "Says Hello World and some custom message from env var.",
-	"image_url": "https://cosmic-s3.imgix.net/ed58d700-7b2c-11e8-9d6b-252d8b978aea-SendGrid-Logo.png",
-	"stage": "staging",
-	"env_vars": [
-		{
-			"key": "SOME_OPTIONAL_VAR",
-			"value": ""
-		}
-	],
-	"routes": [
-		{
-			"path": "hello-world",
-			"method": "get",
-			"cors": true
-		}
-	]
+  "title": "Hello World",
+  "description": "Says Hello World and some custom message from env var.",
+  "image_url": "https://cosmic-s3.imgix.net/ed58d700-7b2c-11e8-9d6b-252d8b978aea-SendGrid-Logo.png",
+  "stage": "staging",
+  "env_vars": [
+    {
+      "key": "SOME_OPTIONAL_VAR",
+      "value": ""
+    }
+  ],
+  "routes": [
+    {
+      "path": "hello-world",
+      "method": "get",
+      "cors": true
+    }
+  ]
 }
 ```
 
@@ -80,11 +80,11 @@ Your Function can serve dynamic routes, like an Express application (see the Ser
 
 ```json
 {
-	"title": "Dynamic Routes",
-	"description": "A serverless function with dynamic routes.",
-	"image_url": "https://cosmicjs.com/images/logos/serverless.svg",
-	"stage": "dev",
-	"dynamic_routes": true
+  "title": "Dynamic Routes",
+  "description": "A serverless function with dynamic routes.",
+  "image_url": "https://cosmicjs.com/images/logos/serverless.svg",
+  "stage": "dev",
+  "dynamic_routes": true
 }
 ```
 
@@ -96,7 +96,7 @@ const serverless = require('serverless-http')
 const express = require('express')
 const app = express()
 app.get('/:slug?', (req, res) => {
-	res.json({ message: 'Your dynamic slug is ' + req.params.slug });
+  res.json({ message: 'Your dynamic slug is ' + req.params.slug });
 })
 
 module.exports.handler = serverless(app);

@@ -29,9 +29,9 @@ curl -X POST "https://api.cosmicjs.com/v1/authenticate" \
 
 ```json
 {
-	"success": true,
-	"message": "Token created successfully.",
-	"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXV.eyJlbWFpbCI6InNwaXJvbnl..."
+  "success": true,
+  "message": "Token created successfully.",
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXV.eyJlbWFpbCI6InNwaXJvbnl..."
 }
 ```
 
@@ -49,13 +49,13 @@ Cosmic.authenticate()
 ```js
 const Cosmic = require('cosmicjs')() // double parentheses to init function without token
 Cosmic.authenticate({
-	email: 'you@youremail.com',
-	password: 'yourpassword'
+  email: 'you@youremail.com',
+  password: 'yourpassword'
 }).then(data => {
-	console.log(data)
+  console.log(data)
 })
 .catch(err => {
-	console.log(err)
+  console.log(err)
 })
 ```
 
@@ -63,9 +63,9 @@ Cosmic.authenticate({
 
 ```json
 {
-	"success": true,
-	"message": "Token created successfully.",
-	"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXV.eyJlbWFpbCI6InNwaXJvbnl..."
+  "success": true,
+  "message": "Token created successfully.",
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXV.eyJlbWFpbCI6InNwaXJvbnl..."
 }
 ```
 
