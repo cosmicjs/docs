@@ -125,7 +125,6 @@ export default {
     left 0.5em
   &.clickable
     &.active
-      font-weight 600
       color $accentColor
       border-left-color $accentColor
     &:hover

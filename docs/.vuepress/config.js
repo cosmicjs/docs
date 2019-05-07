@@ -15,7 +15,7 @@ module.exports = {
       },
       {
         title: 'REST API',
-        icon: '/icons/npm.svg',
+        icon: '/docs/icons/npm.svg',
         path: '/rest-api/',
         children: [
           ['/rest-api/', 'Introduction'],
@@ -34,27 +34,27 @@ module.exports = {
       {
         title: 'GraphQL API',
         path: '/graphql-api/',
-        icon: '/icons/graphql.svg'
+        icon: '/docs/icons/graphql.svg'
       },
       {
         title: 'CLI',
         path: '/cli/',
-        icon: '/icons/terminal.svg'
+        icon: '/docs/icons/terminal.svg'
       },
       {
         title: 'Functions',
         path: '/functions/',
-        icon: '/icons/function.svg'
+        icon: '/docs/icons/function.svg'
       },
       {
         title: 'Webhooks',
         path: '/webhooks/',
-        icon: '/icons/webhooks.png'
+        icon: '/docs/icons/webhooks.png'
       },
       {
         title: 'Extensions',
         path: '/extensions/',
-        icon: '/icons/puzzle-piece.svg'
+        icon: '/docs/icons/puzzle-piece.svg'
       }
     ]
   },
@@ -71,7 +71,7 @@ module.exports = {
       {
         rel: 'shortcut icon',
         type: 'image/x-icon',
-        href: '/favicon.ico'
+        href: 'https://cosmicjs.com/images/favicons/apple-touch-icon-57x57.png'
       }
     ],
     [
@@ -79,7 +79,7 @@ module.exports = {
       {
         rel: 'icon',
         type: 'image/x-icon',
-        href: '/favicon.ico'
+        href: 'https://cosmicjs.com/images/favicons/apple-touch-icon-57x57.png'
       }
     ]
   ],

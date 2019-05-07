@@ -59,8 +59,8 @@ function renderIcon(h, iconPath) {
     class: 'sidebar-icon',
     attrs: {
       src: iconPath,
-      width: 30,
-      height: 30
+      width: 20,
+      height: 20
     }
   })
 }

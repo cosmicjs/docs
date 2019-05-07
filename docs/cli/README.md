@@ -6,7 +6,7 @@ sidebarDepth: 2
 
 This is the official command line tool for [Cosmic JS](https://cosmicjs.com).  Use it to log in to your Cosmic JS account, manage Buckets, data, files and users within your Buckets, all from the comfort of your command line interface.
 
-## 🛠️ Installation
+## Installation
 
 Install the CLI globally:
 
@@ -16,7 +16,7 @@ npm i -g cosmic-cli
 
 To check that it installed properly, run `cosmic` on your command line and you should see a list of commands.
 
-## 🏁 Getting Started
+## Getting Started
 
 Let's walk through the commands you need to get started.  For an introduction to the Cosmic CLI run the `begin` command.
 ```bash
@@ -24,7 +24,7 @@ cosmic begin
 ```
 
 
-### 🔐 Login
+### Login
 
 Use your credentials (from https://cosmicjs.com) to login on the command line. You will only have to do this once. If you used GitHub to sign up, you can also login via authentication token which you can find at https://cosmicjs.com/account/authentication
 
@@ -35,7 +35,7 @@ $ cosmic login
 Authenticated
 ```
 
-## 🚀 Usage
+## Usage
 
 All Cosmic CLI commands are of the format:
 
@@ -76,7 +76,7 @@ Success
 Now you are ready to use any of the commands to have full control over your Bucket!
 
 
-### 🗺 Help
+### Help
 
 Run `cosmic -h` for a list of all commands. The list is also included at the [bottom of this README](https://github.com/cosmicjs/cosmic-cli#commands).
 
@@ -103,7 +103,7 @@ Creating an Object in the "Planets" Object Type:
 $ cosmic add-object --type_slug planets --title Venus --metafields '[{"title": "Radius","type":"text", "key": "radius", "value": "3,760 miles"},{"title": "Distance from Sun","type":"text", "key": "distance_from_sun", "value": "67.24 million miles"}]'
 ```
 
-🏞 **Uploading Files to a Bucket**
+**Uploading Files to a Bucket**
 
 We upload any file from our computer to Cosmic with the name provided to -t, and into a specified folder (optional).
 
