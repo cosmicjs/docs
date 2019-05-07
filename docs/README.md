@@ -23,7 +23,7 @@ cardData:
   icon: '/docs/icons/webhooks.png'
 - title: 'Extensions'
   url: '/docs/extensions/'
-  description: "<p class='home-card-description'>Use the GraphQL API to get only the data you need and nothing you don't."
+  description: "<p class='home-card-description'>Connect to third-party APIs and create custom views within your Bucket."
   icon: '/docs/icons/puzzle-piece.svg'
 ---
 
