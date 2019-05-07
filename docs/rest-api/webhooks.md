@@ -12,7 +12,7 @@ Sends a POST request to the endpoint of your choice when the event occurs. The d
 
 :::: tabs :options="{ useUrlFragment: false }"
 
-::: tab bash
+::: tab Bash
 **Definition**
 
 ```
@@ -44,7 +44,7 @@ POST https://api.cosmicjs.com/v1/:bucket_slug/webhooks
 
 :::
 
-::: tab javascript
+::: tab Node.js
 **Definition**
 
 ```js
@@ -98,7 +98,7 @@ If a write key is enabled on the requested bucket, the parameter `write_key` wil
 
 :::: tabs :options="{ useUrlFragment: false }"
 
-::: tab bash
+::: tab Bash
 **Definition**
 
 ```
@@ -124,7 +124,7 @@ DELETE https://api.cosmicjs.com/v1/:bucket_slug/webhooks/:webhook_id
 
 :::
 
-::: tab javascript
+::: tab Node.js
 **Definition**
 
 ```js

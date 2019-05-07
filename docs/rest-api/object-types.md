@@ -15,7 +15,7 @@ Add a new Object Type to your Bucket.
 
 :::: tabs :options="{ useUrlFragment: false }"
 
-::: tab bash
+::: tab Bash
 **Definition**
 
 ```
@@ -76,7 +76,7 @@ POST https://api.cosmicjs.com/v1/:bucket_slug/add-object-type
 
 :::
 
-::: tab javascript
+::: tab Node.js
 
 :::
 **Definition**
@@ -162,7 +162,7 @@ Get all Object Types in your Bucket.
 
 :::: tabs :options="{ useUrlFragment: false }"
 
-::: tab bash
+::: tab Bash
 **Definition**
 
 ```
@@ -174,7 +174,7 @@ Example Request
 curl "https://api.cosmicjs.com/v1/wedding-site/object-types"
 :::
 
-::: tab javascript
+::: tab Node.js
 **Definition**
 
 ```js
@@ -202,7 +202,7 @@ Edit an existing Object Type in your Bucket.
 
 :::: tabs :options="{ useUrlFragment: false }"
 
-::: tab bash
+::: tab Bash
 **Definition**
 
 ```
@@ -274,7 +274,7 @@ PUT https://api.cosmicjs.com/v1/:bucket_slug/edit-object-type
 
 :::
 
-::: tab javascript
+::: tab Node.js
 **Definition**
 
 ```js
@@ -350,7 +350,7 @@ Delete an existing Object Type from your Bucket. \* This does not delete Objects
 
 :::: tabs :options="{ useUrlFragment: false }"
 
-::: tab bash
+::: tab Bash
 **Definition**
 
 ```
@@ -376,7 +376,7 @@ _Example Request Body_
 
 :::
 
-::: tab javascript
+::: tab Node.js
 **Definition**
 
 ```js

@@ -7,7 +7,7 @@ sidebarDepth: 2
 Cosmic JS Extensions enable you to customize the Cosmic JS Dashboard experience to create custom experiences in your Bucket Dashboard.
 Pre-built Extensions are available for demo and install.
 
-![Screenshot of CosmicJS dashboard](/screenshots/dashboard-screenshot.jpg)
+![Screenshot of CosmicJS dashboard](/docs/screenshots/dashboard-screenshot.jpg)
 
 ## Getting started
 
@@ -22,7 +22,7 @@ Go to _Your Bucket > Settings > Extensions_. There are [pre-built Extensions ava
 
 You can add an Extension by URL (https required, X-Frame Options enabled), title and icon.
 
-![Screenshot of adding extension by URL](/screenshots/add-extension-url.png)
+![Screenshot of adding extension by URL](/docs/screenshots/add-extension-url.png)
 
 ### Query parameters
 

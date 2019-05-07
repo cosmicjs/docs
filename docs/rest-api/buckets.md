@@ -20,7 +20,7 @@
 
 :::: tabs :options="{ useUrlFragment: false }"
 
-::: tab bash
+::: tab Bash
 **Definition**
 
 ```
@@ -50,7 +50,7 @@ curl -X POST "https://api.cosmicjs.com/v1/buckets" \
 
 :::
 
-::: tab javascript
+::: tab Node.js
 **Definition**
 
 ```js
@@ -66,13 +66,12 @@ const Cosmic = require('cosmicjs')({
 Cosmic.addBucket({
 	title: 'My New Bucket',
 	slug: 'my-new-bucket' // must be unique across all Buckets in system
+}).then(data => {
+	console.log(data)
 })
-	.then(data => {
-		console.log(data)
-	})
-	.catch(err => {
-		console.log(err)
-	})
+.catch(err => {
+	console.log(err)
+})
 ```
 
 **Example Response**
@@ -97,7 +96,7 @@ Gets all Buckets connected to your account. Your authorization token in the head
 
 :::: tabs :options="{ useUrlFragment: false }"
 
-::: tab bash
+::: tab Bash
 **Definition**
 
 ```
@@ -145,7 +144,7 @@ Gets all Buckets connected to your account. Your authorization token in the head
 
 :::
 
-::: tab javascript
+::: tab Node.js
 **Definition**
 
 ```js
@@ -213,7 +212,7 @@ For the NPM module:
 
 :::: tabs :options="{ useUrlFragment: false }"
 
-::: tab bash
+::: tab Bash
 **Example Request**
 
 ```bash
@@ -222,7 +221,7 @@ curl "https://api.cosmicjs.com/v1/wedding-site"
 
 :::
 
-::: tab javascript
+::: tab Node.js
 **Example Request**
 
 ```js
@@ -257,7 +256,7 @@ Returns the entire Bucket including Object Types, Objects, Media and more. If yo
 
 :::: tabs :options="{ useUrlFragment: false }"
 
-::: tab bash
+::: tab Bash
 **Definition**
 
 ```
@@ -272,7 +271,7 @@ curl "https://api.cosmicjs.com/v1/wedding-site"
 
 :::
 
-::: tab javascript
+::: tab Node.js
 **Definition**
 
 ```js
@@ -299,7 +298,7 @@ Deletes the whole Bucket. **This cannot be undone.**
 
 :::: tabs :options="{ useUrlFragment: false }"
 
-::: tab bash
+::: tab Bash
 **Definition**
 
 ```
@@ -324,7 +323,7 @@ curl -X DELETE "https://api.cosmicjs.com/v1/buckets/:bucket_id" \
 
 :::
 
-::: tab javascript
+::: tab Node.js
 **Definition**
 
 ```js
@@ -378,7 +377,7 @@ The Bucket data schema matches the `bucket.json` file located in _Your Bucket Da
 
 :::: tabs :options="{ useUrlFragment: false }"
 
-::: tab bash
+::: tab Bash
 **Definition**
 
 ```
@@ -403,7 +402,7 @@ curl -X DELETE "https://api.cosmicjs.com/v1/buckets/:bucket_id" \
 
 :::
 
-::: tab javascript
+::: tab Node.js
 **Definition**
 
 ```js
@@ -443,86 +442,6 @@ Cosmic.importBucket(params).then(data => {
     "objects": [...], // all new Objects
     "media": [...] // all new Media
   }
-}
-```
-
-:::
-
-::::
-
-## Deploy App
-
-The Bucket deploy App action replaces the currently deployed App connected to this Bucket (if one exists).
-
-| Parameter   | Required | Type   | Description                                                         |
-| ----------- | -------- | ------ | ------------------------------------------------------------------- |
-| repo_url    |          | String | Link to public (or private, if GitHub account connected) repository |
-| repo_branch |          | String | Repo branch to deploy. Defaults to `master` if none specified.      |
-
-:::: tabs :options="{ useUrlFragment: false }"
-
-::: tab bash
-**Definition**
-
-```
-POST https://api.cosmicjs.com/v1/buckets/:bucket_id/deploy
-```
-
-**Example Request**
-
-```bash
-curl -X POST "https://api.cosmicjs.com/v1/buckets/5ace13795a39fb49db87ac95/deploy" \
--H "Authorization: Bearer <ACCESS_TOKEN>" \
--H "Content-Type: application/json" \
--d '{ "repo_url": "https://github.com/cosmicjs/portfolio-website", "repo_branch": "master" }'
-```
-
-**Example Response**
-
-```json
-{
-	"code": 200,
-	"status": "success",
-	"message": "App deploying.  You will receive an email when the deployment is completed successfully."
-}
-```
-
-:::
-
-::: tab javascript
-**Definition**
-
-```js
-Cosmic.deployApp()
-```
-
-**Example Request**
-
-```js
-const Cosmic = require('cosmicjs')({
-	token: 'your-token-from-auth-request' // required
-})
-const params = {
-	id: '5ace13795a39fb49db87ac95', // Bucket id found in Bucket Settings > Basic Settings
-	repo_url: 'https://github.com/cosmicjs/portfolio-website',
-	repo_branch: 'master'
-}
-Cosmic.deployApp(params)
-	.then(data => {
-		console.log(data)
-	})
-	.catch(err => {
-		console.log(err)
-	})
-```
-
-**Example Response**
-
-```json
-{
-	"code": 200,
-	"status": "success",
-	"message": "App deploying.  You will receive an email when the deployment is completed successfully."
 }
 ```
 

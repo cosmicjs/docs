@@ -26,7 +26,7 @@ Add a new Object to your Bucket.
 
 :::: tabs :options="{ useUrlFragment: false }"
 
-::: tab bash
+::: tab Bash
 **Definition**
 
 ```
@@ -93,7 +93,7 @@ POST https://api.cosmicjs.com/v1/:bucket_slug/add-object
 
 :::
 
-::: tab javascript
+::: tab Node.js
 **Definition**
 
 ```js
@@ -198,7 +198,7 @@ Returns Objects from your Bucket.
 
 :::: tabs :options="{ useUrlFragment: false }"
 
-::: tab bash
+::: tab Bash
 **Definition**
 
 ```
@@ -213,7 +213,7 @@ curl "https://api.cosmicjs.com/v1/wedding-site/objects?pretty=true&hide_metafiel
 
 :::
 
-::: tab javascript
+::: tab Node.js
 **Definition**
 
 ```js
@@ -233,7 +233,7 @@ Get Objects from an Object Type using getObject method and the type param (the m
 
 :::: tabs :options="{ useUrlFragment: false }"
 
-::: tab bash
+::: tab Bash
 **Definition**
 
 ```
@@ -248,7 +248,7 @@ curl "https://api.cosmicjs.com/v1/wedding-site/objects?type=groomsmen&limit=3"
 
 :::
 
-::: tab javascript
+::: tab Node.js
 
 :::
 **Definition**
@@ -270,7 +270,7 @@ Get Objects based on search variables. (the method searchObjectType is now depre
 
 :::: tabs :options="{ useUrlFragment: false }"
 
-::: tab bash
+::: tab Bash
 **Definition**
 
 ```
@@ -287,7 +287,7 @@ curl "https://api.cosmicjs.com/v1/wedding-site/objects?type=groomsmen&metafield_
 
 :::
 
-::: tab javascript
+::: tab Node.js
 **Definition**
 
 ```js
@@ -319,7 +319,7 @@ Returns a single Object from your Bucket.
 
 :::: tabs :options="{ useUrlFragment: false }"
 
-::: tab bash
+::: tab Bash
 **Definition**
 
 ```
@@ -334,7 +334,7 @@ curl "https://api.cosmicjs.com/v1/wedding-site/object/registry"
 
 :::
 
-::: tab javascript
+::: tab Node.js
 **Definition**
 
 ```js
@@ -368,7 +368,7 @@ Edit an existing Object in your Bucket.
 
 :::: tabs :options="{ useUrlFragment: false }"
 
-::: tab bash
+::: tab Bash
 **Definition**
 
 ```
@@ -431,7 +431,7 @@ PUT https://api.cosmicjs.com/v1/:bucket_slug/edit-object
 
 :::
 
-::: tab javascript
+::: tab Node.js
 **Definition**
 
 ```js
@@ -503,7 +503,7 @@ Delete an existing Object in your Bucket.
 
 :::: tabs :options="{ useUrlFragment: false }"
 
-::: tab bash
+::: tab Bash
 **Definition**
 
 ```
@@ -529,7 +529,7 @@ DELETE https://api.cosmicjs.com/v1/:bucket_slug/objects/:object_slug
 
 :::
 
-::: tab javascript
+::: tab Node.js
 **Definition**
 
 ```js

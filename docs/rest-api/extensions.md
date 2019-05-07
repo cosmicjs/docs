@@ -11,7 +11,7 @@ Adds an Extension to your Bucket. The only required post value is `zip` which is
 
 :::: tabs :options="{ useUrlFragment: false }"
 
-::: tab bash
+::: tab Bash
 **Definition**
 
 ```
@@ -45,7 +45,7 @@ POST https://api.cosmicjs.com/v1/:bucket_slug/extensions
 
 :::
 
-::: tab javascript
+::: tab Node.js
 **Definition**
 
 ```js
@@ -127,7 +127,7 @@ If a write key is enabled on the requested bucket, the parameter `write_key` wil
 
 :::: tabs :options="{ useUrlFragment: false }"
 
-::: tab bash
+::: tab Bash
 **Definition**
 
 ```
@@ -153,7 +153,7 @@ DELETE https://api.cosmicjs.com/v1/:bucket_slug/extensions/:extension_id
 
 :::
 
-::: tab javascript
+::: tab Node.js
 **Definition**
 
 ```js

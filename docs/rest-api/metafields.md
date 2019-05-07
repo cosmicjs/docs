@@ -19,7 +19,7 @@ Metafields are powerful components that can be added to Objects and Object Types
 
 :::: tabs :options="{ useUrlFragment: false }"
 
-::: tab bash
+::: tab Bash
 **Example Metafields**
 
 ```json
@@ -189,7 +189,7 @@ Metafields are powerful components that can be added to Objects and Object Types
 
 :::
 
-::: tab javascript
+::: tab Node.js
 **Example Metafields**
 
 ```json
@@ -377,7 +377,7 @@ Reference the [Metafield model](https://cosmicjs.github.io/rest-api-docs/?javasc
 
 :::: tabs :options="{ useUrlFragment: false }"
 
-::: tab bash
+::: tab Bash
 **Example Metafields with Validations**
 
 ```json
@@ -429,7 +429,7 @@ Reference the [Metafield model](https://cosmicjs.github.io/rest-api-docs/?javasc
 
 :::
 
-::: tab javascript
+::: tab Node.js
 **Example Metafields with Validations**
 
 ```json
@@ -489,7 +489,7 @@ You can connect Objects to create "one to many" and "many to many" relationships
 
 :::: tabs :options="{ useUrlFragment: false }"
 
-::: tab bash
+::: tab Bash
 **Definition**
 
 ```
@@ -530,7 +530,7 @@ POST https://api.cosmicjs.com/v1/:bucket_slug/add-object
 
 :::
 
-::: tab javascript
+::: tab Node.js
 **Definition**
 
 ```js

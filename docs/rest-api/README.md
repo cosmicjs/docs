@@ -10,7 +10,7 @@ Some code samples are runnable using [Runkit](https://runkit.com/home).
 
 :::: tabs :options="{ useUrlFragment: false }"
 
-::: tab bash
+::: tab Bash
 ```
 # API Endpoint
 https://api.cosmicjs.com
@@ -18,7 +18,7 @@ https://api.cosmicjs.com
 :::
 
 
-::: tab javascript
+::: tab Node.js
 ``` javascript
 // Install the NPM package
 npm install cosmicjs

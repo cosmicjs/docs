@@ -13,7 +13,7 @@ The only required post value is the `media` object. You can also add optional `f
 
 :::: tabs :options="{ useUrlFragment: false }"
 
-::: tab bash
+::: tab Bash
 **Definition**
 
 ```
@@ -63,7 +63,7 @@ POST https://api.cosmicjs.com/v1/:bucket_slug/media
 
 :::
 
-::: tab javascript
+::: tab Node.js
 **Definition**
 
 ```js
@@ -159,7 +159,7 @@ You can add the folder parameter to get Media from a certain folder.
 
 :::: tabs :options="{ useUrlFragment: false }"
 
-::: tab bash
+::: tab Bash
 **Definition**
 
 ```
@@ -174,7 +174,7 @@ curl "https://api.cosmicjs.com/v1/wedding-site/media?pretty=true&folder=groomsme
 
 :::
 
-::: tab javascript
+::: tab Node.js
 **Definition**
 
 ```js
@@ -208,7 +208,7 @@ If a write key is enabled on the requested bucket, the parameter `write_key` wil
 
 :::: tabs :options="{ useUrlFragment: false }"
 
-::: tab bash
+::: tab Bash
 **Definition**
 
 ```
@@ -234,7 +234,7 @@ DELETE https://api.cosmicjs.com/v1/:bucket_slug/media/:media_id
 
 :::
 
-::: tab javascript
+::: tab Node.js
 **Definition**
 
 ```js

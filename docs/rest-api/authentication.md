@@ -9,7 +9,7 @@ Send your `email` and `password` to receive your access token. Your access token
 
 :::: tabs :options="{ useUrlFragment: false }"
 
-::: tab bash
+::: tab Bash
 **Definition**
 
 ```
@@ -37,7 +37,7 @@ curl -X POST "https://api.cosmicjs.com/v1/authenticate" \
 
 :::
 
-::: tab javascript
+::: tab Node.js
 **Definition**
 
 ```js
@@ -51,13 +51,12 @@ const Cosmic = require('cosmicjs')() // double parentheses to init function with
 Cosmic.authenticate({
 	email: 'you@youremail.com',
 	password: 'yourpassword'
+}).then(data => {
+	console.log(data)
 })
-	.then(data => {
-		console.log(data)
-	})
-	.catch(err => {
-		console.log(err)
-	})
+.catch(err => {
+	console.log(err)
+})
 ```
 
 **Example Response**

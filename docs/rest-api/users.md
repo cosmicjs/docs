@@ -14,7 +14,7 @@ Add a user to your Bucket. Authentication token is required and must have admin 
 
 :::: tabs :options="{ useUrlFragment: false }"
 
-::: tab bash
+::: tab Bash
 **Definition**
 
 ```
@@ -41,7 +41,7 @@ POST https://api.cosmicjs.com/v1/:bucket_slug/users
 
 :::
 
-::: tab javascript
+::: tab Node.js
 **Definition**
 
 ```js
@@ -90,7 +90,7 @@ Get users in your Bucket. Authentication token is required in the header (see Au
 
 :::: tabs :options="{ useUrlFragment: false }"
 
-::: tab bash
+::: tab Bash
 **Definition**
 
 ```
@@ -146,7 +146,7 @@ curl "https://api.cosmicjs.com/v1/creative-agency/users" \
 
 :::
 
-::: tab javascript
+::: tab Node.js
 **Definition**
 
 ```js
@@ -223,7 +223,7 @@ Get a single user from your Bucket. Authentication token is required in the head
 
 :::: tabs :options="{ useUrlFragment: false }"
 
-::: tab bash
+::: tab Bash
 **Definition**
 
 ```
@@ -254,7 +254,7 @@ GET https://api.cosmicjs.com/v1/:bucket_slug/users/:user_id
 
 :::
 
-::: tab javascript
+::: tab Node.js
 **Definition**
 
 ```js
