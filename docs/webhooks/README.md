@@ -29,7 +29,7 @@ This is a list of available events. We will add to this list as more features be
 | media.edited             | Media edited.                            |
 | media.deleted            | Media deleted.                           |
 
-###Getting Started
+### Getting Started
 
 Manage Webhooks in your Bucket by logging in and going to the Webhooks section in your Bucket located at:
 
