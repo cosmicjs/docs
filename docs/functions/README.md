@@ -4,7 +4,7 @@ Deploy code without having to manage infrastructure.
 
 https://cosmicjs.com/contribute
 
-![CosmicJS and AWS Logos](/docs/images/cosmicjs-aws-logos.jpg)
+![Cosmic JS and AWS Logos](/docs/images/cosmicjs-aws-logos.jpg)
 
 ## How it works
 

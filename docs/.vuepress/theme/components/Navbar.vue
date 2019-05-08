@@ -1,7 +1,7 @@
 <template>
   <header class="navbar">
     <SidebarButton @toggle-sidebar="$emit('toggle-sidebar')"/>
-      <a href="https://cosmicjs.com">
+      <a href="/">
         <img
           class="logo"
           v-if="$site.themeConfig.logo"

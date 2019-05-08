@@ -23,8 +23,8 @@
         v-if="item.icon"
         class="sidebar-icon"
         :src="item.icon" 
-        width="30" 
-        height="30" 
+        width="20" 
+        height="20" 
       />
       <span>{{ item.title }}</span>
       <span

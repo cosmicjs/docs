@@ -1,4 +1,4 @@
-# CosmicJS Webhooks
+# Cosmic JS Webhooks
 
 Cosmic JS makes it easy to add Webhooks to trigger a POST request to the endpoint of your choice when an event occurs in your Bucket. This is great for integrating static site rebuilds whenever content is changed, or adding third-party integrations like notifying your team on Slack whenever content has been added.
 

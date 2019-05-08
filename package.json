@@ -1,7 +1,7 @@
 {
   "name": "cosmicjs-docs",
   "version": "0.1.0-alpha",
-  "description": "CosmicJS documentation site",
+  "description": "Cosmic JS documentation site",
   "main": "index.js",
   "scripts": {
     "dev": "vuepress dev docs",

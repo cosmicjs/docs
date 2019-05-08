@@ -1,6 +1,6 @@
-# CosmicJS Docs
+# Cosmic JS Docs
 
-This is the source code for the CosmicJS documentation site and is built with [VuePress v1+](https://v1.vuepress.vuejs.org/).
+This is the source code for the Cosmic JS documentation site and is built with [VuePress v1+](https://v1.vuepress.vuejs.org/).
 
 ## Local Setup
 
