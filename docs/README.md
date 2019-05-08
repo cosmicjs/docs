@@ -29,7 +29,7 @@ cardData:
 
 # Documentation
 
-Welcome to Cosmic JS! Learn how to use the entire Cosmic JS toolkit with our documentation.
+Welcome to Cosmic JS! Learn how to use the entire Cosmic JS toolkit and explore features.
 
 <div class="home-card-list">
   <HomeCard
