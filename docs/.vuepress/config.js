@@ -100,7 +100,7 @@ module.exports = {
   head: [
     ['link', 
       {
-        href: "//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300,600",
+        href: "https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300,600",
         rel: "stylesheet",
         type: "text/css"
       }
