@@ -136,15 +136,15 @@ Along with the Extension info, you can import data to the destination Bucket. By
 
 The static site folder contents:
 
-![Screenshot of how to compress build folder - Part 1](/screenshots/compress-1.png)
+![Screenshot of how to compress build folder - Part 1](/docs/screenshots/compress-1.png)
 
 Compress the folder:
 
-![Screenshot of how to compress build folder - Part 2](/screenshots/compress-2.png)
+![Screenshot of how to compress build folder - Part 2](/docs/screenshots/compress-2.png)
 
 Then upload the Extension to your Cosmic JS Bucket located in *Your Bucket > Extensions > Add Extension*.
 
-![Screenshot of add extension](/screenshots/add-extension-zip.png)
+![Screenshot of add extension](/docs/screenshots/add-extension-zip.png)
 
 ## Want to build Extensions for us?
 
