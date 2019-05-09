@@ -32,9 +32,8 @@
       <AlgoliaSearchBox
         v-if="isAlgoliaSearch"
         :options="algolia"
-        placeholder="Search docs"
       />
-      <SearchBox placeholder="Search docs" v-else-if="$site.themeConfig.search !== false && $page.frontmatter.search !== false"/>
+      <SearchBox v-else-if="$site.themeConfig.search !== false && $page.frontmatter.search !== false"/>
       <NavLinks class="can-hide"/>
     </div>
   </header>
