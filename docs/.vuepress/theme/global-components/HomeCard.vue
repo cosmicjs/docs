@@ -20,20 +20,22 @@ export default {
 </script>
 
 <template>
-	<a :href="url" class="home-card">
-    <img 
-      v-if="icon"
-      class="home-card-icon"
-      :src="icon" 
-      :alt="`${title} Icon`" 
-    />
-    <div>
-      <p class="home-card-title">
-        {{ title }}
-      </p>
-      <slot></slot>
+  <router-link :to="url">
+    <div class="home-card">
+      <img 
+        v-if="icon"
+        class="home-card-icon"
+        :src="icon" 
+        :alt="`${title} Icon`" 
+      />
+      <div>
+        <p class="home-card-title">
+          {{ title }}
+        </p>
+        <slot></slot>
+      </div>
     </div>
-  </a>
+  </router-link>
 </template>
 
 <style lang="stylus">
