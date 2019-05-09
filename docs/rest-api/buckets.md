@@ -1,4 +1,5 @@
 # Buckets
+Buckets are where you store content for your projects.
 
 ## Add Bucket
 
