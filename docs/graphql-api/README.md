@@ -44,7 +44,7 @@ Returns Objects from a Bucket by querying by `bucket_slug` and `type_slug`.
 <iframe src="https://cosmic-graphql-playground.netlify.com/?endpoint=https://graphql.cosmicjs.com/v1&query=%7B%0A%20%20objectsByType(bucket_slug%3A%20%22creative-agency%22%2C%20type_slug%3A%20%22team-members%22%2C%20limit%3A%204%2C%20skip%3A%202)%20%7B%0A%20%20%20%20title%0A%20%20%20%20metadata%0A%20%20%20%20type_slug%0A%20%20%7D%0A%7D" frameborder="0" style="width: 100%; height: 870px;"></iframe>
 
 ::: tip 
-To see the REST equivalent, visit [https://api.cosmicjs.com/v1/creative-agency/object-type/team-members?pretty=true&limit=4&skip=2](https://api.cosmicjs.com/v1/creative-agency/object-type/team-members?pretty=true&limit=4&skip=2)
+To see the REST equivalent, visit [https://api.cosmicjs.com/v1/creative-agency/objects?type=team-members&pretty=true&limit=4&skip=2](https://api.cosmicjs.com/v1/creative-agency/objects?type=team-members&pretty=true&limit=4&skip=2)
 :::
 
 ## Get Single Object
