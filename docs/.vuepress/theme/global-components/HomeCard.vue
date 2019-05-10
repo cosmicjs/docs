@@ -20,7 +20,7 @@ export default {
 </script>
 
 <template>
-  <router-link :to="url">
+  <router-link :to="url" style="text-decoration: none !important;">
     <div class="home-card">
       <img 
         v-if="icon"
