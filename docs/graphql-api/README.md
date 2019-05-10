@@ -4,7 +4,7 @@ sidebarDepth: 2
 
 # Cosmic JS GraphQL API
 
-Learn how to connect your Cosmic JS Bucket through GraphQL queries to the Cosmic JS API. [Play with the Cosmic JS GraphQL in the Playground](https://cosmic-graphql-playground.netlify.com/?endpoint=https://graphql.cosmicjs.com/v1).
+Welcome to the Cosmic JS GraphQL documentation. Learn about all of the features and methods to perform queries and mutations on your Bucket content.
 
 ## API Endpoint
 All `queries` and `mutations` are called to the Cosmic JS GraphQL endpoint:
@@ -12,8 +12,12 @@ All `queries` and `mutations` are called to the Cosmic JS GraphQL endpoint:
 ```
 https://graphql.cosmicjs.com/v1
 ```
+## Playground
+**[Full screen&nbsp;&nbsp;](https://cosmic-graphql-playground.netlify.com/?endpoint=https://graphql.cosmicstaging.com/v1&query=%7B%0A%20%20getObjects(bucket_slug%3A%20%22simple-react-blog%22%2C%20input%3A%20%7B%20type%3A%20%22posts%22%7D)%20%7B%0A%20%20%20%20title%0A%20%20%20%20content%0A%20%20%7D%0A%7D)**
+<iframe src="https://cosmic-graphql-playground.netlify.com/?endpoint=https://graphql.cosmicstaging.com/v1&query=%7B%0A%20%20getObjects(bucket_slug%3A%20%22simple-react-blog%22%2C%20input%3A%20%7B%20type%3A%20%22posts%22%7D)%20%7B%0A%20%20%20%20title%0A%20%20%20%20content%0A%20%20%7D%0A%7D" frameborder="0" style="width: 100%; height: 470px;"></iframe>
 
-## Queries Table
+## Methods Overview
+### Queries
 | Method  | Description | Authentication Required |
 | ---------- | -------- | -------- |
 | [getAccessToken](#getaccesstoken) | Get token for account-related access (not required for Bucket-level access) |
@@ -29,7 +33,7 @@ https://graphql.cosmicjs.com/v1
 | objectsByType (DEPRECATED) | Get Objects bt Type in a Bucket | |
 | object (DEPRECATED) | Get an Object in a Bucket | |
 
-## Mutations Table
+### Mutations
 | Method  | Description | Authentication Required |
 | ---------- | -------- | -------- |
 | addBucket | Add Bucket to your user account | yes |
