@@ -20,7 +20,7 @@
         :to="$localePath"
         class="home-link"
       >
-      Docs
+      <b>Docs</b>
       </router-link>
 
     <div

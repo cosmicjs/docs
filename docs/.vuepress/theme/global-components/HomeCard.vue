@@ -64,6 +64,7 @@ export default {
   margin: 0;
   font-size: 1.4rem;
   text-decoration: none;
+  font-weight: 600;
 }
 
 .home-card-btn {
