@@ -6,73 +6,76 @@ sidebarDepth: 2
 
 Learn how to connect your Cosmic JS Bucket through GraphQL queries to the Cosmic JS API. [Play with the Cosmic JS GraphQL in the Playground](https://cosmic-graphql-playground.netlify.com/?endpoint=https://graphql.cosmicjs.com/v1).
 
-## Parameters
-
-### Required Parameters
-
-All queries require a `bucket_slug` parameter.
-
-### Optional Parameters
-
-For queries that return arrays, optional parameters `limit` and `skip` can be used to paginate returned data. If you have added a `read_key` to your Bucket, this will need to be included in every request.
-
-All API requests begin from the host URL:
+## API Endpoint
+All `queries` and `mutations` are called to the Cosmic JS GraphQL endpoint:
 
 ```
 https://graphql.cosmicjs.com/v1
 ```
 
+## Queries Table
+| Method  | Description | Authentication Required |
+| ---------- | -------- | -------- |
+| [getAccessToken](#getaccesstoken) | Get token for account-related access (not required for Bucket-level access) |
+| getBuckets | Get all Buckets on your user account | yes |
+| getBucket | Get all Bucket content | |
+| getUsers | Get Users in a Bucket | yes |
+| getUser | Get a User in a Bucket | yes |
+| getObjectTypes | Get Object Types in a Bucket | |
+| getObjects | Get Objects in a Bucket | |
+| getObject | Get an Object in a Bucket | |
+| getMedia | Get Media in a Bucket | |
+| objects (DEPRECATED) | Get Objects in a Bucket | |
+| objectsByType (DEPRECATED) | Get Objects bt Type in a Bucket | |
+| object (DEPRECATED) | Get an Object in a Bucket | |
 
-## Get All Objects
+## Mutations Table
+| Method  | Description | Authentication Required |
+| ---------- | -------- | -------- |
+| addBucket | Add Bucket to your user account | yes |
+| deleteBucket | Delete Bucket from your user account | yes |
+| importBucket | Import Bucket on your user account | yes |
+| addExtension | `Coming soon` | yes |
+| deleteExtension | Delete an Extension in your Bucket | yes |
+| addMedia | `Coming soon` | yes |
+| deleteMedia | Delete Media from your Bucket | yes |
+| addUser | Add user to your Bucket | yes |
+| addObjectType | Add Object Type to your Bucket | yes |
+| editObjectType | Edit Object Type on your Bucket | yes |
+| deleteObjectType | Delete Object Type on your Bucket | yes |
+| addObject | Add Object to your Bucket | |
+| editObject | Edit Object in a Bucket | |
+| deleteObject | Delete Object in a Bucket | |
+| addWebhook | Add Webhook to your Bucket | yes |
+| deleteWebhook | Delete Webhook in your Bucket | yes |
 
-Returns Objects from a Bucket by querying by `bucket_slug`.
 
-**[Play with it&nbsp;&nbsp;](https://cosmic-graphql-playground.netlify.com/?endpoint=https://graphql.cosmicjs.com/v1&query=%7B%0A%20%20objects(bucket_slug%3A%20%22creative-agency%22%2C%20limit%3A%204)%20%7B%0A%20%20%20%20title%0A%20%20%20%20type_slug%0A%20%20%7D%0A%7D)**
 
-<iframe src="https://cosmic-graphql-playground.netlify.com/?endpoint=https://graphql.cosmicjs.com/v1&query=%7B%0A%20%20objects(bucket_slug%3A%20%22creative-agency%22%2C%20limit%3A%204)%20%7B%0A%20%20%20%20title%0A%20%20%20%20type_slug%0A%20%20%7D%0A%7D" frameborder="0" style="width: 100%; height: 470px;"></iframe>
+## Queries
+
+### getAccessToken
+```
+getAccessToken(email, password)
+```
+**[Full screen&nbsp;&nbsp;](https://cosmic-graphql-playground.netlify.com/?endpoint=https://graphql.cosmicstaging.com/v1&query=%7B%0A%20%20getAccessToken(email%3A%20%22joe%40joes.com%22%2C%20password%3A%20%22myCatIsTheBest%22)%0A%7D)**
+
+<iframe src="https://cosmic-graphql-playground.netlify.com/?endpoint=https://graphql.cosmicstaging.com/v1&query=%7B%0A%20%20getAccessToken(email%3A%20%22joe%40joes.com%22%2C%20password%3A%20%22myCatIsTheBest%22)%0A%7D" frameborder="0" style="width: 100%; height: 470px;"></iframe>
+
+### getObjects
+```
+getObjects(bucket_slug, input)
+```
+**[Full screen&nbsp;&nbsp;](https://cosmic-graphql-playground.netlify.com/?endpoint=https://graphql.cosmicstaging.com/v1&query=%7B%0A%20%20getObjects(bucket_slug%3A%20%22simple-react-blog%22%2C%20input%3A%20%7B%20type%3A%20%22posts%22%7D)%20%7B%0A%20%20%20%20title%0A%20%20%7D%0A%7D)**
+
+<iframe src="https://cosmic-graphql-playground.netlify.com/?endpoint=https://graphql.cosmicstaging.com/v1&query=%7B%0A%20%20getObjects(bucket_slug%3A%20%22simple-react-blog%22%2C%20input%3A%20%7B%20type%3A%20%22posts%22%7D)%20%7B%0A%20%20%20%20title%0A%20%20%7D%0A%7D" frameborder="0" style="width: 100%; height: 470px;"></iframe>
 
 ::: tip 
 To see the REST equivalent, visit [https://api.cosmicjs.com/v1/creative-agency/objects?pretty=true&limit=4](https://api.cosmicjs.com/v1/creative-agency/objects?pretty=true&limit=4)
 :::
 
-## Get Objects by Type
-
-Returns Objects from a Bucket by querying by `bucket_slug` and `type_slug`.
-
-**[Play with it&nbsp;&nbsp;](https://cosmic-graphql-playground.netlify.com/?endpoint=https://graphql.cosmicjs.com/v1&query=%7B%0A%20%20objectsByType(bucket_slug%3A%20%22creative-agency%22%2C%20type_slug%3A%20%22team-members%22%2C%20limit%3A%204%2C%20skip%3A%202)%20%7B%0A%20%20%20%20title%0A%20%20%20%20metadata%0A%20%20%20%20type_slug%0A%20%20%7D%0A%7D)**
-
-<iframe src="https://cosmic-graphql-playground.netlify.com/?endpoint=https://graphql.cosmicjs.com/v1&query=%7B%0A%20%20objectsByType(bucket_slug%3A%20%22creative-agency%22%2C%20type_slug%3A%20%22team-members%22%2C%20limit%3A%204%2C%20skip%3A%202)%20%7B%0A%20%20%20%20title%0A%20%20%20%20metadata%0A%20%20%20%20type_slug%0A%20%20%7D%0A%7D" frameborder="0" style="width: 100%; height: 870px;"></iframe>
-
-::: tip 
-To see the REST equivalent, visit [https://api.cosmicjs.com/v1/creative-agency/object-type/team-members?pretty=true&limit=4&skip=2](https://api.cosmicjs.com/v1/creative-agency/object-type/team-members?pretty=true&limit=4&skip=2)
-:::
-
-## Get Single Object
-
-Returns a single Object by querying by `bucket_slug` and `slug`.
-
-**[Play with it&nbsp;&nbsp;](https://cosmic-graphql-playground.netlify.com/?endpoint=https://graphql.cosmicjs.com/v1&query=%7B%0A%20%20object(bucket_slug%3A%20%22creative-agency%22%2C%20slug%3A%20%22about%22)%20%7B%0A%20%20%20%20title%0A%20%20%20%20metadata%0A%20%20%7D%0A%7D)**
-
-<iframe src="https://cosmic-graphql-playground.netlify.com/?endpoint=https://graphql.cosmicjs.com/v1&query=%7B%0A%20%20object(bucket_slug%3A%20%22creative-agency%22%2C%20slug%3A%20%22about%22)%20%7B%0A%20%20%20%20title%0A%20%20%20%20metadata%0A%20%20%7D%0A%7D" frameborder="0" style="width: 100%; height: 450px;"></iframe>
-
-::: tip 
-To see the REST equivalent, visit [https://api.cosmicjs.com/v1/creative-agency/object/about?pretty=true](https://api.cosmicjs.com/v1/creative-agency/object/about?pretty=true)
-:::
-
-## Examples
-
-These examples get content from the [Creative Agency app](https://api.cosmicjs.com/apps/creative-agency).
-
-### CURL
-
-Get all the Objects in the [Creative Agency app](/apps/creative-agency). Run the following in your command line app:
-
-```bash
-curl -XPOST -H "Content-Type:application/graphql"  -d 'query { objects(bucket_slug: "creative-agency") { title, metadata } }' https://graphql.cosmicjs.com/v1
-```
 
 ### AJAX
 
-Get one object from the [Creative Agency app](/apps/creative-agency).
+Get one Object using client-side AJAX method.
 
 <iframe width="100%" height="550" src="//jsfiddle.net/WQXXT/4476/embedded/js,html,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
