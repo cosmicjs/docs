@@ -20,7 +20,7 @@ export default {
 </script>
 
 <template>
-  <router-link :to="url">
+  <router-link :to="url" class="home-card-wrapper">
     <div class="home-card">
       <img 
         v-if="icon"
@@ -44,7 +44,6 @@ export default {
 .home-card {
   display: flex;
   align-items: center;
-
   box-shadow: rgba(0,21,64,.14) 0 2px 6px, rgba(0,21,64,.05) 0 10px 20px;
   border-radius: 20px;
   border: 14px solid #fff;
@@ -90,5 +89,20 @@ export default {
   height: 40px;
   margin-right: 15px;
   padding: 10px;
+}
+
+@media (min-width: ($MQNarrow + 1px)) {
+  .home-card-wrapper {
+    flex: 1 1 calc(50% - 30px);
+    margin: 0 15px;
+  }
+
+  .home-card-wrapper:nth-child(odd) {
+    margin-left: 0;
+  }
+
+  .home-card-wrapper:nth-child(even) {
+    margin-right: 0;
+  }
 }
 </style>
