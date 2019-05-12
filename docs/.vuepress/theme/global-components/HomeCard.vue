@@ -6,6 +6,9 @@ export default {
       type: String,
       required: true
     },
+    description: {
+      type: String
+    },
     url: {
       type: String
     },
@@ -32,7 +35,9 @@ export default {
         <p class="home-card-title">
           {{ title }}
         </p>
-        <slot></slot>
+        <p class="home-card-description">
+          {{ description }}
+        </p>
       </div>
     </div>
   </router-link>
