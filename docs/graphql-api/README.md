@@ -45,9 +45,9 @@ In GraphQL terminolgy, `mutations` perform write, edit, or delete actions on API
 | [addObject](#addobject) | Add Object to your Bucket | |
 | [editObject](#editobject) | Edit Object in a Bucket | |
 | [deleteObject](#deleteobject) | Delete Object in a Bucket | |
-| [addObjectType](#addobjecttype) | Add Object Type to your Bucket | yes |
-| [editObjectType](#editobjecttype) | Edit Object Type on your Bucket | yes |
-| [deleteObjectType](#deleteobjecttype) | Delete Object Type on your Bucket | yes |
+| [addObjectType](#addobjecttype) | Add Object Type to your Bucket | |
+| [editObjectType](#editobjecttype) | Edit Object Type on your Bucket | |
+| [deleteObjectType](#deleteobjecttype) | Delete Object Type on your Bucket | |
 | [addBucket](#addbucket) | Add Bucket to your user account | yes |
 | [deleteBucket](#deletebucket) | Delete Bucket from your user account | yes |
 | [importBucket](#importbucket) | Import Bucket on your user account | yes |
@@ -185,7 +185,6 @@ deleteObject(bucket_slug, input)
 ```
 addObjectType(bucket_slug, input)
 ```
-Requires `Authorization` in HTTP Header. Find token in Account Settings or using the `getAccessToken` method.
 
 **[Full screen&nbsp;&nbsp;](https://cosmic-graphql-playground.netlify.com/?endpoint=https://graphql.cosmicstaging.com/v1&query=mutation%20%7B%0A%20%20addObjectType(%0A%20%20%20%20bucket_slug%3A%20%22graphql-bucket%22%2C%0A%20%20%20%20input%3A%20%7B%0A%20%20%20%20%20%20title%3A%20%22Pages%22%2C%0A%20%20%20%20%20%20slug%3A%20%22pages%22%2C%0A%20%20%20%20%20%20singular%3A%20%22page%22%2C%0A%20%20%20%20%7D%0A%20%20)%20%7B%0A%20%20%20%20title%0A%20%20%7D%0A%7D)**
 
@@ -196,7 +195,6 @@ Requires `Authorization` in HTTP Header. Find token in Account Settings or using
 ```
 editObjectType(bucket_slug)
 ```
-Requires `Authorization` in HTTP Header. Find token in Account Settings or using the `getAccessToken` method.
 
 **[Full screen&nbsp;&nbsp;](https://cosmic-graphql-playground.netlify.com/?endpoint=https://graphql.cosmicstaging.com/v1&query=mutation%20%7B%0A%20%20editObjectType(%0A%20%20%20%20bucket_slug%3A%20%22graphql-bucket%22%2C%0A%20%20%20%20input%3A%20%7B%0A%20%20%20%20%20%20title%3A%20%22Pages%20EDITED%22%2C%0A%20%20%20%20%20%20slug%3A%20%22pages%22%2C%0A%20%20%20%20%20%20singular%3A%20%22page%22%2C%0A%20%20%20%20%7D%0A%20%20)%20%7B%0A%20%20%20%20title%0A%20%20%7D%0A%7D)**
 
@@ -207,7 +205,6 @@ Requires `Authorization` in HTTP Header. Find token in Account Settings or using
 ```
 deleteObjectType(bucket_slug, type_slug)
 ```
-Requires `Authorization` in HTTP Header. Find token in Account Settings or using the `getAccessToken` method.
 
 **[Full screen&nbsp;&nbsp;](https://cosmic-graphql-playground.netlify.com/?endpoint=https://graphql.cosmicstaging.com/v1&query=mutation%20%7B%0A%20%20deleteObjectType(%0A%20%20%20%20bucket_slug%3A%20%22graphql-bucket%22%2C%0A%20%20%20%20type_slug%3A%20%22pages%22%0A%20%20)%0A%7D)**
 
