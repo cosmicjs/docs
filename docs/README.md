@@ -3,7 +3,7 @@ pageClass: docs-home-page
 cardData:
 - title: 'REST API'
   url: '/rest-api/'
-  description: '<p class="home-card-description">Integrate your content using the <a href="https://www.npmjs.com/package/cosmicjs" target="_blank">NPM module</a> or directly to the REST API.</p>'
+  description: '<p class="home-card-description">Integrate your content using the Cosmic JS NPM module or directly to the REST API.</p>'
   icon: '/docs/icons/npm.svg'
 - title: 'GraphQL API'
   url: '/graphql-api/'
