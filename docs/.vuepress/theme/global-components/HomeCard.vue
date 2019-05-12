@@ -63,6 +63,7 @@ export default {
   margin: 0;
   font-size: 1.4rem;
   text-decoration: none;
+  font-weight: 600;
 }
 
 .home-card-btn {
@@ -89,6 +90,10 @@ export default {
   height: 40px;
   margin-right: 15px;
   padding: 10px;
+}
+
+.home-card-wrapper:hover {
+  text-decoration: none;
 }
 
 @media (min-width: ($MQNarrow + 1px)) {
