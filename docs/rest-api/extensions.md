@@ -167,16 +167,15 @@ const bucket = Cosmic.bucket({
   slug: 'bucket-slug',
   write_key: ''
 })
-bucket
-  .deleteExtension({
-    id: 'c62defe0-5f93-11e7-8054-873245f0e98d'
-  })
-  .then(data => {
-    console.log(data)
-  })
-  .catch(err => {
-    console.log(err)
-  })
+bucket.deleteExtension({
+  id: 'c62defe0-5f93-11e7-8054-873245f0e98d'
+})
+.then(data => {
+  console.log(data)
+})
+.catch(err => {
+  console.log(err)
+})
 ```
 
 **Example Response**

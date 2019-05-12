@@ -111,14 +111,13 @@ const params = {
     }
   ]
 }
-bucket
-  .addObjectType(params)
-  .then(data => {
-    console.log(data)
-  })
-  .catch(err => {
-    console.log(err)
-  })
+bucket.addObjectType(params)
+.then(data => {
+  console.log(data)
+})
+.catch(err => {
+  console.log(err)
+})
 ```
 
 **Example Response**
@@ -288,17 +287,16 @@ const bucket = Cosmic.bucket({
   slug: 'bucket-slug',
   write_key: ''
 })
-bucket
-  .editObjectType({
-    slug: 'posts',
-    title: 'New Posts Title'
-  })
-  .then(data => {
-    console.log(data)
-  })
-  .catch(err => {
-    console.log(err)
-  })
+bucket.editObjectType({
+  slug: 'posts',
+  title: 'New Posts Title'
+})
+.then(data => {
+  console.log(data)
+})
+.catch(err => {
+  console.log(err)
+})
 ```
 
 **Example Response**
@@ -390,16 +388,15 @@ const bucket = Cosmic.bucket({
   slug: 'bucket-slug',
   write_key: ''
 })
-bucket
-  .deleteObjectType({
-    slug: 'posts'
-  })
-  .then(data => {
-    console.log(data)
-  })
-  .catch(err => {
-    console.log(err)
-  })
+bucket.deleteObjectType({
+  slug: 'posts'
+})
+.then(data => {
+  console.log(data)
+})
+.catch(err => {
+  console.log(err)
+})
 ```
 
 **Example Response**

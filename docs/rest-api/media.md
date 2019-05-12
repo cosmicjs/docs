@@ -82,21 +82,20 @@ const media_object = req.files[0] // Using Multer
 // OR:
 // const media_object = { originalname: filename, buffer: filedata } // Not using Multer
 
-bucket
-  .addMedia({
-    media: media_object,
-    folder: 'your-folder-slug',
-    metadata: {
-      caption: 'Beautiful picture of the beach',
-      credit: 'Tyler Jackson'
-    }
-  })
-  .then(data => {
-    console.log(data)
-  })
-  .catch(err => {
-    console.log(err)
-  })
+bucket.addMedia({
+  media: media_object,
+  folder: 'your-folder-slug',
+  metadata: {
+    caption: 'Beautiful picture of the beach',
+    credit: 'Tyler Jackson'
+  }
+})
+.then(data => {
+  console.log(data)
+})
+.catch(err => {
+  console.log(err)
+})
 
 /*
 As an example, another popular upload library for express is [express-fileupload](https://www.npmjs.com/package/express-fileupload). File objects obtained through this have the following properties:
@@ -248,16 +247,15 @@ const bucket = Cosmic.bucket({
   slug: 'bucket-slug',
   write_key: ''
 })
-bucket
-  .deleteMedia({
-    id: '5a4b18e12fff7ec0e3c13c65'
-  })
-  .then(data => {
-    console.log(data)
-  })
-  .catch(err => {
-    console.log(err)
-  })
+bucket.deleteMedia({
+  id: '5a4b18e12fff7ec0e3c13c65'
+})
+.then(data => {
+  console.log(data)
+})
+.catch(err => {
+  console.log(err)
+})
 ```
 
 **Example Response**

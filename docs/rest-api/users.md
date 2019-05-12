@@ -61,14 +61,13 @@ const params = {
   first_name: 'Quasar',
   last_name: 'Jones'
 }
-bucket
-  .addUser(params)
-  .then(data => {
-    console.log(data)
-  })
-  .catch(err => {
-    console.log(err)
-  })
+bucket.addUser(params)
+.then(data => {
+  console.log(data)
+})
+.catch(err => {
+  console.log(err)
+})
 ```
 
 **Example Response**
@@ -159,14 +158,13 @@ bucket.getUsers()
 const bucket = Cosmic.bucket({
   slug: 'bucket-slug'
 })
-bucket
-  .getUsers()
-  .then(data => {
-    console.log(data)
-  })
-  .catch(err => {
-    console.log(err)
-  })
+bucket.getUsers()
+.then(data => {
+  console.log(data)
+})
+.catch(err => {
+  console.log(err)
+})
 ```
 
 **Example Response**

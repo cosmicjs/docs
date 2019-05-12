@@ -58,17 +58,16 @@ const bucket = Cosmic.bucket({
   slug: 'bucket-slug',
   write_key: ''
 })
-bucket
-  .addWebhook({
-    event: 'object.created.published',
-    endpoint: 'http://my-listener.com'
-  })
-  .then(data => {
-    console.log(data)
-  })
-  .catch(err => {
-    console.log(err)
-  })
+bucket.addWebhook({
+  event: 'object.created.published',
+  endpoint: 'http://my-listener.com'
+})
+.then(data => {
+  console.log(data)
+})
+.catch(err => {
+  console.log(err)
+})
 ```
 
 **Example Response**
@@ -138,16 +137,15 @@ const bucket = Cosmic.bucket({
   slug: 'bucket-slug',
   write_key: ''
 })
-bucket
-  .deleteWebhook({
-    id: 'c62defe0-5f93-11e7-8054-873245f0e98d'
-  })
-  .then(data => {
-    console.log(data)
-  })
-  .catch(err => {
-    console.log(err)
-  })
+bucket.deleteWebhook({
+  id: 'c62defe0-5f93-11e7-8054-873245f0e98d'
+})
+.then(data => {
+  console.log(data)
+})
+.catch(err => {
+  console.log(err)
+})
 ```
 
 **Example Response**

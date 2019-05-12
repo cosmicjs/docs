@@ -159,12 +159,12 @@ const Cosmic = require('cosmicjs')({
   token: 'your-token-from-auth-request' // optional
 })
 Cosmic.getBuckets()
-  .then(data => {
-    console.log(data)
-  })
-  .catch(err => {
-    console.log(err)
-  })
+.then(data => {
+  console.log(data)
+})
+.catch(err => {
+  console.log(err)
+})
 ```
 
 **Example Response**

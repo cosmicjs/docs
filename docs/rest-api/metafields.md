@@ -571,14 +571,13 @@ const bucket = Cosmic.bucket({
   slug: 'bucket-slug',
   write_key: ''
 })
-bucket
-  .addObject(params)
-  .then(data => {
-    console.log(data)
-  })
-  .catch(err => {
-    console.log(err)
-  })
+bucket.addObject(params)
+.then(data => {
+  console.log(data)
+})
+.catch(err => {
+  console.log(err)
+})
 ```
 
 :::

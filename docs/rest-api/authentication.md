@@ -1,6 +1,8 @@
 # Authentication
 
-Send your `email` and `password` to receive your access token. Your access token will be used to add Buckets to your account as well as other account-related access. **You do not need to use the token to access your Bucket. Your Bucket has its own read and write keys for restricted access.**
+Send your `email` and `password` to receive your access token. Your access token will be used to add Buckets to your account as well as other account-related access.
+
+**NOTE: You do not need to use the token to access your Bucket. Your Bucket has its own read and write keys for restricted access.**
 
 | Parameter | Required | Type   | Description                   |
 | --------- | -------- | ------ | ----------------------------- |
