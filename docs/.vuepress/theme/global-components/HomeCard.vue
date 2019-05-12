@@ -51,7 +51,6 @@ export default {
   padding: 10px 0;
   margin-bottom: 30px;
   color: #2c3e50;
-  text-decoration: none !important;
 }
 
 .home-card-description {
