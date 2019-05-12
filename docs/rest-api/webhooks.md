@@ -1,6 +1,6 @@
 # Webhooks
 
-### Add Webhook
+## Add Webhook
 
 Sends a POST request to the endpoint of your choice when the event occurs. The data payload in the same fomat as Object and Media. Read more about Webhooks including the payload sent to the endpoint on the [Webhooks documentation page](/webhooks).
 
@@ -88,7 +88,7 @@ bucket
 
 ::::
 
-### Delete a Webhook
+## Delete a Webhook
 
 If a write key is enabled on the requested bucket, the parameter `write_key` will need to be present.
 

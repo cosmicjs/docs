@@ -1,6 +1,6 @@
 # Users
 
-## Add Users to Bucket
+## Add User to Bucket
 
 Add a user to your Bucket. Authentication token is required and must have admin level access.
 

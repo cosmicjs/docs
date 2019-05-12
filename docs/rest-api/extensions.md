@@ -117,7 +117,7 @@ The File Object must be an object with certain properties indicated below. If us
 | originalname | required | String      | The name of your file (something.jpg) |
 | buffer       |          | File Buffer | The File Buffer (must be zip file)    |
 
-## Delete an Extension
+## Delete Extension
 
 If a write key is enabled on the requested bucket, the parameter `write_key` will need to be present.
 
