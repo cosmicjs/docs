@@ -54,9 +54,9 @@ In GraphQL terminolgy, `mutations` perform write, edit, or delete actions on API
 | [addUser](#adduser) | Add user to your Bucket | yes |
 | [addWebhook](#addwebhook) | Add Webhook to your Bucket | yes |
 | [deleteWebhook](#deletewebhook) | Delete Webhook in your Bucket | yes |
-| addMedia | `Coming soon` | yes |
+| [addMedia](#addmedia) | `Coming soon` | yes |
 | [deleteMedia](#deletemedia) | Delete Media from your Bucket | yes |
-| addExtension | `Coming soon` | yes |
+| [addExtension](#addextension) | `Coming soon` | yes |
 | [deleteExtension](#deleteextension) | Delete an Extension in your Bucket | yes |
 
 
@@ -94,6 +94,16 @@ getObjectTypes(bucket_slug, input)
 **[Full screen&nbsp;&nbsp;](https://cosmic-graphql-playground.netlify.com/?endpoint=https://graphql.cosmicstaging.com/v1&query=%7B%0A%20%20getObjectTypes(bucket_slug%3A%20%22simple-vue-blog%22)%20%7B%0A%20%20%20%20title%0A%20%20%7D%0A%7D)**
 
 <iframe src="https://cosmic-graphql-playground.netlify.com/?endpoint=https://graphql.cosmicstaging.com/v1&query=%7B%0A%20%20getObjectTypes(bucket_slug%3A%20%22simple-vue-blog%22)%20%7B%0A%20%20%20%20title%0A%20%20%7D%0A%7D" frameborder="0" style="width: 100%; height: 470px;"></iframe>
+
+### getBucket
+
+```
+getBucket(bucket_slug)
+```
+
+**[Full screen&nbsp;&nbsp;](https://cosmic-graphql-playground.netlify.com/?endpoint=https://graphql.cosmicstaging.com/v1&query=%7B%0A%20%20getBucket(%0A%20%20%20%20bucket_slug%3A%20%22simple-react-blog%22%2C%0A%20%20)%20%7B%0A%20%20%20%20objects%20%7B%0A%20%20%20%20%20%20title%0A%20%20%20%20%20%20slug%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D)**
+
+<iframe src="https://cosmic-graphql-playground.netlify.com/?endpoint=https://graphql.cosmicstaging.com/v1&query=%7B%0A%20%20getBucket(%0A%20%20%20%20bucket_slug%3A%20%22simple-react-blog%22%2C%0A%20%20)%20%7B%0A%20%20%20%20objects%20%7B%0A%20%20%20%20%20%20title%0A%20%20%20%20%20%20slug%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D" frameborder="0" style="width: 100%; height: 470px;"></iframe>
 
 ### getAccessToken
 
@@ -269,6 +279,12 @@ Requires `Authorization` in HTTP Header. Find token in Account Settings or using
 
 <iframe src="https://cosmic-graphql-playground.netlify.com/?endpoint=https://graphql.cosmicstaging.com/v1&query=mutation%20%7B%0A%20%20deleteWebhook(%0A%20%20%20%20bucket_slug%3A%20%22graphql-bucket%22%2C%0A%20%20%20%20webhook_id%3A%20%22adb967e0-74e6-11e9-b625-814d295027b3%22%0A%20%20)%0A%7D" frameborder="0" style="width: 100%; height: 470px;"></iframe>
 
+### addMedia
+`Coming soon!`
+```
+addMedia(bucket_slug, input)
+```
+
 ### deleteMedia
 
 ```
@@ -278,6 +294,12 @@ deleteMedia(bucket_slug, media_id)
 **[Full screen&nbsp;&nbsp;](https://cosmic-graphql-playground.netlify.com/?endpoint=https://graphql.cosmicstaging.com/v1&query=mutation%20%7B%0A%20%20deleteMedia(%0A%20%20%20%20bucket_slug%3A%20%22graphql-bucket%22%2C%0A%20%20%20%20media_id%3A%20%225cd86aff743e735b05b3add3%22%0A%20%20)%0A%7D)**
 
 <iframe src="https://cosmic-graphql-playground.netlify.com/?endpoint=https://graphql.cosmicstaging.com/v1&query=mutation%20%7B%0A%20%20deleteMedia(%0A%20%20%20%20bucket_slug%3A%20%22graphql-bucket%22%2C%0A%20%20%20%20media_id%3A%20%225cd86aff743e735b05b3add3%22%0A%20%20)%0A%7D" frameborder="0" style="width: 100%; height: 470px;"></iframe>
+
+### addExtension
+`Coming soon!`
+```
+addExtension(bucket_slug, input)
+```
 
 ### deleteExtension
 
