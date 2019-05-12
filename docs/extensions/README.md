@@ -146,7 +146,7 @@ Then upload the Extension to your Cosmic JS Bucket located in *Your Bucket > Ext
 
 ![Screenshot of add extension](/docs/screenshots/add-extension-zip.png)
 
-## Want to build Extensions for us?
+## Contribute
 
 Submit your idea to the [Cosmic JS contribution page](https://cosmicjs.com/contribute). We'll showcase your awesome Cosmic JS Extension and you'll get free stuff. 😎
 
