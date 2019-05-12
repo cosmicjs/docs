@@ -6,6 +6,9 @@ export default {
       type: String,
       required: true
     },
+    description: {
+      type: String
+    },
     url: {
       type: String
     },
@@ -21,20 +24,16 @@ export default {
 
 <template>
   <router-link :to="url" class="home-card-wrapper">
-    <div class="home-card">
-      <img 
-        v-if="icon"
-        class="home-card-icon"
-        :src="icon" 
-        :alt="`${title} Icon`" 
-      />
-      <div>
+    <section class="home-card" :style="`background-image: url(${icon})`">
+      <div class="home-card-content">
         <p class="home-card-title">
           {{ title }}
         </p>
-        <slot></slot>
+        <p class="home-card-description">
+          {{ description }}
+        </p>
       </div>
-    </div>
+    </section>
   </router-link>
 </template>
 
@@ -42,8 +41,6 @@ export default {
 @require '../styles/config'
 
 .home-card {
-  display: flex;
-  align-items: center;
   box-shadow: rgba(0,21,64,.14) 0 2px 6px, rgba(0,21,64,.05) 0 10px 20px;
   border-radius: 20px;
   border: 14px solid #fff;
@@ -51,7 +48,13 @@ export default {
   padding: 10px 0;
   margin-bottom: 30px;
   color: #2c3e50;
-  text-decoration: none !important;
+  background-repeat: no-repeat;
+  background-size: 40px 40px;
+  background-position: 15px center;
+}
+
+.home-card-content {
+  margin-left: 75px;
 }
 
 .home-card-description {
