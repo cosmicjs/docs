@@ -19,6 +19,9 @@ body
   font-size 16px
   color $textColor
 
+a:hover
+  text-decoration underline
+
 .page
   padding-left $sidebarWidth
 
@@ -61,8 +64,6 @@ body
   @extend $wrapper
   > *:first-child
     margin-top $navbarHeight
-  a:hover
-    text-decoration underline
   p.demo
     padding 1rem 1.5rem
     border 1px solid #ddd
