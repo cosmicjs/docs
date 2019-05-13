@@ -122,5 +122,13 @@ module.exports = {
       }
     ]
   ],
-  plugins: ['tabs']
+  plugins: [
+    'tabs',
+    [
+      '@vuepress/google-analytics',
+      {
+        'ga': 'UA-47527341-3'
+      }
+    ]
+  ]  
 }
