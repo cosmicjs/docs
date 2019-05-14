@@ -19,7 +19,7 @@ cardData:
   icon: '/docs/icons/function.svg'
 - title: 'Webhooks'
   url: '/webhooks/'
-  description: "Use the GraphQL API to get only the data you need and nothing you don't."
+  description: "Make external requests when events occur in your Bucket."
   icon: '/docs/icons/webhooks.png'
 - title: 'Extensions'
   url: '/extensions/'
