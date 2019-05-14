@@ -8,6 +8,10 @@ module.exports = {
     editLinks: true,
     editLinkText: 'Edit this page',
     lastUpdated: 'Last Updated',
+    algolia: {
+      apiKey: '2cdadd5ab16751ea3a49a13854e5b052',
+      indexName: 'cosmicjs'
+    },
     sidebar: {
       '/rest-api/': [
         {
