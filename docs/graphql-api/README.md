@@ -313,8 +313,8 @@ Requires `Authorization` in HTTP Header. Find token in Account Settings or using
 ## Examples
 
 ### Node.js
-The following example will get 3 Blog Posts from the Bucket Simple React Blog.
-1. Install `axios`
+The following example will get 2 Blog Posts from the Bucket Simple React Blog.
+1. Install [`axios`](https://www.npmjs.com/package/axios)
 ```
 npm install axios
 ```
@@ -325,14 +325,14 @@ axios.post('https://graphql.cosmicjs.com/v1', {
   query: `{ 
     getObjects(
       bucket_slug: "simple-react-blog",
-      input: { type: "posts", limit: 3 }
+      input: { type: "posts", limit: 2 }
     ){
       title
     }
   }`
 })
 .then(function (response) {
-  var objects = response.data.data.getObjects;
+  const objects = response.data.data.getObjects
   console.log(objects)
 })
 .catch(function (error) {
@@ -347,4 +347,4 @@ node index.js
 ### Ajax
 Get one Object using client-side AJAX method.
 
-<iframe width="100%" height="550" src="//jsfiddle.net/d6n8qw3L/embedded/js,html,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+<iframe width="100%" height="550" src="//jsfiddle.net/3kuy6s9f/embedded/js,html,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
