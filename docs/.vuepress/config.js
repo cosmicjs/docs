@@ -13,6 +13,51 @@ module.exports = {
       indexName: 'cosmicjs'
     },
     sidebar: {
+      '/graphql-api/': [
+        {
+          title: 'Home',
+          path: '/'
+        },
+        {
+          title: 'REST API',
+          icon: '/docs/icons/npm.svg',
+          path: '/rest-api/'
+        },
+        {
+          title: 'GraphQL API',
+          icon: '/docs/icons/graphql.svg',
+          path: '/graphql-api/',
+          collapsable: false,
+          children: [
+            ['/graphql-api/', 'Introduction'],
+            '/graphql-api/api-endpoint',
+            '/graphql-api/methods-overview',
+            '/graphql-api/queries',
+            '/graphql-api/mutations',
+            '/graphql-api/examples'
+          ]
+        },
+        {
+          title: 'CLI',
+          path: '/cli/',
+          icon: '/docs/icons/terminal.svg'
+        },
+        {
+          title: 'Functions',
+          path: '/functions/',
+          icon: '/docs/icons/function.svg'
+        },
+        {
+          title: 'Webhooks',
+          path: '/webhooks/',
+          icon: '/docs/icons/webhooks.png'
+        },
+        {
+          title: 'Extensions',
+          path: '/extensions/',
+          icon: '/docs/icons/puzzle-piece.svg'
+        }
+      ],
       '/rest-api/': [
         {
           title: 'Home',
@@ -39,8 +84,8 @@ module.exports = {
         },
         {
           title: 'GraphQL API',
-          path: '/graphql-api/',
-          icon: '/docs/icons/graphql.svg'
+          icon: '/docs/icons/graphql.svg',
+          path: '/graphql-api/'
         },
         {
           title: 'CLI',
