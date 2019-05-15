@@ -30,7 +30,6 @@ module.exports = {
           collapsable: false,
           children: [
             ['/graphql-api/', 'Introduction'],
-            '/graphql-api/api-endpoint',
             '/graphql-api/methods-overview',
             '/graphql-api/queries',
             '/graphql-api/mutations',
