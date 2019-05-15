@@ -39,7 +39,7 @@ axios.post('https://graphql.cosmicjs.com/v1', {
 node index.js
 ```
 
-### Ajax
+## Ajax
 
 Get one Object using client-side AJAX method.
 
