@@ -365,7 +365,7 @@ Metafields are powerful components that can be added to Objects and Object Types
 
 You can use optional validation parameters to make sure editors using the Web Dashboard enter the correct values.
 
-Reference the [Metafield model](https://cosmicjs.github.io/rest-api-docs/?javascript#model) to learn more.
+Reference the [Metafield model](/rest-api/metafields.html) to learn more.
 
 | Parameter     | Required | Type   | Description                                          |
 | ------------- | -------- | ------ | ---------------------------------------------------- |
