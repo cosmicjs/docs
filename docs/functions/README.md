@@ -8,12 +8,21 @@ You can deploy Node.js functions to AWS through your Bucket Dashboard located at
 
 ## What's required?
 
-1. Your AWS access key and secret key. [How to find these](/functions)
-2. Node.js codebase (zip or link to git repo) that follows Lambda requirements
+1. Your AWS access key and secret key. (See instructions below)
+2. Node.js codebase (zip or link to git repo) that follows Lambda requirements.
 
-Make sure your codebase includes the following required files:
+### How to get your AWS access keys
+Follow these steps to get your AWS access keys:
+1. [Create or login](http://console.aws.amazon.com) to your Amazon Web Services Account and go to the Identity & Access Management (IAM) page.
+2. Click on <b>Users</b> and then <b>Add user</b>. Enter a name in the first field to remind you this User is from Cosmic, like <code>cosmic-admin</code>. Enable <b>Programmatic access</b> by clicking the checkbox. Click <b>Next</b> to go through to the Permissions page.
 
-## Entry file
+3. Click on <b>Attach existing policies directly</b>. Search for and select <b>AdministratorAccess</b> then click through to <b>Next: Review</b>. Check everything looks good and click <b>Create user</b>.
+
+4. View and copy the <b>API Key</b> & <b>Secret</b> to a temporary place. You'll need it for all of your Cosmic Function deploys.
+
+## Required Files
+
+### Entry file
 
 The `index.js` file of your codebase will need to export a `handler` function and follow the format for [AWS Lambda Node.js function handling](https://docs.aws.amazon.com/lambda/latest/dg/nodejs-prog-model-handler.html). The version of Node.js deployed is `v8.10` which means you can use the [async / await pattern](https://aws.amazon.com/blogs/compute/node-js-8-10-runtime-now-available-in-aws-lambda/). Here's a simple Hello World example:
 
@@ -31,7 +40,7 @@ module.exports.handler = function(event, context, callback) {
 }
 ```
 
-## Function config file
+### Function config file
 
 The `function.json` file includes information that Cosmic JS uses to deploy your function. Here's an example:
 
