@@ -7,7 +7,7 @@
           v-if="$site.themeConfig.logo"
           :src="$withBase($site.themeConfig.logo)"
           :alt="$siteTitle"
-          width="135"
+          width="160"
         >
         <span
           ref="siteName"

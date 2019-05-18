@@ -2,7 +2,7 @@ module.exports = {
   siteTitle: 'Cosmic JS',
   base: '/docs/',
   themeConfig: {
-    logo: '/cosmicjs-logo.png',
+    logo: 'https://d2tiob48c7g6wy.cloudfront.net/images/cosmicjs-logo.svg',
     repo: 'cosmicjs/docs',
     docsDir: 'docs',
     editLinks: true,
