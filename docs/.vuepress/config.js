@@ -177,6 +177,7 @@ module.exports = {
       {
         'ga': 'UA-42312323527341-3'
       }
-    ]
+    ],
+    [require('vuepress-intercom'), { appId: 'o4fm83zs' }]
   ]  
 }

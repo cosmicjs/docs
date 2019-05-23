@@ -116,6 +116,10 @@ export default {
     this.$router.afterEach(() => {
       this.isSidebarOpen = false
     })
+    this.$intercom.boot({
+      name: localStorage.getItem('cosmicjs-ls-intercom-name'),
+      email: localStorage.getItem('cosmicjs-ls-intercom-email'),
+    })
   },
 
   methods: {

@@ -7477,6 +7477,11 @@ vue-hot-reload-api@^2.3.0:
   resolved "https://registry.yarnpkg.com/vue-hot-reload-api/-/vue-hot-reload-api-2.3.3.tgz#2756f46cb3258054c5f4723de8ae7e87302a1ccf"
   integrity sha512-KmvZVtmM26BQOMK1rwUZsrqxEGeKiYSZGA7SNWE6uExx8UX/cj9hq2MRV/wWC3Cq6AoeDGk57rL9YMFRel/q+g==
 
+vue-intercom@^1.0.12:
+  version "1.0.13"
+  resolved "https://registry.yarnpkg.com/vue-intercom/-/vue-intercom-1.0.13.tgz#54a2bb4ed96a0e2637989952af02d2e20840ea4c"
+  integrity sha512-q9X7FTTx5KqOS4e3b2S8t/H0T2S/nSd56H278+uEdB0LKLtQXOX6IOyLqnqEjH/Va/PmOym4UBIhRM18eSeW0g==
+
 vue-loader@^15.2.4:
   version "15.7.0"
   resolved "https://registry.yarnpkg.com/vue-loader/-/vue-loader-15.7.0.tgz#27275aa5a3ef4958c5379c006dd1436ad04b25b3"
@@ -7550,6 +7555,13 @@ vuepress-html-webpack-plugin@^3.2.0:
     tapable "^1.0.0"
     toposort "^1.0.0"
     util.promisify "1.0.0"
+
+vuepress-intercom@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/vuepress-intercom/-/vuepress-intercom-1.0.3.tgz#8bf4b9321909a62ff97579cbae56e945d77318e5"
+  integrity sha512-E1jM8yJpa8ClyAwMptkPw5u8z5/OuOlgMUl4msXHUWxi2b6Fikxdrbk5yecsRlRv48LOM5REEPm89exc2XXTCw==
+  dependencies:
+    vue-intercom "^1.0.12"
 
 vuepress-plugin-container@^2.0.0:
   version "2.0.1"

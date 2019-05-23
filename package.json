@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "vue-tabs-component": "^1.5.0",
+    "vuepress-intercom": "^1.0.3",
     "vuepress-plugin-tabs": "^0.2.2"
   }
 }
