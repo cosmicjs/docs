@@ -120,7 +120,7 @@ The File Object must be an object with certain properties indicated below. If us
 
 ## Edit Extension
 
-If a write key is enabled on the requested bucket, the parameter `write_key` will need to be present. For security, `query_params` values will be saved as a JavaScript Web Tokens (JWT), but available in your Extension as a decoded value.
+If a write key is enabled on the requested bucket, the parameter `write_key` will need to be present. For security, `query_params` values will be saved as JavaScript Web Tokens (JWT), but available in your Extension as a decoded value.
 
 | Parameter | Required | Type   | Description           |
 | --------- | -------- | ------ | --------------------- |
