@@ -202,7 +202,17 @@ const bucket = Cosmic.bucket({
   write_key: ''
 })
 bucket.editExtension({
-  id: 'c62defe0-5f93-11e7-8054-873245f0e98d'
+  id: 'c62defe0-5f93-11e7-8054-873245f0e98d',
+  query_params: [
+    {
+      key: "some_api_account_id",
+      value: "someapiid12345"
+    },
+    {
+      key: "some_api_account_secret",
+      value: "supersecret12345"
+    }
+  ]
 })
 .then(data => {
   console.log(data)
@@ -216,8 +226,28 @@ bucket.editExtension({
 
 ```json
 {
-  "status": "200",
-  "message": "Extension deleted."
+  "extension": {
+    "id": "71d1ef20-c132-11e9-9883-b325a8e53f4f",
+    "cosmic_extension_id": "5c63324e7489d71dfe2974ac",
+    "title": "WordPress Importer",
+    "image_url": "https://cosmic-s3.imgix.net/31cc7ee0-2d80-11e9-9636-75201e82cc8c-wordpress-to-cosmic.jpg?w=500",
+    "repo_url": "https://github.com/cosmicjs/wordpress-post-importer",
+    "url": "https://71d1ef20-c132-11e9-9883-b325a8e53f4f.cosmicext.com",
+    "zip_url": "https://cosmicjs.com/extensions/71d1ef20-c132-11e9-9883-b325a8e53f4f/src/extension.zip",
+    "installed_at": "2019-08-17T21:03:21.757Z",
+    "installed_by": "56d66b2f903a79b904000001",
+    "font_awesome_class": "fa-wordpress",
+    "query_params": [
+      {
+        "key": "some_api_account_id",
+        "value": "eyJhbGciOiJIUzI1NiJ9.dHJ1ZQ.0hVNE7ES45PA8EnxK6gzAtY-4DfTpGtB0_A2fCW8SuU"
+      },
+      {
+        "key": "some_api_account_secret",
+        "value": "eyJhbGciOiJIUzI1NiJ9.dHJ1ZQ.0hVNE7ES45PA8EnxK6gzAtY-4DfTpGtB0_A2fCW8SuU"
+      }
+    ]
+  }
 }
 ```
 
