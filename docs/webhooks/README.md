@@ -24,6 +24,7 @@ This is a list of available events. We will add to this list as more features be
 | object.created.published | Object created and published.            |
 | object.edited.draft      | Existing Object edited and set to draft. |
 | object.edited.published  | Existing Object edited and published.    |
+| object.edited.unpublished  | Existing Object edited and unpublished.    |
 | object.deleted           | Object deleted.                          |
 | media.created            | Media created.                           |
 | media.edited             | Media edited.                            |
