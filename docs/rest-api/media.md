@@ -156,6 +156,12 @@ The Media Object must be an object with certain properties indicated below. If u
 
 You can add the folder parameter to get Media from a certain folder.
 
+| Parameter | Required | Type   | Description          |
+| --------- | -------- | ------ | -------------------- |
+| pretty    |          | File   | Media object         |
+| folder    |          | String | Media folder slug    |
+| read_key  |          | String | Your Bucket read key |
+
 :::: tabs :options="{ useUrlFragment: false }"
 
 ::: tab Bash
@@ -187,15 +193,10 @@ Cosmic.getMedia()
 
 ::::
 
+
 ### Imgix
 
 [Imgix](https://imgix.com/) is included with every account. You can use the Imgix suite of image processing tools on the URL provided by the `imgix_url` property value. Check out the [Imgix documentation](https://docs.imgix.com/) for more info.
-
-| Parameter | Required | Type   | Description          |
-| --------- | -------- | ------ | -------------------- |
-| pretty    |          | File   | Media object         |
-| folder    |          | String | Media folder slug    |
-| read_key  |          | String | Your Bucket read key |
 
 ## Delete Media
 

@@ -599,3 +599,89 @@ For Multiple Object type Metafields, you can add the Object IDs as comma-separat
 | key         | required | String | Unique identifier for your Metafield                                                           |
 | object_type | required | String | Object Type slug                                                                               |
 | value       |          | String | For single Object this is the \_id property. For multiple Objects it is comma-separated \_ids. |
+
+## Edit Metafields
+
+You can edit an existing Object's Metafields by using the following method. This method allows you to edit specific Metafields indentified by `key`, without affecting other Metafields.
+
+| Parameter     | Required | Type   | Description                                          |
+| ------------- | -------- | ------ | ---------------------------------------------------- |
+| slug      |          | string   | Object Slug                                  |
+| metafields         |          | Array | Array of new or existing Metafields to add or edit. Required properties are `{ type, key, title }`    |
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab Bash
+**Definition**
+
+```
+PATCH https://api.cosmicjs.com/v1/:bucket_slug/edit-object-metafields
+```
+
+**Example Request**
+
+```json
+{
+  "slug": "my-object",
+  "metafields": [
+    {
+      "title": "Headline",
+      "key": "headline",
+      "type": "text",
+      "value": "What I Learned Today"
+    },
+    {
+      "title": "Subheadline",
+      "key": "subheadline",
+      "type": "text",
+      "value": "Something different"
+    }
+  ]
+}
+```
+
+:::
+
+::: tab Node.js
+**Definition**
+
+```js
+bucket.editObjectMetafields()
+```
+
+**Example Request**
+
+```js
+const params = {
+  slug: 'my-object',
+  metafields: [
+    {
+      title: 'Headline',
+      key: 'headline',
+      type: 'text',
+      value: 'What I Learned Today'
+    },
+    {
+      title: 'Subheadline',
+      key: 'subheadline',
+      type: 'text',
+      value: 'Something different'
+    }
+  ]
+}
+const bucket = Cosmic.bucket({
+  slug: 'bucket-slug',
+  write_key: ''
+})
+bucket.editObjectMetafields(params)
+.then(data => {
+  console.log(data)
+})
+.catch(err => {
+  console.log(err)
+})
+```
+
+:::
+
+::::
