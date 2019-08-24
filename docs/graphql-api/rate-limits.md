@@ -1,0 +1,2 @@
+# Rate Limits
+All Cosmic JS Buckets have a rate limit of `500` API requests per second per IP address. This only applies to non-cached API requests. Non-cached API requests include any initial `Query` and all `Mutations` on the GraphQL API. This does not apply to any files or images served via the Cosmic JS CDN or imgix CDN. 

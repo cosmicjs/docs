@@ -1,5 +1,8 @@
 # Authentication
 
+## Get your token
+You can get your authentication token in your user account settings located in <i><a href="https://cosmicjs.com/account/authentication">Account Settings > Authentication</a></i>. You can also make requests to the API with your `email` and `password`.
+
 Send your `email` and `password` to receive your access token. Your access token will be used to add Buckets to your account as well as other account-related access.
 
 **NOTE: You do not need to use the token to access your Bucket. Your Bucket has its own read and write keys for restricted access.**
@@ -74,3 +77,32 @@ Cosmic.authenticate({
 :::
 
 ::::
+
+
+## Use your token
+
+You can use the Authentication token using REST requests to the API
+
+**Example Request with CURL**
+
+```bash
+curl "https://api.cosmicjs.com/v1/buckets" \
+-H "Authorization: Bearer <ACCESS_TOKEN>" \
+-H "Content-Type: application/json"
+# Gets all Buckets connected to your account. Your authorization token in the header request is the only required property.
+```
+
+**Example Request with the NPM module**
+
+```js
+const Cosmic = require('cosmicjs')({
+  token: 'your-token-from-auth-request'
+})
+Cosmic.getBuckets()
+.then(data => {
+  console.log(data)
+})
+.catch(err => {
+  console.log(err)
+})
+```
