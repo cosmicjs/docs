@@ -192,6 +192,7 @@ Returns Objects from your Bucket.
 | metafield_object_id   |          | String | Object Metafield Object ID (stored as Metafield value)          |
 | filters[_id]          |          | String | Filter by Object IDs (comma separated for multiple)             |
 | filters[connected_to] |          | String | Returns Objects that reference the specified Object ID (String) |
+| props                |          | Enum   | Declare which properties to return in comma-separated string. Limited to only first-level properties. Reference full Object for all available properties. Example: `?props=slug,title,metadata.categories,metadata.author`                 |
 | pretty                |          | Enum   | true, Makes the response more reader-friendly                   |
 | read_key              |          | String | Your Bucket read key                                            |
 
@@ -207,7 +208,37 @@ GET https://api.cosmicjs.com/:bucket_slug/objects
 **Example Request**
 
 ```bash
-curl "https://api.cosmicjs.com/v1/wedding-site/objects?pretty=true&hide_metafields=true&limit=2"
+curl "https://api.cosmicjs.com/v1/simple-react-blog/objects?pretty=true&hide_metafields=true&limit=10&props=slug,title,type_slug"
+```
+
+**Example Response**
+```json
+{
+  "objects": [
+    {
+      "slug": "jane-doe",
+      "title": "Jane Doe",
+      "type_slug": "authors"
+    },
+    {
+      "slug": "make-it-funky",
+      "title": "Make it Funky",
+      "type_slug": "categories"
+    },
+    {
+      "slug": "header",
+      "title": "Header",
+      "type_slug": "globals"
+    },
+    {
+      "slug": "john-doe",
+      "title": "John Doe",
+      "type_slug": "authors"
+    }
+  ],
+  "total": 10,
+  "limit": 5
+}
 ```
 
 :::
@@ -221,7 +252,13 @@ bucket.getObjects()
 
 **Example Request**
 
-<iframe src="https://runkit.com/e?name=runkit-embed-1&amp;preamble=&amp;location=https%3A%2F%2Fcosmicjs.github.io%2Frest-api-docs%2F&amp;minHeight=&amp;gutterStyle=outside&amp;usedDeprecatedOptions=%5B%5D&amp;base64source=Y29uc3QgQ29zbWljID0gcmVxdWlyZSgnY29zbWljanMnKQpjb25zdCBhcGkgPSBDb3NtaWMoKQpjb25zdCBidWNrZXQgPSBhcGkuYnVja2V0KHsKICBzbHVnOiAnd2VkZGluZy1zaXRlJywKfSkKLy8gR2V0IGFsbCBPYmplY3RzIGZyb20gYSBCdWNrZXQKY29uc3QgZGF0YSA9IChhd2FpdCBidWNrZXQuZ2V0T2JqZWN0cygpKS5vYmplY3Rz" frameborder="0" name="runkit-embed-1" style="height: 187px; width: calc(100% + 200px); padding: 0px; margin: 0px 0px 0px calc(-100px); border: 0px; background-color: transparent;"></iframe>
+```js
+bucket.getObjects({
+  type: 'posts',
+  props: 'slug,title,type_slug',
+  limit: 5
+})
+```
 :::
 
 ::::
@@ -242,25 +279,70 @@ GET https://api.cosmicjs.com/v1/:bucket_slug/objects?type=:type_slug
 **Example Request**
 
 ```bash
-curl "https://api.cosmicjs.com/v1/wedding-site/objects?type=groomsmen&limit=3"
+curl "https://api.cosmicjs.com/v1/simple-react-blog/objects?pretty=true&hide_metafields=true&limit=10&props=slug,title,type_slug&type=posts"
+```
+
+**Example Response**
+```json
+{
+  "objects": [
+    {
+      "slug": "a-wonderful-blog-post-about-earth",
+      "title": "A Wonderful Blog Post About Earth",
+      "type_slug": "posts"
+    },
+    {
+      "slug": "another-wonderful-blog-post-about-earth",
+      "title": "Another Wonderful Blog Post About Earth",
+      "type_slug": "posts"
+    }
+  ],
+  "total": 2,
+  "limit": 10
+}
 ```
 
 :::
 
 ::: tab Node.js
-
-:::
 **Definition**
 
 ```js
-bucket.getObjects({
-  // params
-})
+bucket.getObjects()
 ```
 
 **Example Request**
 
-<iframe src="https://runkit.com/e?name=runkit-embed-2&amp;preamble=&amp;location=https%3A%2F%2Fcosmicjs.github.io%2Frest-api-docs%2F&amp;minHeight=&amp;gutterStyle=outside&amp;usedDeprecatedOptions=%5B%5D&amp;base64source=Y29uc3QgQ29zbWljID0gcmVxdWlyZSgnY29zbWljanMnKQpjb25zdCBhcGkgPSBDb3NtaWMoKQpjb25zdCBidWNrZXQgPSBhcGkuYnVja2V0KHsKICBzbHVnOiAnd2VkZGluZy1zaXRlJywKfSkKLy8gU3BlY2lmeSBhbiBPYmplY3QgVHlwZQpjb25zdCBkYXRhID0gKGF3YWl0IGJ1Y2tldC5nZXRPYmplY3RzKHsKICB0eXBlOiAnZ3Jvb21zbWVuJywKICBsaW1pdDogMwp9KSkub2JqZWN0cw%3D%3D" frameborder="0" name="runkit-embed-2" style="height: 250px; width: calc(100% + 200px); padding: 0px; margin: 0px 0px 0px calc(-100px); border: 0px; background-color: transparent;"></iframe>
+```js
+bucket.getObjects({
+  type: 'posts',
+  props: 'slug,title,type_slug',
+  limit: 10
+})
+```
+**Example Response**
+```json
+{
+  "objects": [
+    {
+      "slug": "a-wonderful-blog-post-about-earth",
+      "title": "A Wonderful Blog Post About Earth",
+      "type_slug": "posts"
+    },
+    {
+      "slug": "another-wonderful-blog-post-about-earth",
+      "title": "Another Wonderful Blog Post About Earth",
+      "type_slug": "posts"
+    }
+  ],
+  "total": 2,
+  "limit": 10
+}
+```
+
+:::
+
+
 ::::
 
 ### Search and Filter Objects
@@ -290,14 +372,36 @@ curl "https://api.cosmicjs.com/v1/wedding-site/objects?type=groomsmen&metafield_
 **Definition**
 
 ```js
-bucket.getObjects({
-  // params
-})
+bucket.getObjects()
 ```
 
-**Example Request**
+**Example Requests**
 
-<iframe src="https://runkit.com/e?name=runkit-embed-3&amp;preamble=&amp;location=https%3A%2F%2Fcosmicjs.github.io%2Frest-api-docs%2F&amp;minHeight=&amp;gutterStyle=outside&amp;usedDeprecatedOptions=%5B%5D&amp;base64source=Y29uc3QgQ29zbWljID0gcmVxdWlyZSgnY29zbWljanMnKQpjb25zdCBhcGkgPSBDb3NtaWMoKQpjb25zdCBidWNrZXQgPSBhcGkuYnVja2V0KHsKICBzbHVnOiAnd2VkZGluZy1zaXRlJwp9KQoKLy8gU2VhcmNoIE9iamVjdHMgCmNvbnN0IHNlYXJjaCA9IChhd2FpdCBidWNrZXQuZ2V0T2JqZWN0cyh7CiAgdHlwZTogJ2dyb29tc21lbicsCiAgbWV0YWZpZWxkX2tleTogJ29mZmljaWFsLXRpdGxlJywKICBtZXRhZmllbGRfdmFsdWU6ICdCZXN0IE1hbicKfSkpLm9iamVjdHMKY29uc29sZS5sb2coc2VhcmNoKQoKLy8gRmlsdGVyIE9iamVjdHMgCmNvbnN0IGZpbHRlciA9IChhd2FpdCBidWNrZXQuZ2V0T2JqZWN0cyh7CiAgdHlwZTogJ2dyb29tc21lbicsCiAgZmlsdGVyczogewogICAgX2lkOiAnNTViM2RhNzc0MGQ3YTM3OTFiMDAwMDA5LDU1YjNkYTc3NDBkN2EzNzkxYjAwMDAwYScKICB9Cn0pKS5vYmplY3RzCmNvbnNvbGUubG9nKGZpbHRlcik%3D" frameborder="0" name="runkit-embed-3" style="height: 502px; width: calc(100% + 200px); padding: 0px; margin: 0px 0px 0px calc(-100px); border: 0px; background-color: transparent;"></iframe>
+```js
+const Cosmic = require('cosmicjs')
+const api = Cosmic()
+const bucket = api.bucket({
+  slug: 'wedding-site'
+})
+
+// Search Objects 
+const search = (await bucket.getObjects({
+  type: 'groomsmen',
+  metafield_key: 'official-title',
+  metafield_value: 'Best Man'
+})).objects
+console.log(search)
+
+// Filter Objects 
+const filter = (await bucket.getObjects({
+  type: 'groomsmen',
+  filters: {
+    _id: '55b3da7740d7a3791b000009,55b3da7740d7a3791b00000a'
+  }
+})).objects
+console.log(filter)
+```
+
 :::
 
 ::::
@@ -313,6 +417,7 @@ Returns a single Object from your Bucket.
 | revision        |          | String | The revision_id of the Object Revision         |
 | hide_metafields |          | Enum   | true, Hides metafields                         |
 | locale          |          | String | Filter by locale                               |
+| props                |          | Enum   | Declare which properties to return in comma-separated string. Limited to only first-level properties. Reference full Object for all available properties. Example: `?props=slug,title,metadata.categories,metadata.author`                 |
 | pretty          |          | Enum   | true, Makes the response more reader-friendly  |
 | read_key        |          | String | Your Bucket read key                           |
 
@@ -328,21 +433,48 @@ GET https://api.cosmicjs.com/:bucket_slug/object/:slug
 **Example Request**
 
 ```bash
-curl "https://api.cosmicjs.com/v1/wedding-site/object/registry"
+curl "https://api.cosmicjs.com/v1/simple-react-blog/object/a-wonderful-blog-post-about-earth?pretty=true&hide_metafields=true&props=slug,title,content"
+```
+
+**Example Response**
+```json
+{
+  "object": {
+    "slug": "a-wonderful-blog-post-about-earth",
+    "title": "A Wonderful Blog Post About Earth",
+    "content": "<p>When I orbited the Earth in a spaceship, I saw for the first time how beautiful our planet is. Mankind, let us preserve and increase this beauty, and not destroy it!</p><p>Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds, to seek out new life and new civilizations, to boldly go where no man has gone before.</p><p>If you could see the earth illuminated when you were in a place as dark as night, it would look to you more splendid than the moon.</p><p>To be the first to enter the cosmos, to engage, single-handed, in an unprecedented duel with nature&mdash;could one dream of anything more?</p><p>We choose to go to the moon in this decade and do the other things, not because they are easy, but because they are hard, because that goal will serve to organize and measure the best of our energies and skills, because that challenge is one that we are willing to accept, one we are unwilling to postpone, and one which we intend to win.</p><p>NASA is not about the &lsquo;Adventure of Human Space Exploration&rsquo;&hellip;We won&rsquo;t be doing it just to get out there in space &ndash; we&rsquo;ll be doing it because the things we learn out there will be making life better for a lot of people who won&rsquo;t be able to go.</p><p>Problems look mighty small from 150 miles up.</p><p>That&#39;s one small step for [a] man, one giant leap for mankind.</p><p>Where ignorance lurks, so too do the frontiers of discovery and imagination.</p><p>Dinosaurs are extinct today because they lacked opposable thumbs and the brainpower to build a space program.</p>"
+  }
+}
 ```
 
 :::
 
 ::: tab Node.js
-**Definition**
 
+**Defintion**
 ```js
 bucket.getObject()
 ```
 
 **Example Request**
+```js
+bucket.getObject({
+  slug: 'a-wonderful-blog-post-about-earth',
+  props: 'slug,title,content'
+})
+```
 
-<iframe src="https://runkit.com/e?name=runkit-embed-4&amp;preamble=&amp;location=https%3A%2F%2Fcosmicjs.github.io%2Frest-api-docs%2F&amp;minHeight=&amp;gutterStyle=outside&amp;usedDeprecatedOptions=%5B%5D&amp;base64source=Y29uc3QgQ29zbWljID0gcmVxdWlyZSgnY29zbWljanMnKQpjb25zdCBhcGkgPSBDb3NtaWMoKQpjb25zdCBidWNrZXQgPSBhcGkuYnVja2V0KHsKICBzbHVnOiAnd2VkZGluZy1zaXRlJwp9KQpjb25zdCBkYXRhID0gKGF3YWl0IGJ1Y2tldC5nZXRPYmplY3QoewogIHNsdWc6ICdyZWdpc3RyeScKfSkpLm9iamVjdA%3D%3D" frameborder="0" name="runkit-embed-4" style="height: 208px; width: calc(100% + 200px); padding: 0px; margin: 0px 0px 0px calc(-100px); border: 0px; background-color: transparent;"></iframe>
+**Example Response**
+```json
+{
+  "object": {
+    "slug": "a-wonderful-blog-post-about-earth",
+    "title": "A Wonderful Blog Post About Earth",
+    "content": "<p>When I orbited the Earth in a spaceship, I saw for the first time how beautiful our planet is. Mankind, let us preserve and increase this beauty, and not destroy it!</p><p>Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds, to seek out new life and new civilizations, to boldly go where no man has gone before.</p><p>If you could see the earth illuminated when you were in a place as dark as night, it would look to you more splendid than the moon.</p><p>To be the first to enter the cosmos, to engage, single-handed, in an unprecedented duel with nature&mdash;could one dream of anything more?</p><p>We choose to go to the moon in this decade and do the other things, not because they are easy, but because they are hard, because that goal will serve to organize and measure the best of our energies and skills, because that challenge is one that we are willing to accept, one we are unwilling to postpone, and one which we intend to win.</p><p>NASA is not about the &lsquo;Adventure of Human Space Exploration&rsquo;&hellip;We won&rsquo;t be doing it just to get out there in space &ndash; we&rsquo;ll be doing it because the things we learn out there will be making life better for a lot of people who won&rsquo;t be able to go.</p><p>Problems look mighty small from 150 miles up.</p><p>That&#39;s one small step for [a] man, one giant leap for mankind.</p><p>Where ignorance lurks, so too do the frontiers of discovery and imagination.</p><p>Dinosaurs are extinct today because they lacked opposable thumbs and the brainpower to build a space program.</p>"
+  }
+}
+```
+
 :::
 
 ::::
