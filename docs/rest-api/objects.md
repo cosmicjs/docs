@@ -192,7 +192,7 @@ Returns Objects from your Bucket.
 | metafield_object_id   |          | String | Object Metafield Object ID (stored as Metafield value)          |
 | filters[_id]          |          | String | Filter by Object IDs (comma separated for multiple)             |
 | filters[connected_to] |          | String | Returns Objects that reference the specified Object ID (String) |
-| props                |          | Enum   | Declare which properties to return in comma-separated string. Limited to only first-level properties. Reference full Object for all available properties. Example: `?props=slug,title,metadata.categories,metadata.author`                 |
+| props                |          | Enum   | Declare which properties to return in comma-separated string. Down to first-level metadata properties only. Reference full Object for all available properties. Example: `?props=slug,title,metadata.categories,metadata.author`                 |
 | pretty                |          | Enum   | true, Makes the response more reader-friendly                   |
 | read_key              |          | String | Your Bucket read key                                            |
 
@@ -254,11 +254,42 @@ bucket.getObjects()
 
 ```js
 bucket.getObjects({
-  type: 'posts',
   props: 'slug,title,type_slug',
   limit: 5
 })
 ```
+
+
+**Example Response**
+```json
+{
+  "objects": [
+    {
+      "slug": "jane-doe",
+      "title": "Jane Doe",
+      "type_slug": "authors"
+    },
+    {
+      "slug": "make-it-funky",
+      "title": "Make it Funky",
+      "type_slug": "categories"
+    },
+    {
+      "slug": "header",
+      "title": "Header",
+      "type_slug": "globals"
+    },
+    {
+      "slug": "john-doe",
+      "title": "John Doe",
+      "type_slug": "authors"
+    }
+  ],
+  "total": 10,
+  "limit": 5
+}
+```
+
 :::
 
 ::::
@@ -279,7 +310,7 @@ GET https://api.cosmicjs.com/v1/:bucket_slug/objects?type=:type_slug
 **Example Request**
 
 ```bash
-curl "https://api.cosmicjs.com/v1/simple-react-blog/objects?pretty=true&hide_metafields=true&limit=10&props=slug,title,type_slug&type=posts"
+curl "https://api.cosmicjs.com/v1/simple-react-blog/objects?pretty=true&hide_metafields=true&limit=10&props=slug,title,type_slug,metadata.categories&type=posts"
 ```
 
 **Example Response**
@@ -289,16 +320,65 @@ curl "https://api.cosmicjs.com/v1/simple-react-blog/objects?pretty=true&hide_met
     {
       "slug": "a-wonderful-blog-post-about-earth",
       "title": "A Wonderful Blog Post About Earth",
-      "type_slug": "posts"
+      "type_slug": "posts",
+      "metadata": {
+        "categories": [
+          {
+            "_id": "5d6968cf0442c40b78ea41d0",
+            "bucket": "5d6968cf5e24cd0c2ee84538",
+            "slug": "lets-get-technical",
+            "title": "Let's Get Technical",
+            "content": "",
+            "metafields": [],
+            "type_slug": "categories",
+            "created": "2017-10-12T13:27:49.664Z",
+            "created_at": "2017-10-12T13:27:49.664Z",
+            "modified_at": "2019-08-30T18:19:59.892Z",
+            "status": "published",
+            "published_at": "2019-08-30T18:19:59.892Z"
+          },
+          {
+            "_id": "5d6968cf0442c40b78ea41d4",
+            "bucket": "5d6968cf5e24cd0c2ee84538",
+            "slug": "random",
+            "title": "Random",
+            "content": "",
+            "metafields": [],
+            "type_slug": "categories",
+            "created": "2017-10-12T13:27:49.666Z",
+            "created_at": "2017-10-12T13:27:49.666Z",
+            "modified_at": "2019-08-30T18:19:59.901Z",
+            "status": "published",
+            "published_at": "2019-08-30T18:19:59.901Z"
+          }
+        ]
+      }
     },
     {
       "slug": "another-wonderful-blog-post-about-earth",
       "title": "Another Wonderful Blog Post About Earth",
-      "type_slug": "posts"
+      "type_slug": "posts",
+      "metadata": {
+        "categories": [
+          {
+            "_id": "5d6968cf0442c40b78ea41d4",
+            "bucket": "5d6968cf5e24cd0c2ee84538",
+            "slug": "random",
+            "title": "Random",
+            "content": "",
+            "metafields": [],
+            "type_slug": "categories",
+            "created": "2017-10-12T13:27:49.666Z",
+            "created_at": "2017-10-12T13:27:49.666Z",
+            "modified_at": "2019-08-30T18:19:59.901Z",
+            "status": "published",
+            "published_at": "2019-08-30T18:19:59.901Z"
+          }
+        ]
+      }
     }
   ],
-  "total": 2,
-  "limit": 10
+  "total": 2
 }
 ```
 
@@ -417,7 +497,7 @@ Returns a single Object from your Bucket.
 | revision        |          | String | The revision_id of the Object Revision         |
 | hide_metafields |          | Enum   | true, Hides metafields                         |
 | locale          |          | String | Filter by locale                               |
-| props                |          | Enum   | Declare which properties to return in comma-separated string. Limited to only first-level properties. Reference full Object for all available properties. Example: `?props=slug,title,metadata.categories,metadata.author`                 |
+| props                |          | Enum   | Declare which properties to return in comma-separated string. Down to first-level metadata properties only. Reference full Object for all available properties. Example: `?props=slug,title,metadata.categories,metadata.author`                 |
 | pretty          |          | Enum   | true, Makes the response more reader-friendly  |
 | read_key        |          | String | Your Bucket read key                           |
 
@@ -433,7 +513,7 @@ GET https://api.cosmicjs.com/:bucket_slug/object/:slug
 **Example Request**
 
 ```bash
-curl "https://api.cosmicjs.com/v1/simple-react-blog/object/a-wonderful-blog-post-about-earth?pretty=true&hide_metafields=true&props=slug,title,content"
+curl "https://api.cosmicjs.com/v1/simple-react-blog/object/a-wonderful-blog-post-about-earth?pretty=true&hide_metafields=true&props=slug,title,content,metadata.categories"
 ```
 
 **Example Response**
@@ -442,7 +522,39 @@ curl "https://api.cosmicjs.com/v1/simple-react-blog/object/a-wonderful-blog-post
   "object": {
     "slug": "a-wonderful-blog-post-about-earth",
     "title": "A Wonderful Blog Post About Earth",
-    "content": "<p>When I orbited the Earth in a spaceship, I saw for the first time how beautiful our planet is. Mankind, let us preserve and increase this beauty, and not destroy it!</p><p>Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds, to seek out new life and new civilizations, to boldly go where no man has gone before.</p><p>If you could see the earth illuminated when you were in a place as dark as night, it would look to you more splendid than the moon.</p><p>To be the first to enter the cosmos, to engage, single-handed, in an unprecedented duel with nature&mdash;could one dream of anything more?</p><p>We choose to go to the moon in this decade and do the other things, not because they are easy, but because they are hard, because that goal will serve to organize and measure the best of our energies and skills, because that challenge is one that we are willing to accept, one we are unwilling to postpone, and one which we intend to win.</p><p>NASA is not about the &lsquo;Adventure of Human Space Exploration&rsquo;&hellip;We won&rsquo;t be doing it just to get out there in space &ndash; we&rsquo;ll be doing it because the things we learn out there will be making life better for a lot of people who won&rsquo;t be able to go.</p><p>Problems look mighty small from 150 miles up.</p><p>That&#39;s one small step for [a] man, one giant leap for mankind.</p><p>Where ignorance lurks, so too do the frontiers of discovery and imagination.</p><p>Dinosaurs are extinct today because they lacked opposable thumbs and the brainpower to build a space program.</p>"
+    "content": "<p>When I orbited the Earth in a spaceship, I saw for the first time how beautiful our planet is. Mankind, let us preserve and increase this beauty, and not destroy it!</p><p>Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds, to seek out new life and new civilizations, to boldly go where no man has gone before.</p><p>If you could see the earth illuminated when you were in a place as dark as night, it would look to you more splendid than the moon.</p><p>To be the first to enter the cosmos, to engage, single-handed, in an unprecedented duel with nature&mdash;could one dream of anything more?</p><p>We choose to go to the moon in this decade and do the other things, not because they are easy, but because they are hard, because that goal will serve to organize and measure the best of our energies and skills, because that challenge is one that we are willing to accept, one we are unwilling to postpone, and one which we intend to win.</p><p>NASA is not about the &lsquo;Adventure of Human Space Exploration&rsquo;&hellip;We won&rsquo;t be doing it just to get out there in space &ndash; we&rsquo;ll be doing it because the things we learn out there will be making life better for a lot of people who won&rsquo;t be able to go.</p><p>Problems look mighty small from 150 miles up.</p><p>That&#39;s one small step for [a] man, one giant leap for mankind.</p><p>Where ignorance lurks, so too do the frontiers of discovery and imagination.</p><p>Dinosaurs are extinct today because they lacked opposable thumbs and the brainpower to build a space program.</p>",
+    "metadata": {
+      "categories": [
+        {
+          "_id": "5d6968cf0442c40b78ea41d0",
+          "bucket": "5d6968cf5e24cd0c2ee84538",
+          "slug": "lets-get-technical",
+          "title": "Let's Get Technical",
+          "content": "",
+          "metafields": [],
+          "type_slug": "categories",
+          "created": "2017-10-12T13:27:49.664Z",
+          "created_at": "2017-10-12T13:27:49.664Z",
+          "modified_at": "2019-08-30T18:19:59.892Z",
+          "status": "published",
+          "published_at": "2019-08-30T18:19:59.892Z"
+        },
+        {
+          "_id": "5d6968cf0442c40b78ea41d4",
+          "bucket": "5d6968cf5e24cd0c2ee84538",
+          "slug": "random",
+          "title": "Random",
+          "content": "",
+          "metafields": [],
+          "type_slug": "categories",
+          "created": "2017-10-12T13:27:49.666Z",
+          "created_at": "2017-10-12T13:27:49.666Z",
+          "modified_at": "2019-08-30T18:19:59.901Z",
+          "status": "published",
+          "published_at": "2019-08-30T18:19:59.901Z"
+        }
+      ]
+    }
   }
 }
 ```
@@ -460,7 +572,7 @@ bucket.getObject()
 ```js
 bucket.getObject({
   slug: 'a-wonderful-blog-post-about-earth',
-  props: 'slug,title,content'
+  props: 'slug,title,content,metadata.categories'
 })
 ```
 
@@ -470,7 +582,39 @@ bucket.getObject({
   "object": {
     "slug": "a-wonderful-blog-post-about-earth",
     "title": "A Wonderful Blog Post About Earth",
-    "content": "<p>When I orbited the Earth in a spaceship, I saw for the first time how beautiful our planet is. Mankind, let us preserve and increase this beauty, and not destroy it!</p><p>Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds, to seek out new life and new civilizations, to boldly go where no man has gone before.</p><p>If you could see the earth illuminated when you were in a place as dark as night, it would look to you more splendid than the moon.</p><p>To be the first to enter the cosmos, to engage, single-handed, in an unprecedented duel with nature&mdash;could one dream of anything more?</p><p>We choose to go to the moon in this decade and do the other things, not because they are easy, but because they are hard, because that goal will serve to organize and measure the best of our energies and skills, because that challenge is one that we are willing to accept, one we are unwilling to postpone, and one which we intend to win.</p><p>NASA is not about the &lsquo;Adventure of Human Space Exploration&rsquo;&hellip;We won&rsquo;t be doing it just to get out there in space &ndash; we&rsquo;ll be doing it because the things we learn out there will be making life better for a lot of people who won&rsquo;t be able to go.</p><p>Problems look mighty small from 150 miles up.</p><p>That&#39;s one small step for [a] man, one giant leap for mankind.</p><p>Where ignorance lurks, so too do the frontiers of discovery and imagination.</p><p>Dinosaurs are extinct today because they lacked opposable thumbs and the brainpower to build a space program.</p>"
+    "content": "<p>When I orbited the Earth in a spaceship, I saw for the first time how beautiful our planet is. Mankind, let us preserve and increase this beauty, and not destroy it!</p><p>Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds, to seek out new life and new civilizations, to boldly go where no man has gone before.</p><p>If you could see the earth illuminated when you were in a place as dark as night, it would look to you more splendid than the moon.</p><p>To be the first to enter the cosmos, to engage, single-handed, in an unprecedented duel with nature&mdash;could one dream of anything more?</p><p>We choose to go to the moon in this decade and do the other things, not because they are easy, but because they are hard, because that goal will serve to organize and measure the best of our energies and skills, because that challenge is one that we are willing to accept, one we are unwilling to postpone, and one which we intend to win.</p><p>NASA is not about the &lsquo;Adventure of Human Space Exploration&rsquo;&hellip;We won&rsquo;t be doing it just to get out there in space &ndash; we&rsquo;ll be doing it because the things we learn out there will be making life better for a lot of people who won&rsquo;t be able to go.</p><p>Problems look mighty small from 150 miles up.</p><p>That&#39;s one small step for [a] man, one giant leap for mankind.</p><p>Where ignorance lurks, so too do the frontiers of discovery and imagination.</p><p>Dinosaurs are extinct today because they lacked opposable thumbs and the brainpower to build a space program.</p>",
+    "metadata": {
+      "categories": [
+        {
+          "_id": "5d6968cf0442c40b78ea41d0",
+          "bucket": "5d6968cf5e24cd0c2ee84538",
+          "slug": "lets-get-technical",
+          "title": "Let's Get Technical",
+          "content": "",
+          "metafields": [],
+          "type_slug": "categories",
+          "created": "2017-10-12T13:27:49.664Z",
+          "created_at": "2017-10-12T13:27:49.664Z",
+          "modified_at": "2019-08-30T18:19:59.892Z",
+          "status": "published",
+          "published_at": "2019-08-30T18:19:59.892Z"
+        },
+        {
+          "_id": "5d6968cf0442c40b78ea41d4",
+          "bucket": "5d6968cf5e24cd0c2ee84538",
+          "slug": "random",
+          "title": "Random",
+          "content": "",
+          "metafields": [],
+          "type_slug": "categories",
+          "created": "2017-10-12T13:27:49.666Z",
+          "created_at": "2017-10-12T13:27:49.666Z",
+          "modified_at": "2019-08-30T18:19:59.901Z",
+          "status": "published",
+          "published_at": "2019-08-30T18:19:59.901Z"
+        }
+      ]
+    }
   }
 }
 ```
