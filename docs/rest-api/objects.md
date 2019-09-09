@@ -193,6 +193,7 @@ Returns Objects from your Bucket.
 | filters[_id]          |          | String | Filter by Object IDs (comma separated for multiple)             |
 | filters[connected_to] |          | String | Returns Objects that reference the specified Object ID (String) |
 | props                |          | Enum   | Declare which properties to return in comma-separated string. Down to first-level metadata properties only. Reference full Object for all available properties. Example: `?props=slug,title,metadata.categories,metadata.author`                 |
+| depth |          | Number | 0-3, Limits the depth of nested Objects from Object Metafields |
 | pretty                |          | Enum   | true, Makes the response more reader-friendly                   |
 | read_key              |          | String | Your Bucket read key                                            |
 
@@ -498,6 +499,7 @@ Returns a single Object from your Bucket.
 | hide_metafields |          | Enum   | true, Hides metafields                         |
 | locale          |          | String | Filter by locale                               |
 | props                |          | Enum   | Declare which properties to return in comma-separated string. Down to first-level metadata properties only. Reference full Object for all available properties. Example: `?props=slug,title,metadata.categories,metadata.author`                 |
+| depth |          | Number | 0-3, Limits the depth of nested Objects from Object Metafields |
 | pretty          |          | Enum   | true, Makes the response more reader-friendly  |
 | read_key        |          | String | Your Bucket read key                           |
 
