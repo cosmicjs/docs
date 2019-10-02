@@ -446,7 +446,7 @@ GET https://api.cosmicjs.com/v1/:bucket_slug/objects?type=:type_slug&filters[_id
 **Example Request**
 
 ```bash
-curl "https://api.cosmicjs.com/v1/wedding-site/objects?type=groomsmen&metafield_key=official-title&metafield_value=Best%20Man"
+curl "https://api.cosmicjs.com/v1/wedding-site/objects?type=groomsmen&metadata[official-title]=Best%20Man"
 ```
 
 :::
