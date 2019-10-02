@@ -187,7 +187,7 @@ Returns Objects from your Bucket.
 | sort                  |          | Enum   | created_at, -created_at, modified_at, -modified_at, random      |
 | locale                |          | String | Filter by locale                                                |
 | q                     |          | String | Searches title and content properties for this string           |
-| metadata[key]          |         | Enum   | Search by Metafield value. Object IDs for Object Metafields (comma separated for multiple)             |         |
+| metadata[key]          |         | String   | Search by Metafield value. Object IDs for Object Metafields (comma separated for multiple)             |         |
 | metafield_key         |          | String | (Deprecated, use `metadata[key]` instead) Metafield key to search for                                     |
 | metafield_value       |          | String | (Deprecated, use `metadata[key]` instead) Metafield contains value                                        |
 | metafield_object_id   |          | String | (Deprecated, use `metadata[key]` instead) Object Metafield Object ID (stored as Metafield value)          |
