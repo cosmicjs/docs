@@ -430,7 +430,7 @@ bucket.getObjects({
 
 ### Search and Filter Objects
 
-Get Objects based on search variables. (the method searchObjectType is now deprecated)
+Get Objects based on search variables.
 
 :::: tabs :options="{ useUrlFragment: false }"
 
@@ -439,7 +439,7 @@ Get Objects based on search variables. (the method searchObjectType is now depre
 
 ```
 GET https://api.cosmicjs.com/v1/:bucket_slug/objects?type=:type_slug&q=:search_text
-GET https://api.cosmicjs.com/v1/:bucket_slug/objects?type=:type_slug&metafield_key=:metafield_key_text&metafield_value=:metafield_value_text
+GET https://api.cosmicjs.com/v1/:bucket_slug/objects?type=:type_slug&metadata[:key]=:value
 GET https://api.cosmicjs.com/v1/:bucket_slug/objects?type=:type_slug&filters[_id]=:object_id_1,:object_id_2
 ```
 
@@ -470,8 +470,9 @@ const bucket = api.bucket({
 // Search Objects 
 const search = (await bucket.getObjects({
   type: 'groomsmen',
-  metafield_key: 'official-title',
-  metafield_value: 'Best Man'
+  metadata: {
+    'official-title': 'Best Man'
+  }
 })).objects
 console.log(search)
 
