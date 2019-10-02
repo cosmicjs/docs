@@ -602,11 +602,11 @@ For Multiple Object type Metafields, you can add the Object IDs as comma-separat
 
 ## Edit Metafields
 
-You can edit an existing Object's Metafields by using the following method. This method allows you to edit specific Metafields indentified by `key`, without affecting other Metafields.
+You can edit an existing Object's Metafields by using the following method. This method allows you to edit specific Metafields identified by `key`, without affecting other Metafields.
 
 | Parameter     | Required | Type   | Description                                          |
 | ------------- | -------- | ------ | ---------------------------------------------------- |
-| slug      |          | string   | Object Slug                                  |
+| slug      |          | String   | Object Slug                                  |
 | metafields         |          | Array | Array of new or existing Metafields to add or edit. Required properties are `{ type, key, title }`    |
 
 :::: tabs :options="{ useUrlFragment: false }"
