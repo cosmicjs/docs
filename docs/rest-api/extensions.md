@@ -1,13 +1,91 @@
 # Extensions
+All Extension methods require `Authorization: Bearer <ACCESS_TOKEN>` present in the header. Read more about Extensions on the [Extensions documentation page](/docs/extensions).
 
 ## Add Extension
 
-Adds an Extension to your Bucket. The only required post value is `zip` which is the name of your file sent. Read more about Extensions on the [Extensions documentation page](/docs/extensions).
+Adds an Extension to your Bucket. There are 3 methods for adding your Extension.
+
+### 1. Upload a Zip file
+The only required post value is `zip` which is the name of your file sent.
 
 | Parameter | Required | Type                    | Description                         |
 | --------- | -------- | ----------------------- | ----------------------------------- |
 | zip       | required | File Object (see below) | Zip object with specific properties |
-| write_key |          | String                  | Your Bucket write key               |
+
+**Definition**
+
+```
+POST https://api.cosmicjs.com/v1/:bucket_slug/extensions
+```
+
+**Example Request**
+
+```json
+{
+  "zip": "your-media-multipart-form-data"
+}
+```
+
+**Example Response**
+
+```json
+{
+  "extension": {
+    "id": "c62defe0-5f93-11e7-8054-873245f0e98d",
+    "title": "Amazon Product Search",
+    "image_url": "https://s3-us-west-2.amazonaws.com/cosmicjs/f1f1bd40-5dcd-11e7-b529-51f126a4b6ee-shopping-cart.jpg",
+    "url": "https://cosmicjs.com/extensions/c62defe0-5f93-11e7-8054-873245f0e98d/dist",
+    "zip_url": "https://cosmicjs.com/extensions/c62defe0-5f93-11e7-8054-873245f0e98d/src/build.zip",
+    "installed_at": "2017-07-03T02:03:14.825Z",
+    "font_awesome_class": "fa-shopping-basket"
+  }
+}
+```
+
+### 2. Upload via Zip file URL
+The only required post value is `zip` which is the name of your file sent.
+
+| Parameter | Required | Type                    | Description                         |
+| --------- | -------- | ----------------------- | ----------------------------------- |
+| zip_url       | required | String | Zip file URL with valid Extension properties |
+
+**Definition**
+
+```
+POST https://api.cosmicjs.com/v1/:bucket_slug/extensions
+```
+
+**Example Request**
+
+```json
+{
+	"zip_url": "https://mycdn.com/uploads/extension.zip"
+}
+```
+
+**Example Response**
+
+```json
+{
+  "extension": {
+    "id": "c62defe0-5f93-11e7-8054-873245f0e98d",
+    "title": "Amazon Product Search",
+    "image_url": "https://s3-us-west-2.amazonaws.com/cosmicjs/f1f1bd40-5dcd-11e7-b529-51f126a4b6ee-shopping-cart.jpg",
+    "url": "https://cosmicjs.com/extensions/c62defe0-5f93-11e7-8054-873245f0e98d/dist",
+    "zip_url": "https://cosmicjs.com/extensions/c62defe0-5f93-11e7-8054-873245f0e98d/src/build.zip",
+    "installed_at": "2017-07-03T02:03:14.825Z",
+    "font_awesome_class": "fa-shopping-basket"
+  }
+}
+```
+
+### 3. Upload via URL
+The required post values are `title` and `url`.
+
+| Parameter | Required | Type                    | Description                         |
+| --------- | -------- | ----------------------- | ----------------------------------- |
+| title       | required | String | Extension title |
+| url       | required | String | URL to point the Extension to (iframe). Needs to have https and X-Frame Options enabled) |
 
 :::: tabs :options="{ useUrlFragment: false }"
 
@@ -22,8 +100,7 @@ POST https://api.cosmicjs.com/v1/:bucket_slug/extensions
 
 ```json
 {
-  "zip": "your-media-multipart-form-data",
-  "write_key": "your-key-added-in-bucket-settings"
+  "zip": "your-media-multipart-form-data"
 }
 ```
 
@@ -33,12 +110,12 @@ POST https://api.cosmicjs.com/v1/:bucket_slug/extensions
 {
   "extension": {
     "id": "c62defe0-5f93-11e7-8054-873245f0e98d",
-    "title": "Amazon Product Search",
-    "image_url": "https://s3-us-west-2.amazonaws.com/cosmicjs/f1f1bd40-5dcd-11e7-b529-51f126a4b6ee-shopping-cart.jpg",
-    "url": "http://localhost:3000/extensions/c62defe0-5f93-11e7-8054-873245f0e98d/dist",
-    "zip_url": "http://localhost:3000/extensions/c62defe0-5f93-11e7-8054-873245f0e98d/src/build.zip",
+    "title": "My Awesome Extension",
+    "image_url": null,
+    "url": null,
+    "zip_url": null,
     "installed_at": "2017-07-03T02:03:14.825Z",
-    "font_awesome_class": "fa-shopping-basket"
+    "font_awesome_class": null
   }
 }
 ```
@@ -55,18 +132,16 @@ bucket.addExtension()
 **Example Request**
 
 ```js
-const bucket = Cosmic.bucket({
-  slug: 'bucket-slug',
-  write_key: ''
+const Cosmic = require('cosmicjs')({
+  token: 'YOUR_ACCOUNT_TOKEN' // required
 })
-
-const zip_object = req.files[0] // Using Multer
-// OR:
-// const zip_object = { originalname: filename, buffer: filedata } // Not using Multer
+const bucket = Cosmic.bucket({
+  slug: 'bucket-slug'
+})
 
 bucket
   .addExtension({
-    zip: zip_object
+    zip_url: "https://mycdn.com/uploads/extension.zip"
   })
   .then(data => {
     console.log(data)
@@ -74,18 +149,6 @@ bucket
   .catch(err => {
     console.log(err)
   })
-/*
-As an example, another popular upload library for express is [express-fileupload](https://www.npmjs.com/package/express-fileupload). File objects obtained through this have the following properties:
-req.files.foo.name: "car.jpg"
-req.files.foo.mimetype: The mimetype of your file
-req.files.foo.data: A buffer representation of your file
-*/
-
-// In order to pass the file `req.files.foo` to Cosmic you would do:
-const media_object = {
-  originalname: req.files.foo.name,
-  buffer: req.files.foo.data
-}
 ```
 
 **Example Response**
@@ -120,11 +183,10 @@ The File Object must be an object with certain properties indicated below. If us
 
 ## Edit Extension
 
-If a write key is enabled on the requested bucket, the parameter `write_key` will need to be present. For security, `query_params` values will be saved as JavaScript Web Tokens (JWT), but available in your Extension as a decoded value.
+For security, `query_params` values will be saved as JavaScript Web Tokens (JWT), but available in your Extension as a decoded value.
 
 | Parameter | Required | Type   | Description           |
 | --------- | -------- | ------ | --------------------- |
-| write_key |          | String | Your Bucket write key |
 | query_params |          | Array | Add query parameters to your Extension. Great for adding third-party service API keys.  |
 
 :::: tabs :options="{ useUrlFragment: false }"
@@ -186,7 +248,6 @@ PUT https://api.cosmicjs.com/v1/:bucket_slug/extensions/:extension_id
 :::
 
 ::: tab Node.js
-COMING SOON
 
 **Definition**
 
@@ -258,8 +319,6 @@ bucket.editExtension({
 
 
 ## Delete Extension
-
-If a write key is enabled on the requested bucket, the parameter `write_key` will need to be present.
 
 | Parameter | Required | Type   | Description           |
 | --------- | -------- | ------ | --------------------- |
