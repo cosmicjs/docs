@@ -1,9 +1,9 @@
 # Extensions
-All Extension methods require `Authorization: Bearer <ACCESS_TOKEN>` present in the header. Read more about Extensions on the [Extensions documentation page](/docs/extensions).
+All Extension methods require `Authorization: Bearer <ACCESS_TOKEN>` present in the header.
 
 ## Add Extension
 
-Adds an Extension to your Bucket. There are 3 methods for adding your Extension.
+There are three different methods you can use to add an Extension to your Bucket. Read more about how to build your Extension on the [Extensions documentation page](/docs/extensions).
 
 ### 1. Upload a Zip file
 The only required post value is `zip` which is the name of your file sent.
@@ -42,8 +42,17 @@ POST https://api.cosmicjs.com/v1/:bucket_slug/extensions
 }
 ```
 
+#### File Object
+
+The `zip` property that includes the File Object must be an object with certain properties indicated below. If using the [multer NPM module](https://www.npmjs.com/package/multer) the file objects have these by default. Otherwise you should create an object with these properties:
+
+| Parameter    | Required | Type        | Description                           |
+| ------------ | -------- | ----------- | ------------------------------------- |
+| originalname | required | String      | The name of your file (something.jpg) |
+| buffer       |          | File Buffer | The File Buffer (must be zip file)    |
+
 ### 2. Upload via Zip file URL
-The only required post value is `zip` which is the name of your file sent.
+The only required post value is `zip_url` which is the URL of your Extension zip file.
 
 | Parameter | Required | Type                    | Description                         |
 | --------- | -------- | ----------------------- | ----------------------------------- |
@@ -79,7 +88,7 @@ POST https://api.cosmicjs.com/v1/:bucket_slug/extensions
 }
 ```
 
-### 3. Upload via URL
+### 3. Add as URL
 The required post values are `title` and `url`.
 
 | Parameter | Required | Type                    | Description                         |
@@ -171,15 +180,6 @@ bucket
 
 ::::
 
-### File Object
-
-The File Object must be an object with certain properties indicated below. If using the [multer NPM module](https://www.npmjs.com/package/multer) the file objects have these by default. Otherwise you should create an object with these properties:
-
-| Parameter    | Required | Type        | Description                           |
-| ------------ | -------- | ----------- | ------------------------------------- |
-| originalname | required | String      | The name of your file (something.jpg) |
-| buffer       |          | File Buffer | The File Buffer (must be zip file)    |
-
 
 ## Edit Extension
 
@@ -202,7 +202,6 @@ PUT https://api.cosmicjs.com/v1/:bucket_slug/extensions/:extension_id
 
 ```json
 {
-  "write_key": "your-key-added-in-bucket-settings",
   "query_params": [
     {
       "key": "some_api_account_id",
@@ -258,9 +257,11 @@ Cosmic.editExtension()
 **Example Request**
 
 ```js
+const Cosmic = require('cosmicjs')({
+  token: 'YOUR_ACCOUNT_TOKEN' // required
+})
 const bucket = Cosmic.bucket({
-  slug: 'bucket-slug',
-  write_key: ''
+  slug: 'bucket-slug'
 })
 bucket.editExtension({
   id: 'c62defe0-5f93-11e7-8054-873245f0e98d',
@@ -319,10 +320,7 @@ bucket.editExtension({
 
 
 ## Delete Extension
-
-| Parameter | Required | Type   | Description           |
-| --------- | -------- | ------ | --------------------- |
-| write_key |          | String | Your Bucket write key |
+Make sure you include `Authorization: Bearer <ACCESS_TOKEN>` in the header.
 
 :::: tabs :options="{ useUrlFragment: false }"
 
@@ -331,14 +329,6 @@ bucket.editExtension({
 
 ```
 DELETE https://api.cosmicjs.com/v1/:bucket_slug/extensions/:extension_id
-```
-
-**Example Request**
-
-```json
-{
-  "write_key": "your-key-added-in-bucket-settings"
-}
 ```
 
 **Example Response**
@@ -362,9 +352,11 @@ Cosmic.deleteExtension()
 **Example Request**
 
 ```js
+const Cosmic = require('cosmicjs')({
+  token: 'YOUR_ACCOUNT_TOKEN' // required
+})
 const bucket = Cosmic.bucket({
-  slug: 'bucket-slug',
-  write_key: ''
+  slug: 'bucket-slug'
 })
 bucket.deleteExtension({
   id: 'c62defe0-5f93-11e7-8054-873245f0e98d'
