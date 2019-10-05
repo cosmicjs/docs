@@ -6,7 +6,7 @@ All Extension methods require `Authorization: Bearer <ACCESS_TOKEN>` present in 
 There are three different methods you can use to add an Extension to your Bucket. Read more about how to build your Extension on the [Extensions documentation page](/docs/extensions).
 
 ### 1. Upload a Zip file
-The only required post value is `zip` which is the name of your file sent.
+The only required post value is `zip` which contains the file you send.
 
 | Parameter | Required | Type                    | Description                         |
 | --------- | -------- | ----------------------- | ----------------------------------- |
@@ -183,7 +183,7 @@ bucket
 
 ## Edit Extension
 
-For security, `query_params` values will be saved as JavaScript Web Tokens (JWT), but available in your Extension as a decoded value.
+Query parameters can be added to the iframe URL of your Extension. These are great for storing third-party API keys and info. For security, `query_params` values will be saved as JavaScript Web Tokens (JWT), but available in your Extension as decoded values.
 
 | Parameter | Required | Type   | Description           |
 | --------- | -------- | ------ | --------------------- |
