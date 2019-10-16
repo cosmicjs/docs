@@ -1,14 +1,15 @@
 # Webhooks
+Webhooks send a POST request to the endpoint of your choice when the specific event occurs. The data payload in the same fomat as Object and Media. Read more about Webhooks including the payload sent to the endpoint on the [Webhooks documentation page](/webhooks).
+
 
 ## Add Webhook
 
-Webhooks send a POST request to the endpoint of your choice when the event occurs. The data payload in the same fomat as Object and Media. Read more about Webhooks including the payload sent to the endpoint on the [Webhooks documentation page](/webhooks).
+Your authorization token in the header is required.
 
 | Parameter | Required | Type   | Description                                                                                                                                              |
 | --------- | -------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | event     | required | Enum   | object.created.draft, object.created.published, object.edited.draft, object.edited.published, object.deleted, media.created, media.edited, media.deleted |
 | endpoint  | required | String | The endpoint that will receive the data                                                                                                                  |
-| write_key |          | String | Your Bucket write key                                                                                                                                    |
 
 :::: tabs :options="{ useUrlFragment: false }"
 
@@ -24,8 +25,7 @@ POST https://api.cosmicjs.com/v1/:bucket_slug/webhooks
 ```json
 {
   "event": "object.created.published",
-  "endpoint": "http://my-listener.com",
-  "write_key": "your-key-added-in-bucket-settings"
+  "endpoint": "http://my-listener.com"
 }
 ```
 
@@ -54,9 +54,11 @@ bucket.addWebhooks()
 **Example Request**
 
 ```js
+const Cosmic = require('cosmicjs')({
+  token: 'your-token-from-auth-request' // optional
+})
 const bucket = Cosmic.bucket({
-  slug: 'bucket-slug',
-  write_key: ''
+  slug: 'bucket-slug'
 })
 bucket.addWebhook({
   event: 'object.created.published',
@@ -178,11 +180,7 @@ bucket.getWebhooks()
 
 ## Delete a Webhook
 
-If a write key is enabled on the requested bucket, the parameter `write_key` will need to be present.
-
-| Parameter | Required | Type   | Description           |
-| --------- | -------- | ------ | --------------------- |
-| write_key |          | String | Your Bucket write key |
+The webhook id and authorization token in the header are required.
 
 :::: tabs :options="{ useUrlFragment: false }"
 
@@ -191,14 +189,6 @@ If a write key is enabled on the requested bucket, the parameter `write_key` wil
 
 ```
 DELETE https://api.cosmicjs.com/v1/:bucket_slug/webhooks/:webhook_id
-```
-
-**Example Request**
-
-```json
-{
-  "write_key": "your-key-added-in-bucket-settings"
-}
 ```
 
 **Example Response**
@@ -222,9 +212,11 @@ Cosmic.deleteWebhook()
 **Example Request**
 
 ```js
+const Cosmic = require('cosmicjs')({
+  token: 'your-token-from-auth-request' // optional
+})
 const bucket = Cosmic.bucket({
   slug: 'bucket-slug',
-  write_key: ''
 })
 bucket.deleteWebhook({
   id: 'c62defe0-5f93-11e7-8054-873245f0e98d'

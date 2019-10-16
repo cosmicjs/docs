@@ -168,9 +168,10 @@ Get all Object Types in your Bucket.
 GET https://api.cosmicjs.com/v1/:bucket_slug/object-types
 ```
 
-Example Request
-
+**Example Request**
+```
 curl "https://api.cosmicjs.com/v1/wedding-site/object-types"
+```
 :::
 
 ::: tab Node.js
