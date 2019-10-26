@@ -6,4 +6,4 @@ All Cosmic JS Buckets have a rate limit of `500` API requests per second per IP 
 All Cosmic JS `POST` requests have a body size limit of `6MB` including media uploads. This does not apply to media uploaded via the Cosmic JS Dashboard.
 
 ### Optimizations
-All requests allow `gzip` type ecoding. If connecting to the API directly, adding `Accept-Encoding: gzip` can dramatically reduce response time and size. This is added by default on all Cosmic JS open source clients.
+All requests allow `gzip` ecoding. If connecting to the API directly, adding `Accept-Encoding: gzip` can dramatically reduce response time and size. This is added by default on all Cosmic JS open source clients.
