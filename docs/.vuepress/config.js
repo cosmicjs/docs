@@ -30,7 +30,7 @@ module.exports = {
           collapsable: false,
           children: [
             ['/graphql-api/', 'Introduction'],
-            '/graphql-api/rate-limits',
+            '/graphql-api/request-limits',
             '/graphql-api/methods-overview',
             '/graphql-api/queries',
             '/graphql-api/mutations',
@@ -71,7 +71,7 @@ module.exports = {
           children: [
             ['/rest-api/', 'Introduction'],
             '/rest-api/errors',
-            '/rest-api/rate-limits',
+            '/rest-api/request-limits',
             '/rest-api/authentication',
             '/rest-api/buckets',
             '/rest-api/users',
