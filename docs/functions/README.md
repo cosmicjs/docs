@@ -1,6 +1,6 @@
 # Cosmic JS Functions
 
-![Cosmic JS and AWS Logos](/docs/images/cosmicjs-aws-logos.jpg)
+![Cosmic JS and AWS Logos](https://web-assets.cosmicjs.com/images/docs/cosmicjs-aws-logos.jpg)
 
 ## How it works
 

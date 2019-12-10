@@ -50,7 +50,7 @@ module.exports = {
         {
           title: 'Webhooks',
           path: '/webhooks/',
-          icon: '/docs/icons/webhooks.png'
+          icon: 'https://web-assets.cosmicjs.com/images/docs/webhooks.png'
         },
         {
           title: 'Extensions',
@@ -101,7 +101,7 @@ module.exports = {
         {
           title: 'Webhooks',
           path: '/webhooks/',
-          icon: '/docs/icons/webhooks.png'
+          icon: 'https://web-assets.cosmicjs.com/images/docs/webhooks.png'
         },
         {
           title: 'Extensions',
@@ -137,7 +137,7 @@ module.exports = {
         {
           title: 'Webhooks',
           path: '/webhooks/',
-          icon: '/docs/icons/webhooks.png'
+          icon: 'https://web-assets.cosmicjs.com/images/docs/webhooks.png'
         },
         {
           title: 'Extensions',

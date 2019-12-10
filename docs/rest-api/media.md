@@ -150,7 +150,7 @@ The Media Object must be an object with certain properties indicated below. If u
 | Parameter    | Required | Type        | Description                           |
 | ------------ | -------- | ----------- | ------------------------------------- |
 | originalname | required | String      | The name of your file (something.jpg) |
-| buffer       |          | File Buffer | The File Buffer (must be zip file)    |
+| buffer       |          | File Buffer | The File Buffer    |
 
 ## Get Media
 

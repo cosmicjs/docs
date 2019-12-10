@@ -20,7 +20,7 @@ cardData:
 - title: 'Webhooks'
   url: '/webhooks/'
   description: "Make external requests when events occur in your Bucket."
-  icon: '/docs/icons/webhooks.png'
+  icon: 'https://web-assets.cosmicjs.com/images/docs/webhooks.png'
 - title: 'Extensions'
   url: '/extensions/'
   description: "Connect to third-party APIs and create custom views within your Bucket."

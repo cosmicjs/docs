@@ -7,7 +7,7 @@ sidebarDepth: 2
 Cosmic JS Extensions enable you to customize the Cosmic JS Dashboard experience to create custom experiences in your Bucket Dashboard.
 Pre-built Extensions are available for demo and install.
 
-![Screenshot of Cosmic JS dashboard](/docs/screenshots/dashboard-screenshot.jpg)
+![Screenshot of Cosmic JS dashboard](https://web-assets.cosmicjs.com/images/docs/dashboard-screenshot.jpg)
 
 ## Getting started
 
@@ -22,7 +22,7 @@ Go to _Your Bucket > Settings > Extensions_. There are [pre-built Extensions ava
 
 You can add an Extension by URL (https required, X-Frame Options enabled), title and icon.
 
-![Screenshot of adding extension by URL](/docs/screenshots/add-extension-url.png)
+![Screenshot of adding extension by URL](https://web-assets.cosmicjs.com/images/docs/add-extension-url.png)
 
 ### Query parameters
 
@@ -136,15 +136,15 @@ Along with the Extension info, you can import data to the destination Bucket. By
 
 The static site folder contents:
 
-![Screenshot of how to compress build folder - Part 1](/docs/screenshots/compress-1.png)
+![Screenshot of how to compress build folder - Part 1](https://web-assets.cosmicjs.com/images/docs/compress-1.png)
 
 Compress the folder:
 
-![Screenshot of how to compress build folder - Part 2](/docs/screenshots/compress-2.png)
+![Screenshot of how to compress build folder - Part 2](https://web-assets.cosmicjs.com/images/docs/compress-2.png)
 
 Then upload the Extension to your Cosmic JS Bucket located in *Your Bucket > Extensions > Add Extension*.
 
-![Screenshot of add extension](/docs/screenshots/add-extension-zip.png)
+![Screenshot of add extension](https://web-assets.cosmicjs.com/images/docs/add-extension-zip.png)
 
 ## Contribute
 
