@@ -628,6 +628,104 @@ bucket.getObject({
 
 ::::
 
+### Get Object Revisions
+
+Get Object Revisions from an Object using getObjectRevisions method.
+
+| Parameter       | Required | Type   | Description                                    |
+| --------------- | -------- | ------ | ---------------------------------------------- |
+| slug            | required | String | Unique identifier for your Object              |
+| limit                 |          | Number | The number of Revisions to return                                 |
+| skip                  |          | Number | The number of Revisions to skip                                   |
+| sort          |          | Enum   | created_at, -created_at (default is -created_at) |
+| hide_metafields |          | Enum   | true, Hides metafields                         |
+| locale          |          | String | Filter by locale                               |
+| props                |          | Enum   | Declare which properties to return in comma-separated string. Down to first-level metadata properties only. Reference full Object for all available properties. Example: `?props=slug,title,metadata.categories,metadata.author`                 |
+| depth |          | Number | 0-3, Limits the depth of nested Objects from Object Metafields |
+| pretty          |          | Enum   | true, Makes the response more reader-friendly  |
+| read_key        |          | String | Your Bucket read key                           |
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab Bash
+**Definition**
+
+```
+GET https://api.cosmicjs.com/v1/:bucket_slug/object/:object_slug/revisions
+```
+
+**Example Request**
+
+```bash
+curl "https://api.cosmicjs.com/v1/simple-react-blog/object/a-wonderful-blog-post-about-earth/revisions?pretty=true&limit=2&props=slug,title,content,created_at"
+```
+
+**Example Response**
+```json
+{
+  "revisions": [
+    {
+      "slug": "a-wonderful-blog-post-about-earth",
+      "title": "A Wonderful Blog Post About Earth",
+      "content": "<p>New content from another saved draft. When I orbited the Earth in a spaceship, I saw for the first time how beautiful our planet is. Mankind, let us preserve and increase this beauty, and not destroy it!</p><p>Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds, to seek out new life and new civilizations, to boldly go where no man has gone before.</p><p>If you could see the earth illuminated when you were in a place as dark as night, it would look to you more splendid than the moon.</p>",
+      "created_at": "2019-10-12T13:27:49.665Z"
+    },
+    {
+      "slug": "a-wonderful-blog-post-about-earth",
+      "title": "A Wonderful Blog Post About Earth",
+      "content": "<p>Some other content that was edited in draft. When I orbited the Earth in a spaceship, I saw for the first time how beautiful our planet is. Mankind, let us preserve and increase this beauty, and not destroy it!</p><p>Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds, to seek out new life and new civilizations, to boldly go where no man has gone before.</p><p>If you could see the earth illuminated when you were in a place as dark as night, it would look to you more splendid than the moon.</p>",
+      "created_at": "2019-10-11T13:27:49.665Z"
+    },
+  ],
+  "limit": 2,
+  "total": 10
+}
+```
+
+:::
+
+::: tab Node.js
+**Definition**
+
+```js
+bucket.getObjectRevisions()
+```
+
+**Example Request**
+
+```js
+bucket.getObjectRevisions({
+  slug: 'a-wonderful-blog-post-about-earth',
+  props: 'slug,title,created_at',
+  limit: 2,
+  total: 10,
+})
+```
+**Example Response**
+```json
+{
+  "revisions": [
+    {
+      "slug": "a-wonderful-blog-post-about-earth",
+      "title": "A Wonderful Blog Post About Earth",
+      "created_at": "2019-10-12T13:27:49.665Z"
+    },
+    {
+      "slug": "another-wonderful-blog-post-about-earth",
+      "title": "Another Wonderful Blog Post About Earth",
+      "created_at": "2019-10-11T13:27:49.665Z"
+    }
+  ],
+  "total": 2,
+  "limit": 10
+}
+```
+
+:::
+
+
+::::
+
 ## Edit Object
 
 Edit an existing Object in your Bucket.
