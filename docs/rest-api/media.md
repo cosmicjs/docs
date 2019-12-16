@@ -21,6 +21,9 @@ POST https://api.cosmicjs.com/v1/:bucket_slug/media
 ```
 
 **Example Request**
+```bash
+curl --form "folder=folder-name" --form "media=@test.png" --form "write_key=<write-key>" 'https://api.cosmicjs.com/v1/:bucket_slug/media'
+```
 
 ```json
 {
