@@ -630,7 +630,7 @@ bucket.getObject({
 
 ### Get Object Revisions
 
-Get Object Revisions from an Object using getObjectRevisions method.
+Get Object Revisions from an Object.
 
 | Parameter       | Required | Type   | Description                                    |
 | --------------- | -------- | ------ | ---------------------------------------------- |
