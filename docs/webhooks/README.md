@@ -4,13 +4,39 @@ Cosmic JS makes it easy to add Webhooks to trigger a POST request to the endpoin
 
 ## Format
 
-All requests to your endpoint are sent via POST with the following Body:
+All requests to your endpoint are sent via POST with Header and Body information. For example:
 
+#### Example Header
 ```json
 {
-  "type": Event(String),
-  "created_at": Date(String),
-  "data": Object(object, media)
+  "content-length": "450", // Your content length
+  "x-cosmicjs-event": "object.edited.draft", // Your event key (see below)
+  "accept": "application/json",
+  "content-type": "application/json"
+}
+```
+
+#### Example Body
+```json
+{
+  "type": "object.edited.draft",
+  "created_at": 1576861549889,
+  "data": {
+    "_id": "5dfcff5d6340c9000865cc25",
+    "slug": "my-awesome-title",
+    "title": "My Awesome Title",
+    "content": "<p>My awesome content</p>",
+    "metafields":[],
+    "modified_at": "2019-12-20T17:05:49.879Z",
+    "modified_by": "56d66b2f903a79b904000001",
+    "type_slug": "tests",
+    "status": "draft",
+    "publish_at": null,
+    "bucket": "5df644188e47080008e7721a",
+    "created_at": "2019-12-20T17:05:49.879Z",
+    "created_by": "56d66b2f903a79b904000001",
+    "metadata": null
+  }
 }
 ```
 

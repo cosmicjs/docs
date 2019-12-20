@@ -6,15 +6,16 @@ Metafields are powerful components that can be added to Objects and Object Types
 
 | Parameter     | Required | Type   | Description                                                                                                                               |
 | ------------- | -------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| type          | required | Enum   | text, textarea, html-textarea, select-dropdown, object, objects, file, date, radio-buttons, check-boxes, repeater, parent, markdown, json |
-| title         | required | String | Your Metafield title                                                                                                                      |
+| type          | required | Enum   | text, textarea, html-textarea, select-dropdown, object, objects, file, date, radio-buttons, check-boxes, repeater, parent, markdown, json, switch, number |
+| title         | required | String | Your Metafield title |
 | key           | required | String | Unique identifier for your Metafield                                                                                                      |
 | value         |          | String | Metafield value                                                                                                                           |
 | required      |          | Bool   | A value is required                                                                                                                       |
 | regex         |          | String | Restrict the value to match a regular expresssion                                                                                         |
-| regex_message |          | Array  | The message displayed when the value fails the regex                                                                                      |
+| regex_message |          | String  | The message displayed when the value fails the regex                                                                                    |
 | minlength     |          | Number | Add minlength to text or textarea Metafields                                                                                              |
-| maxlength     |          | Number | Add maxlength to text or textarea Metafields                                                                                              |
+| maxlength     |          | Number | Add maxlength to text or textarea Metafields                             |
+| options     |          | Array | Array of options for select, radio, and checkbox Metafields |
 | children      |          | Array  | Add nested Metafields                                                                                                                     |
 
 :::: tabs :options="{ useUrlFragment: false }"
@@ -371,7 +372,7 @@ Reference the [Metafield model](/rest-api/metafields.html) to learn more.
 | ------------- | -------- | ------ | ---------------------------------------------------- |
 | required      |          | Bool   | A value is required                                  |
 | regex         |          | String | Restrict the value to match a regular expresssion    |
-| regex_message |          | Array  | The message displayed when the value fails the regex |
+| regex_message |          | String  | The message displayed when the value fails the regex |
 | minlength     |          | Number | Add minlength to text or textarea Metafields         |
 | maxlength     |          | Number | Add maxlength to text or textarea Metafields         |
 
