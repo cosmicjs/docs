@@ -27,3 +27,5 @@ npm i cosmicjs
 ### Terms
 
 These docs assume you understand the core concepts of Cosmic JS including Buckets, Object Types and Objects. For a brief overview of these terms, see the [Getting Started guide](https://cosmicjs.com/getting-started).
+
+Testing auto deploy code build...
