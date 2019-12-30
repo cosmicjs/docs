@@ -1,6 +1,6 @@
 module.exports = {
   siteTitle: 'Cosmic JS',
-  base: '/docs/',
+  base: '/',
   themeConfig: {
     logo: 'https://web-assets.cosmicjs.com/images/cosmicjs-logo.svg',
     repo: 'cosmicjs/docs',
@@ -20,12 +20,12 @@ module.exports = {
         },
         {
           title: 'REST API',
-          icon: '/docs/icons/npm.svg',
+          icon: '/icons/npm.svg',
           path: '/rest-api/'
         },
         {
           title: 'GraphQL API',
-          icon: '/docs/icons/graphql.svg',
+          icon: '/icons/graphql.svg',
           path: '/graphql-api/',
           collapsable: false,
           children: [
@@ -40,12 +40,12 @@ module.exports = {
         {
           title: 'CLI',
           path: '/cli/',
-          icon: '/docs/icons/terminal.svg'
+          icon: '/icons/terminal.svg'
         },
         {
           title: 'Functions',
           path: '/functions/',
-          icon: '/docs/icons/function.svg'
+          icon: '/icons/function.svg'
         },
         {
           title: 'Webhooks',
@@ -55,7 +55,7 @@ module.exports = {
         {
           title: 'Extensions',
           path: '/extensions/',
-          icon: '/docs/icons/puzzle-piece.svg'
+          icon: '/icons/puzzle-piece.svg'
         }
       ],
       '/rest-api/': [
@@ -65,7 +65,7 @@ module.exports = {
         },
         {
           title: 'REST API',
-          icon: '/docs/icons/npm.svg',
+          icon: '/icons/npm.svg',
           path: '/rest-api/',
           collapsable: false,
           children: [
@@ -85,18 +85,18 @@ module.exports = {
         },
         {
           title: 'GraphQL API',
-          icon: '/docs/icons/graphql.svg',
+          icon: '/icons/graphql.svg',
           path: '/graphql-api/'
         },
         {
           title: 'CLI',
           path: '/cli/',
-          icon: '/docs/icons/terminal.svg'
+          icon: '/icons/terminal.svg'
         },
         {
           title: 'Functions',
           path: '/functions/',
-          icon: '/docs/icons/function.svg'
+          icon: '/icons/function.svg'
         },
         {
           title: 'Webhooks',
@@ -106,7 +106,7 @@ module.exports = {
         {
           title: 'Extensions',
           path: '/extensions/',
-          icon: '/docs/icons/puzzle-piece.svg'
+          icon: '/icons/puzzle-piece.svg'
         }
       ],
       '/': [
@@ -116,23 +116,23 @@ module.exports = {
         },
         {
           title: 'REST API',
-          icon: '/docs/icons/npm.svg',
+          icon: '/icons/npm.svg',
           path: '/rest-api/',
         },
         {
           title: 'GraphQL API',
           path: '/graphql-api/',
-          icon: '/docs/icons/graphql.svg'
+          icon: '/icons/graphql.svg'
         },
         {
           title: 'CLI',
           path: '/cli/',
-          icon: '/docs/icons/terminal.svg'
+          icon: '/icons/terminal.svg'
         },
         {
           title: 'Functions',
           path: '/functions/',
-          icon: '/docs/icons/function.svg'
+          icon: '/icons/function.svg'
         },
         {
           title: 'Webhooks',
@@ -142,7 +142,7 @@ module.exports = {
         {
           title: 'Extensions',
           path: '/extensions/',
-          icon: '/docs/icons/puzzle-piece.svg'
+          icon: '/icons/puzzle-piece.svg'
         }
       ]
     }

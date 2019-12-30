@@ -17,7 +17,7 @@ To setup the local environment:
 
 ### Development
 
-This will create a local web server at `http://localhost:8080/docs/` if nothing is running on that port. It has hot module reloading and will detect most changes you make.*
+This will create a local web server at `http://localhost:8080/` if nothing is running on that port. It has hot module reloading and will detect most changes you make.*
 
 ```
 $ yarn run dev

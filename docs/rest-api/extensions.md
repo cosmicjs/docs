@@ -3,7 +3,7 @@ All Extension methods require `Authorization: Bearer <ACCESS_TOKEN>` present in 
 
 ## Add Extension
 
-There are three different methods you can use to add an Extension to your Bucket. Read more about how to build your Extension on the [Extensions documentation page](/docs/extensions).
+There are three different methods you can use to add an Extension to your Bucket. Read more about how to build your Extension on the [Extensions documentation page](/extensions).
 
 ### 1. Upload a Zip file
 The only required post value is `zip` which contains the file you send.
