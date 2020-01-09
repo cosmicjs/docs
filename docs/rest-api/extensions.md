@@ -168,11 +168,125 @@ bucket
     "id": "c62defe0-5f93-11e7-8054-873245f0e98d",
     "title": "Amazon Product Search",
     "image_url": "https://s3-us-west-2.amazonaws.com/cosmicjs/f1f1bd40-5dcd-11e7-b529-51f126a4b6ee-shopping-cart.jpg",
-    "url": "http://localhost:3000/extensions/c62defe0-5f93-11e7-8054-873245f0e98d/dist",
-    "zip_url": "http://localhost:3000/extensions/c62defe0-5f93-11e7-8054-873245f0e98d/src/build.zip",
+    "url": "https://cosmicext.com/extensions/c62defe0-5f93-11e7-8054-873245f0e98d/dist",
+    "zip_url": "https://cosmicext.com/extensions/c62defe0-5f93-11e7-8054-873245f0e98d/src/build.zip",
     "installed_at": "2017-07-03T02:03:14.825Z",
     "font_awesome_class": "fa-shopping-basket"
   }
+}
+```
+
+:::
+
+::::
+
+## Get Extensions
+
+Get extensions in your Bucket. Authentication token is required in the header (see Authentication section). Must have admin level access.
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab Bash
+**Definition**
+
+```
+GET https://api.cosmicjs.com/v1/:bucket_slug/extensions
+```
+
+**Example Request**
+
+```bash
+curl "https://api.cosmicjs.com/v1/creative-agency/extensions" \
+-H "Authorization: Bearer <ACCESS_TOKEN>"
+```
+
+**Example Response**
+
+```json
+{
+  "extensions": [
+    {
+      "id": "023cc770-32f7-11ea-aa87-974af99bb840",
+      "title": "Product Manager",
+      "image_url": "https://cosmicjs.imgix.net/cf5e1020-49a1-11e7-b277-57e32e044f35-tags.jpg?w=800",
+      "repo_url": "https://github.com/cosmicjs/product-manager",
+      "url": "https://cosmicext.com/extensions/023cc770-32f7-11ea-aa87-974af99bb840/dist",
+      "zip_url": "https://cosmicjs.com/extensions/023cc770-32f7-11ea-aa87-974af99bb840/src/dae868b0-089e-11e9-8afb-cfbab439bdeb-build.zip",
+      "installed_at": "2020-01-09T15:45:08.414Z",
+      "installed_by": "5de944d047f3cd28bbba660b",
+      "font_awesome_class": "fa-tags",
+      "cosmic_extension_id": "5de94da87fa6662a3f990086"
+    },
+    {
+      "id": "068e4740-32f7-11ea-aa87-974af99bb840",
+      "title": "Deploy to Web",
+      "image_url": "https://cosmic-s3.imgix.net/cc5647e0-c5e5-11e9-8343-8b95f624368a-deploy-to-web.jpg",
+      "url": "https://cosmicext.com/extensions/068e4740-32f7-11ea-aa87-974af99bb840/dist",
+      "zip_url": "https://cosmicjs.com/extensions/068e4740-32f7-11ea-aa87-974af99bb840/src/96946b90-c5e6-11e9-8343-8b95f624368a-build.zip",
+      "installed_at": "2020-01-09T15:45:15.495Z",
+      "installed_by": "5de944d047f3cd28bbba660b",
+      "font_awesome_class": "fa-rocket",
+      "cosmic_extension_id": "5de94da87fa6662a3f990089"
+    }
+  ],
+  "total": 2
+}
+```
+
+:::
+
+::: tab Node.js
+**Definition**
+
+```js
+bucket.getExtensions()
+```
+
+**Example Request**
+
+```js
+const bucket = Cosmic.bucket({
+  slug: 'bucket-slug'
+})
+bucket.getExtensions()
+.then(data => {
+  console.log(data)
+})
+.catch(err => {
+  console.log(err)
+})
+```
+
+**Example Response**
+
+```json
+{
+  "extensions": [
+    {
+      "id": "023cc770-32f7-11ea-aa87-974af99bb840",
+      "title": "Product Manager",
+      "image_url": "https://cosmicjs.imgix.net/cf5e1020-49a1-11e7-b277-57e32e044f35-tags.jpg?w=800",
+      "repo_url": "https://github.com/cosmicjs/product-manager",
+      "url": "https://cosmicext.com/extensions/023cc770-32f7-11ea-aa87-974af99bb840/dist",
+      "zip_url": "https://cosmicjs.com/extensions/023cc770-32f7-11ea-aa87-974af99bb840/src/dae868b0-089e-11e9-8afb-cfbab439bdeb-build.zip",
+      "installed_at": "2020-01-09T15:45:08.414Z",
+      "installed_by": "5de944d047f3cd28bbba660b",
+      "font_awesome_class": "fa-tags",
+      "cosmic_extension_id": "5de94da87fa6662a3f990086"
+    },
+    {
+      "id": "068e4740-32f7-11ea-aa87-974af99bb840",
+      "title": "Deploy to Web",
+      "image_url": "https://cosmic-s3.imgix.net/cc5647e0-c5e5-11e9-8343-8b95f624368a-deploy-to-web.jpg",
+      "url": "https://cosmicext.com/extensions/068e4740-32f7-11ea-aa87-974af99bb840/dist",
+      "zip_url": "https://cosmicjs.com/extensions/068e4740-32f7-11ea-aa87-974af99bb840/src/96946b90-c5e6-11e9-8343-8b95f624368a-build.zip",
+      "installed_at": "2020-01-09T15:45:15.495Z",
+      "installed_by": "5de944d047f3cd28bbba660b",
+      "font_awesome_class": "fa-rocket",
+      "cosmic_extension_id": "5de94da87fa6662a3f990089"
+    }
+  ],
+  "total": 2
 }
 ```
 
