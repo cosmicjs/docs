@@ -628,6 +628,10 @@ bucket.getObject({
 
 ::::
 
+
+## Object Revisions
+Every Object has Revisions saved. Object Revisions cannot be edited or deleted.
+
 ### Get Object Revisions
 
 Get Object Revisions from an Object.
@@ -697,8 +701,7 @@ bucket.getObjectRevisions()
 bucket.getObjectRevisions({
   slug: 'a-wonderful-blog-post-about-earth',
   props: 'slug,title,created_at',
-  limit: 2,
-  total: 10,
+  limit: 10
 })
 ```
 **Example Response**
@@ -723,6 +726,153 @@ bucket.getObjectRevisions({
 
 :::
 
+
+::::
+
+### Add Object Revision
+
+Adds a new revision to an existing Object. Revisions can be added in `published` or `draft` status. Default is `draft`. Same properties as [Add Object params](#add-object).
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab Bash
+**Definition**
+
+```
+POST https://api.cosmicjs.com/v1/:bucket_slug/object/:object_slug/revisions
+```
+
+**Example Request**
+
+```json
+{
+  "title": "Cosmic JS Example",
+  "type_slug": "examples",
+  "content": "Learning the Cosmic JS API is really fun and so easy",
+  "status": "draft",
+  "metafields": [
+    {
+      "key": "Headline",
+      "type": "text",
+      "value": "Learn Cosmic JS!"
+    },
+    {
+      "key": "Author",
+      "type": "text",
+      "value": "Quasar Jones"
+    }
+  ]
+}
+```
+
+**Example Response**
+
+```json
+{
+  "revision": {
+    "slug": "cosmic-js-example",
+    "title": "Cosmic JS Example",
+    "content": "Learning the Cosmic JS API is really fun and so easy",
+    "status": "draft",
+    "metafields": [
+      {
+        "title": "Headline",
+        "key": "headline",
+        "type": "text",
+        "value": "Learn Cosmic JS!"
+      },
+      {
+        "title": "Author",
+        "key": "author",
+        "type": "text",
+        "value": "Quasar Jones"
+      }
+    ],
+    "bucket": "568c5bbefd0dce302c000001",
+    "type_slug": "examples",
+    "created_at": "2016-01-06T00:28:39.982Z",
+    "_id": "568c5fb72f0c5d532d000001"
+  }
+}
+```
+
+:::
+
+::: tab Node.js
+**Definition**
+
+```js
+bucket.addObjectRevision()
+```
+
+**Example Request**
+
+```js
+const params = {
+  slug: 'cosmic-js-example',
+  title: 'Cosmic JS Example',
+  type_slug: 'examples',
+  content: 'Learning the Cosmic JS API is really fun and so easy',
+  metafields: [
+    {
+      key: 'Headline',
+      type: 'text',
+      value: 'Learn Cosmic JS!'
+    },
+    {
+      key: 'Author',
+      type: 'text',
+      value: 'Quasar Jones'
+    }
+  ],
+  options: {
+    slug_field: false
+  }
+}
+const bucket = Cosmic.bucket({
+  slug: 'bucket-slug',
+  write_key: ''
+})
+bucket.addObjectRevision(params)
+.then(data => {
+  console.log(data)
+})
+.catch(err => {
+  console.log(err)
+})
+```
+
+**Example Response**
+
+```json
+{
+  "revision": {
+    "slug": "cosmic-js-example",
+    "title": "Cosmic JS Example",
+    "content": "Learning the Cosmic JS API is really fun and so easy",
+    "metafields": [
+      {
+        "title": "Headline",
+        "key": "headline",
+        "type": "text",
+        "value": "Learn Cosmic JS!"
+      },
+      {
+        "title": "Author",
+        "key": "author",
+        "type": "text",
+        "value": "Quasar Jones"
+      }
+    ],
+    "bucket": "568c5bbefd0dce302c000001",
+    "type_slug": "examples",
+    "created_at": "2016-01-06T00:28:39.982Z",
+    "_id": "568c5fb72f0c5d532d000001"
+  }
+}
+```
+
+:::
 
 ::::
 
