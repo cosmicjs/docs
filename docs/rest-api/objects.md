@@ -731,7 +731,7 @@ bucket.getObjectRevisions({
 
 ### Add Object Revision
 
-Adds a new revision to an existing Object. Revisions can be added in `published` or `draft` status. Default is `draft`. Same properties as [Add Object params](#add-object).
+Adds Revision to an Object set to `draft` status. To edit a published Object use the [Edit Object method](#edit-object) method. Same properties as [Add Object params](#add-object).
 
 :::: tabs :options="{ useUrlFragment: false }"
 
