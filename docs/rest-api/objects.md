@@ -19,7 +19,7 @@ Add a new Object to your Bucket.
 | status                 |          | Enum   | draft, published, defaults to published                            |
 | options.slug_field     |          | Bool   | Set to false to hide the slug field                                |
 | options.content_editor |          | Bool   | Set to false to hide the content editor                            |
-| metafields             |          | Array  | Add Metafields to your Object. See Metafields Model.               |
+| metafields             |          | Array  | Add Metafields to your Object. See [Metafields Model](/rest-api/metafields.html#model).               |
 | locale                 |          | String | Add localization to the Object                                     |
 | write_key              |          | String | Your Bucket write key                                              |
 | publish_at             |          | Number | UNIX millisecond timestamp. Publish automatically at a later time. |
