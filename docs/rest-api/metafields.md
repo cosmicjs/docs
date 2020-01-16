@@ -18,9 +18,6 @@ Metafields are powerful components that can be added to Objects and Object Types
 | options     |          | Array | Array of options for select, radio, and checkbox Metafields |
 | children      |          | Array  | Add nested Metafields                                                                                                                     |
 
-:::: tabs :options="{ useUrlFragment: false }"
-
-::: tab Bash
 **Example Metafields**
 
 ```json
@@ -187,180 +184,6 @@ Metafields are powerful components that can be added to Objects and Object Types
   ]
 }
 ```
-
-:::
-
-::: tab Node.js
-**Example Metafields**
-
-```json
-{
-  "metafields": [
-    {
-      "type": "text",
-      "title": "Headline",
-      "key": "headline",
-      "value": "3030 Palo Alto Blvd.",
-      "required": true
-    },
-    {
-      "type": "textarea",
-      "title": "Basic Text",
-      "key": "basic_text",
-      "value": "This home is a must see!",
-      "required": true
-    },
-    {
-      "type": "html-textarea",
-      "title": "Extended Text",
-      "key": "extended_text",
-      "value": "<p>Some <strong>HTML content</strong> for <em>dramatic</em> effect!</p>"
-    },
-    {
-      "type": "markdown",
-      "title": "Markdown Text",
-      "key": "markdown_text",
-      "value": "# Hello World!"
-    },
-    {
-      "type": "select-dropdown",
-      "title": "State",
-      "key": "state",
-      "value": "California",
-      "options": [
-        {
-          "key": "CA",
-          "value": "California"
-        },
-        {
-          "key": "TX",
-          "value": "Texas"
-        }
-      ]
-    },
-    {
-      "type": "object",
-      "title": "Pages",
-      "key": "pages",
-      "object_type": "pages",
-      "value": "5a4806974fa85fc8a7000002"
-    },
-    {
-      "type": "objects",
-      "title": "Other Listings",
-      "key": "other_listings",
-      "object_type": "listings",
-      "value": "5a4806974fa85fc8a7000007,5a4806974fa85fc8a7000008"
-    },
-    {
-      "type": "file",
-      "title": "Hero",
-      "key": "hero",
-      "value": "7d276450-5a95-11e7-b717-653f819d86b5.jpg",
-      "url": "https://s3-us-west-2.amazonaws.com/cosmicjs/7d276450-5a95-11e7-b717-653f819d86b5.jpg",
-      "imgix_url": "https://cosmic-s3.imgix.net/7d276450-5a95-11e7-b717-653f819d86b5.jpg"
-    },
-    {
-      "type": "date",
-      "title": "Listing Start Date",
-      "key": "listing_start_date",
-      "value": ""
-    },
-    {
-      "type": "json",
-      "title": "JSON Data",
-      "key": "json_data",
-      "value": {
-          "strings": "cheese",
-          "arrays": ["Bradbury","Charles","Ramono","the last Jedi","Liotta"],
-          "objects": {
-            "bools": true,
-            "nestable": true
-          }
-        }
-      }
-    },
-    {
-      "type": "radio-buttons",
-      "title": "Deposit Required",
-      "key": "deposit_required",
-      "value": "",
-      "options": [
-        {
-          "value": "True"
-        },
-        {
-          "value": "False"
-        }
-      ]
-    },
-    {
-      "type": "check-boxes",
-      "title": "Amenities",
-      "key": "amenities",
-      "value": [
-        "Pool",
-        "Gym"
-      ],
-      "options": [
-        {
-          "value": "Pool"
-        },
-        {
-          "value": "Gym"
-        },
-        {
-          "value": "Landscaping"
-        }
-      ]
-    },
-    {
-      "type": "repeater",
-      "title": "Testimonials",
-      "key": "testimonials",
-      "value": "Fiona Apple",
-      "repeater_fields": [
-        {
-          "title": "Name",
-          "key": "name",
-          "value": "",
-          "type": "text",
-          "required": false
-        },
-        {
-          "title": "Quote",
-          "key": "quote",
-          "value": "",
-          "type": "text",
-          "required": false
-        }
-      ],
-      "children": [
-        {
-          "children": [
-            {
-              "type": "text",
-              "title": "Name",
-              "key": "name",
-              "value": "Fiona Apple"
-            },
-            {
-              "type": "text",
-              "title": "Name",
-              "key": "name",
-              "value": "Jon Brion"
-            }
-          ]
-        }
-      ]
-    }
-  ]
-}
-```
-
-:::
-
-::::
 
 ## Validation
 
@@ -376,9 +199,7 @@ Reference the [Metafield model](/rest-api/metafields.html) to learn more.
 | minlength     |          | Number | Add minlength to text or textarea Metafields         |
 | maxlength     |          | Number | Add maxlength to text or textarea Metafields         |
 
-:::: tabs :options="{ useUrlFragment: false }"
 
-::: tab Bash
 **Example Metafields with Validations**
 
 ```json
@@ -428,61 +249,6 @@ Reference the [Metafield model](/rest-api/metafields.html) to learn more.
 }
 ```
 
-:::
-
-::: tab Node.js
-**Example Metafields with Validations**
-
-```json
-{
-  "title": "Users",
-  "singular": "User",
-  "slug": "users",
-  "metafields": [
-    {
-      "key": "first_name",
-      "title": "First Name",
-      "type": "text",
-      "value": "",
-      "required": true,
-      "minlength": 2
-    },
-    {
-      "key": "last_name",
-      "title": "Last Name",
-      "type": "text",
-      "value": "",
-      "required": true,
-      "minlength": 2
-    },
-    {
-      "key": "email",
-      "title": "Email",
-      "type": "text",
-      "value": "",
-      "regex": "/^([a-z0-9_.-]+)@([da-z.-]+).([a-z.]{2,6})$/",
-      "regex_message": "You must enter a valid email."
-    },
-    {
-      "key": "avatar",
-      "title": "Avatar",
-      "type": "file",
-      "value": ""
-    },
-    {
-      "key": "tagline",
-      "title": "Tagline",
-      "type": "text",
-      "value": "",
-      "maxlength": 50
-    }
-  ]
-}
-```
-
-:::
-
-::::
 
 ## Connect Objects
 
