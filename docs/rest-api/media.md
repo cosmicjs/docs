@@ -178,7 +178,9 @@ The Media Object must be an object with certain properties indicated below. If u
 ### Client-side React Dropzone Example
 React Dropzone is a popular file uploader on the client-side. For implmentation, read the [React Dropzone docs on GitHub](https://github.com/react-dropzone/react-dropzone/).
 
-To use the following example, get your Bucket slug and keys located in Bucket > Settings after logging in at [https://app.cosmicjs.com/login ](https://app.cosmicjs.com/login)
+::: tip TIP
+To use the following example, get your Bucket slug and keys located in Bucket > Settings in your [Bucket Dashboard ](https://app.cosmicjs.com/login).
+:::
 
 [View full screen / fork on StackBlitz ](https://stackblitz.com/edit/react-dropzone-cosmic)
 
@@ -187,7 +189,13 @@ To use the following example, get your Bucket slug and keys located in Bucket > 
 
 ## Get Media
 
-You can add the folder parameter to get Media from a certain folder.
+Get Media from your Bucket. You can add the folder parameter to get Media from a certain folder.
+
+::: tip TIP
+For a quick reference to this endpoint click the "Developer Tools" button on your Media table view in your [Bucket Dashboard ](https://app.cosmicjs.com/login).
+
+<img src="https://cdn.cosmicjs.com/6647c4e0-3c93-11ea-93e2-f96724e61d4d-dev-tools-btn.png" width="170"/>
+:::
 
 | Parameter | Required | Type   | Description          |
 | --------- | -------- | ------ | -------------------- |

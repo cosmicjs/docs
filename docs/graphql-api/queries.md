@@ -1,5 +1,11 @@
 # Queries
 
+::: tip TIP
+For a quick reference to this endpoint click the "Developer Tools" button on your Objects table view in your [Bucket Dashboard ](https://app.cosmicjs.com/login).
+
+<img src="https://cdn.cosmicjs.com/6647c4e0-3c93-11ea-93e2-f96724e61d4d-dev-tools-btn.png" width="170"/>
+:::
+
 ## getObjects
 Get Objects from a Bucket.
 

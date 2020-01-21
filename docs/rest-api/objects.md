@@ -4,7 +4,11 @@ sidebarDepth: 1
 
 # Objects
 
-The following endpoints allow you to add, edit and delete Objects in your Bucket. If you would like to restrict read or write access to your Bucket, you can do so in Your Bucket > Basic Settings.
+The following endpoints allow you to add, edit and delete Objects in your Bucket.
+
+::: tip TIP
+Your read and write keys will be required to perform the following requests. These can be found in <i>Your Bucket > Basic Settings</i> in your [Bucket Dashboard ](https://app.cosmicjs.com/login).
+:::
 
 ## Add Object
 
@@ -54,7 +58,8 @@ POST https://api.cosmicjs.com/v1/:bucket_slug/add-object
   ],
   "options": {
     "slug_field": false
-  }
+  },
+  "write_key": "your-write-key-found-in-bucket-settings"
 }
 ```
 
@@ -125,7 +130,7 @@ const params = {
 }
 const bucket = Cosmic.bucket({
   slug: 'bucket-slug',
-  write_key: ''
+  write_key: "your-write-key-found-in-bucket-settings"
 })
 bucket.addObject(params)
 .then(data => {
@@ -175,7 +180,14 @@ bucket.addObject(params)
 
 ## Get Objects
 
-Returns Objects from your Bucket.
+Get Objects in your Bucket.
+
+::: tip TIP
+For a quick reference to this endpoint click the "Developer Tools" button on your Object table in your [Bucket Dashboard ](https://app.cosmicjs.com/login).
+
+<img src="https://cdn.cosmicjs.com/6647c4e0-3c93-11ea-93e2-f96724e61d4d-dev-tools-btn.png" width="170"/>
+:::
+
 
 | Parameter             | Required | Type   | Description                                                     |
 | --------------------- | -------- | ------ | --------------------------------------------------------------- |
@@ -198,108 +210,6 @@ Returns Objects from your Bucket.
 | created_by |          | String | Created by User ID |
 | pretty                |          | Enum   | true, Makes the response more reader-friendly                   |
 | read_key              |          | String | Your Bucket read key                                            |
-
-:::: tabs :options="{ useUrlFragment: false }"
-
-::: tab Bash
-**Definition**
-
-```
-GET https://api.cosmicjs.com/:bucket_slug/objects
-```
-
-**Example Request**
-
-```bash
-curl "https://api.cosmicjs.com/v1/simple-react-blog/objects?pretty=true&hide_metafields=true&limit=10&props=slug,title,type_slug"
-```
-
-**Example Response**
-```json
-{
-  "objects": [
-    {
-      "slug": "jane-doe",
-      "title": "Jane Doe",
-      "type_slug": "authors"
-    },
-    {
-      "slug": "make-it-funky",
-      "title": "Make it Funky",
-      "type_slug": "categories"
-    },
-    {
-      "slug": "header",
-      "title": "Header",
-      "type_slug": "globals"
-    },
-    {
-      "slug": "john-doe",
-      "title": "John Doe",
-      "type_slug": "authors"
-    }
-  ],
-  "total": 10,
-  "limit": 5
-}
-```
-
-:::
-
-::: tab Node.js
-**Definition**
-
-```js
-bucket.getObjects()
-```
-
-**Example Request**
-
-```js
-bucket.getObjects({
-  props: 'slug,title,type_slug',
-  limit: 5
-})
-```
-
-
-**Example Response**
-```json
-{
-  "objects": [
-    {
-      "slug": "jane-doe",
-      "title": "Jane Doe",
-      "type_slug": "authors"
-    },
-    {
-      "slug": "make-it-funky",
-      "title": "Make it Funky",
-      "type_slug": "categories"
-    },
-    {
-      "slug": "header",
-      "title": "Header",
-      "type_slug": "globals"
-    },
-    {
-      "slug": "john-doe",
-      "title": "John Doe",
-      "type_slug": "authors"
-    }
-  ],
-  "total": 10,
-  "limit": 5
-}
-```
-
-:::
-
-::::
-
-### Get Objects by Type
-
-Get Objects from an Object Type using getObject method and the type param (the method getObjectsByType is now deprecated).
 
 :::: tabs :options="{ useUrlFragment: false }"
 
@@ -428,9 +338,16 @@ bucket.getObjects({
 
 ::::
 
-### Search and Filter Objects
+
+## Search and Filter
 
 Get Objects based on search variables.
+
+::: tip TIPS
+Read [the Changelog announcement](https://www.cosmicjs.com/changelog/filters-and-smart-views) to learn more.
+
+See the [Get Objects Params](#get-objects) to learn how to use params `q`, `metadata[key]`, and `created_by` for flexible searching and filterting.
+:::
 
 :::: tabs :options="{ useUrlFragment: false }"
 
@@ -458,24 +375,49 @@ curl "https://api.cosmicjs.com/v1/wedding-site/objects?type=groomsmen&metadata[o
 bucket.getObjects()
 ```
 
-**Example Requests**
+### Example Requests
 
+#### Search by keyword (title or content)
+```js
+const Cosmic = require('cosmicjs')
+const api = Cosmic()
+const bucket = api.bucket({
+  slug: 'cosmic-js'
+})
+
+// Search Objects by keyword in title or content
+const search_keyword = (await bucket.getObjects({
+  type: 'articles',
+  q: 'React.js'
+})).objects
+console.log(search_keyword)
+```
+
+#### Search by metadata
+```js
+const Cosmic = require('cosmicjs')
+const api = Cosmic()
+const bucket = api.bucket({
+  slug: 'creative-agency'
+})
+
+// Search Objects by Metadata
+const search_metadata = (await bucket.getObjects({
+  type: 'pages',
+  metadata: {
+    headline: 'Welcome'
+  }
+})).objects
+console.log(search_metadata)
+```
+
+#### Filter by Object IDs
 ```js
 const Cosmic = require('cosmicjs')
 const api = Cosmic()
 const bucket = api.bucket({
   slug: 'wedding-site'
 })
-
-// Search Objects 
-const search = (await bucket.getObjects({
-  type: 'groomsmen',
-  metadata: {
-    'official-title': 'Best Man'
-  }
-})).objects
-console.log(search)
-
 // Filter Objects 
 const filter = (await bucket.getObjects({
   type: 'groomsmen',
@@ -493,6 +435,12 @@ console.log(filter)
 ## Get Object
 
 Returns a single Object from your Bucket.
+
+::: tip TIP
+For a quick reference to this endpoint click the "Developer Tools" button on your Edit Object view in your [Bucket Dashboard ](https://app.cosmicjs.com/login).
+
+<img src="https://cdn.cosmicjs.com/6647c4e0-3c93-11ea-93e2-f96724e61d4d-dev-tools-btn.png" width="170"/>
+:::
 
 | Parameter       | Required | Type   | Description                                    |
 | --------------- | -------- | ------ | ---------------------------------------------- |
