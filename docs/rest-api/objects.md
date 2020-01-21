@@ -217,13 +217,13 @@ For a quick reference to this endpoint click the "Developer Tools" button on you
 **Definition**
 
 ```
-GET https://api.cosmicjs.com/v1/:bucket_slug/objects?type=:type_slug
+GET https://api.cosmicjs.com/v1/:bucket_slug/objects?type=:type_slug&read_key=your-read-key-found-bucket-settings
 ```
 
 **Example Request**
 
 ```bash
-curl "https://api.cosmicjs.com/v1/simple-react-blog/objects?pretty=true&hide_metafields=true&limit=10&props=slug,title,type_slug,metadata.categories&type=posts"
+curl "https://api.cosmicjs.com/v1/simple-react-blog/objects?pretty=true&hide_metafields=true&limit=10&props=slug,title,type_slug,metadata.categories&type=posts&read_key=your-read-key-found-bucket-settings"
 ```
 
 **Example Response**
@@ -307,6 +307,11 @@ bucket.getObjects()
 **Example Request**
 
 ```js
+const bucket = Cosmic.bucket({
+  slug: 'bucket-slug',
+  read_key: "your-read-key-found-in-bucket-settings"
+})
+
 bucket.getObjects({
   type: 'posts',
   props: 'slug,title,type_slug',
@@ -355,15 +360,15 @@ See the [Get Objects Params](#get-objects) to learn how to use params `q`, `meta
 **Definition**
 
 ```
-GET https://api.cosmicjs.com/v1/:bucket_slug/objects?type=:type_slug&q=:search_text
-GET https://api.cosmicjs.com/v1/:bucket_slug/objects?type=:type_slug&metadata[:key]=:value
-GET https://api.cosmicjs.com/v1/:bucket_slug/objects?type=:type_slug&filters[_id]=:object_id_1,:object_id_2
+GET https://api.cosmicjs.com/v1/:bucket_slug/objects?type=:type_slug&q=:search_text&read_key=your-read-key-found-in-bucket-settings
+GET https://api.cosmicjs.com/v1/:bucket_slug/objects?type=:type_slug&metadata[:key]=:value&read_key=your-read-key-found-in-bucket-settings
+GET https://api.cosmicjs.com/v1/:bucket_slug/objects?type=:type_slug&filters[_id]=:object_id_1,:object_id_2&read_key=your-read-key-found-in-bucket-settings
 ```
 
 **Example Request**
 
 ```bash
-curl "https://api.cosmicjs.com/v1/wedding-site/objects?type=groomsmen&metadata[official-title]=Best%20Man"
+curl "https://api.cosmicjs.com/v1/wedding-site/objects?type=groomsmen&metadata[official-title]=Best%20Man&read_key=your-read-key-found-in-bucket-settings"
 ```
 
 :::
@@ -382,7 +387,8 @@ bucket.getObjects()
 const Cosmic = require('cosmicjs')
 const api = Cosmic()
 const bucket = api.bucket({
-  slug: 'cosmic-js'
+  slug: 'cosmic-js',
+  read_key: 'your-read-key-found-in-bucket-settings'
 })
 
 // Search Objects by keyword in title or content
@@ -398,7 +404,8 @@ console.log(search_keyword)
 const Cosmic = require('cosmicjs')
 const api = Cosmic()
 const bucket = api.bucket({
-  slug: 'creative-agency'
+  slug: 'creative-agency',
+  read_key: 'your-read-key-found-in-bucket-settings'
 })
 
 // Search Objects by Metadata
@@ -416,7 +423,8 @@ console.log(search_metadata)
 const Cosmic = require('cosmicjs')
 const api = Cosmic()
 const bucket = api.bucket({
-  slug: 'wedding-site'
+  slug: 'wedding-site',
+  read_key: 'your-read-key-found-in-bucket-settings'
 })
 // Filter Objects 
 const filter = (await bucket.getObjects({
@@ -460,13 +468,13 @@ For a quick reference to this endpoint click the "Developer Tools" button on you
 **Definition**
 
 ```
-GET https://api.cosmicjs.com/:bucket_slug/object/:slug
+GET https://api.cosmicjs.com/:bucket_slug/object/:slug?read_key=your-read-key-found-in-bucket-settings
 ```
 
 **Example Request**
 
 ```bash
-curl "https://api.cosmicjs.com/v1/simple-react-blog/object/a-wonderful-blog-post-about-earth?pretty=true&hide_metafields=true&props=slug,title,content,metadata.categories"
+curl "https://api.cosmicjs.com/v1/simple-react-blog/object/a-wonderful-blog-post-about-earth?pretty=true&hide_metafields=true&props=slug,title,content,metadata.categories&read_key=your-read-key-found-in-bucket-settings"
 ```
 
 **Example Response**
@@ -523,6 +531,13 @@ bucket.getObject()
 
 **Example Request**
 ```js
+const Cosmic = require('cosmicjs')
+const api = Cosmic()
+const bucket = api.bucket({
+  slug: 'your-bucket-slug',
+  read_key: 'your-read-key-found-in-bucket-settings'
+})
+
 bucket.getObject({
   slug: 'a-wonderful-blog-post-about-earth',
   props: 'slug,title,content,metadata.categories'
@@ -646,6 +661,13 @@ bucket.getObjectRevisions()
 **Example Request**
 
 ```js
+const Cosmic = require('cosmicjs')
+const api = Cosmic()
+const bucket = api.bucket({
+  slug: 'your-bucket-slug',
+  read_key: 'your-read-key-found-in-bucket-settings'
+})
+
 bucket.getObjectRevisions({
   slug: 'a-wonderful-blog-post-about-earth',
   props: 'slug,title,created_at',
@@ -709,7 +731,8 @@ POST https://api.cosmicjs.com/v1/:bucket_slug/object/:object_slug/revisions
       "type": "text",
       "value": "Quasar Jones"
     }
-  ]
+  ],
+  "write_key": "your-write-key-found-in-bucket-settings"
 }
 ```
 
@@ -779,7 +802,7 @@ const params = {
 }
 const bucket = Cosmic.bucket({
   slug: 'bucket-slug',
-  write_key: ''
+  write_key: 'your-write-key-found-in-bucket-settings'
 })
 bucket.addObjectRevision(params)
 .then(data => {
@@ -871,7 +894,8 @@ PUT https://api.cosmicjs.com/v1/:bucket_slug/edit-object
       "value": "I bet you want to know what it is...",
       "type": "text"
     }
-  ]
+  ],
+  "write_key": "your-write-key-found-in-bucket-settings"
 }
 ```
 
@@ -919,7 +943,7 @@ bucket.editObject()
 ```js
 const bucket = Cosmic.bucket({
   slug: 'bucket-slug',
-  write_key: ''
+  write_key: 'your-write-key-found-in-bucket-settings'
 })
 bucket.editObject({
   slug: 'cosmic-js-example',
@@ -989,7 +1013,7 @@ DELETE https://api.cosmicjs.com/v1/:bucket_slug/objects/:object_slug
 
 ```json
 {
-  "write_key": "your-key-added-in-bucket-settings"
+  "write_key": "your-write-key-found-in-bucket-settings"
 }
 ```
 

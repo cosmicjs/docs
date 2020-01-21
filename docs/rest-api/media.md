@@ -260,7 +260,7 @@ DELETE https://api.cosmicjs.com/v1/:bucket_slug/media/:media_id
 
 ```json
 {
-  "write_key": "your-key-added-in-bucket-settings"
+  "write_key": "your-write-key-found-in-bucket-settings"
 }
 ```
 

@@ -360,7 +360,7 @@ _Example Request Body_
 
 ```json
 {
-  "write_key": "your-key-added-in-bucket-settings" // optional
+  "write_key": "your-write-key-found-in-bucket-settings" // optional
 }
 ```
 
