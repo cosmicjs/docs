@@ -25,41 +25,21 @@ POST https://api.cosmicjs.com/v1/:bucket_slug/media
 curl --form "folder=folder-name" --form "media=@test.png" --form "write_key=<write-key>" 'https://api.cosmicjs.com/v1/:bucket_slug/media'
 ```
 
-```json
-{
-  "media": "your-media-object",
-  "folder": "your-folder-slug",
-  "metadata": {
-    "caption": "Beautiful picture of the beach",
-    "credit": "Tyler Jackson"
-  }
-}
-```
-
 **Example Response**
 
 ```json
 {
   "media": {
-    "name": "c20391e0-b8a4-11e6-8836-fbdfd6956b31-bird.jpg",
-    "original_name": "bird.jpg",
+    "name": "c20391e0-b8a4-11e6-8836-fbdfd6956b31-test.png",
+    "original_name": "test.png",
     "size": 457307,
-    "type": "image/jpeg",
+    "folder": "folder-name",
+    "type": "image/png",
     "bucket": "5839c67f0d3201c114000004",
     "created": "2016-12-02T15:34:05.054Z",
     "location": "https://cosmicjs.com/uploads",
-    "url": "https://s3-us-west-2.amazonaws.com/cosmicjs/c20391e0-b8a4-11e6-8836-fbdfd6956b31-bird.jpg",
-    "imgix_url": "https://cosmic-s3.imgix.net/c20391e0-b8a4-11e6-8836-fbdfd6956b31-bird.jpg",
-    "metadata": [
-      {
-        "key": "caption",
-        "value": "Beautiful picture of the beach"
-      },
-      {
-        "key": "credit",
-        "value": "Tyler Jackson"
-      }
-    ]
+    "url": "https://cdn.cosmicjs.com/c20391e0-b8a4-11e6-8836-fbdfd6956b31-test.png",
+    "imgix_url": "https://cosmic-s3.imgix.net/c20391e0-b8a4-11e6-8836-fbdfd6956b31-test.png"
   }
 }
 ```
@@ -126,7 +106,7 @@ const media_object = {
     "bucket": "5839c67f0d3201c114000004",
     "created": "2016-12-02T15:34:05.054Z",
     "location": "https://cosmicjs.com/uploads",
-    "url": "https://s3-us-west-2.amazonaws.com/cosmicjs/c20391e0-b8a4-11e6-8836-fbdfd6956b31-bird.jpg",
+    "url": "https://cdn.cosmicjs.com/c20391e0-b8a4-11e6-8836-fbdfd6956b31-bird.jpg",
     "imgix_url": "https://cosmic-s3.imgix.net/c20391e0-b8a4-11e6-8836-fbdfd6956b31-bird.jpg",
     "metadata": [
       {
@@ -146,6 +126,46 @@ const media_object = {
 
 ::::
 
+### Server-side Multer Example
+
+This application uses Express and Multer to create a route `POST http://localhost:5000/upload` that will upload a file to your Bucket Media area. This is an example from the article [Upload Media to Your Cosmic JS Bucket Using Multer](https://www.cosmicjs.com/articles/upload-media-to-your-cosmic-js-bucket-using-multer-jzoddl9p).
+
+```js
+// index.js
+const fs = require('fs')
+const Cosmic = require('cosmicjs')()
+const multer = require('multer')
+const express = require('express')
+var app = express()
+const bucket = Cosmic.bucket({
+  slug: 'your-bucket-slug',
+  write_key: 'your-bucket-write-key'
+})
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, __dirname + '/uploads')
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.fieldname + '-' + Date.now())
+  }
+})
+var upload = multer({ storage: storage })
+app.post('/upload', upload.single('file'), async function(req, res) {
+  try {
+    const media_object = {
+      originalname: req.file.originalname,
+      buffer: fs.createReadStream(req.file.path)
+    }
+    const response = await bucket.addMedia({ media: media_object });
+    return res.json(response);
+  } catch (e) {
+    console.log(e)
+  }
+});
+app.listen(5000);
+
+```
+
 ### Media Object
 
 The Media Object must be an object with certain properties indicated below. If using the [multer NPM module](https://www.npmjs.com/package/multer) the file objects have these by default. Otherwise you should create an object with these properties:
@@ -154,6 +174,16 @@ The Media Object must be an object with certain properties indicated below. If u
 | ------------ | -------- | ----------- | ------------------------------------- |
 | originalname | required | String      | The name of your file (something.jpg) |
 | buffer       |          | File Buffer | The File Buffer    |
+
+### Client-side React Dropzone Example
+React Dropzone is a popular file uploader on the client-side. For implmentation, read the [React Dropzone docs on GitHub](https://github.com/react-dropzone/react-dropzone/).
+
+To use the following example, get your Bucket slug and keys located in Bucket > Settings after logging in at [https://app.cosmicjs.com/login ](https://app.cosmicjs.com/login)
+
+[View full screen / fork on StackBlitz ](https://stackblitz.com/edit/react-dropzone-cosmic)
+
+<iframe src="https://stackblitz.com/edit/react-dropzone-cosmic?embed=1&file=index.js" width="100%" height="500" frameborder="0"></iframe>
+
 
 ## Get Media
 
