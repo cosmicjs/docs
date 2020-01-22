@@ -176,7 +176,7 @@ The Media Object must be an object with certain properties indicated below. If u
 | buffer       |          | File Buffer | The File Buffer    |
 
 ### Client-side React Dropzone Example
-React Dropzone is a popular file uploader on the client-side. For implmentation, read the [React Dropzone docs on GitHub](https://github.com/react-dropzone/react-dropzone/).
+React Dropzone is a popular file uploader on the client-side. For implementation, read the [React Dropzone docs on GitHub](https://github.com/react-dropzone/react-dropzone/).
 
 ::: tip TIP
 To use the following example, get your Bucket slug and keys located in Bucket > Settings in your [Bucket Dashboard ](https://app.cosmicjs.com/login).
