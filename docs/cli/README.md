@@ -6,6 +6,12 @@ sidebarDepth: 2
 
 This is the official command line tool for [Cosmic JS](https://cosmicjs.com).  Use it to log in to your Cosmic JS account, manage Buckets, data, files and users within your Buckets, all from the comfort of your command line interface.
 
+::: tip Quick Tip
+For a quick reference to get content from your Bucket, click the "Developer Tools" button found on select pages in your [Bucket Dashboard ](https://app.cosmicjs.com/login).
+
+<a href="https://app.cosmicjs.com/login" target="_blank"><img src="https://cdn.cosmicjs.com/6647c4e0-3c93-11ea-93e2-f96724e61d4d-dev-tools-btn.png" width="170"/></a>
+:::
+
 ## Installation
 
 Install the CLI globally:
