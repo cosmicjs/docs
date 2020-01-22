@@ -6,7 +6,7 @@ sidebarDepth: 1
 
 The following endpoints allow you to add, edit and delete Objects in your Bucket.
 
-::: tip TIP
+::: tip Quick Tip
 Your read and write keys will be required to perform the following requests. These can be found in <i>Your Bucket > Basic Settings</i> in your [Bucket Dashboard ](https://app.cosmicjs.com/login).
 :::
 
@@ -182,10 +182,10 @@ bucket.addObject(params)
 
 Get Objects in your Bucket.
 
-::: tip TIP
+::: tip Quick Tip
 For a quick reference to this endpoint click the "Developer Tools" button on your Object table in your [Bucket Dashboard ](https://app.cosmicjs.com/login).
 
-<img src="https://cdn.cosmicjs.com/6647c4e0-3c93-11ea-93e2-f96724e61d4d-dev-tools-btn.png" width="170"/>
+<a href="https://app.cosmicjs.com/login" target="_blank"><img src="https://cdn.cosmicjs.com/6647c4e0-3c93-11ea-93e2-f96724e61d4d-dev-tools-btn.png" width="170"/></a>
 :::
 
 
@@ -348,7 +348,7 @@ bucket.getObjects({
 
 Get Objects based on search variables.
 
-::: tip TIPS
+::: tip Quick TipS
 Read [the Changelog announcement](https://www.cosmicjs.com/changelog/filters-and-smart-views) to learn more.
 
 See the [Get Objects Params](#get-objects) to learn how to use params `q`, `metadata[key]`, and `created_by` for flexible searching and filterting.
@@ -444,10 +444,10 @@ console.log(filter)
 
 Returns a single Object from your Bucket.
 
-::: tip TIP
+::: tip Quick Tip
 For a quick reference to this endpoint click the "Developer Tools" button on your Edit Object view in your [Bucket Dashboard ](https://app.cosmicjs.com/login).
 
-<img src="https://cdn.cosmicjs.com/6647c4e0-3c93-11ea-93e2-f96724e61d4d-dev-tools-btn.png" width="170"/>
+<a href="https://app.cosmicjs.com/login" target="_blank"><img src="https://cdn.cosmicjs.com/6647c4e0-3c93-11ea-93e2-f96724e61d4d-dev-tools-btn.png" width="170"/></a>
 :::
 
 | Parameter       | Required | Type   | Description                                    |

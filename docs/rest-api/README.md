@@ -8,6 +8,12 @@ The Cosmic JS REST API and available clients help you manage content for your we
 
 The API is fully CRUD capable, allowing you to perform Create, Read, Update, and Delete requests to your Cosmic JS Buckets. 
 
+::: tip Quick Tip
+For a quick reference to get content from your Bucket, click the "Developer Tools" button found on select pages in your [Bucket Dashboard ](https://app.cosmicjs.com/login).
+
+<a href="https://app.cosmicjs.com/login" target="_blank"><img src="https://cdn.cosmicjs.com/6647c4e0-3c93-11ea-93e2-f96724e61d4d-dev-tools-btn.png" width="170"/></a>
+:::
+
 ## Getting Started
 
 Go to [https://cosmicjs.com/signup](https://cosmicjs.com/signup) to create an account and get familiar with the Cosmic JS Dashboard.
