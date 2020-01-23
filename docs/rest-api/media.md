@@ -269,7 +269,7 @@ DELETE https://api.cosmicjs.com/v1/:bucket_slug/media/:media_id
 ```json
 {
   "status": "200",
-  "message": "Object Type deleted."
+  "message": "Media deleted."
 }
 ```
 
@@ -305,7 +305,7 @@ bucket.deleteMedia({
 ```json
 {
   "status": "200",
-  "message": "Object Type deleted."
+  "message": "Media deleted."
 }
 ```
 
