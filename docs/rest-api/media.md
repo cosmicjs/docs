@@ -259,9 +259,7 @@ DELETE https://api.cosmicjs.com/v1/:bucket_slug/media/:media_id
 **Example Request**
 
 ```json
-{
-  "write_key": "your-write-key-found-in-bucket-settings"
-}
+curl -X DELETE "https://api.cosmicjs.com/v1/bucket-slug/media/media_id" -d '{ "write_key": "your-write-key-found-in-bucket-settings" }' -H "Content-type: application/json"
 ```
 
 **Example Response**
