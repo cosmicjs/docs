@@ -7,6 +7,7 @@ In GraphQL terminolgy, `queries` perform read actions on API resources.
 | ---------- | -------- | -------- |
 | [getObjects](/graphql-api/queries.html#getobjects) | Get Objects from a Bucket | |
 | [getObject](/graphql-api/queries.html#getobject) | Get a single Object from a Bucket | |
+| [getObjectRevisions](/graphql-api/queries.html#getObjectRevisions) | Get a single Object from a Bucket | |
 | [getMedia](/graphql-api/queries.html#getmedia) | Get Media from a Bucket | |
 | [getObjectTypes](/graphql-api/queries.html#getobjecttypes) | Get Object Types from a Bucket | |
 | [getBucket](/graphql-api/queries.html#getbucket) | Get all Bucket content | |
