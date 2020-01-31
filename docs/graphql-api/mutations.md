@@ -36,6 +36,18 @@ deleteObject(bucket_slug, input)
 
 <iframe src="https://cosmic-graphql-playground.netlify.com/?endpoint=https://graphql.cosmicjs.com/v2&query=mutation%20%7B%0A%20%20deleteObject(%0A%20%20%20%20bucket_slug%3A%20%22graphql-bucket%22%2C%0A%20%20%20%20object_slug%3A%20%22post-title%22)%0A%7D" frameborder="0" style="width: 100%; height: 470px;"></iframe>
 
+## addObjectRevision
+Add a Revision to your Object.
+
+```
+addObjectRevision(bucket_slug, input)
+```
+
+### Try it
+**[Full screen&nbsp;&nbsp;](https://cosmic-graphql-playground.netlify.com/?endpoint=https://graphql.cosmicjs.com/v2&query=mutation%20%7B%0A%20%20addObject(%0A%20%20%20%20bucket_slug%3A%20%22graphql-bucket%22%2C%0A%20%20%20%20input%3A%20%7B%20%0A%20%20%20%20%20%20title%3A%20%22Post%20Title%22%2C%0A%20%20%20%20%20%20type_slug%3A%20%22posts%22%2C%0A%20%20%20%20%20%20content%3A%20%22This%20is%20my%20post%20content%22%0A%20%20%20%20%7D%0A%20%20)%20%7B%0A%20%20%20%20title%0A%20%20%20%20content%0A%20%20%7D%0A%7D)**
+
+<iframe src="https://cosmic-graphql-playground.netlify.com/?endpoint=https://graphql.cosmicjs.com/v2&query=mutation%20%7B%0A%20%20addObject(%0A%20%20%20%20bucket_slug%3A%20%22graphql-bucket%22%2C%0A%20%20%20%20input%3A%20%7B%20%0A%20%20%20%20%20%20title%3A%20%22Post%20Title%22%2C%0A%20%20%20%20%20%20type_slug%3A%20%22posts%22%2C%0A%20%20%20%20%20%20content%3A%20%22This%20is%20my%20post%20content%22%0A%20%20%20%20%7D%0A%20%20)%20%7B%0A%20%20%20%20title%0A%20%20%20%20content%0A%20%20%7D%0A%7D" frameborder="0" style="width: 100%; height: 470px;"></iframe>
+
 ## addObjectType
 Add an Object Type to your Bucket.
 

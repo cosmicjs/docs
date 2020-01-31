@@ -34,7 +34,8 @@ module.exports = {
             '/graphql-api/methods-overview',
             '/graphql-api/queries',
             '/graphql-api/mutations',
-            '/graphql-api/examples'
+            '/graphql-api/examples',
+            '/graphql-api/previous-versions'
           ]
         },
         {
