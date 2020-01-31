@@ -14,6 +14,9 @@ In GraphQL terminolgy, `queries` perform read actions on API resources.
 | [getBuckets](/graphql-api/queries.html#getbuckets) | Get all Buckets on your user account | yes |
 | [getUsers](/graphql-api/queries.html#getusers) | Get Users in a Bucket | yes |
 | [getUser](/graphql-api/queries.html#getuser) | Get a User in a Bucket | yes |
+| objects (DEPRECATED) | Get Objects in a Bucket. Use `getObjects` method instead. | |
+| objectsByType (DEPRECATED) | Get Objects bt Type in a Bucket. Use `getObjects` method with the `type` parameter instead. | |
+| object (DEPRECATED) | Get an Object in a Bucket. Use `getObject` method instead. | |
 
 ## Mutations
 

@@ -15,16 +15,13 @@ npm install axios
 ```javascript
 // index.js
 const axios = require('axios')
-axios.post('https://graphql.cosmicjs.com/v2', {
+axios.post('https://graphql.cosmicjs.com/v1', {
   query: `{ 
     getObjects(
       bucket_slug: "simple-react-blog",
       input: { type: "posts", limit: 2 }
     ){
-      objects {
-        title
-      }
-      total
+      title
     }
   }`
 })
@@ -54,7 +51,7 @@ npm install apollo-boost graphql
 // index.js
 import ApolloClient from "apollo-boost";
 const client = new ApolloClient({
-  uri: "https://graphql.cosmicjs.com/v2"
+  uri: "https://graphql.cosmicjs.com/v1"
 });
 
 import { gql } from "apollo-boost";
@@ -67,11 +64,8 @@ client
           bucket_slug: "simple-react-blog",
           input: { type: "posts", limit: 2 }
         ){
-          objects {
-            title
-            content
-          }
-          total
+          title
+          content
         }
       }
     `
