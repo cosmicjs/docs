@@ -25,7 +25,7 @@ https://api.cosmicjs.com/v1
 ```
 
 ## Status Check
-You can check on the API sytetm status via the [Cosmic JS status page](https://cosmicjs.statuspage.io/) and via the following endpoint:
+You can check on the API system status via the [Cosmic JS status page](https://cosmicjs.statuspage.io/) and via the following endpoint:
 ```
 https://api.cosmicjs.com/status
 ```
