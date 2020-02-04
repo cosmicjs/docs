@@ -16,6 +16,9 @@ All `queries` and `mutations` are called to the Cosmic JS GraphQL endpoint:
 https://graphql.cosmicjs.com/v2
 ```
 
+## Status Check
+You can check on the API sytetm status via the [Cosmic JS status page](https://cosmicjs.statuspage.io/).
+
 ## Playground
 Use the playground for a full interactive demonstration. Use the "Docs" and "Schema" buttons on the right side for documentation on models, queries, inputs, and descriptions.
 

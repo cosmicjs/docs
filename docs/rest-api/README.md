@@ -19,9 +19,15 @@ For a quick reference to get content from your Bucket, click the "Developer Tool
 Go to [https://cosmicjs.com/signup](https://cosmicjs.com/signup) to create an account and get familiar with the Cosmic JS Dashboard.
 
 ## API Endpoint
-You can make direct calls the REST API from the following base URL.
+You can make direct calls the REST API from the following base URL. Current version is `v1`.
 ```
-https://api.cosmicjs.com
+https://api.cosmicjs.com/v1
+```
+
+## Status Check
+You can check on the API sytetm status via the [Cosmic JS status page](https://cosmicjs.statuspage.io/) and via the following endpoint:
+```
+https://api.cosmicjs.com/status
 ```
 
 ## Node.js Installation
