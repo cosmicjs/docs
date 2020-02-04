@@ -1,8 +1,6 @@
 # Cosmic JS GraphQL API
 
-Welcome to the Cosmic JS GraphQL documentation. Learn about all of the features and methods to perform `queries` and `mutations` on your Bucket content.
-
-The API is fully CRUD capable, allowing you to perform Create, Read, Update, and Delete requests to your Cosmic JS Buckets.
+Welcome to the Cosmic JS GraphQL documentation. Learn about all of the features and methods to perform `queries` and `mutations`.
 
 ::: tip Quick Tip
 For a quick reference to get content from your Bucket, click the "Developer Tools" button found on select pages in your [Bucket Dashboard ](https://app.cosmicjs.com/login).
@@ -33,5 +31,8 @@ New Queries:
 New query format:
 - `getObjects` requires a new query format. Now includes params `limit`, `total`, and `skip`.
 - `getMedia` requires a new query format. Now includes params `limit`, `total`, and `skip`.
+
+Search and Filter Options:
+- The `getObjects` method now allows you to search and filter by metadata.
 
 [View previous version docs here](/graphql-api/previous-versions#v1).
