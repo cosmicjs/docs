@@ -41,7 +41,7 @@ deleteObject(bucket_slug, input)
 Add a Revision to your Object.
 
 ```
-addObjectRevision(bucket_slug, input)
+addObjectRevision(bucket_slug, object_slug, input)
 ```
 
 ### Try it

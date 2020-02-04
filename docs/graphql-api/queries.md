@@ -34,7 +34,7 @@ getObject(bucket_slug, input)
 Get Object Revisions from a Bucket.
 
 ```
-getObjectRevisions(bucket_slug, input)
+getObjectRevisions(bucket_slug, object_slug, input)
 ```
 
 ### Try it
