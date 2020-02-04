@@ -19,7 +19,7 @@ For a quick reference to get content from your Bucket, click the "Developer Tool
 Go to [https://cosmicjs.com/signup](https://cosmicjs.com/signup) to create an account and get familiar with the Cosmic JS Dashboard.
 
 ## API Endpoint
-You can make direct calls the REST API from the following base URL. Current version is `v1`.
+You can make direct calls to the REST API from the following base URL. Current version is `v1`.
 ```
 https://api.cosmicjs.com/v1
 ```
