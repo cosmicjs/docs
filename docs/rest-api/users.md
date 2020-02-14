@@ -10,7 +10,6 @@ Add a user to your Bucket. Authentication token is required and must have admin 
 | role       | required | Enum   | admin, developer, editor or contributor                     |
 | first_name |          | String | The new user's first name                                   |
 | last_name  |          | String | The new user's last name                                    |
-| write_key  |          | String | Include if a write access key has been added to your Bucket |
 
 :::: tabs :options="{ useUrlFragment: false }"
 
