@@ -131,4 +131,4 @@ View these Function examples on GitHub:
 - [Stripe Charge](https://github.com/cosmicjs/stripe-charge-function)
   - Submit a charge to Stripe.
 
-We hope you enjoy the new freedom you have to deploy serverless functions using Cosmic JS. If you have any questions, you can [reach out to us on Twitter](https://twitter.com/cosmic_js) and [join the community on Slack](https://cosmicjs.com/community).
+We hope you enjoy the new freedom you have to deploy serverless functions using Cosmic JS. If you have any questions, you can [reach out to us on Twitter](https://twitter.com/cosmicjs) and [join the community on Slack](https://cosmicjs.com/community).
