@@ -150,4 +150,4 @@ Then upload the Extension to your Cosmic Bucket located in *Your Bucket > Extens
 
 Submit your idea to the [Cosmic contribution page](https://cosmicjs.com/contribute). We'll showcase your awesome Cosmic Extension and you'll get free stuff. 😎
 
-Any questions? Reach out to us on our [Slack channel](https://cosmicjs.com/community) and reach out to us [on Twitter](https://twitter.com/cosmic_js).
+Any questions? Reach out to us on our [Slack channel](https://cosmicjs.com/community) and reach out to us [on Twitter](https://twitter.com/cosmicjs).
