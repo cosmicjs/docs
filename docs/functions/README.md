@@ -1,10 +1,10 @@
-# Cosmic JS Functions
+# Cosmic Functions
 
-![Cosmic JS and AWS Logos](https://web-assets.cosmicjs.com/images/docs/cosmicjs-aws-logos.jpg)
+![Cosmic and AWS Logos](https://web-assets.cosmicjs.com/images/docs/cosmicjs-aws-logos.jpg)
 
 ## How it works
 
-You can deploy Node.js functions to AWS through your Bucket Dashboard located at _Your Bucket > Settings > Functions_. AWS Lambda functions are infinitely scalable, highly cost effective ([AWS gives you 1M requests per month free](https://aws.amazon.com/lambda/pricing/)), and you never have to pay for idle server time. **You can have unlimited Functions in your Cosmic JS Bucket and the feature is 100% free to use.**
+You can deploy Node.js functions to AWS through your Bucket Dashboard located at _Your Bucket > Settings > Functions_. AWS Lambda functions are infinitely scalable, highly cost effective ([AWS gives you 1M requests per month free](https://aws.amazon.com/lambda/pricing/)), and you never have to pay for idle server time. **You can have unlimited Functions in your Cosmic Bucket and the feature is 100% free to use.**
 
 ## What's required?
 
@@ -42,7 +42,7 @@ module.exports.handler = function(event, context, callback) {
 
 ### Function config file
 
-The `function.json` file includes information that Cosmic JS uses to deploy your function. Here's an example:
+The `function.json` file includes information that Cosmic uses to deploy your function. Here's an example:
 
 ```json
 {
@@ -131,4 +131,4 @@ View these Function examples on GitHub:
 - [Stripe Charge](https://github.com/cosmicjs/stripe-charge-function)
   - Submit a charge to Stripe.
 
-We hope you enjoy the new freedom you have to deploy serverless functions using Cosmic JS. If you have any questions, you can [reach out to us on Twitter](https://twitter.com/cosmic_js) and [join the community on Slack](https://cosmicjs.com/community).
+We hope you enjoy the new freedom you have to deploy serverless functions using Cosmic. If you have any questions, you can [reach out to us on Twitter](https://twitter.com/cosmic_js) and [join the community on Slack](https://cosmicjs.com/community).

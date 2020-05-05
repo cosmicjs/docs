@@ -1,6 +1,6 @@
 # Errors
 
-The Cosmic JS API uses the following error codes:
+The Cosmic API uses the following error codes:
 
 | Error Code         | Meaning                                                              |
 | ------------------ | -------------------------------------------------------------------- |

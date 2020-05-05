@@ -4,10 +4,10 @@ sidebarDepth: 2
 
 # Extensions
 
-Cosmic JS Extensions enable you to customize the Cosmic JS Dashboard experience to create custom experiences in your Bucket Dashboard.
+Cosmic Extensions enable you to customize the Cosmic Dashboard experience to create custom experiences in your Bucket Dashboard.
 Pre-built Extensions are available for demo and install.
 
-![Screenshot of Cosmic JS dashboard](https://web-assets.cosmicjs.com/images/docs/dashboard-screenshot.jpg)
+![Screenshot of Cosmic dashboard](https://web-assets.cosmicjs.com/images/docs/dashboard-screenshot.jpg)
 
 ## Getting started
 
@@ -34,10 +34,10 @@ https://my-custom-webapp.netlify.com?bucket_slug=your-bucket-slug&read_key=your-
 
 | Name                 | Description                                                                                                                                                   |
 | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| bucket_slug          | Your Bucket slug. Use this to connect to your Cosmic JS Bucket for read / write / edits.                                                                      |
+| bucket_slug          | Your Bucket slug. Use this to connect to your Cosmic Bucket for read / write / edits.                                                                      |
 | read_key             | Your Bucket read key. Needed to read from your Bucket if this value is set in your Bucket > Settings > Basic.                                                 |
 | write_key            | Your Bucket write key. Needed for writes to your Bucket if this value is set in your Bucket > Settings > Basic.                                               |
-| [custom key / value] | You can add unlimited custom query pamaters such as 3rd-party API keys to connect to different services. Find this in your Cosmic JS Extension settings page. |
+| [custom key / value] | You can add unlimited custom query pamaters such as 3rd-party API keys to connect to different services. Find this in your Cosmic Extension settings page. |
 
 ## How to add a static web app extension
 
@@ -142,12 +142,12 @@ Compress the folder:
 
 ![Screenshot of how to compress build folder - Part 2](https://web-assets.cosmicjs.com/images/docs/compress-2.png)
 
-Then upload the Extension to your Cosmic JS Bucket located in *Your Bucket > Extensions > Add Extension*.
+Then upload the Extension to your Cosmic Bucket located in *Your Bucket > Extensions > Add Extension*.
 
 ![Screenshot of add extension](https://web-assets.cosmicjs.com/images/docs/add-extension-zip.png)
 
 ## Contribute
 
-Submit your idea to the [Cosmic JS contribution page](https://cosmicjs.com/contribute). We'll showcase your awesome Cosmic JS Extension and you'll get free stuff. 😎
+Submit your idea to the [Cosmic contribution page](https://cosmicjs.com/contribute). We'll showcase your awesome Cosmic Extension and you'll get free stuff. 😎
 
 Any questions? Reach out to us on our [Slack channel](https://cosmicjs.com/community) and reach out to us [on Twitter](https://twitter.com/cosmic_js).

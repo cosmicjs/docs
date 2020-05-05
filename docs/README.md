@@ -3,7 +3,7 @@ pageClass: docs-home-page
 cardData:
 - title: 'REST API'
   url: '/rest-api/'
-  description: 'Integrate your content using the Cosmic JS NPM module or directly to the REST API.'
+  description: 'Integrate your content using the Cosmic NPM module or directly to the REST API.'
   icon: '/icons/npm.svg'
 - title: 'GraphQL API'
   url: '/graphql-api/'
@@ -11,7 +11,7 @@ cardData:
   icon: '/icons/graphql.svg'
 - title: 'CLI'
   url: '/cli/'
-  description: 'Use the power of Cosmic JS from the comfort of your command-line tool.'
+  description: 'Use the power of Cosmic from the comfort of your command-line tool.'
   icon: '/icons/terminal.svg'
 - title: 'Functions'
   url: '/functions/'
@@ -29,7 +29,7 @@ cardData:
 
 # Documentation
 
-Welcome to Cosmic JS! Learn how to use the entire Cosmic JS toolkit and explore features.
+Welcome to Cosmic! Learn how to use the entire Cosmic toolkit and explore features.
 
 <div class="home-card-list">
   <HomeCard

@@ -44,7 +44,7 @@ node index.js
 ```
 
 ## Apollo
-You can use [Apollo Client](https://github.com/apollographql/apollo-client) to connect to the Cosmic JS GraphQL API. You will need to use a browser build system as noted on the [Apollo Client README](https://github.com/apollographql/apollo-client/blob/master/README.md#installation).
+You can use [Apollo Client](https://github.com/apollographql/apollo-client) to connect to the Cosmic GraphQL API. You will need to use a browser build system as noted on the [Apollo Client README](https://github.com/apollographql/apollo-client/blob/master/README.md#installation).
 1. Install Apollo packages
 ```bash
 npm install apollo-boost graphql
@@ -102,7 +102,7 @@ module.exports = {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Cosmic JS GraphQL Apollo Example</title>
+  <title>Cosmic GraphQL Apollo Example</title>
 </head>
 <body>
   <div id="root"></div>

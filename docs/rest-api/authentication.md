@@ -9,8 +9,8 @@ Send your `email` and `password` to receive your access token. Your access token
 
 | Parameter | Required | Type   | Description                   |
 | --------- | -------- | ------ | ----------------------------- |
-| email     | required | String | Your Cosmic JS login email    |
-| password  | required | String | Your Cosmic JS login password |
+| email     | required | String | Your Cosmic login email    |
+| password  | required | String | Your Cosmic login password |
 
 :::: tabs :options="{ useUrlFragment: false }"
 

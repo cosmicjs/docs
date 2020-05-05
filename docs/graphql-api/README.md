@@ -1,6 +1,6 @@
-# Cosmic JS GraphQL API
+# Cosmic GraphQL API
 
-Welcome to the Cosmic JS GraphQL documentation. Learn about all of the features and methods to perform `queries` and `mutations`.
+Welcome to the Cosmic GraphQL documentation. Learn about all of the features and methods to perform `queries` and `mutations`.
 
 ::: tip Quick Tip
 For a quick reference to get content from your Bucket, click the "Developer Tools" button found on select pages in your [Bucket Dashboard ](https://app.cosmicjs.com/login).
@@ -10,14 +10,14 @@ For a quick reference to get content from your Bucket, click the "Developer Tool
 
 ## API Endpoint
 
-All `queries` and `mutations` are called to the Cosmic JS GraphQL endpoint:
+All `queries` and `mutations` are called to the Cosmic GraphQL endpoint:
 
 ```
 https://graphql.cosmicjs.com/v2
 ```
 
 ## Status Check
-You can check on the API system status via the [Cosmic JS status page](https://cosmicjs.statuspage.io/).
+You can check on the API system status via the [Cosmic status page](https://cosmicjs.statuspage.io/).
 
 ## Playground
 Use the playground for a full interactive demonstration. Use the "Docs" and "Schema" buttons on the right side for documentation on models, queries, inputs, and descriptions.

@@ -41,14 +41,14 @@ POST https://api.cosmicjs.com/v1/:bucket_slug/add-object
 
 ```json
 {
-  "title": "Cosmic JS Example",
+  "title": "Cosmic Example",
   "type_slug": "examples",
-  "content": "Learning the Cosmic JS API is really fun and so easy",
+  "content": "Learning the Cosmic API is really fun and so easy",
   "metafields": [
     {
       "key": "Headline",
       "type": "text",
-      "value": "Learn Cosmic JS!"
+      "value": "Learn Cosmic!"
     },
     {
       "key": "Author",
@@ -69,14 +69,14 @@ POST https://api.cosmicjs.com/v1/:bucket_slug/add-object
 {
   "object": {
     "slug": "cosmic-js-example",
-    "title": "Cosmic JS Example",
-    "content": "Learning the Cosmic JS API is really fun and so easy",
+    "title": "Cosmic Example",
+    "content": "Learning the Cosmic API is really fun and so easy",
     "metafields": [
       {
         "title": "Headline",
         "key": "headline",
         "type": "text",
-        "value": "Learn Cosmic JS!"
+        "value": "Learn Cosmic!"
       },
       {
         "title": "Author",
@@ -109,14 +109,14 @@ bucket.addObject()
 
 ```js
 const params = {
-  title: 'Cosmic JS Example',
+  title: 'Cosmic Example',
   type_slug: 'examples',
-  content: 'Learning the Cosmic JS API is really fun and so easy',
+  content: 'Learning the Cosmic API is really fun and so easy',
   metafields: [
     {
       key: 'Headline',
       type: 'text',
-      value: 'Learn Cosmic JS!'
+      value: 'Learn Cosmic!'
     },
     {
       key: 'Author',
@@ -147,14 +147,14 @@ bucket.addObject(params)
 {
   "object": {
     "slug": "cosmic-js-example",
-    "title": "Cosmic JS Example",
-    "content": "Learning the Cosmic JS API is really fun and so easy",
+    "title": "Cosmic Example",
+    "content": "Learning the Cosmic API is really fun and so easy",
     "metafields": [
       {
         "title": "Headline",
         "key": "headline",
         "type": "text",
-        "value": "Learn Cosmic JS!"
+        "value": "Learn Cosmic!"
       },
       {
         "title": "Author",
@@ -716,15 +716,15 @@ POST https://api.cosmicjs.com/v1/:bucket_slug/object/:object_slug/revisions
 
 ```json
 {
-  "title": "Cosmic JS Example",
+  "title": "Cosmic Example",
   "type_slug": "examples",
-  "content": "Learning the Cosmic JS API is really fun and so easy",
+  "content": "Learning the Cosmic API is really fun and so easy",
   "status": "draft",
   "metafields": [
     {
       "key": "Headline",
       "type": "text",
-      "value": "Learn Cosmic JS!"
+      "value": "Learn Cosmic!"
     },
     {
       "key": "Author",
@@ -742,15 +742,15 @@ POST https://api.cosmicjs.com/v1/:bucket_slug/object/:object_slug/revisions
 {
   "revision": {
     "slug": "cosmic-js-example",
-    "title": "Cosmic JS Example",
-    "content": "Learning the Cosmic JS API is really fun and so easy",
+    "title": "Cosmic Example",
+    "content": "Learning the Cosmic API is really fun and so easy",
     "status": "draft",
     "metafields": [
       {
         "title": "Headline",
         "key": "headline",
         "type": "text",
-        "value": "Learn Cosmic JS!"
+        "value": "Learn Cosmic!"
       },
       {
         "title": "Author",
@@ -781,14 +781,14 @@ bucket.addObjectRevision()
 ```js
 const params = {
   slug: 'cosmic-js-example',
-  title: 'Cosmic JS Example',
+  title: 'Cosmic Example',
   type_slug: 'examples',
-  content: 'Learning the Cosmic JS API is really fun and so easy',
+  content: 'Learning the Cosmic API is really fun and so easy',
   metafields: [
     {
       key: 'Headline',
       type: 'text',
-      value: 'Learn Cosmic JS!'
+      value: 'Learn Cosmic!'
     },
     {
       key: 'Author',
@@ -819,14 +819,14 @@ bucket.addObjectRevision(params)
 {
   "revision": {
     "slug": "cosmic-js-example",
-    "title": "Cosmic JS Example",
-    "content": "Learning the Cosmic JS API is really fun and so easy",
+    "title": "Cosmic Example",
+    "content": "Learning the Cosmic API is really fun and so easy",
     "metafields": [
       {
         "title": "Headline",
         "key": "headline",
         "type": "text",
-        "value": "Learn Cosmic JS!"
+        "value": "Learn Cosmic!"
       },
       {
         "title": "Author",

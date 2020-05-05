@@ -1,8 +1,8 @@
 module.exports = {
-  siteTitle: 'Cosmic JS',
+  siteTitle: 'Cosmic',
   base: '/',
   themeConfig: {
-    logo: 'https://web-assets.cosmicjs.com/images/cosmicjs-logo.svg',
+    logo: 'https://cdn.cosmicjs.com/3cf62ab0-8e13-11ea-9b8f-cd0254a8c979-cosmic-dark.svg',
     repo: 'cosmicjs/docs',
     docsDir: 'docs',
     editLinks: true,

@@ -1,10 +1,10 @@
-# Cosmic JS Docs
+# Cosmic Docs
 
 <p align="left">
   📖 <a href="https://docs.cosmicjs.com">View Docs</a>
 </p>
 
-This is the source code for the Cosmic JS documentation site and is built with [VuePress v1+](https://v1.vuepress.vuejs.org/).
+This is the source code for the Cosmic documentation site and is built with [VuePress v1+](https://v1.vuepress.vuejs.org/).
 
 ## Local Setup
 
