@@ -189,27 +189,27 @@ For a quick reference to this endpoint click the "Developer Tools" button on you
 :::
 
 
-| Parameter             | Required | Type   | Description                                                     |
-| --------------------- | -------- | ------ | --------------------------------------------------------------- |
-| type                  |          | String | The Object Type slug                                            |
-| limit                 |          | Number | The number of Objects to return                                 |
-| skip                  |          | Number | The number of Objects to skip                                   |
-| status                |          | Enum   | published, draft, all                                           |
-| hide_metafields       |          | Enum   | true, Hides metafields                                          |
-| sort                  |          | Enum   | created_at, -created_at, modified_at, -modified_at, random      |
-| locale                |          | String | Filter by locale                                                |
-| q                     |          | String | Searches title and content properties for this string           |
-| metadata[key]          |         | String   | Search by Metafield value. Object IDs for Object Metafields (comma separated for multiple)             |         |
-| metafield_key         |          | String | (Deprecated, use `metadata[key]` instead) Metafield key to search for                                     |
-| metafield_value       |          | String | (Deprecated, use `metadata[key]` instead) Metafield contains value                                        |
-| metafield_object_id   |          | String | (Deprecated, use `metadata[key]` instead) Object Metafield Object ID (stored as Metafield value)          |
-| filters[_id]          |          | String | Filter by Object IDs (comma separated for multiple)             |
-| filters[connected_to] |          | String | Returns Objects that reference the specified Object ID (String) |
-| props                |          | Enum   | Declare which properties to return in comma-separated string. Down to first-level metadata properties only. Reference full Object for all available properties. Example: `?props=slug,title,metadata.categories,metadata.author`                 |
-| depth |          | Number | 0-3, Limits the depth of nested Objects from Object Metafields |
-| created_by |          | String | Created by User ID |
-| pretty                |          | Enum   | true, Makes the response more reader-friendly                   |
-| read_key              |          | String | Your Bucket read key                                            |
+| Parameter             | Required | Type   | Description                                                     | Default | 
+| --------------------- | -------- | ------ | --------------------------------------------------------------- | ------- |
+| type                  |          | String | The Object Type slug                                            |         |
+| limit                 |          | Number | The number of Objects to return                                 | 1000    |
+| skip                  |          | Number | The number of Objects to skip                                   | 0       |
+| status                |          | Enum   | published, draft, all                                           |  published     |
+| hide_metafields       |          | Enum   | true, Hides metafields                                          |    false     |
+| sort                  |          | Enum   | created_at, -created_at, modified_at, -modified_at, random, order      |    order     |
+| locale                |          | String | Filter by locale                                                |         |
+| q                     |          | String | Searches title and content properties for this string           |         |
+| metadata[key]          |         | String   | Search by Metafield value. Object IDs for Object Metafields (comma separated for multiple)             |         |         |
+| metafield_key         |          | String | (Deprecated, use `metadata[key]` instead) Metafield key to search for                                     |         |
+| metafield_value       |          | String | (Deprecated, use `metadata[key]` instead) Metafield contains value                                        |         |
+| metafield_object_id   |          | String | (Deprecated, use `metadata[key]` instead) Object Metafield Object ID (stored as Metafield value)          |         |
+| filters[_id]          |          | String | Filter by Object IDs (comma separated for multiple)             |         |
+| filters[connected_to] |          | String | Returns Objects that reference the specified Object ID (String) |         |
+| props                |          | Enum   | Declare which properties to return in comma-separated string. Down to first-level metadata properties only. Reference full Object for all available properties. Example: `?props=slug,title,metadata.categories,metadata.author`                 |         |
+| depth |          | Number | 0-3, Limits the depth of nested Objects from Object Metafields |         |
+| created_by |          | String | Created by User ID |         |
+| pretty                |          | Enum   | true, Makes the response more reader-friendly                   |    false     |
+| read_key              |          | String | Your Bucket read key                                            |         |
 
 :::: tabs :options="{ useUrlFragment: false }"
 
