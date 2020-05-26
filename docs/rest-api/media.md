@@ -4,6 +4,14 @@
 
 The only required post value is the `media` object. You can also add optional `folder` and `metadata` params.
 
+::: tip NOTE:
+The base endpoint is different than other REST API requests with a higher upload size limit of `900MB`.
+:::
+
+```
+https://upload.cosmicjs.com/v1
+```
+
 | Parameter | Required | Type                     | Description                           |
 | --------- | -------- | ------------------------ | ------------------------------------- |
 | media     | required | Media Object (see below) | Media object with specific properties |
@@ -17,7 +25,7 @@ The only required post value is the `media` object. You can also add optional `f
 **Definition**
 
 ```
-POST https://api.cosmicjs.com/v1/:bucket_slug/media
+POST https://upload.cosmicjs.com/v1/:bucket_slug/media
 ```
 
 **Example Request**
@@ -37,7 +45,7 @@ curl --form "folder=folder-name" --form "media=@test.png" --form "write_key=<wri
     "type": "image/png",
     "bucket": "5839c67f0d3201c114000004",
     "created": "2016-12-02T15:34:05.054Z",
-    "location": "https://cosmicjs.com/uploads",
+    "location": "https://cdn.cosmicjs.com",
     "url": "https://cdn.cosmicjs.com/c20391e0-b8a4-11e6-8836-fbdfd6956b31-test.png",
     "imgix_url": "https://cosmic-s3.imgix.net/c20391e0-b8a4-11e6-8836-fbdfd6956b31-test.png"
   }
