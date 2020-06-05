@@ -197,8 +197,9 @@ For a quick reference to this endpoint click the "Developer Tools" button on you
 | status                |          | Enum   | published, draft, all                                           |  published     |
 | hide_metafields       |          | Enum   | true, Hides metafields                                          |    false     |
 | sort                  |          | Enum   | created_at, -created_at, modified_at, -modified_at, random, order      |    order     |
-| locale                |          | String | Filter by locale                                                |         |
-| q                     |          | String | Searches title and content properties for this string           |         |
+| locale                |          | String | Filter by locale |         |
+| q                     |          | String | Searches title and content properties for this string  |         |
+| query              |          | JSON | A JSON string to perform advanced queries  |         |
 | metadata[key]          |         | String   | Search by Metafield value. Object IDs for Object Metafields (comma separated for multiple)             |         |         |
 | metafield_key         |          | String | (Deprecated, use `metadata[key]` instead) Metafield key to search for                                     |         |
 | metafield_value       |          | String | (Deprecated, use `metadata[key]` instead) Metafield contains value                                        |         |
@@ -209,7 +210,7 @@ For a quick reference to this endpoint click the "Developer Tools" button on you
 | depth |          | Number | 0-3, Limits the depth of nested Objects from Object Metafields |         |
 | created_by |          | String | Created by User ID |         |
 | pretty                |          | Enum   | true, Makes the response more reader-friendly                   |    false     |
-| read_key              |          | String | Your Bucket read key                                            |         |
+| read_key              |          | String | Your Bucket read key  |         |
 
 :::: tabs :options="{ useUrlFragment: false }"
 
@@ -348,7 +349,7 @@ bucket.getObjects({
 
 Get Objects based on search variables.
 
-::: tip Quick TipS
+::: tip Quick Tip
 Read [the Changelog announcement](https://www.cosmicjs.com/changelog/filters-and-smart-views) to learn more.
 
 See the [Get Objects Params](#get-objects) to learn how to use params `q`, `metadata[key]`, and `created_by` for flexible searching and filterting.
@@ -439,6 +440,244 @@ console.log(filter)
 :::
 
 ::::
+
+
+## Advanced Queries
+
+Advanced queries gives you powerful database-like functionality for content fetching. Use the `query` parameter to contruct a valid JSON (stringified) query on the [Get Objects Endpoint](#get-objects). See [example requests below](#example-queries).
+
+**Definition**
+```
+GET https://api.cosmicjs.com/v1/:bucket_slug/objects?type=:type_slug&read_key=your-read-key-found-bucket-settings&query=:JSON_query
+```
+
+### Available Object Field Keys to Perform Queries
+
+| Parameter       | Description                                   |
+| --------------- | ----------------------------------------------|
+| _id             | Object _id     |
+| title           | Object Title     |
+| slug            | Object Slug     |
+| content         | Object Content     |
+| created_at      | Object Created at Date     |
+| published_at    | Object Published at Date     |
+| modified_at     | Object Modified at Date     |
+| created_by      | Object Created by user id     |
+| modified_by      | Object Modified by user id     |
+| metadata.$key      | Metadata value(s)     |
+
+### Query Selectors
+
+| Parameter       | Description                                   |
+| --------------- | ----------------------------------------------|
+| $eq             | Matches values that are equal to a specified value. Equivalent to direct key/value query.|
+| $gt             |	Matches values that are greater than a specified value.|
+| $gte            | Matches values that are greater than or equal to a specified value.|
+| $lt             | Matches values that are less than a specified value. |
+| $lte            | Matches values that are less than or equal to a specified value. |
+| $in             | Matches any of the values specified in an array. |
+| $ne             | Matches all values that are not equal to a specified value. |
+| $nin            |	Matches none of the values specified in an array.|
+| $regex, $option | Search for string, use `$option: "i"` for case insensitive matches |
+
+
+### Logic Operators
+
+| Parameter       | Description                                   |
+| --------------- | ----------------------------------------------|
+| $and            | Returns Objects that match all conditions     |
+| $or             | Returns Objects that match any conditions     |
+
+### Example Queries
+
+**Use the Objects API Endpoint for the following examples:**
+```javascript
+const objects_endpoint = "https://api.cosmicjs.com/v1/simple-react-blog/objects?type=posts&props=title,slug,metadata&read_key=my-read-key"
+```
+<br>
+
+**Exact title match**
+```javascript
+const query = {
+  "title": "Post 1"
+}
+fetch(`${objects_endpoint}&query=${JSON.stringify(query)}`)
+```
+<br>
+
+**Exact _id match**
+```javascript
+const query = {
+  "_id": "valid-object-id"
+}
+fetch(`${objects_endpoint}&query=${JSON.stringify(query)}`)
+```
+<br>
+
+**Match any _ids**
+```javascript
+const query = {
+  "_id": ["valid-object-id-1","valid-object-id-2"]
+}
+fetch(`${objects_endpoint}&query=${JSON.stringify(query)}`)
+
+// Equivalent
+const query = {
+  "_id": {
+    "$in": ["valid-object-id-1","valid-object-id-2"]
+  }
+}
+fetch(`${objects_endpoint}&query=${JSON.stringify(query)}`)
+```
+<br>
+
+**Match any _ids not equal to**
+```javascript
+const query = {
+  "_id": {
+    "$ne": "valid-object-id"
+  }
+}
+fetch(`${objects_endpoint}&query=${JSON.stringify(query)}`)
+```
+<br>
+
+**Match any _ids except any in the array of values**
+```javascript
+const query = {
+  "_id": {
+    "$nin": ["valid-object-id-1","valid-object-id-2"]
+  }
+}
+fetch(`${objects_endpoint}&query=${JSON.stringify(query)}`)
+```
+<br>
+
+**Exact slug match**
+```javascript
+const query = {
+  "slug": "post-1"
+}
+fetch(`${objects_endpoint}&query=${JSON.stringify(query)}`)
+```
+<br>
+
+**Search for string case insensive**
+```javascript
+const query = {
+  "content": {
+    "$regex": "jamstack",
+    "$option": "i"
+  }
+}
+fetch(`${objects_endpoint}&query=${JSON.stringify(query)}`)
+```
+<br>
+
+**Search for matches metadata value (Number Metafield)**
+```javascript
+const query = {
+  "metadata.number": 1
+}
+fetch(`${objects_endpoint}&query=${JSON.stringify(query)}`)
+```
+<br>
+
+**Search for matches any metadata values**
+```javascript
+const query = {
+  "$or": [{
+    "metadata.letter": "a",
+    "metadata.letter": "b"
+  }
+}
+fetch(`${objects_endpoint}&query=${JSON.stringify(query)}`)
+```
+<br>
+
+**Search for matches all metadata values**
+```javascript
+const query = {
+  "$and": [{
+    "metadata.letter": "a",
+    "metadata.number": 1
+  }
+}
+fetch(`${objects_endpoint}&query=${JSON.stringify(query)}`)
+```
+<br>
+
+**Search for matches greater than or equal to metadata value**
+```javascript
+const query = {
+  "metadata.number": {
+    "$gte": 3
+  }
+}
+fetch(`${objects_endpoint}&query=${JSON.stringify(query)}`)
+```
+<br>
+
+**Search for exact metadata value (Switch Metafield)**
+```javascript
+const query = {
+  "metadata.is_featured": true
+}
+fetch(`${objects_endpoint}&query=${JSON.stringify(query)}`)
+```
+<br>
+
+**Search for nested JSON metadata value (JSON Metafield)**
+```javascript
+const query = {
+  "metadata.json_data": {
+    "is_awesome": true,
+    "other_data": {
+      "nested": "yep"
+    }
+  }
+}
+fetch(`${objects_endpoint}&query=${JSON.stringify(query)}`)
+```
+<br>
+
+**Search for matches Single Object Metafield**
+```javascript
+const query = {
+  "metadata.category": "category-id-1"
+}
+fetch(`${objects_endpoint}&query=${JSON.stringify(query)}`)
+```
+<br>
+
+**Search for matches all Multiple Object Metafield**
+```javascript
+const query = {
+  "metadata.categories": ["category-id-1","category-id-2"]
+}
+// Equivalent
+const query = {
+  "metadata.categories": {
+    "$and": ["category-id-1","category-id-2"]
+  }
+}
+fetch(`${objects_endpoint}&query=${JSON.stringify(query)}`)
+```
+<br>
+
+**Search for matches any Multiple Object Metafield**
+```javascript
+const query = {
+  "metadata.categories": {
+    "$or": ["category-id-1","category-id-2"]
+  }
+}
+fetch(`${objects_endpoint}&query=${JSON.stringify(query)}`)
+```
+<br>
+
+
+
 
 ## Get Object
 
