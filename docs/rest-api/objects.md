@@ -531,7 +531,7 @@ fetch(`${objects_endpoint}&query=${JSON.stringify(query)}`)
 ```
 <br>
 
-**Match any _ids not equal to**
+**Match any _ids not equal to value**
 ```javascript
 const query = {
   "_id": {
@@ -553,7 +553,7 @@ fetch(`${objects_endpoint}&query=${JSON.stringify(query)}`)
 ```
 <br>
 
-**Exact slug match**
+**Match exact slug**
 ```javascript
 const query = {
   "slug": "post-1"
@@ -562,7 +562,7 @@ fetch(`${objects_endpoint}&query=${JSON.stringify(query)}`)
 ```
 <br>
 
-**Search for string case insensive**
+**Match string case insensive**
 ```javascript
 const query = {
   "content": {
@@ -574,7 +574,7 @@ fetch(`${objects_endpoint}&query=${JSON.stringify(query)}`)
 ```
 <br>
 
-**Search for matches metadata value (Number Metafield)**
+**Match metadata value (Number Metafield)**
 ```javascript
 const query = {
   "metadata.number": 1
@@ -583,7 +583,7 @@ fetch(`${objects_endpoint}&query=${JSON.stringify(query)}`)
 ```
 <br>
 
-**Search for matches any metadata values**
+**Match any metadata values**
 ```javascript
 const query = {
   "$or": [{
@@ -595,7 +595,7 @@ fetch(`${objects_endpoint}&query=${JSON.stringify(query)}`)
 ```
 <br>
 
-**Search for matches all metadata values**
+**Match all metadata values**
 ```javascript
 const query = {
   "$and": [{
@@ -607,7 +607,7 @@ fetch(`${objects_endpoint}&query=${JSON.stringify(query)}`)
 ```
 <br>
 
-**Search for matches greater than or equal to metadata value**
+**Match greater than or equal to metadata value**
 ```javascript
 const query = {
   "metadata.number": {
@@ -618,7 +618,7 @@ fetch(`${objects_endpoint}&query=${JSON.stringify(query)}`)
 ```
 <br>
 
-**Search for exact metadata value (Switch Metafield)**
+**Match exact metadata value (Switch Metafield)**
 ```javascript
 const query = {
   "metadata.is_featured": true
@@ -627,7 +627,7 @@ fetch(`${objects_endpoint}&query=${JSON.stringify(query)}`)
 ```
 <br>
 
-**Search for nested JSON metadata value (JSON Metafield)**
+**Match nested JSON metadata value (JSON Metafield)**
 ```javascript
 const query = {
   "metadata.json_data": {
@@ -641,35 +641,57 @@ fetch(`${objects_endpoint}&query=${JSON.stringify(query)}`)
 ```
 <br>
 
-**Search for matches Single Object Metafield**
+**Match Single Object Metafield value**
 ```javascript
 const query = {
-  "metadata.category": "category-id-1"
+  "metadata.category": "category_id-1"
 }
 fetch(`${objects_endpoint}&query=${JSON.stringify(query)}`)
 ```
 <br>
 
-**Search for matches all Multiple Object Metafield**
+**Match not equal to Single Object Metafield value**
 ```javascript
 const query = {
-  "metadata.categories": ["category-id-1","category-id-2"]
-}
-// Equivalent
-const query = {
-  "metadata.categories": {
-    "$and": ["category-id-1","category-id-2"]
+  "metadata.category": {
+    "$ne": "category_id-1"
   }
 }
 fetch(`${objects_endpoint}&query=${JSON.stringify(query)}`)
 ```
 <br>
 
-**Search for matches any Multiple Object Metafield**
+**Match all Multiple Object Metafield values**
+```javascript
+const query = {
+  "metadata.categories": ["category_id-1","category_id-2"]
+}
+// Equivalent
+const query = {
+  "metadata.categories": {
+    "$and": ["category_id-1","category_id-2"]
+  }
+}
+fetch(`${objects_endpoint}&query=${JSON.stringify(query)}`)
+```
+<br>
+
+**Match any Multiple Object Metafield values**
 ```javascript
 const query = {
   "metadata.categories": {
-    "$or": ["category-id-1","category-id-2"]
+    "$or": ["category_id-1","category_id-2"]
+  }
+}
+fetch(`${objects_endpoint}&query=${JSON.stringify(query)}`)
+```
+<br>
+
+**Match doesn't have any Multiple Object Metafield values**
+```javascript
+const query = {
+  "metadata.categories": {
+    "$nin": ["category_id-1","category_id-2"]
   }
 }
 fetch(`${objects_endpoint}&query=${JSON.stringify(query)}`)
