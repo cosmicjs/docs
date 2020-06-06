@@ -444,14 +444,14 @@ console.log(filter)
 
 ## Advanced Queries
 
-Advanced queries gives you powerful database-like functionality for content fetching. Use the `query` parameter to contruct a valid JSON (stringified) query on the [Get Objects Endpoint](#get-objects). See [example requests below](#example-queries).
+Advanced queries gives you powerful NoSQL database-like functionality for content fetching. Use the `query` parameter to contruct a valid JSON (stringified) query on the [Get Objects Endpoint](#get-objects). See [example requests below](#example-queries).
 
 **Definition**
 ```
 GET https://api.cosmicjs.com/v1/:bucket_slug/objects?type=:type_slug&read_key=your-read-key-found-bucket-settings&query=:JSON_query
 ```
 
-### Available Object Field Keys to Perform Queries
+### Available Keys to Query
 
 | Parameter       | Description                                   |
 | --------------- | ----------------------------------------------|
