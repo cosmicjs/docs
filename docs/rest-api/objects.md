@@ -492,7 +492,7 @@ GET https://api.cosmicjs.com/v1/:bucket_slug/objects?type=:type_slug&read_key=yo
 
 **Use the Objects API Endpoint for the following examples:**
 ```javascript
-const objects_endpoint = "https://api.cosmicjs.com/v1/simple-react-blog/objects?type=posts&props=title,slug,metadata&read_key=my-read-key"
+const endpoint = "https://api.cosmicjs.com/v1/simple-react-blog/objects?type=posts&props=title,slug,metadata&read_key=my-read-key"
 ```
 <br>
 
@@ -501,7 +501,7 @@ const objects_endpoint = "https://api.cosmicjs.com/v1/simple-react-blog/objects?
 const query = {
   "title": "Post 1"
 }
-fetch(`${objects_endpoint}&query=${JSON.stringify(query)}`)
+fetch(`${endpoint}&query=${JSON.stringify(query)}`)
 ```
 <br>
 
@@ -510,7 +510,7 @@ fetch(`${objects_endpoint}&query=${JSON.stringify(query)}`)
 const query = {
   "_id": "valid-object-id"
 }
-fetch(`${objects_endpoint}&query=${JSON.stringify(query)}`)
+fetch(`${endpoint}&query=${JSON.stringify(query)}`)
 ```
 <br>
 
@@ -519,7 +519,7 @@ fetch(`${objects_endpoint}&query=${JSON.stringify(query)}`)
 const query = {
   "_id": ["valid-object-id-1","valid-object-id-2"]
 }
-fetch(`${objects_endpoint}&query=${JSON.stringify(query)}`)
+fetch(`${endpoint}&query=${JSON.stringify(query)}`)
 
 // Equivalent
 const query = {
@@ -527,7 +527,7 @@ const query = {
     "$in": ["valid-object-id-1","valid-object-id-2"]
   }
 }
-fetch(`${objects_endpoint}&query=${JSON.stringify(query)}`)
+fetch(`${endpoint}&query=${JSON.stringify(query)}`)
 ```
 <br>
 
@@ -538,7 +538,7 @@ const query = {
     "$ne": "valid-object-id"
   }
 }
-fetch(`${objects_endpoint}&query=${JSON.stringify(query)}`)
+fetch(`${endpoint}&query=${JSON.stringify(query)}`)
 ```
 <br>
 
@@ -549,7 +549,7 @@ const query = {
     "$nin": ["valid-object-id-1","valid-object-id-2"]
   }
 }
-fetch(`${objects_endpoint}&query=${JSON.stringify(query)}`)
+fetch(`${endpoint}&query=${JSON.stringify(query)}`)
 ```
 <br>
 
@@ -558,7 +558,7 @@ fetch(`${objects_endpoint}&query=${JSON.stringify(query)}`)
 const query = {
   "slug": "post-1"
 }
-fetch(`${objects_endpoint}&query=${JSON.stringify(query)}`)
+fetch(`${endpoint}&query=${JSON.stringify(query)}`)
 ```
 <br>
 
@@ -570,7 +570,7 @@ const query = {
     "$option": "i"
   }
 }
-fetch(`${objects_endpoint}&query=${JSON.stringify(query)}`)
+fetch(`${endpoint}&query=${JSON.stringify(query)}`)
 ```
 <br>
 
@@ -579,19 +579,39 @@ fetch(`${objects_endpoint}&query=${JSON.stringify(query)}`)
 const query = {
   "metadata.number": 1
 }
-fetch(`${objects_endpoint}&query=${JSON.stringify(query)}`)
+fetch(`${endpoint}&query=${JSON.stringify(query)}`)
+```
+<br>
+
+**Match any slug values**
+```javascript
+const query = {
+  "$or": [
+    {
+      "slug": "post-1"
+    },
+    {
+      "slug": "post-2"
+    }
+  ]
+}
+fetch(`${endpoint}&query=${JSON.stringify(query)}`)
 ```
 <br>
 
 **Match any metadata values**
 ```javascript
 const query = {
-  "$or": [{
-    "metadata.letter": "a",
-    "metadata.letter": "b"
-  }
+  "$or": [
+    {
+      "metadata.letter": "a"
+    },
+    {
+      "metadata.letter": "b"
+    }
+  ]
 }
-fetch(`${objects_endpoint}&query=${JSON.stringify(query)}`)
+fetch(`${endpoint}&query=${JSON.stringify(query)}`)
 ```
 <br>
 
@@ -603,7 +623,7 @@ const query = {
     "metadata.number": 1
   }
 }
-fetch(`${objects_endpoint}&query=${JSON.stringify(query)}`)
+fetch(`${endpoint}&query=${JSON.stringify(query)}`)
 ```
 <br>
 
@@ -614,7 +634,7 @@ const query = {
     "$gte": 3
   }
 }
-fetch(`${objects_endpoint}&query=${JSON.stringify(query)}`)
+fetch(`${endpoint}&query=${JSON.stringify(query)}`)
 ```
 <br>
 
@@ -623,7 +643,7 @@ fetch(`${objects_endpoint}&query=${JSON.stringify(query)}`)
 const query = {
   "metadata.is_featured": true
 }
-fetch(`${objects_endpoint}&query=${JSON.stringify(query)}`)
+fetch(`${endpoint}&query=${JSON.stringify(query)}`)
 ```
 <br>
 
@@ -637,7 +657,7 @@ const query = {
     }
   }
 }
-fetch(`${objects_endpoint}&query=${JSON.stringify(query)}`)
+fetch(`${endpoint}&query=${JSON.stringify(query)}`)
 ```
 <br>
 
@@ -646,7 +666,7 @@ fetch(`${objects_endpoint}&query=${JSON.stringify(query)}`)
 const query = {
   "metadata.category": "category_id-1"
 }
-fetch(`${objects_endpoint}&query=${JSON.stringify(query)}`)
+fetch(`${endpoint}&query=${JSON.stringify(query)}`)
 ```
 <br>
 
@@ -657,7 +677,7 @@ const query = {
     "$ne": "category_id-1"
   }
 }
-fetch(`${objects_endpoint}&query=${JSON.stringify(query)}`)
+fetch(`${endpoint}&query=${JSON.stringify(query)}`)
 ```
 <br>
 
@@ -672,7 +692,7 @@ const query = {
     "$and": ["category_id-1","category_id-2"]
   }
 }
-fetch(`${objects_endpoint}&query=${JSON.stringify(query)}`)
+fetch(`${endpoint}&query=${JSON.stringify(query)}`)
 ```
 <br>
 
@@ -683,7 +703,7 @@ const query = {
     "$or": ["category_id-1","category_id-2"]
   }
 }
-fetch(`${objects_endpoint}&query=${JSON.stringify(query)}`)
+fetch(`${endpoint}&query=${JSON.stringify(query)}`)
 ```
 <br>
 
@@ -694,7 +714,7 @@ const query = {
     "$nin": ["category_id-1","category_id-2"]
   }
 }
-fetch(`${objects_endpoint}&query=${JSON.stringify(query)}`)
+fetch(`${endpoint}&query=${JSON.stringify(query)}`)
 ```
 <br>
 
