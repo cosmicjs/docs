@@ -444,7 +444,7 @@ console.log(filter)
 
 ## Advanced Queries
 
-Advanced queries gives you powerful NoSQL database-like functionality for content fetching. Use the `query` parameter to contruct a valid JSON (stringified) query on the [Get Objects Endpoint](#get-objects). See [example requests below](#example-queries).
+Advanced queries give you powerful NoSQL database-like functionality for content fetching. Use the `query` parameter to send a valid JSON (stringified) query on the [Get Objects Endpoint](#get-objects). See [example requests below](#example-queries).
 
 **Definition**
 ```
@@ -567,7 +567,7 @@ bucket.getObjects({
 
 ::: tab Bash
 ```bash
-curl '$endpoint&query={"_id":["valid-object-id-1","valid-object-id-2"]'
+curl '$endpoint&query={"_id":["valid-object-id-1","valid-object-id-2"]}'
 ```
 :::
 
@@ -942,7 +942,7 @@ bucket.getObjects({
 
 ::: tab Bash
 ```bash
-curl '$endpoint&query={"metadata.category":["category_id-1","category_id-2"]}'
+curl '$endpoint&query={"metadata.categories":["category_id-1","category_id-2"]}'
 ```
 :::
 
@@ -952,7 +952,7 @@ bucket.getObjects({
   type: 'posts',
   props: 'slug,title,content',
   query: {
-    "metadata.category": ["category_id-1","category_id-2"]
+    "metadata.categories": ["category_id-1","category_id-2"]
   }
 })
 // Equivalent
@@ -960,7 +960,7 @@ bucket.getObjects({
   type: 'posts',
   props: 'slug,title,content',
   query: {
-    "metadata.category": {
+    "metadata.categories": {
       "$all": ["category_id-1","category_id-2"]
     }
   }
