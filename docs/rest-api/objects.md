@@ -478,6 +478,7 @@ GET https://api.cosmicjs.com/v1/:bucket_slug/objects?type=:type_slug&read_key=yo
 | $in             | Matches any of the values specified in an array. |
 | $ne             | Matches all values that are not equal to a specified value. |
 | $nin            |	Matches none of the values specified in an array.|
+| $all            |	Matches arrays that contain all elements specified in the query.|
 | $regex, $option | Search for string, use `$option: "i"` for case insensitive matches |
 
 
@@ -490,235 +491,540 @@ GET https://api.cosmicjs.com/v1/:bucket_slug/objects?type=:type_slug&read_key=yo
 
 ### Example Queries
 
-**Use the Objects API Endpoint for the following examples:**
-```javascript
-const endpoint = "https://api.cosmicjs.com/v1/simple-react-blog/objects?type=posts&props=title,slug,metadata&read_key=my-read-key"
+**To keep examples concise, the following variables are used:**
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab Bash
+```bash
+endpoint = "https://api.cosmicjs.com/v1/:bucket_slug/objects?type=:type_slug&props=title,slug,metadata&read_key=:bucket_read_key"
 ```
-<br>
+:::
+
+::: tab Node.js
+```javascript
+const bucket = Cosmic.bucket({
+  slug: 'bucket-slug',
+  read_key: "your-read-key-found-in-bucket-settings"
+})
+```
+:::
+
+::::
 
 **Exact title match**
-```javascript
-const query = {
-  "title": "Post 1"
-}
-fetch(`${endpoint}&query=${JSON.stringify(query)}`)
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab Bash
+
+```bash
+curl '$endpoint&query={"title":"Post 1"}'
 ```
-<br>
+:::
+
+::: tab Node.js
+```javascript
+bucket.getObjects({
+  type: 'posts',
+  props: 'slug,title,type_slug',
+  query: {
+    "title": "Post 1"
+  }
+})
+```
+:::
+
+::::
 
 **Exact _id match**
-```javascript
-const query = {
-  "_id": "valid-object-id"
-}
-fetch(`${endpoint}&query=${JSON.stringify(query)}`)
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab Bash
+```bash
+curl '$endpoint&query={"_id":"valid-object-id"}'
 ```
-<br>
+:::
+
+::: tab Node.js
+```javascript
+bucket.getObjects({
+  type: 'posts',
+  props: 'slug,title,type_slug',
+  query: {
+    "_id": "valid-object-id"
+  }
+})
+```
+:::
+
+::::
 
 **Match any _ids**
-```javascript
-const query = {
-  "_id": ["valid-object-id-1","valid-object-id-2"]
-}
-fetch(`${endpoint}&query=${JSON.stringify(query)}`)
 
-// Equivalent
-const query = {
-  "_id": {
-    "$in": ["valid-object-id-1","valid-object-id-2"]
-  }
-}
-fetch(`${endpoint}&query=${JSON.stringify(query)}`)
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab Bash
+```bash
+curl '$endpoint&query={"_id":["valid-object-id-1","valid-object-id-2"]'
 ```
-<br>
+:::
+
+::: tab Node.js
+```javascript
+bucket.getObjects({
+  type: 'posts',
+  props: 'slug,title,type_slug',
+  query: {
+    "_id": ["valid-object-id-1","valid-object-id-2"]
+  }
+})
+```
+:::
+
+::::
+
 
 **Match any _ids not equal to value**
-```javascript
-const query = {
-  "_id": {
-    "$ne": "valid-object-id"
-  }
-}
-fetch(`${endpoint}&query=${JSON.stringify(query)}`)
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab Bash
+```bash
+curl '$endpoint&query={"_id":{"$ne":"valid-object-id"}}'
 ```
-<br>
+:::
+
+::: tab Node.js
+```javascript
+bucket.getObjects({
+  type: 'posts',
+  props: 'slug,title,type_slug',
+  query: {
+    "_id": {
+      "$ne": "valid-object-id-1"
+    }
+  }
+})
+```
+:::
+
+::::
 
 **Match any _ids except any in the array of values**
-```javascript
-const query = {
-  "_id": {
-    "$nin": ["valid-object-id-1","valid-object-id-2"]
-  }
-}
-fetch(`${endpoint}&query=${JSON.stringify(query)}`)
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab Bash
+```bash
+curl '$endpoint&query={"_id":{"$nin":["valid-object-id-1","valid-object-id-2"]}}'
 ```
-<br>
+:::
+
+::: tab Node.js
+```javascript
+bucket.getObjects({
+  type: 'posts',
+  props: 'slug,title,type_slug',
+  query: {
+    "_id": {
+      "$nin": ["valid-object-id-1","valid-object-id-2"]
+    }
+  }
+})
+```
+:::
+
+::::
 
 **Match exact slug**
-```javascript
-const query = {
-  "slug": "post-1"
-}
-fetch(`${endpoint}&query=${JSON.stringify(query)}`)
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab Bash
+```bash
+curl '$endpoint&query={"slug":"post-1"}'
 ```
-<br>
+:::
+
+::: tab Node.js
+```javascript
+bucket.getObjects({
+  type: 'posts',
+  props: 'slug,title,type_slug',
+  query: {
+    "slug": "post-1"
+  }
+})
+```
+:::
+
+::::
 
 **Match string case insensive**
-```javascript
-const query = {
-  "content": {
-    "$regex": "jamstack",
-    "$option": "i"
-  }
-}
-fetch(`${endpoint}&query=${JSON.stringify(query)}`)
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab Bash
+```bash
+curl '$endpoint&query={"content":{"$regex":"jamstack","$option":"i"}}'
 ```
-<br>
+:::
+
+::: tab Node.js
+```javascript
+bucket.getObjects({
+  type: 'posts',
+  props: 'slug,title,type_slug',
+  query: {
+    "content": {
+      "$regex": "jamstack",
+      "$option": "i"
+    }
+  }
+})
+```
+:::
+
+::::
 
 **Match metadata value (Number Metafield)**
-```javascript
-const query = {
-  "metadata.number": 1
-}
-fetch(`${endpoint}&query=${JSON.stringify(query)}`)
-```
-<br>
 
-**Match any slug values**
-```javascript
-const query = {
-  "$or": [
-    {
-      "slug": "post-1"
-    },
-    {
-      "slug": "post-2"
-    }
-  ]
-}
-fetch(`${endpoint}&query=${JSON.stringify(query)}`)
-```
-<br>
+:::: tabs :options="{ useUrlFragment: false }"
 
-**Match any metadata values**
-```javascript
-const query = {
-  "$or": [
-    {
-      "metadata.letter": "a"
-    },
-    {
-      "metadata.letter": "b"
-    }
-  ]
-}
-fetch(`${endpoint}&query=${JSON.stringify(query)}`)
+::: tab Bash
+```bash
+curl '$endpoint&query={"metadata.number":1}'
 ```
-<br>
+:::
 
-**Match all metadata values**
+::: tab Node.js
 ```javascript
-const query = {
-  "$and": [{
-    "metadata.letter": "a",
+bucket.getObjects({
+  type: 'posts',
+  props: 'slug,title,type_slug',
+  query: {
     "metadata.number": 1
   }
-}
-fetch(`${endpoint}&query=${JSON.stringify(query)}`)
+})
 ```
-<br>
+:::
+
+::::
+
+**Match any slug values**
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab Bash
+```bash
+curl '$endpoint&query={"$or":[{"slug":"post-1"},{"slug":"post-2"}]}'
+```
+:::
+
+::: tab Node.js
+```javascript
+bucket.getObjects({
+  type: 'posts',
+  props: 'slug,title,type_slug',
+  query: {
+    "$or": [
+      {
+        "slug": "post-1"
+      },
+      {
+        "slug": "post-2"
+      }
+    ]
+  }
+})
+```
+:::
+
+::::
+
+**Match any metadata values**
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab Bash
+```bash
+curl '$endpoint&query={"$or":[{"metadata.letter":"a"},{"metadata.letter":"b"}]}'
+```
+:::
+
+::: tab Node.js
+```javascript
+bucket.getObjects({
+  type: 'posts',
+  props: 'slug,title,type_slug',
+  query: {
+    "$or": [
+      {
+        "metadata.letter": "a"
+      },
+      {
+        "metadata.letter": "b"
+      }
+    ]
+  }
+})
+```
+:::
+
+::::
+
+**Match all metadata values**
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab Bash
+```bash
+curl '$endpoint&query={"$and":[{"metadata.letter":"a"},{"metadata.number":1}]}'
+```
+:::
+
+::: tab Node.js
+```javascript
+bucket.getObjects({
+  type: 'posts',
+  props: 'slug,title,type_slug',
+  query: {
+    "$and": [{
+      "metadata.letter": "a",
+      "metadata.number": 1
+    }]
+  }
+})
+```
+:::
+
+::::
+
 
 **Match greater than or equal to metadata value**
-```javascript
-const query = {
-  "metadata.number": {
-    "$gte": 3
-  }
-}
-fetch(`${endpoint}&query=${JSON.stringify(query)}`)
-```
-<br>
 
-**Match exact metadata value (Switch Metafield)**
-```javascript
-const query = {
-  "metadata.is_featured": true
-}
-fetch(`${endpoint}&query=${JSON.stringify(query)}`)
-```
-<br>
+:::: tabs :options="{ useUrlFragment: false }"
 
-**Match nested JSON metadata value (JSON Metafield)**
+::: tab Bash
+```bash
+curl '$endpoint&query={"metadata.number":{"$gte":3}}'
+```
+:::
+
+::: tab Node.js
 ```javascript
-const query = {
-  "metadata.json_data": {
-    "is_awesome": true,
-    "other_data": {
-      "nested": "yep"
+bucket.getObjects({
+  type: 'posts',
+  props: 'slug,title,type_slug',
+  query: {
+    "metadata.number": {
+      "$gte": 3
     }
   }
-}
-fetch(`${endpoint}&query=${JSON.stringify(query)}`)
+})
 ```
-<br>
+:::
+
+::::
+
+
+**Match exact metadata value (Switch Metafield)**
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab Bash
+```bash
+curl '$endpoint&query={"metadata.is_featured":true}'
+```
+:::
+
+::: tab Node.js
+```javascript
+bucket.getObjects({
+  type: 'posts',
+  props: 'slug,title,type_slug',
+  query: {
+    "metadata.is_featured": true
+  }
+})
+```
+:::
+
+::::
+
+**Match nested JSON metadata value (JSON Metafield)**
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab Bash
+```bash
+curl '$endpoint&query={"metadata.json_data":{"is_awesome":true,"other_data":{"nested":"yep"}}}'
+```
+:::
+
+::: tab Node.js
+```javascript
+bucket.getObjects({
+  type: 'posts',
+  props: 'slug,title,type_slug',
+  query: {
+    "metadata.json_data": {
+      "is_awesome": true,
+      "other_data": {
+        "nested": "yep"
+      }
+    }
+  }
+})
+```
+:::
+
+::::
+
 
 **Match Single Object Metafield value**
-```javascript
-const query = {
-  "metadata.category": "category_id-1"
-}
-fetch(`${endpoint}&query=${JSON.stringify(query)}`)
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab Bash
+```bash
+curl '$endpoint&query={"metadata.category":"category_id-1"}'
 ```
-<br>
+:::
+
+::: tab Node.js
+```javascript
+bucket.getObjects({
+  type: 'posts',
+  props: 'slug,title,type_slug',
+  query: {
+    "metadata.category": "category_id-1"
+  }
+})
+```
+:::
+
+::::
+
 
 **Match not equal to Single Object Metafield value**
-```javascript
-const query = {
-  "metadata.category": {
-    "$ne": "category_id-1"
-  }
-}
-fetch(`${endpoint}&query=${JSON.stringify(query)}`)
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab Bash
+```bash
+curl '$endpoint&query={"metadata.category":{"$ne": "category_id-1"}}'
 ```
-<br>
+:::
+
+::: tab Node.js
+```javascript
+bucket.getObjects({
+  type: 'posts',
+  props: 'slug,title,type_slug',
+  query: {
+    "metadata.category": {
+      "$ne": "category_id-1"
+    }
+  }
+})
+```
+:::
+
+::::
+
 
 **Match all Multiple Object Metafield values**
-```javascript
-const query = {
-  "metadata.categories": ["category_id-1","category_id-2"]
-}
-// Equivalent
-const query = {
-  "metadata.categories": {
-    "$and": ["category_id-1","category_id-2"]
-  }
-}
-fetch(`${endpoint}&query=${JSON.stringify(query)}`)
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab Bash
+```bash
+curl '$endpoint&query={"metadata.category":["category_id-1","category_id-2"]}'
 ```
-<br>
+:::
+
+::: tab Node.js
+```javascript
+bucket.getObjects({
+  type: 'posts',
+  props: 'slug,title,type_slug',
+  query: {
+    "metadata.category": ["category_id-1","category_id-2"]
+  }
+})
+// Equivalent
+bucket.getObjects({
+  type: 'posts',
+  props: 'slug,title,type_slug',
+  query: {
+    "metadata.category": {
+      "$all": ["category_id-1","category_id-2"]
+    }
+  }
+})
+```
+:::
+
+::::
+
 
 **Match any Multiple Object Metafield values**
-```javascript
-const query = {
-  "metadata.categories": {
-    "$or": ["category_id-1","category_id-2"]
-  }
-}
-fetch(`${endpoint}&query=${JSON.stringify(query)}`)
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab Bash
+```bash
+curl '$endpoint&query={"metadata.category":{"$in":["category_id-1","category_id-2"]}}'
 ```
-<br>
+:::
+
+::: tab Node.js
+```javascript
+// Equivalent
+bucket.getObjects({
+  type: 'posts',
+  props: 'slug,title,type_slug',
+  query: {
+    "metadata.category": {
+      "$in": ["category_id-1","category_id-2"]
+    }
+  }
+})
+```
+:::
+
+::::
+
 
 **Match doesn't have any Multiple Object Metafield values**
-```javascript
-const query = {
-  "metadata.categories": {
-    "$nin": ["category_id-1","category_id-2"]
-  }
-}
-fetch(`${endpoint}&query=${JSON.stringify(query)}`)
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab Bash
+```bash
+curl '$endpoint&query={"metadata.category":{"$nin":["category_id-1","category_id-2"]}}'
 ```
-<br>
+:::
 
+::: tab Node.js
+```javascript
+// Equivalent
+bucket.getObjects({
+  type: 'posts',
+  props: 'slug,title,type_slug',
+  query: {
+    "metadata.category": {
+      "$nin": ["category_id-1","category_id-2"]
+    }
+  }
+})
+```
+:::
 
+::::
 
 
 ## Get Object
