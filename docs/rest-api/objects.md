@@ -479,7 +479,7 @@ GET https://api.cosmicjs.com/v1/:bucket_slug/objects?type=:type_slug&read_key=yo
 | $ne             | Matches all values that are not equal to a specified value. |
 | $nin            |	Matches none of the values specified in an array.|
 | $all            |	Matches arrays that contain all elements specified in the query.|
-| $regex, $option | Search for string, use `$option: "i"` for case insensitive matches |
+| $regex, $options | Search for string, use `$options: "i"` for case insensitive matches |
 
 
 ### Logic Operators
@@ -512,7 +512,7 @@ const bucket = Cosmic.bucket({
 
 ::::
 
-**Exact title match**
+**Matches Objects with exact title**
 
 :::: tabs :options="{ useUrlFragment: false }"
 
@@ -537,7 +537,7 @@ bucket.getObjects({
 
 ::::
 
-**Exact _id match**
+**Matches Objects with exact _id**
 
 :::: tabs :options="{ useUrlFragment: false }"
 
@@ -561,7 +561,7 @@ bucket.getObjects({
 
 ::::
 
-**Match any _ids**
+**Matches Objects with any _ids**
 
 :::: tabs :options="{ useUrlFragment: false }"
 
@@ -580,13 +580,23 @@ bucket.getObjects({
     "_id": ["valid-object-id-1","valid-object-id-2"]
   }
 })
+// Equivalent
+bucket.getObjects({
+  type: 'posts',
+  props: 'slug,title,content',
+  query: {
+    "_id": {
+      "$in": ["valid-object-id-1","valid-object-id-2"]
+    }
+  }
+})
 ```
 :::
 
 ::::
 
 
-**Match any _ids not equal to value**
+**Match Objects with any _ids not equal to value**
 
 :::: tabs :options="{ useUrlFragment: false }"
 
@@ -612,7 +622,7 @@ bucket.getObjects({
 
 ::::
 
-**Match any _ids except any in the array of values**
+**Match Objects except with _ids in the array of values**
 
 :::: tabs :options="{ useUrlFragment: false }"
 
@@ -638,7 +648,7 @@ bucket.getObjects({
 
 ::::
 
-**Match exact slug**
+**Match Objects with exact slug**
 
 :::: tabs :options="{ useUrlFragment: false }"
 
@@ -662,13 +672,13 @@ bucket.getObjects({
 
 ::::
 
-**Match string case insensive**
+**Match Objects with string in content. Case insensive with $options.**
 
 :::: tabs :options="{ useUrlFragment: false }"
 
 ::: tab Bash
 ```bash
-curl '$endpoint&query={"content":{"$regex":"jamstack","$option":"i"}}'
+curl '$endpoint&query={"content":{"$regex":"jamstack","$options":"i"}}'
 ```
 :::
 
@@ -680,7 +690,7 @@ bucket.getObjects({
   query: {
     "content": {
       "$regex": "jamstack",
-      "$option": "i"
+      "$options": "i"
     }
   }
 })

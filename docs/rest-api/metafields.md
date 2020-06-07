@@ -83,9 +83,7 @@ Metafields are powerful components that can be added to Objects and Object Types
       "type": "file",
       "title": "Hero",
       "key": "hero",
-      "value": "7d276450-5a95-11e7-b717-653f819d86b5.jpg",
-      "url": "https://s3-us-west-2.amazonaws.com/cosmicjs/7d276450-5a95-11e7-b717-653f819d86b5.jpg",
-      "imgix_url": "https://cosmic-s3.imgix.net/7d276450-5a95-11e7-b717-653f819d86b5.jpg"
+      "value": "media-name-property-in-bucket.jpg" // This is the name of your media. Gets converted to url and imgix_url automatically
     },
     {
       "type": "date",
