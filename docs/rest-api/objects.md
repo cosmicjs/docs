@@ -315,7 +315,7 @@ const bucket = Cosmic.bucket({
 
 bucket.getObjects({
   type: 'posts',
-  props: 'slug,title,type_slug',
+  props: 'slug,title,content',
   limit: 10
 })
 ```
@@ -527,7 +527,7 @@ curl '$endpoint&query={"title":"Post 1"}'
 ```javascript
 bucket.getObjects({
   type: 'posts',
-  props: 'slug,title,type_slug',
+  props: 'slug,title,content',
   query: {
     "title": "Post 1"
   }
@@ -551,7 +551,7 @@ curl '$endpoint&query={"_id":"valid-object-id"}'
 ```javascript
 bucket.getObjects({
   type: 'posts',
-  props: 'slug,title,type_slug',
+  props: 'slug,title,content',
   query: {
     "_id": "valid-object-id"
   }
@@ -575,7 +575,7 @@ curl '$endpoint&query={"_id":["valid-object-id-1","valid-object-id-2"]'
 ```javascript
 bucket.getObjects({
   type: 'posts',
-  props: 'slug,title,type_slug',
+  props: 'slug,title,content',
   query: {
     "_id": ["valid-object-id-1","valid-object-id-2"]
   }
@@ -600,7 +600,7 @@ curl '$endpoint&query={"_id":{"$ne":"valid-object-id"}}'
 ```javascript
 bucket.getObjects({
   type: 'posts',
-  props: 'slug,title,type_slug',
+  props: 'slug,title,content',
   query: {
     "_id": {
       "$ne": "valid-object-id-1"
@@ -626,7 +626,7 @@ curl '$endpoint&query={"_id":{"$nin":["valid-object-id-1","valid-object-id-2"]}}
 ```javascript
 bucket.getObjects({
   type: 'posts',
-  props: 'slug,title,type_slug',
+  props: 'slug,title,content',
   query: {
     "_id": {
       "$nin": ["valid-object-id-1","valid-object-id-2"]
@@ -652,7 +652,7 @@ curl '$endpoint&query={"slug":"post-1"}'
 ```javascript
 bucket.getObjects({
   type: 'posts',
-  props: 'slug,title,type_slug',
+  props: 'slug,title,content',
   query: {
     "slug": "post-1"
   }
@@ -676,7 +676,7 @@ curl '$endpoint&query={"content":{"$regex":"jamstack","$option":"i"}}'
 ```javascript
 bucket.getObjects({
   type: 'posts',
-  props: 'slug,title,type_slug',
+  props: 'slug,title,content',
   query: {
     "content": {
       "$regex": "jamstack",
@@ -703,7 +703,7 @@ curl '$endpoint&query={"metadata.number":1}'
 ```javascript
 bucket.getObjects({
   type: 'posts',
-  props: 'slug,title,type_slug',
+  props: 'slug,title,content',
   query: {
     "metadata.number": 1
   }
@@ -727,7 +727,7 @@ curl '$endpoint&query={"$or":[{"slug":"post-1"},{"slug":"post-2"}]}'
 ```javascript
 bucket.getObjects({
   type: 'posts',
-  props: 'slug,title,type_slug',
+  props: 'slug,title,content',
   query: {
     "$or": [
       {
@@ -758,7 +758,7 @@ curl '$endpoint&query={"$or":[{"metadata.letter":"a"},{"metadata.letter":"b"}]}'
 ```javascript
 bucket.getObjects({
   type: 'posts',
-  props: 'slug,title,type_slug',
+  props: 'slug,title,content',
   query: {
     "$or": [
       {
@@ -789,7 +789,7 @@ curl '$endpoint&query={"$and":[{"metadata.letter":"a"},{"metadata.number":1}]}'
 ```javascript
 bucket.getObjects({
   type: 'posts',
-  props: 'slug,title,type_slug',
+  props: 'slug,title,content',
   query: {
     "$and": [{
       "metadata.letter": "a",
@@ -817,7 +817,7 @@ curl '$endpoint&query={"metadata.number":{"$gte":3}}'
 ```javascript
 bucket.getObjects({
   type: 'posts',
-  props: 'slug,title,type_slug',
+  props: 'slug,title,content',
   query: {
     "metadata.number": {
       "$gte": 3
@@ -844,7 +844,7 @@ curl '$endpoint&query={"metadata.is_featured":true}'
 ```javascript
 bucket.getObjects({
   type: 'posts',
-  props: 'slug,title,type_slug',
+  props: 'slug,title,content',
   query: {
     "metadata.is_featured": true
   }
@@ -868,7 +868,7 @@ curl '$endpoint&query={"metadata.json_data":{"is_awesome":true,"other_data":{"ne
 ```javascript
 bucket.getObjects({
   type: 'posts',
-  props: 'slug,title,type_slug',
+  props: 'slug,title,content',
   query: {
     "metadata.json_data": {
       "is_awesome": true,
@@ -898,7 +898,7 @@ curl '$endpoint&query={"metadata.category":"category_id-1"}'
 ```javascript
 bucket.getObjects({
   type: 'posts',
-  props: 'slug,title,type_slug',
+  props: 'slug,title,content',
   query: {
     "metadata.category": "category_id-1"
   }
@@ -923,7 +923,7 @@ curl '$endpoint&query={"metadata.category":{"$ne": "category_id-1"}}'
 ```javascript
 bucket.getObjects({
   type: 'posts',
-  props: 'slug,title,type_slug',
+  props: 'slug,title,content',
   query: {
     "metadata.category": {
       "$ne": "category_id-1"
@@ -950,7 +950,7 @@ curl '$endpoint&query={"metadata.category":["category_id-1","category_id-2"]}'
 ```javascript
 bucket.getObjects({
   type: 'posts',
-  props: 'slug,title,type_slug',
+  props: 'slug,title,content',
   query: {
     "metadata.category": ["category_id-1","category_id-2"]
   }
@@ -958,7 +958,7 @@ bucket.getObjects({
 // Equivalent
 bucket.getObjects({
   type: 'posts',
-  props: 'slug,title,type_slug',
+  props: 'slug,title,content',
   query: {
     "metadata.category": {
       "$all": ["category_id-1","category_id-2"]
@@ -986,7 +986,7 @@ curl '$endpoint&query={"metadata.category":{"$in":["category_id-1","category_id-
 // Equivalent
 bucket.getObjects({
   type: 'posts',
-  props: 'slug,title,type_slug',
+  props: 'slug,title,content',
   query: {
     "metadata.category": {
       "$in": ["category_id-1","category_id-2"]
@@ -1014,7 +1014,7 @@ curl '$endpoint&query={"metadata.category":{"$nin":["category_id-1","category_id
 // Equivalent
 bucket.getObjects({
   type: 'posts',
-  props: 'slug,title,type_slug',
+  props: 'slug,title,content',
   query: {
     "metadata.category": {
       "$nin": ["category_id-1","category_id-2"]
