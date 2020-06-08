@@ -442,7 +442,7 @@ console.log(filter)
 ::::
 
 
-## Advanced Queries
+## Advanced Queries (Beta)
 
 Advanced queries give you powerful NoSQL database-like functionality for content fetching. Use the `query` parameter to send a valid JSON (stringified) query on the [Get Objects Endpoint](#get-objects). See [example requests below](#example-queries).
 
