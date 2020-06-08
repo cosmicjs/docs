@@ -446,6 +446,10 @@ console.log(filter)
 
 Advanced queries give you powerful NoSQL database-like functionality for content fetching. Use the `query` parameter to send a valid JSON (stringified) query on the [Get Objects Endpoint](#get-objects). See [example requests below](#example-queries).
 
+::: tip Note
+If accessing the endpoint via browser address bar, open and closed curly braces will need to be encoded: `%7B` and `%7D` respectively.
+:::
+
 **Definition**
 ```
 GET https://api.cosmicjs.com/v1/:bucket_slug/objects?type=:type_slug&read_key=your-read-key-found-bucket-settings&query=:JSON_query
