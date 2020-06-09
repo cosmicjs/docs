@@ -776,10 +776,10 @@ bucket.getObjects({
   query: {
     "$or": [
       {
-        "metadata.letter": "a"
+        "metadata.grade": "A"
       },
       {
-        "metadata.letter": "b"
+        "metadata.grade": "B"
       }
     ]
   }
@@ -806,8 +806,10 @@ bucket.getObjects({
   props: 'slug,title,content',
   query: {
     "$and": [{
-      "metadata.letter": "a",
-      "metadata.number": 1
+      "metadata.grade": "A",
+      "metadata.price": {
+        "$lt": 10
+      }
     }]
   }
 })
@@ -823,7 +825,7 @@ bucket.getObjects({
 
 ::: tab Bash
 ```bash
-curl '$endpoint&query={"metadata.number":{"$gte":3}}'
+curl '$endpoint&query={"metadata.price":{"$gte":9.99}}'
 ```
 :::
 
@@ -833,8 +835,8 @@ bucket.getObjects({
   type: 'posts',
   props: 'slug,title,content',
   query: {
-    "metadata.number": {
-      "$gte": 3
+    "metadata.price": {
+      "$gte": 9.99
     }
   }
 })
