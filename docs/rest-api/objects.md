@@ -1025,7 +1025,6 @@ curl '$endpoint&query={"metadata.category":{"$nin":["category_id-1","category_id
 
 ::: tab Node.js
 ```javascript
-// Equivalent
 bucket.getObjects({
   type: 'posts',
   props: 'slug,title,content',
