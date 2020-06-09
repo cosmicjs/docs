@@ -1019,7 +1019,7 @@ bucket.getObjects({
 
 ::: tab Bash
 ```bash
-curl '$endpoint&query={"metadata.category":{"$nin":["category_id-1","category_id-2"]}}'
+curl '$endpoint&query={"metadata.categories":{"$nin":["category_id-1","category_id-2"]}}'
 ```
 :::
 
@@ -1029,7 +1029,7 @@ bucket.getObjects({
   type: 'posts',
   props: 'slug,title,content',
   query: {
-    "metadata.category": {
+    "metadata.categories": {
       "$nin": ["category_id-1","category_id-2"]
     }
   }
