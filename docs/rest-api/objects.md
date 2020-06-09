@@ -991,18 +991,17 @@ bucket.getObjects({
 
 ::: tab Bash
 ```bash
-curl '$endpoint&query={"metadata.category":{"$in":["category_id-1","category_id-2"]}}'
+curl '$endpoint&query={"metadata.categories":{"$in":["category_id-1","category_id-2"]}}'
 ```
 :::
 
 ::: tab Node.js
 ```javascript
-// Equivalent
 bucket.getObjects({
   type: 'posts',
   props: 'slug,title,content',
   query: {
-    "metadata.category": {
+    "metadata.categories": {
       "$in": ["category_id-1","category_id-2"]
     }
   }
