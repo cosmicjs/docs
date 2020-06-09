@@ -709,7 +709,7 @@ bucket.getObjects({
 
 ::: tab Bash
 ```bash
-curl '$endpoint&query={"metadata.number":1}'
+curl '$endpoint&query={"metadata.price":9.99}'
 ```
 :::
 
@@ -719,7 +719,7 @@ bucket.getObjects({
   type: 'posts',
   props: 'slug,title,content',
   query: {
-    "metadata.number": 1
+    "metadata.price": 9.99
   }
 })
 ```
@@ -764,7 +764,7 @@ bucket.getObjects({
 
 ::: tab Bash
 ```bash
-curl '$endpoint&query={"$or":[{"metadata.letter":"a"},{"metadata.letter":"b"}]}'
+curl '$endpoint&query={"$or":[{"metadata.grade":"A"},{"metadata.grade":"B"}]}'
 ```
 :::
 
@@ -795,7 +795,7 @@ bucket.getObjects({
 
 ::: tab Bash
 ```bash
-curl '$endpoint&query={"$and":[{"metadata.letter":"a"},{"metadata.number":1}]}'
+curl '$endpoint&query={"$and":[{"metadata.grade":"A"},{"metadata.price":{"$lt":10}}]}'
 ```
 :::
 
