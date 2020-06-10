@@ -77,7 +77,7 @@ Some queries will require a separate variable. Add something like this to the Qu
 <iframe src="https://cosmic-graphql-playground.netlify.app/?endpoint=https%3A%2F%2Fgraphql.cosmicjs.com%2Fv2&query=%20query%20%28%24query%3A%20JSON%29%20%7B%0A%20%20%20%20getObjects%28%0A%20%20%20%20%20%20%20%20bucket_slug%3A%20%22simple-react-blog%22%2C%0A%20%20%20%20%20%20%20%20input%3A%20%7B%20%0A%20%20%20%20%20%20%20%20%20%20type%3A%22posts%22%0A%20%20%20%20%20%20%20%20%20%20query%3A%20%24query%0A%20%20%20%20%20%20%20%20%20%20props%3A%20%22title%2Cslug%2Cmetadata.author%22%0A%20%20%20%20%20%20%20%20%7D%0A%20%20%29%20%7B%0A%20%20%20%20objects%20%7B%0A%20%20%20%20%20%20%20%20title%0A%20%20%20%20%20%20%09slug%0A%20%20%20%20%20%20%20%20metadata%0A%20%20%20%20%7D%0A%20%20%7D%0A%7D" frameborder="0" style="width: 100%; height: 470px;"></iframe>
 
 ### More Examples
-[See more examples in the REST API docs](/rest-api/objects.html#example-queries).
+[See more Advanced Queries examples in the REST API docs](/rest-api/objects.html#example-queries).
 
 
 ## getObject
