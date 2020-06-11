@@ -160,7 +160,7 @@ Requires `Authorization` in HTTP Header. Find token in Account Settings or using
 
 <iframe src="https://cosmic-graphql-playground.netlify.com/?endpoint=https://graphql.cosmicjs.com/v2&query=%7B%0A%20%20getBuckets%20%7B%0A%20%20%20%20title%0A%20%20%7D%0A%7D" frameborder="0" style="width: 100%; height: 470px;"></iframe>
 
-### getUsers
+## getUsers
 Get Users in a Bucket.
 ```
 getUsers(bucket_slug)
@@ -173,7 +173,7 @@ Requires `Authorization` in HTTP Header. Find token in Account Settings or using
 
 <iframe src="https://cosmic-graphql-playground.netlify.com/?endpoint=https://graphql.cosmicjs.com/v2&query=%7B%0A%20%20getUsers(bucket_slug%3A%20%22art%22)%20%7B%0A%20%20%20%20first_name%0A%20%20%20%20email%0A%20%20%7D%0A%7D" frameborder="0" style="width: 100%; height: 470px;"></iframe>
 
-### getUser
+## getUser
 Get a User in a Bucket.
 ```
 getUser(bucket_slug, user_id)
