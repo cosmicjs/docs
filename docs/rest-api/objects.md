@@ -27,6 +27,7 @@ Add a new Object to your Bucket.
 | locale                 |          | String | Add localization to the Object                                     |
 | write_key              |          | String | Your Bucket write key                                              |
 | publish_at             |          | Number | UNIX millisecond timestamp. Publish automatically at a later time. |
+| trigger_webhook             |          | Bool | Triggers corresponding Object action Webhook ([See Webhooks](/rest-api/webhooks.html#add-webhook)) |
 
 :::: tabs :options="{ useUrlFragment: false }"
 
@@ -1450,21 +1451,23 @@ bucket.addObjectRevision(params)
 
 ## Edit Object
 
-Edit an existing Object in your Bucket.
+Edit an existing Object in your Bucket. `slug` or `id` can be used as an identifier.
 
 | Parameter              | Required | Type   | Description                                                                             |
 | ---------------------- | -------- | ------ | --------------------------------------------------------------------------------------- |
-| slug                   | required | String | Unique identifier for your Object                                                       |
-| type_slug              |          | String | Object Type                                                                             |
-| title                  |          | String | Your Bucket title                                                                       |
-| content                |          | String | Add Content to your Object                                                              |
-| status                 |          | Enum   | draft, published, defaults to published                                                 |
-| options.slug_field     |          | Bool   | Set to false to hide the slug field                                                     |
-| options.content_editor |          | Bool   | Set to false to hide the content editor                                                 |
+| slug                   | | String | Unique identifier for your Object. If `id` present, used to modify your Object slug |
+| id                   | | String | Unique identifier for your Object |
+| type_slug              |          | String | Object Type |
+| title                  |          | String | Your Bucket title |
+| content                |          | String | Add Content to your Object |
+| status                 |          | Enum   | draft, published, defaults to published |
+| options.slug_field     |          | Bool   | Set to false to hide the slug field |
+| options.content_editor |          | Bool   | Set to false to hide the content editor |
 | metafields             |          | Array  | Add Metafields to your Object. See [Metafields Model](/rest-api/metafields.html#model). |
-| locale                 |          | String | Edit Object locale                                                                      |
-| write_key              |          | String | Your Bucket write key                                                                   |
-| publish_at             |          | Number | UNIX millisecond timestamp. Publish automatically at a later time.                      |
+| locale                 |          | String | Edit Object locale |
+| write_key              |          | String | Your Bucket write key |
+| publish_at             |          | Number | UNIX millisecond timestamp. Publish automatically at a later time. 
+| trigger_webhook             |          | Bool | Triggers corresponding Object action Webhook ([See Webhooks](/rest-api/webhooks.html#add-webhook)) |
 
 :::: tabs :options="{ useUrlFragment: false }"
 
@@ -1600,6 +1603,7 @@ Delete an existing Object in your Bucket.
 | --------- | -------- | ------ | --------------------------------- |
 | slug      | required | String | Unique identifier for your Object |
 | write_key |          | String | Your Bucket write key             |
+| trigger_webhook             |          | Bool | Triggers corresponding Object action Webhook ([See Webhooks](/rest-api/webhooks.html#add-webhook)) |
 
 :::: tabs :options="{ useUrlFragment: false }"
 

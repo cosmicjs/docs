@@ -254,6 +254,7 @@ If a write key is enabled on the requested bucket, the parameter `write_key` wil
 | Parameter | Required | Type   | Description           |
 | --------- | -------- | ------ | --------------------- |
 | write_key |          | String | Your Bucket write key |
+| trigger_webhook             |          | Bool | Triggers corresponding Object action Webhook ([See Webhooks](/rest-api/webhooks.html#add-webhook)) |
 
 :::: tabs :options="{ useUrlFragment: false }"
 
