@@ -57,6 +57,11 @@ module.exports = {
           title: 'Extensions',
           path: '/extensions/',
           icon: '/icons/puzzle-piece.svg'
+        },
+        {
+          title: 'Guides',
+          path: '/guides/',
+          icon: 'https://cdn.cosmicjs.com/4d1e8850-33e7-11ea-983a-099bce0aacb8-067-book-2.svg'
         }
       ],
       '/rest-api/': [
@@ -108,6 +113,11 @@ module.exports = {
           title: 'Extensions',
           path: '/extensions/',
           icon: '/icons/puzzle-piece.svg'
+        },
+        {
+          title: 'Guides',
+          path: '/guides/',
+          icon: 'https://cdn.cosmicjs.com/4d1e8850-33e7-11ea-983a-099bce0aacb8-067-book-2.svg'
         }
       ],
       '/': [
@@ -144,6 +154,11 @@ module.exports = {
           title: 'Extensions',
           path: '/extensions/',
           icon: '/icons/puzzle-piece.svg'
+        },
+        {
+          title: 'Guides',
+          path: '/guides/',
+          icon: 'https://cdn.cosmicjs.com/4d1e8850-33e7-11ea-983a-099bce0aacb8-067-book-2.svg'
         }
       ]
     }

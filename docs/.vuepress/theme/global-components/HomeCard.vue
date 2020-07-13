@@ -46,7 +46,7 @@ export default {
   border: 14px solid #fff;
   background: #fff;
   padding: 10px 0;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   color: #2c3e50;
   background-repeat: no-repeat;
   background-size: 40px 40px;
@@ -106,7 +106,7 @@ export default {
   }
 
   .home-card-wrapper:nth-child(odd) {
-    margin-left: 0;
+    margin-right: 0;
   }
 
   .home-card-wrapper:nth-child(even) {

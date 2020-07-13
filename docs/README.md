@@ -25,6 +25,10 @@ cardData:
   url: '/extensions/'
   description: "Connect to third-party APIs and create custom views within your Bucket."
   icon: '/icons/puzzle-piece.svg'
+- title: 'Guides'
+  url: '/guides/'
+  description: "Use our quick start guides to learn how to get started with Cosmic using React, Node.js, Angular, Vue, and more."
+  icon: 'https://cdn.cosmicjs.com/4d1e8850-33e7-11ea-983a-099bce0aacb8-067-book-2.svg'
 ---
 
 # Documentation
