@@ -125,7 +125,7 @@ npm i cosmicjs
 ### 3. Add the following code into your `src/App.vue` file
 Find your Bucket slug and API read key in <i>Your Bucket > Basic Settings > API Access</i> after [logging in](https://app.cosmicjs.com).
 ```javascript
-// src/App.js
+// src/App.vue
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
@@ -269,7 +269,7 @@ npm i cosmicjs
 ### 3. Add the following code into your `pages/index.vue` file
 Find your Bucket slug and API read key in <i>Your Bucket > Basic Settings > API Access</i> after [logging in](https://app.cosmicjs.com).
 ```javascript
-// pages/index.js
+// pages/index.vue
 <template>
   <div class="container">
     <div>
