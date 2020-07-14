@@ -61,8 +61,7 @@ export default App;
 ### 4. Start your app
 Start your app, and go to http://localhost:3000. Dance 🎉
 ```
-cd cosmic-react-app
-yarn start
+npm start
 ```
 
 ## Angular
@@ -110,6 +109,86 @@ node index.js
 ```
 
 ## Vue.js
+Cosmic makes a great [Vue CMS](https://www.cosmicjs.com/knowledge-base/vuejs-cms) for your React websites and apps. Get started adding Cosmic-powered content into your Vue apps using the following steps:
+
+### 1. Install a new Vue app
+You can use the [Vue CLI](https://cli.vuejs.org/) to install a new Vue app with included tooling.
+```bash
+npm install -g @vue/cli
+vue create cosmic-vue-app
+```
+### 2. Install the Cosmic NPM module
+```bash
+cd cosmic-vue-app
+npm i cosmicjs
+```
+### 3. Add the following code into your `src/App.vue` file
+Find your Bucket slug and API read key in <i>Your Bucket > Basic Settings > API Access</i> after [logging in](https://app.cosmicjs.com).
+```javascript
+// src/App.js
+<template>
+  <div id="app">
+    <img alt="Vue logo" src="./assets/logo.png">
+    <h1>Cosmic Vue App</h1>
+    <div v-if="loading">Loading...</div>
+    <ul>
+      <li v-for="post in posts" :key="post.slug">
+        {{ post.title }}
+      </li>
+    </ul>
+  </div>
+</template>
+<script>
+const Cosmic = require('cosmicjs')
+const api = Cosmic()
+// Set these values, found in Bucket > Settings after logging in at https://app.cosmicjs.com/login
+const bucket = api.bucket({
+  slug: 'YOUR_BUCKET_SLUG',
+  read_key: 'YOUR_BUCKET_READ_KEY'
+})
+export default {
+  name: 'App',
+  data () {
+    return {
+      loading: false,
+      posts: null
+    }
+  },
+  created () {
+    this.fetchData()
+  },
+  methods: {
+    fetchData () {
+      this.error = this.post = null
+      this.loading = true
+      bucket.getObjects({
+        type: 'posts',
+        props: 'slug,title,content,metadata' // Limit the API response data by props
+      }).then(data => {
+        const posts = data.objects
+        this.loading = false
+        this.posts = posts
+      })
+    }
+  }
+}
+</script>
+<style>
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: left;
+  color: #2c3e50;
+}
+</style>
+```
+
+### 4. Start your app
+Start your app, and go to http://localhost:3000. Dance 🎉
+```
+npm run serve
+```
 
 ## Next.js
 Cosmic makes a great [Next.js CMS](https://www.cosmicjs.com/knowledge-base/nextjs-cms) for your Next.js websites and apps. Get started adding Cosmic-powered content into your Next.js apps using the following steps:
@@ -175,4 +254,4 @@ npm run dev
 
 ## Nuxt.js
 
-## Gatsby.js
+## Gatsby
