@@ -34,7 +34,6 @@ const bucket = api.bucket({
   slug: 'YOUR_BUCKET_SLUG',
   read_key: 'YOUR_BUCKET_READ_KEY'
 })
-
 function App() {
   // Use Hooks to get page data from Cosmic!
   const [data, setData] = useState(null);
@@ -89,8 +88,8 @@ const api = Cosmic()
 const PORT = process.env.PORT || 3000
 // Set these values, found in Bucket > Settings after logging in at https://app.cosmicjs.com/login
 const bucket = api.bucket({
-  slug: '13ba57b0-a4d5-11ea-aafe-77788bb7b791',
-  read_key: '7e84VE6IPBx3zncqcAYSoS1gDEPfPRQnZs6yLv3OZwfiR0YsyT'
+  slug: 'YOUR_BUCKET_SLUG',
+  read_key: 'YOUR_BUCKET_READ_KEY'
 })
 app.get('*', async (req, res) => {
   const data = await bucket.getObjects({
