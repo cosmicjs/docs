@@ -194,7 +194,7 @@ npm run serve
 Cosmic makes a great [Next.js CMS](https://www.cosmicjs.com/knowledge-base/nextjs-cms) for your Next.js websites and apps. Get started adding Cosmic-powered content into your Next.js apps using the following steps:
 
 ### 1. Install a new Next.js app
-You can use [Create Next App](https://github.com/facebook/create-react-app) to install a new Next.js app with included tooling. When prompted, select default starter app.
+You can use [Create Next App](https://nextjs.org/docs#setup) to install a new Next.js app with included tooling. When prompted, select default starter app.
 ```bash
 npm i -g create-next-app
 create-next-app cosmic-next-app
@@ -253,5 +253,100 @@ npm run dev
 ```
 
 ## Nuxt.js
+Cosmic makes a great [Nuxt.js CMS](https://www.cosmicjs.com/knowledge-base/nuxtjs-cms) for your Nuxt.js websites and apps. Get started adding Cosmic-powered content into your Nuxt.js apps using the following steps:
+
+### 1. Install a new Nuxt.js app
+You can use [Create Nuxt App](https://github.com/nuxt/create-nuxt-app) to install a new Nuxt.js app with included tooling.
+```bash
+npm i -g create-nuxt-app
+create-nuxt-app cosmic-nuxt-app
+```
+### 2. Install the Cosmic NPM module
+```bash
+cd cosmic-nuxt-app
+npm i cosmicjs
+```
+### 3. Add the following code into your `pages/index.vue` file
+Find your Bucket slug and API read key in <i>Your Bucket > Basic Settings > API Access</i> after [logging in](https://app.cosmicjs.com).
+```javascript
+// pages/index.js
+<template>
+  <div class="container">
+    <div>
+      <Logo />
+      <h1 class="title">
+        cosmic-nuxt-app
+      </h1>
+      <div v-if="loading">Loading...</div>
+      <ul>
+        <li v-for="post in posts" :key="post.slug">
+          {{ post.title }}
+        </li>
+      </ul>
+    </div>
+  </div>
+</template>
+<script>
+const Cosmic = require('cosmicjs')
+const api = Cosmic()
+// Set these values, found in Bucket > Settings after logging in at https://app.cosmicjs.com/login
+const bucket = api.bucket({
+  slug: 'YOUR_BUCKET_SLUG',
+  read_key: 'YOUR_BUCKET_READ_KEY'
+})
+export default {
+  data() {
+    return {
+      loading: true
+    }
+  },
+  async asyncData () {
+    const data = await bucket.getObjects({
+      type: 'posts',
+      props: 'slug,title,content,metadata' // Limit the API response data by props
+    })
+    const posts = await data.objects
+    return { 
+      posts,
+      loading: false
+    }
+  }
+}
+</script>
+<style>
+.container {
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.title {
+  font-family:
+    'Quicksand',
+    'Source Sans Pro',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    'Helvetica Neue',
+    Arial,
+    sans-serif;
+  display: block;
+  font-weight: 300;
+  font-size: 100px;
+  color: #35495e;
+  letter-spacing: 1px;
+}
+</style>
+```
+
+### 4. Start your app
+Start your app, and go to http://localhost:3000. Dance 🎉
+```
+npm run dev
+```
 
 ## Gatsby
