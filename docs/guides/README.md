@@ -1,13 +1,14 @@
 # Guides
-Use the Cosmic guides to get started using select development libraries. For guides, have a new Bucket ready to add content
+Use the Cosmic guides to get started using select development libraries.
 
-### Pre-steps:
-1. Log in to your Cosmic account and Create a new Bucket.
-2. Add a new Object Type called `Blog`. Add optional Metafields to extend the content model. For brevity, we'll omit the Metafields and show you the basic steps of connecting to your content.
-3. Add a few Blog Objects.
+## Pre-steps
+Before doing any coding, let's set up a Bucket with content using the following steps:
+1. Log in to your [Cosmic account](https://app.cosmicjs.com) and Create a new Bucket.
+2. Add a new Object Type called `Blog`. Add optional Metafields to extend the content model. For brevity, we'll omit the Metafields and show you the basic steps to connect to your content.
+3. Add a few Blog Objects by clicking "+ Add New Blog" and fill out the `title`, `slug`, and `content` fields.
 
 ## React
-Comsic makes a great CMS for your React Apps. Get started adding Cosmic-powered content into your React apps using the following steps:
+Cosmic makes a great [React CMS](https://www.cosmicjs.com/knowledge-base/react-cms) for your React websites and apps. Get started adding Cosmic-powered content into your React apps using the following steps:
 
 ### 1. Install a new React App using Create React App
 ```bash
@@ -16,10 +17,11 @@ creact-react-app cosmic-react-app
 ```
 ### 2. Install the Cosmic NPM module
 ```bash
+cd cosmic-react-app
 npm i cosmicjs
 ```
-### 3. Add the following code into your src/App.js file
-Get your Bucket slug and API read key in Bucket Settings > API Access.
+### 3. Add the following code into your `src/App.js` file
+Find your Bucket slug and API read key in <i>Your Bucket > Basic Settings > API Access</i> after [logging in](https://app.cosmicjs.com).
 ```javascript
 import React, { useState, useEffect } from 'react'
 

@@ -1,7 +1,3 @@
----
-sidebarDepth: 2
----
-
 # Extensions
 
 Cosmic Extensions enable you to customize the Cosmic Dashboard experience to create custom experiences in your Bucket Dashboard.
@@ -18,7 +14,7 @@ Go to _Your Bucket > Settings > Extensions_. There are [pre-built Extensions ava
 1. Go to _Your Bucket > Extensions > Add Extension_
 1. You can add either an Extension that points to a URL (https required, X-Frame Options enabled) or upload a zip file that contains a static web app.
 
-## How to add an Extension via URL
+## Extension via external URL
 
 You can add an Extension by URL (https required, X-Frame Options enabled), title and icon.
 
@@ -39,7 +35,7 @@ https://my-custom-webapp.netlify.com?bucket_slug=your-bucket-slug&read_key=your-
 | write_key            | Your Bucket write key. Needed for writes to your Bucket if this value is set in your Bucket > Settings > Basic.                                               |
 | [custom key / value] | You can add unlimited custom query pamaters such as 3rd-party API keys to connect to different services. Find this in your Cosmic Extension settings page. |
 
-## How to add a static web app extension
+## Extension via static web app
 
 Check out the [Extension Starter](https://github.com/cosmicjs/extension-starter) to see a basic HTML / CSS / JavaScript example.
 
