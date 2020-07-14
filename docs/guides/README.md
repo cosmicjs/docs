@@ -68,6 +68,8 @@ yarn start
 
 ## Vue.js
 
+## Next.js
+
 ## Nuxt.js
 
 ## Gatsby.js
