@@ -1,11 +1,11 @@
 # Guides
 Use the Cosmic guides to get started using select development libraries.
 
-## Pre-steps
+## Initial Setup
 Before doing any coding, let's set up a Bucket with content using the following steps:
 1. Log in to your [Cosmic account](https://app.cosmicjs.com) and Create a new Bucket.
-2. Add a new Object Type called `Blog`. Add optional Metafields to extend the content model. For brevity, we'll omit the Metafields and show you the basic steps to connect to your content.
-3. Add a few Blog Objects by clicking "+ Add New Blog" and fill out the `title`, `slug`, and `content` fields.
+2. Add a new Object Type called `Posts`. Add optional Metafields to extend the content model. For brevity, we'll omit the Metafields and show you the basic steps to connect to your content.
+3. Add a few Blog Objects by clicking "+ Add New Post" and fill out the `title`, `slug`, and `content` fields.
 
 ## React
 Cosmic makes a great [React CMS](https://www.cosmicjs.com/knowledge-base/react-cms) for your React websites and apps. Get started adding Cosmic-powered content into your React apps using the following steps:
@@ -40,7 +40,7 @@ function App() {
   useEffect(() => {
     const fetchBlog = async () => {
       const data = await bucket.getObjects({
-        type: 'blog',
+        type: 'posts',
         props: 'slug,title,content,metadata' // Limit the API response data by props
       })
       setData(data)
@@ -112,6 +112,66 @@ node index.js
 ## Vue.js
 
 ## Next.js
+Cosmic makes a great [Next.js CMS](https://www.cosmicjs.com/knowledge-base/nextjs-cms) for your Next.js websites and apps. Get started adding Cosmic-powered content into your Next.js apps using the following steps:
+
+### 1. Install a new Next.js app
+You can use [Create Next App](https://github.com/facebook/create-react-app) to install a new Next.js app with included tooling. When prompted, select default starter app.
+```bash
+npm i -g create-next-app
+create-next-app cosmic-next-app
+```
+### 2. Install the Cosmic NPM module
+```bash
+cd cosmic-next-app
+npm i cosmicjs
+```
+### 3. Add the following code into your `pages/index.js` file
+Find your Bucket slug and API read key in <i>Your Bucket > Basic Settings > API Access</i> after [logging in](https://app.cosmicjs.com).
+```javascript
+// pages/index.js
+import Head from 'next/head'
+const Cosmic = require('cosmicjs')
+const api = Cosmic()
+// Set these values, found in Bucket > Settings after logging in at https://app.cosmicjs.com/login
+const bucket = api.bucket({
+  slug: 'YOUR_BUCKET_SLUG',
+  read_key: 'YOUR_BUCKET_READ_KEY'
+})
+function Blog({ posts }) {
+  return (
+    <div className="container">
+      <Head>
+        <title>Cosmic App</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <ul>
+        {posts.map((post) => (
+          <li>{post.title}</li>
+        ))}
+      </ul>
+    </div>
+  )
+}
+export async function getStaticProps() {
+  const data = await bucket.getObjects({
+    type: 'posts',
+    props: 'slug,title,content,metadata' // Limit the API response data by props
+  })
+  const posts = await data.objects
+  return {
+    props: {
+      posts,
+    }
+  }
+}
+export default Blog
+```
+
+### 4. Start your app
+Start your app, and go to http://localhost:3000. Dance 🎉
+```
+npm run dev
+```
 
 ## Nuxt.js
 
