@@ -386,3 +386,44 @@ npm run dev
 ```
 
 ## Gatsby
+[Gatsby](https://gatsbyjs.org/) is a framework for building React websites and apps.
+
+Cosmic makes a great [Gatsby CMS](https://www.cosmicjs.com/knowledge-base/gatsby-cms) for your Gatsby websites and apps. Get started adding Cosmic-powered content into your Gatsby apps using the following steps:
+
+### 1. Install a new Gatsby app
+You can use the Gatsby CLI to install a new Gatsby app with included tooling.
+```bash
+npm install -g gatsby-cli
+gatsby new cosmic-gatsby-app
+```
+### 2. Install the Cosmic source plugin for Gatsby
+Install the [Cosmic source plugin for Gatsby](https://www.npmjs.com/package/gatsby-source-cosmicjs).
+```bash
+cd cosmic-gatsby-app
+npm i gatsby-source-cosmicjs
+```
+### 3. Add the following code into your `gatsby-config.js` file in the plugins section.
+Find your Bucket slug and API read key in <i>Your Bucket > Basic Settings > API Access</i> after [logging in](https://app.cosmicjs.com).
+```javascript
+// In your gatsby-config.js
+plugins: [
+  {
+    resolve: `gatsby-source-cosmicjs`,
+    options: {
+      bucketSlug: `YOUR_BUCKET_SLUG`, // Get this value in Bucket > Settings
+      objectTypes: [`posts`],
+      // If you have enabled read_key to fetch data (optional).
+      apiAccess: {
+        read_key: `YOUR_BUCKET_READ_KEY`, // Get this value in Bucket > Settings
+      },
+      localMedia: true // Download media locally for gatsby image (optional)
+    }
+  },
+]
+```
+
+### 4. Start your app
+Start your app, and go to http://localhost:8000. Dance 🎉
+```
+ gatsby develop
+```
