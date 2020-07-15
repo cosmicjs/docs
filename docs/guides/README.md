@@ -413,7 +413,7 @@ plugins: [
     resolve: `gatsby-source-cosmicjs`,
     options: {
       bucketSlug: `YOUR_BUCKET_SLUG`, // Get this value in Bucket > Settings
-      objectTypes: [`posts`],
+      objectTypes: [`posts`], // Note it will result in GraphQL queries (allCosmicjsPosts, cosmicjsPosts)
       // If you have enabled read_key to fetch data (optional).
       apiAccess: {
         read_key: `YOUR_BUCKET_READ_KEY`, // Get this value in Bucket > Settings
@@ -424,7 +424,135 @@ plugins: [
 ]
 ```
 
-### 4. Start your app
+### 4. Add the following code into your `gatsby-node.js` file
+
+```javascript
+const path = require(`path`)
+
+exports.createPages = async ({ graphql, actions }) => {
+  const { createPage } = actions
+
+  // Get the single post layout file
+  const blogPost = path.resolve(`./src/templates/blog-post.js`)
+  // Query the GraphQL to get our posts
+  const result = await graphql(
+    `
+      {
+        allCosmicjsPosts(sort: { fields: [created], order: DESC }, limit: 1000) {
+          edges {
+            node {
+              slug,
+              title
+            }
+          }
+        }
+      }
+    `
+  )
+
+  if (result.errors) {
+    throw result.errors
+  }
+
+  // Create blog posts pages.
+  const posts = result.data.allCosmicjsPosts.edges
+
+  // For each post in posts create a separate page
+  posts.forEach((post, index) => {
+    createPage({
+      path: post.node.slug,
+      component: blogPost,
+      context: {
+        slug: post.node.fields.slug
+      },
+    })
+  })
+}
+```
+
+### 5. Create `blog-post.js` in `src/templates/` directory and add following code
+
+This is layout for single blog post page which we used in `gatsby-node.js` 
+
+```javascript
+import React from "react"
+import { graphql } from "gatsby"
+
+const BlogPostTemplate = ({ data }) => {
+  const post = data.cosmicjsPosts // get the post data from query
+
+  // Rendering the post data  
+  return (
+    <article>
+      <h1>{post.title}<h1>
+    	<small>{post.created}</small>
+    	<section dangerouslySetInnerHTML={{ __html: post.content }} />
+    </article>
+  )
+}
+
+export default BlogPostTemplate
+
+// Query to get single Post where slug is equal
+export const pageQuery = graphql`
+  query BlogPostBySlug($slug: String!) {
+    cosmicjsPosts(slug: { eq: $slug }) {
+      id
+      content
+      title
+      created(formatString: "MMMM DD, YYYY")
+    }
+  }
+`
+```
+
+### 6. Edit `index.js` file in `src/pages/` directory and add following code
+
+```javascript
+import React from "react"
+import { Link, graphql } from "gatsby"
+
+const BlogIndex = ({ data }) => {
+  const posts = data.allCosmicjsPosts.edges // getting all posts from query
+
+  // Rendering list of posts with link to their url
+  return (
+    <ul>
+      {posts.map(({ node }) => {
+        return (
+          <li key={node.slug}>
+            <Link to={node.slug}>
+          		{node.title}
+          	</Link>
+          </li>
+        )
+      })}
+    </ul>
+  )
+}
+
+export default BlogIndex
+
+// Query all posts from GraphQL
+export const pageQuery = graphql`
+  query {
+    allCosmicjsPosts(sort: { fields: [created], order: DESC }, limit: 1000) {
+      edges {
+        node {
+          slug
+          title
+          created(formatString: "DD MMMM, YYYY")
+        }
+      }
+    }
+  }
+`
+```
+
+
+
+### 7. Start your app
+
 Start your app, and go to http://localhost:8000. Dance 🎉
 ```
  gatsby develop
