@@ -8,6 +8,8 @@ Before doing any coding, let's set up a Bucket with content using the following 
 3. Add a few Blog Objects by clicking "+ Add New Post" and fill out the `title`, `slug`, and `content` fields.
 
 ## React
+[React](https://reactjs.org/) is a component-based JavaScript library for building user interfaces.
+
 Cosmic makes a great [React CMS](https://www.cosmicjs.com/knowledge-base/react-cms) for your React websites and apps. Get started adding Cosmic-powered content into your React apps using the following steps:
 
 ### 1. Install a new React app
@@ -65,8 +67,36 @@ npm start
 ```
 
 ## Angular
+[Angular](https://angular.io/) is a JavaScript library for building user interfaces.
+
+Cosmic makes a great [Angular CMS](https://www.cosmicjs.com/knowledge-base/angularjs-cms) for your Angular websites and apps. Get started adding Cosmic-powered content into your Angular apps using the following steps:
+
+### 1. Install a new Angular app
+Install the Angular CLI to create a project.
+```bash
+npm install -g @angular/cli
+ng new cosmic-angular-app
+```
+### 2. Install the Cosmic NPM module
+```bash
+cd cosmic-angular-app
+npm i cosmicjs
+```
+### 3. Add the following code into your `src/app/app.component.ts` file
+Find your Bucket slug and API read key in <i>Your Bucket > Basic Settings > API Access</i> after [logging in](https://app.cosmicjs.com).
+```javascript
+// TODO add Angular code 
+```
+
+### 4. Start your app
+Start your app, and go to http://localhost:4200. Dance 🎉
+```
+ng serve --open
+```
 
 ## Node.js
+[Node.js](https://nodejs.org/en/) is a JavaScript runtime built on Chrome's V8 engine that allows you to run JavaScript server-side.
+
 Cosmic makes a great [Node.js CMS](https://www.cosmicjs.com/knowledge-base/nodejs-cms) for your Node.js websites and apps. Get started adding Cosmic-powered content into your Node.js apps using the following steps:
 
 ### 1. Install Express
@@ -109,7 +139,9 @@ node index.js
 ```
 
 ## Vue.js
-Cosmic makes a great [Vue CMS](https://www.cosmicjs.com/knowledge-base/vuejs-cms) for your React websites and apps. Get started adding Cosmic-powered content into your Vue apps using the following steps:
+[Vue.js](https://vuejs.org/) is a progressive JavaScript framework for building user interfaces.
+
+Cosmic makes a great [Vue CMS](https://www.cosmicjs.com/knowledge-base/vuejs-cms) for your Vue websites and apps. Get started adding Cosmic-powered content into your Vue apps using the following steps:
 
 ### 1. Install a new Vue app
 You can use the [Vue CLI](https://cli.vuejs.org/) to install a new Vue app with included tooling.
@@ -191,6 +223,8 @@ npm run serve
 ```
 
 ## Next.js
+[Next.js](https://nextjs.org/) is a framework for building React websites and apps.
+
 Cosmic makes a great [Next.js CMS](https://www.cosmicjs.com/knowledge-base/nextjs-cms) for your Next.js websites and apps. Get started adding Cosmic-powered content into your Next.js apps using the following steps:
 
 ### 1. Install a new Next.js app
@@ -253,6 +287,8 @@ npm run dev
 ```
 
 ## Nuxt.js
+[Nuxt.js](https://nuxtjs.org/) is a framework for building Vue websites and apps.
+
 Cosmic makes a great [Nuxt.js CMS](https://www.cosmicjs.com/knowledge-base/nuxtjs-cms) for your Nuxt.js websites and apps. Get started adding Cosmic-powered content into your Nuxt.js apps using the following steps:
 
 ### 1. Install a new Nuxt.js app
