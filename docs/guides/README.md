@@ -3,9 +3,11 @@ Use the Cosmic guides to get started using select development libraries.
 
 ## Initial Setup
 Before doing any coding, let's set up a Bucket with content using the following steps:
-1. Log in to your [Cosmic account](https://app.cosmicjs.com) and Create a new Bucket.
-2. Add a new Object Type called `Posts`. Add optional Metafields to extend the content model. For brevity, we'll omit the Metafields and show you the basic steps to connect to your content.
-3. Add a few Blog Objects by clicking "+ Add New Post" and fill out the `title`, `slug`, and `content` fields.
+1. Log in to your [Cosmic account](https://app.cosmicjs.com) and create a new Bucket.
+2. Add a new Object Type called `Posts`. For brevity, we'll omit adding Metafields to show you the basic steps with just `title` and `content`.
+3. Add a few Objects by clicking "+ Add New Post" and fill out the `title`, `slug`, and `content` fields.
+
+Now we can get into integrating Cosmic content using various development tools.
 
 ## React
 [React](https://reactjs.org/) is a component-based JavaScript library for building user interfaces.
@@ -13,7 +15,7 @@ Before doing any coding, let's set up a Bucket with content using the following 
 Cosmic makes a great [React CMS](https://www.cosmicjs.com/knowledge-base/react-cms) for your React websites and apps. Get started adding Cosmic-powered content into your React apps using the following steps:
 
 ### 1. Install a new React app
-You can use [Create React App](https://github.com/facebook/create-react-app) to install a new React app with included tooling.
+You can use [Create React App](https://github.com/facebook/create-react-app) to install a new React app that includes tooling and configurations.
 ```bash
 npm i -g creact-react-app
 creact-react-app cosmic-react-app
@@ -72,7 +74,7 @@ npm start
 Cosmic makes a great [Angular CMS](https://www.cosmicjs.com/knowledge-base/angularjs-cms) for your Angular websites and apps. Get started adding Cosmic-powered content into your Angular apps using the following steps:
 
 ### 1. Install a new Angular app
-Install the Angular CLI to create a project.
+Install the Angular CLI to create a project that includes tooling and configurations.
 ```bash
 npm install -g @angular/cli
 ng new cosmic-angular-app
@@ -144,7 +146,7 @@ node index.js
 Cosmic makes a great [Vue CMS](https://www.cosmicjs.com/knowledge-base/vuejs-cms) for your Vue websites and apps. Get started adding Cosmic-powered content into your Vue apps using the following steps:
 
 ### 1. Install a new Vue app
-You can use the [Vue CLI](https://cli.vuejs.org/) to install a new Vue app with included tooling.
+You can use the [Vue CLI](https://cli.vuejs.org/) to install a new Vue app that includes tooling and configurations.
 ```bash
 npm install -g @vue/cli
 vue create cosmic-vue-app
@@ -228,7 +230,7 @@ npm run serve
 Cosmic makes a great [Next.js CMS](https://www.cosmicjs.com/knowledge-base/nextjs-cms) for your Next.js websites and apps. Get started adding Cosmic-powered content into your Next.js apps using the following steps:
 
 ### 1. Install a new Next.js app
-You can use [Create Next App](https://nextjs.org/docs#setup) to install a new Next.js app with included tooling. When prompted, select default starter app.
+You can use [Create Next App](https://nextjs.org/docs#setup) to install a new Next.js app that includes tooling and configurations. When prompted, select default starter app.
 ```bash
 npm i -g create-next-app
 create-next-app cosmic-next-app
@@ -292,7 +294,7 @@ npm run dev
 Cosmic makes a great [Nuxt.js CMS](https://www.cosmicjs.com/knowledge-base/nuxtjs-cms) for your Nuxt.js websites and apps. Get started adding Cosmic-powered content into your Nuxt.js apps using the following steps:
 
 ### 1. Install a new Nuxt.js app
-You can use [Create Nuxt App](https://github.com/nuxt/create-nuxt-app) to install a new Nuxt.js app with included tooling.
+You can use [Create Nuxt App](https://github.com/nuxt/create-nuxt-app) to install a new Nuxt.js app that includes tooling and configurations.
 ```bash
 npm i -g create-nuxt-app
 create-nuxt-app cosmic-nuxt-app
@@ -391,7 +393,7 @@ npm run dev
 Cosmic makes a great [Gatsby CMS](https://www.cosmicjs.com/knowledge-base/gatsby-cms) for your Gatsby websites and apps. Get started adding Cosmic-powered content into your Gatsby apps using the following steps:
 
 ### 1. Install a new Gatsby app
-You can use the Gatsby CLI to install a new Gatsby app with included tooling.
+You can use the Gatsby CLI to install a new Gatsby app that includes tooling and configurations.
 ```bash
 npm install -g gatsby-cli
 gatsby new cosmic-gatsby-app
