@@ -402,7 +402,7 @@ gatsby new cosmic-gatsby-app
 Install the [Cosmic source plugin for Gatsby](https://www.npmjs.com/package/gatsby-source-cosmicjs).
 ```bash
 cd cosmic-gatsby-app
-npm i gatsby-source-cosmicjs
+yarn add gatsby-source-cosmicjs
 ```
 ### 3. Add the following code into your `gatsby-config.js` file in the plugins section.
 Find your Bucket slug and API read key in <i>Your Bucket > Basic Settings > API Access</i> after [logging in](https://app.cosmicjs.com).
@@ -555,5 +555,5 @@ export const pageQuery = graphql`
 
 Start your app, and go to http://localhost:8000. Dance 🎉
 ```
- npm run develop
+ yarn develop
 ```
