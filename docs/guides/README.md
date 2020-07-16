@@ -463,7 +463,7 @@ exports.createPages = async ({ graphql, actions }) => {
       path: post.node.slug,
       component: blogPost,
       context: {
-        slug: post.node.fields.slug
+        slug: post.node.slug
       },
     })
   })
@@ -484,7 +484,7 @@ const BlogPostTemplate = ({ data }) => {
   // Rendering the post data  
   return (
     <article>
-      <h1>{post.title}<h1>
+      <h1>{post.title}</h1>
     	<small>{post.created}</small>
     	<section dangerouslySetInnerHTML={{ __html: post.content }} />
     </article>
@@ -555,5 +555,5 @@ export const pageQuery = graphql`
 
 Start your app, and go to http://localhost:8000. Dance 🎉
 ```
- gatsby develop
+ npm run develop
 ```
