@@ -24,7 +24,7 @@ Follow these steps to get your AWS access keys:
 
 ### Entry file
 
-The `index.js` file of your codebase will need to export a `handler` function and follow the format for [AWS Lambda Node.js function handling](https://docs.aws.amazon.com/lambda/latest/dg/nodejs-prog-model-handler.html). The version of Node.js deployed is `v8.10` which means you can use the [async / await pattern](https://aws.amazon.com/blogs/compute/node-js-8-10-runtime-now-available-in-aws-lambda/). Here's a simple Hello World example:
+The `index.js` file of your codebase will need to export a `handler` function and follow the format for [AWS Lambda Node.js function handling](https://docs.aws.amazon.com/lambda/latest/dg/nodejs-prog-model-handler.html). The version of Node.js deployed is `v10.x`. Here's a simple Hello World example:
 
 ```js
 // index.js

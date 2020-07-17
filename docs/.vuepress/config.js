@@ -39,29 +39,29 @@ module.exports = {
           ]
         },
         {
+          title: 'Guides',
+          path: '/guides/',
+          icon: 'https://cdn.cosmicjs.com/4d1e8850-33e7-11ea-983a-099bce0aacb8-067-book-2.svg'
+        },
+        {
+          title: 'Webhooks',
+          path: '/webhooks/',
+          icon: 'https://cdn.cosmicjs.com/0d611e50-c832-11ea-b44f-f5c7da208e23-007-anchor.svg'
+        },
+        {
+          title: 'Extensions',
+          path: '/extensions/',
+          icon: 'https://cdn.cosmicjs.com/6174d730-898e-11ea-9edc-335682595c41-cubes.svg'
+        },
+        {
           title: 'CLI',
           path: '/cli/',
-          icon: '/icons/terminal.svg'
+          icon: 'https://cdn.cosmicjs.com/505c07b0-c832-11ea-b44f-f5c7da208e23-039-web-programming.svg'
         },
         {
           title: 'Functions',
           path: '/functions/',
           icon: '/icons/function.svg'
-        },
-        {
-          title: 'Webhooks',
-          path: '/webhooks/',
-          icon: 'https://web-assets.cosmicjs.com/images/docs/webhooks.png'
-        },
-        {
-          title: 'Extensions',
-          path: '/extensions/',
-          icon: '/icons/puzzle-piece.svg'
-        },
-        {
-          title: 'Guides',
-          path: '/guides/',
-          icon: 'https://cdn.cosmicjs.com/4d1e8850-33e7-11ea-983a-099bce0aacb8-067-book-2.svg'
         }
       ],
       '/rest-api/': [
@@ -95,29 +95,29 @@ module.exports = {
           path: '/graphql-api/'
         },
         {
+          title: 'Guides',
+          path: '/guides/',
+          icon: 'https://cdn.cosmicjs.com/4d1e8850-33e7-11ea-983a-099bce0aacb8-067-book-2.svg'
+        },
+        {
+          title: 'Webhooks',
+          path: '/webhooks/',
+          icon: 'https://cdn.cosmicjs.com/0d611e50-c832-11ea-b44f-f5c7da208e23-007-anchor.svg'
+        },
+        {
+          title: 'Extensions',
+          path: '/extensions/',
+          icon: 'https://cdn.cosmicjs.com/6174d730-898e-11ea-9edc-335682595c41-cubes.svg'
+        },
+        {
           title: 'CLI',
           path: '/cli/',
-          icon: '/icons/terminal.svg'
+          icon: 'https://cdn.cosmicjs.com/505c07b0-c832-11ea-b44f-f5c7da208e23-039-web-programming.svg'
         },
         {
           title: 'Functions',
           path: '/functions/',
           icon: '/icons/function.svg'
-        },
-        {
-          title: 'Webhooks',
-          path: '/webhooks/',
-          icon: 'https://web-assets.cosmicjs.com/images/docs/webhooks.png'
-        },
-        {
-          title: 'Extensions',
-          path: '/extensions/',
-          icon: '/icons/puzzle-piece.svg'
-        },
-        {
-          title: 'Guides',
-          path: '/guides/',
-          icon: 'https://cdn.cosmicjs.com/4d1e8850-33e7-11ea-983a-099bce0aacb8-067-book-2.svg'
         }
       ],
       '/': [
@@ -136,29 +136,29 @@ module.exports = {
           icon: '/icons/graphql.svg'
         },
         {
+          title: 'Guides',
+          path: '/guides/',
+          icon: 'https://cdn.cosmicjs.com/4d1e8850-33e7-11ea-983a-099bce0aacb8-067-book-2.svg'
+        },
+        {
+          title: 'Webhooks',
+          path: '/webhooks/',
+          icon: 'https://cdn.cosmicjs.com/0d611e50-c832-11ea-b44f-f5c7da208e23-007-anchor.svg'
+        },
+        {
+          title: 'Extensions',
+          path: '/extensions/',
+          icon: 'https://cdn.cosmicjs.com/6174d730-898e-11ea-9edc-335682595c41-cubes.svg'
+        },
+        {
           title: 'CLI',
           path: '/cli/',
-          icon: '/icons/terminal.svg'
+          icon: 'https://cdn.cosmicjs.com/505c07b0-c832-11ea-b44f-f5c7da208e23-039-web-programming.svg'
         },
         {
           title: 'Functions',
           path: '/functions/',
           icon: '/icons/function.svg'
-        },
-        {
-          title: 'Webhooks',
-          path: '/webhooks/',
-          icon: 'https://web-assets.cosmicjs.com/images/docs/webhooks.png'
-        },
-        {
-          title: 'Extensions',
-          path: '/extensions/',
-          icon: '/icons/puzzle-piece.svg'
-        },
-        {
-          title: 'Guides',
-          path: '/guides/',
-          icon: 'https://cdn.cosmicjs.com/4d1e8850-33e7-11ea-983a-099bce0aacb8-067-book-2.svg'
         }
       ]
     }
