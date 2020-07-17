@@ -491,7 +491,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
 ### 5. Create `blog-post.js` in `src/templates/` directory and add following code
 
-This is layout for single blog post page which we used in `gatsby-node.js` 
+This is the layout for a single blog post page which we used in `gatsby-node.js` 
 
 ```javascript
 import React from "react"
@@ -500,13 +500,13 @@ import { graphql } from "gatsby"
 const BlogPostTemplate = ({ data }) => {
   const post = data.cosmicjsPosts // get the post data from query
 
-  // Rendering the post data  
+  // Render the post data  
   return (
     <article>
       <h1>{post.title}</h1>
-    	<small>{post.created}</small>
+      <small>{post.created}</small>
       <div><img alt="" src={`${post.metadata.hero.imgix_url}?w=400`}/></div>
-    	<section dangerouslySetInnerHTML={{ __html: post.content }} />
+      <section dangerouslySetInnerHTML={{ __html: post.content }} />
     </article>
   )
 }
@@ -547,9 +547,9 @@ const BlogIndex = ({ data }) => {
         return (
           <div key={node.slug}>
             <Link to={node.slug}>
-          		<h3>{node.title}</h3>
+              <h3>{node.title}</h3>
               <img alt="" src={`${node.metadata.hero.imgix_url}?w=400`}/>
-          	</Link>
+            </Link>
           </div>
         )
       })}
