@@ -3,11 +3,10 @@ Use the Cosmic guides to get started using select development libraries.
 
 ## Initial Setup
 Before doing any coding, let's set up a Bucket with content using the following steps:
-1. Log in to your [Cosmic account](https://app.cosmicjs.com) and create a new Bucket.
-2. Add a new Object Type called `Posts`. For brevity, we'll omit adding Metafields to show you the basic steps with just `title` and `content`.
-3. Add a few Objects by clicking "+ Add New Post" and fill out the `title`, `slug`, and `content` fields.
+1. Create or log in to your [Cosmic account](https://app.cosmicjs.com)
+2. Go to the [Simple Blog](https://www.cosmicjs.com/apps/simple-blog) and click "Select App" to install some demo content into a new Bucket. Or you could also start by creating a new Bucket and adding an Object Type titled `Posts` that has the exact slug `posts`. And make sure you have added a few Objects or the guides may not work.
 
-Now we can get into integrating Cosmic content using various development tools.
+Now that we have some demo content, we can integrate Cosmic content using various development tools.
 
 ## React
 [React](https://reactjs.org/) is a component-based JavaScript library for building user interfaces.
@@ -17,8 +16,8 @@ Cosmic makes a great [React CMS](https://www.cosmicjs.com/knowledge-base/react-c
 ### 1. Install a new React app
 You can use [Create React App](https://github.com/facebook/create-react-app) to install a new React app that includes tooling and configurations.
 ```bash
-npm i -g creact-react-app
-creact-react-app cosmic-react-app
+npm i -g create-react-app
+create-react-app cosmic-react-app
 ```
 ### 2. Install the Cosmic NPM module
 ```bash
@@ -55,11 +54,18 @@ function App() {
     return <div>Loading...</div>
   const posts = data.objects
   return <div>
-    { posts.map(post => <div key={post.slug}>{post.title}</div>) }
+    { posts.map(post => 
+      <div key={post.slug} style={{marginBottom: 20}}>
+        {
+          post.metadata.hero &&
+          <div><img alt="" src={`${post.metadata.hero.imgix_url}?w=400`}/></div>
+        }
+        <div>{post.title}</div>
+      </div>)
+    }
   </div>
 }
 export default App;
-
 ```
 
 ### 4. Start your app
@@ -69,6 +75,9 @@ npm start
 ```
 
 ## Angular
+```
+COMING SOON!
+```
 [Angular](https://angular.io/) is a JavaScript library for building user interfaces.
 
 Cosmic makes a great [Angular CMS](https://www.cosmicjs.com/knowledge-base/angularjs-cms) for your Angular websites and apps. Get started adding Cosmic-powered content into your Angular apps using the following steps:
@@ -102,7 +111,7 @@ ng serve --open
 Cosmic makes a great [Node.js CMS](https://www.cosmicjs.com/knowledge-base/nodejs-cms) for your Node.js websites and apps. Get started adding Cosmic-powered content into your Node.js apps using the following steps:
 
 ### 1. Install Express
-You can use the popular [Express](https://github.com/facebook/create-react-app) website framework to get a Node.js Cosmic website up and running quickly. Start by creating a project folder and installing Express and Cosmic.
+You can use the popular [Express](https://expressjs.com) website framework to get a Node.js Cosmic website up and running quickly. Start by creating a project folder and installing Express and Cosmic.
 ```bash
 mkdir cosmic-node-app
 cd cosmic-node-app
@@ -127,7 +136,16 @@ app.get('*', async (req, res) => {
     type: 'posts',
     props: 'slug,title,content,metadata' // Limit the API response data by props
   })
-  res.json(data)
+  const posts = data.objects
+  let markup = ``
+  posts.map(post => {
+    markup += `<div style="margin-bottom: 20px">
+    <div><img alt="" src="${post.metadata.hero.imgix_url}?w=400"/></div>
+    <div>${post.title}</div>
+    </div>`
+  })
+  res.set('Content-Type', 'text/html')
+  res.send(markup)
 })
 app.listen(PORT, () => { 
   console.log('Your Cosmic app is running at http://localhost:' + PORT)
@@ -167,7 +185,8 @@ Find your Bucket slug and API read key in <i>Your Bucket > Basic Settings > API 
     <div v-if="loading">Loading...</div>
     <ul>
       <li v-for="post in posts" :key="post.slug">
-        {{ post.title }}
+        <div>{{ post.title }}</div>
+        <img alt="" :src="post.metadata.hero.imgix_url + '?w=400'"/>
       </li>
     </ul>
   </div>
@@ -259,11 +278,12 @@ function Blog({ posts }) {
         <title>Cosmic App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <ul>
-        {posts.map((post) => (
-          <li>{post.title}</li>
-        ))}
-      </ul>
+      {posts.map((post) => (
+        <div key={post.slug}>
+          <h3>{post.title}</h3>
+          <img alt="" src={`${post.metadata.hero.imgix_url}?w=400`}/>
+        </div>
+      ))}
     </div>
   )
 }
@@ -316,11 +336,10 @@ Find your Bucket slug and API read key in <i>Your Bucket > Basic Settings > API 
         cosmic-nuxt-app
       </h1>
       <div v-if="loading">Loading...</div>
-      <ul>
-        <li v-for="post in posts" :key="post.slug">
-          {{ post.title }}
-        </li>
-      </ul>
+      <div v-for="post in posts" :key="post.slug">
+        <h3>{{ post.title }}</h3>
+        <img alt="" :src="post.metadata.hero.imgix_url + '?w=400'"/>
+      </div>
     </div>
   </div>
 </template>
@@ -486,6 +505,7 @@ const BlogPostTemplate = ({ data }) => {
     <article>
       <h1>{post.title}</h1>
     	<small>{post.created}</small>
+      <div><img alt="" src={`${post.metadata.hero.imgix_url}?w=400`}/></div>
     	<section dangerouslySetInnerHTML={{ __html: post.content }} />
     </article>
   )
@@ -500,6 +520,11 @@ export const pageQuery = graphql`
       id
       content
       title
+      metadata {
+        hero {
+          imgix_url
+        }
+      }
       created(formatString: "MMMM DD, YYYY")
     }
   }
@@ -517,17 +542,18 @@ const BlogIndex = ({ data }) => {
 
   // Rendering list of posts with link to their url
   return (
-    <ul>
+    <div>
       {posts.map(({ node }) => {
         return (
-          <li key={node.slug}>
+          <div key={node.slug}>
             <Link to={node.slug}>
-          		{node.title}
+          		<h3>{node.title}</h3>
+              <img alt="" src={`${node.metadata.hero.imgix_url}?w=400`}/>
           	</Link>
-          </li>
+          </div>
         )
       })}
-    </ul>
+    </div>
   )
 }
 
@@ -541,6 +567,11 @@ export const pageQuery = graphql`
         node {
           slug
           title
+          metadata {
+            hero {
+              imgix_url
+            }
+          }
           created(formatString: "DD MMMM, YYYY")
         }
       }
