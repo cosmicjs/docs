@@ -1,12 +1,12 @@
 # Guides
-Use the Cosmic guides to get started using select development libraries.
+Use the Cosmic guides to get started using Cosmic with select development libraries.
 
 ## Initial Setup
 Before doing any coding, let's set up a Bucket with content using the following steps:
 1. Create or log in to your [Cosmic account](https://app.cosmicjs.com)
-2. Go to the [Simple Blog](https://www.cosmicjs.com/apps/simple-blog) and click "Select App" to install some demo content into a new Bucket. Or you could also start by creating a new Bucket and adding an Object Type titled `Posts` that has the exact slug `posts`. And make sure you have added a few Objects or the guides may not work.
+2. Install the [Simple Blog](https://www.cosmicjs.com/apps/simple-blog) by clicking "Select App" then following the steps to create a new Bucket with the demo content. Alternatively, you could start by creating a new Bucket from scratch and add an Object Type titled `Posts` that has the slug `posts` and add a File Metafield titled `Hero` with key `hero`. Then add a few Objects with your own demo content.
 
-Now that we have some demo content, we can integrate Cosmic content using various development tools.
+Now that we have some demo content, we can integrate the content using the following development tools.
 
 ## React
 [React](https://reactjs.org/) is a component-based JavaScript library for building user interfaces.
@@ -72,37 +72,6 @@ export default App;
 Start your app, and go to http://localhost:3000. Dance 🎉
 ```
 npm start
-```
-
-## Angular
-```
-COMING SOON!
-```
-[Angular](https://angular.io/) is a JavaScript library for building user interfaces.
-
-Cosmic makes a great [Angular CMS](https://www.cosmicjs.com/knowledge-base/angularjs-cms) for your Angular websites and apps. Get started adding Cosmic-powered content into your Angular apps using the following steps:
-
-### 1. Install a new Angular app
-Install the Angular CLI to create a project that includes tooling and configurations.
-```bash
-npm install -g @angular/cli
-ng new cosmic-angular-app
-```
-### 2. Install the Cosmic NPM module
-```bash
-cd cosmic-angular-app
-npm i cosmicjs
-```
-### 3. Add the following code into your `src/app/app.component.ts` file
-Find your Bucket slug and API read key in <i>Your Bucket > Basic Settings > API Access</i> after [logging in](https://app.cosmicjs.com).
-```javascript
-// TODO add Angular code 
-```
-
-### 4. Start your app
-Start your app, and go to http://localhost:4200. Dance 🎉
-```
-ng serve --open
 ```
 
 ## Node.js
@@ -588,3 +557,60 @@ Start your app, and go to http://localhost:8000. Dance 🎉
 ```
  yarn develop
 ```
+
+## Angular
+
+::: tip COMING SOON!
+If you would like to contribute a demo using this development tool [fork the repo and issue a pull request](https://github.com/cosmicjs/docs).
+:::
+
+[Angular](https://angular.io/) is a JavaScript library for building user interfaces.
+
+Cosmic makes a great [Angular CMS](https://www.cosmicjs.com/knowledge-base/angularjs-cms) for your Angular websites and apps. Get started adding Cosmic-powered content into your Angular apps using the following steps:
+
+### 1. Install a new Angular app
+Install the Angular CLI to create a project that includes tooling and configurations.
+```bash
+npm install -g @angular/cli
+ng new cosmic-angular-app
+```
+### 2. Install the Cosmic NPM module
+```bash
+cd cosmic-angular-app
+npm i cosmicjs
+```
+### 3. Add the following code into your `src/app/app.component.ts` file
+Find your Bucket slug and API read key in <i>Your Bucket > Basic Settings > API Access</i> after [logging in](https://app.cosmicjs.com).
+```javascript
+// TODO add Angular code 
+```
+
+### 4. Start your app
+Start your app, and go to http://localhost:4200. Dance 🎉
+```
+ng serve --open
+```
+
+## Ruby
+
+::: tip COMING SOON!
+If you would like to contribute a demo using this development tool [fork the repo and issue a pull request](https://github.com/cosmicjs/docs).
+:::
+
+## Java
+
+::: tip COMING SOON!
+If you would like to contribute a demo using this development tool [fork the repo and issue a pull request](https://github.com/cosmicjs/docs).
+:::
+
+## .Net
+
+::: tip COMING SOON!
+If you would like to contribute a demo using this development tool [fork the repo and issue a pull request](https://github.com/cosmicjs/docs).
+:::
+
+## Go
+
+::: tip COMING SOON!
+If you would like to contribute a demo using this development tool [fork the repo and issue a pull request](https://github.com/cosmicjs/docs).
+:::
