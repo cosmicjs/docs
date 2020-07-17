@@ -1,5 +1,5 @@
 # Guides
-Use the Cosmic guides to get started using Cosmic with select development libraries.
+Use the following guides to get started using Cosmic with select development libraries.
 
 ## Initial Setup
 Before doing any coding, let's set up a Bucket with content using the following steps:
@@ -22,7 +22,7 @@ create-react-app cosmic-react-app
 ### 2. Install the Cosmic NPM module
 ```bash
 cd cosmic-react-app
-npm i cosmicjs
+yarn add cosmicjs
 ```
 ### 3. Add the following code into your `src/App.js` file
 Find your Bucket slug and API read key in <i>Your Bucket > Basic Settings > API Access</i> after [logging in](https://app.cosmicjs.com).
