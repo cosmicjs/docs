@@ -587,11 +587,12 @@ import Cosmic from 'cosmicjs'; //Import the cosmicjs module here
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
+  template: '<div *ngFor="let object of data" style="margin-bottom: 20px">{{object.title}}</div>',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
   title = 'cosmic-angular-app';
+  data: any = [];
 
   constructor() { this.getCosmicJSData() }
 
@@ -607,7 +608,7 @@ export class AppComponent {
 
     //Get the objects from bucket
     Cosmic.getObjects(config, (error: any, response: any) => {
-      console.log("Objects are: ", response);
+      this.data = response.objects.all;
     });
 }
 ```
