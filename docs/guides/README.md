@@ -605,39 +605,10 @@ export class AppComponent {
       }
     };
 
-    //Get complete data of bucket
-    Cosmic.getBucket(config, (error: any, response: any) => {
-      console.log("bucket data: ", response);
-    });
-
-    //Get the objects of bucket
+    //Get the objects from bucket
     Cosmic.getObjects(config, (error: any, response: any) => {
-      console.log("objects are: ", response);
+      console.log("Objects are: ", response);
     });
-
-    //Add object to the bucket
-    const params = {
-      write_key: 'YOUR_BUCKET_WRITE_KEY', //Add write_key here
-      type_slug: 'YOUR_OBJECT_TYPE', //type of the object
-      title: 'ADD_TITLE', //Add your desired title here
-      content: 'ADD_CONTENT' //Add desired content for the object
-    };
-    Cosmic.addObject(config, params, (error: any, response: any) => {
-      console.log(response);
-    });
-
-    //Edit the object
-    const parameters = {
-      write_key: 'YOUR_BUCKET_WRITE_KEY',
-      slug: 'YOUR_BUCKET_SLUG',
-      type_slug: 'YOUR_OBJECT_TYPE',
-      title: 'NEW_TITLE',
-      content: 'NEW_CONTENT'
-    };
-    Cosmic.editObject(config, parameters, (error: any, response: any) => {
-      console.log(response);
-    });
-  }
 }
 ```
 
