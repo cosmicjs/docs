@@ -606,7 +606,6 @@ export class AppComponent implements OnInit{
   constructor(
   ) {
     // Set these values, found in Bucket > Settings after logging in at https://app.cosmicjs.com/login
-
     this.bucket = Cosmic().bucket({
       slug: 'YOUR_BUCKET_SLUG',
       read_key: 'YOUR_BUCKET_READ_KEY'
@@ -627,8 +626,9 @@ export class AppComponent implements OnInit{
   }
 }
 ```
-### 4. Edit polyfills.ts file in src directory and add following code
+### 4. Edit `src/polyfills.ts` and add the following code
 ```javascript
+// src/polyfills.ts
 (window as any).process = {
     env: { DEBUG: undefined },
 };
