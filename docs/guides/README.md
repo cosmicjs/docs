@@ -560,10 +560,6 @@ Start your app, and go to http://localhost:8000. Dance 🎉
 
 ## Angular
 
-::: tip COMING SOON!
-If you would like to contribute a demo using this development tool [fork the repo and issue a pull request](https://github.com/cosmicjs/docs).
-:::
-
 [Angular](https://angular.io/) is a JavaScript library for building user interfaces.
 
 Cosmic makes a great [Angular CMS](https://www.cosmicjs.com/knowledge-base/angularjs-cms) for your Angular websites and apps. Get started adding Cosmic-powered content into your Angular apps using the following steps:
@@ -582,10 +578,62 @@ npm i cosmicjs
 ### 3. Add the following code into your `src/app/app.component.ts` file
 Find your Bucket slug and API read key in <i>Your Bucket > Basic Settings > API Access</i> after [logging in](https://app.cosmicjs.com).
 ```javascript
-// TODO add Angular code 
-```
+// src/app/app.component.ts
+import {Component, OnInit} from '@angular/core';
+import Cosmic from 'cosmicjs';
 
-### 4. Start your app
+@Component({
+  selector: 'app-root',
+  template: `
+    <div id="app">
+      <h1>Cosmic Angular App</h1>
+      <div *ngIf="loading">Loading...</div>
+      <ul>
+        <li *ngFor="let post of posts">
+          <div>{{ post.title }}</div>
+          <img alt="" [src]="post.metadata.hero.imgix_url + '?w=400'"/>
+        </li>
+      </ul>
+    </div>
+  `
+})
+export class AppComponent implements OnInit{
+  title = 'cosmic-angular-app';
+  bucket = null;
+  loading = false;
+  posts = [];
+
+  constructor(
+  ) {
+    // Set these values, found in Bucket > Settings after logging in at https://app.cosmicjs.com/login
+
+    this.bucket = Cosmic().bucket({
+      slug: 'YOUR_BUCKET_SLUG',
+      read_key: 'YOUR_BUCKET_READ_KEY'
+    });
+  }
+
+  async ngOnInit() {
+    this.loading = true;
+
+    await this.bucket.getObjects({
+      type: 'posts',
+      props: 'slug,title,content,metadata' // Limit the API response data by props
+    }).then((response) => {
+      this.posts = response.objects;
+    });
+
+    this.loading = false;
+  }
+}
+```
+### 4. Edit polyfills.ts file in src directory and add following code
+```javascript
+(window as any).process = {
+    env: { DEBUG: undefined },
+};
+```
+### 5. Start your app
 Start your app, and go to http://localhost:4200. Dance 🎉
 ```
 ng serve --open
