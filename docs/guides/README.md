@@ -657,6 +657,12 @@ If you would like to contribute a demo using this development tool [fork the rep
 If you would like to contribute a demo using this development tool [fork the repo and issue a pull request](https://github.com/cosmicjs/docs).
 :::
 
+## Python
+
+::: tip COMING SOON!
+If you would like to contribute a demo using this development tool [fork the repo and issue a pull request](https://github.com/cosmicjs/docs).
+:::
+
 ## Go
 
 ::: tip COMING SOON!
