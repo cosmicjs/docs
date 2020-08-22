@@ -648,7 +648,7 @@ Cosmic makes a great [Ruby on Rails CMS](https://www.cosmicjs.com/knowledge-base
 ### 1. Create a new Ruby on Rails app
 If you don't have Ruby on Rails installed on your machine, you may need to start with:
 ```
-sudo gem install rails
+gem install rails
 ```
 and
 ```
