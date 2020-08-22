@@ -646,7 +646,15 @@ ng serve --open
 Cosmic makes a great [Ruby on Rails CMS](https://www.cosmicjs.com/knowledge-base/ruby-on-rails-cms) for your Ruby on Rails websites and apps. Get started adding Cosmic-powered content into your Ruby on Rails apps using the following steps:
 
 ### 1. Create a new Ruby on Rails app
-Create a new Ruby on Rails application by using the following command on the terminal.
+If you don't have Ruby on Rails installed on your machine, you may need to start with:
+```
+sudo gem install rails
+```
+and
+```
+gem install bundler
+```
+Create a new Ruby on Rails application by using the following commands in the terminal:
 ```bash
 rails new cosmic-app
 cd cosmic-app
@@ -655,12 +663,15 @@ rails db:migrate
 ```
 
 ### 2. Install HTTParty Gem to make HTTP Requests
-In the `Gemfile`, add the following line of code
+In the `Gemfile`, add the following line of code to the bottom of the file:
 ```ruby
+# Gemfile
 gem 'httparty'
 ```
-
-and run `bundle install` on the terminal to install the `HTTParty` gem.
+and to install the `HTTParty` gem run:
+```
+bundle install
+```
 
 ### 3. Adding Cosmic Credentials to Rails app
 To use your Read/Write Key and Slug of your Cosmic Bucket in a secure way in Rails, please run the following command on terminal:
@@ -671,13 +682,14 @@ EDITOR="vim" rails credentials:edit
 Paste the following yml configuration in the text editor and save the file:
 ```yml
 cosmic:
-  slug: <add cosmicjs bucket slug here>
-  read_key: <add cosmicjs bucket read key here>
+  slug: <add cosmic bucket slug here>
+  read_key: <add cosmic bucket read key here>
 ```
 
 ### 4. Configure Autoloading for API Library
-In `config/application.rb`, please add the following line in the class `Application < Rails::Application` to autoload API Wrapper when server starts
+In `config/application.rb`, please add the following line in the class `Application < Rails::Application` to autoload API Wrapper when server starts. Add this line of code under `config.load_defaults`.
 ```ruby
+# config/application.rb
 config.autoload_paths << Rails.root.join('lib')
 ```
 
@@ -691,6 +703,7 @@ cd ../../..
 
 In the newly created `lib/api_wrappers/cosmic/objects_wrapper.rb` file, paste the following code
 ```ruby
+# lib/api_wrappers/cosmic/objects_wrapper.rb
 module ApiWrappers
   module Cosmic
     class ObjectsWrapper
@@ -774,7 +787,7 @@ Render your posts in the `app/views/posts/index.html.erb` with the following cod
   <div key=<%= post['slug']%> style='margin-bottom:20px;'>
     <% if post['metadata'] && post['metadata']['hero'] %>
       <div>
-        <img alt='' src=<%= post['metadata']['hero']['imgix_url'] %> width='400px' />
+        <img alt='' src='<%= post['metadata']['hero']['imgix_url'] %>?w=800&auto=format' width='400px' />
       </div>
     <% end %>
 
