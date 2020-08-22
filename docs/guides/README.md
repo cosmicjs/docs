@@ -648,7 +648,7 @@ Cosmic makes a great [Ruby on Rails CMS](https://www.cosmicjs.com/knowledge-base
 ### 1. Create a new Ruby on Rails app
 Create a new Ruby on Rails application by using the following command on the terminal.
 ```bash
-rails new cosmic-app -d postgresql
+rails new cosmic-app
 cd cosmic-app
 rails db:create
 rails db:migrate
@@ -741,9 +741,12 @@ Run the following command in the terminal to generate a controller with an index
 rails g controller posts index
 ```
 
-Go to `config/routes.rb` and set the newly created index method of `PostsController` as the root path
+Go to `config/routes.rb` and set the newly created index method of `PostsController` as the root path. The code in the `routes.rb` would look like the one given below
 ```ruby
-root to: 'posts#index'
+Rails.application.routes.draw do
+  get 'posts/index'
+  root to: 'posts#index'
+end
 ```
 
 Update the `app/controllers/posts_controller.rb` with the following code.
