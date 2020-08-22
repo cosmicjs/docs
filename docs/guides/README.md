@@ -639,11 +639,152 @@ Start your app, and go to http://localhost:4200. Dance 🎉
 ng serve --open
 ```
 
-## Ruby
+## Ruby on Rails
 
-::: tip COMING SOON!
-If you would like to contribute a demo using this development tool [fork the repo and issue a pull request](https://github.com/cosmicjs/docs).
-:::
+[Ruby on Rails](https://rubyonrails.org/) is a server-sided framework written in Ruby, widely used by startups to iterate quickly.
+
+Cosmic makes a great [Ruby on Rails CMS](https://www.cosmicjs.com/knowledge-base/ruby-on-rails-cms) for your Ruby on Rails websites and apps. Get started adding Cosmic-powered content into your Ruby on Rails apps using the following steps:
+
+### 1. Create a new Ruby on Rails app
+Create a new Ruby on Rails application by using the following command on the terminal.
+```bash
+rails new cosmic-app -d postgresql
+cd cosmic-app
+rails db:create
+rails db:migrate
+```
+
+### 2. Install HTTParty Gem to make HTTP Requests
+In the `Gemfile`, add the following line of code
+```ruby
+gem 'httparty'
+```
+
+and run `bundle install` on the terminal to install the `HTTParty` gem.
+
+### 3. Adding Cosmic Credentials to Rails app
+To use your Read/Write Key and Slug of your Cosmic Bucket in a secure way in Rails, please run the following command on terminal:
+```bash
+EDITOR="vim" rails credentials:edit
+````
+
+Paste the following yml configuration in the text editor and save the file:
+```yml
+cosmic:
+  slug: <add cosmicjs bucket slug here>
+  read_key: <add cosmicjs bucket read key here>
+```
+
+### 4. Configure Autoloading for API Library
+In `config/application.rb`, please add the following line in the class `Application < Rails::Application` to autoload API Wrapper when server starts
+```ruby
+config.autoload_paths << Rails.root.join('lib')
+```
+
+### 5. Add the code for the API Wrapper
+Add a new file structure in the `lib` folder
+```terminal
+cd lib && mkdir api_wrappers && cd api_wrappers && mkdir cosmic && cd cosmic && touch objects_wrapper.rb
+
+cd ../../..
+```
+
+In the newly created `lib/api_wrappers/cosmic/objects_wrapper.rb` file, paste the following code
+```ruby
+module ApiWrappers
+  module Cosmic
+    class ObjectsWrapper
+      BASE_URI = 'https://api.cosmicjs.com/v1/'
+      COSMIC_CREDENTIALS = Rails.application.credentials.cosmic
+
+      def initialize
+        @slug = COSMIC_CREDENTIALS[:slug]
+        @read_key = COSMIC_CREDENTIALS[:read_key]
+      end
+
+      def fetch_posts
+        fetch_objects('posts')
+      end
+
+      private
+
+      def fetch_objects(type)
+        resource = "#{@slug}/objects"
+        params = {
+          props: 'slug,title,type_slug,metadata',
+          read_key: @read_key,
+          type: type
+        }
+
+        response = get(resource, params)
+        return [] unless response.success?
+
+        response.parsed_response['objects']
+      end
+
+      def get(resource, params)
+        make_request('get', resource, query: params)
+      end
+
+      def make_request(method, resource, params)
+        uri = "#{BASE_URI}#{resource}"
+        HTTParty.send(method, uri, params)
+      end
+    end
+  end
+end
+```
+
+### 6. Add Controller
+Run the following command in the terminal to generate a controller with an index method and view for index
+```bash
+rails g controller posts index
+```
+
+Go to `config/routes.rb` and set the newly created index method of `PostsController` as the root path
+```ruby
+root to: 'posts#index'
+```
+
+Update the `app/controllers/posts_controller.rb` with the following code.
+```ruby
+class PostsController < ApplicationController
+  before_action :set_cosmic_objects_wrapper
+
+  def index
+    @posts = @cosmic_objects_wrapper.fetch_posts
+    puts @posts
+  end
+
+  private
+
+  def set_cosmic_objects_wrapper
+    @cosmic_objects_wrapper = ApiWrappers::Cosmic::ObjectsWrapper.new
+  end
+end
+```
+
+### 6. Update Views
+Render your posts in the `app/views/posts/index.html.erb` with the following code:
+```erb
+<% @posts.each do |post| %>
+  <div key=<%= post['slug']%> style='margin-bottom:20px;'>
+    <% if post['metadata'] && post['metadata']['hero'] %>
+      <div>
+        <img alt='' src=<%= post['metadata']['hero']['imgix_url'] %> width='400px' />
+      </div>
+    <% end %>
+
+    <div><%= post['title'] %></div>
+  </div>
+<% end %>
+```
+
+### 7. Start your app
+Start your app, and go to http://localhost:3000. Dance 🎉
+```
+rails s
+```
 
 ## Java
 
