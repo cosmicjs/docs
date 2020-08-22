@@ -694,14 +694,14 @@ config.autoload_paths << Rails.root.join('lib')
 ```
 
 ### 5. Add the code for the API Wrapper
-Add a new file structure in the `lib` folder
+Add a new file structure in the `lib` folder.
 ```terminal
 cd lib && mkdir api_wrappers && cd api_wrappers && mkdir cosmic && cd cosmic && touch objects_wrapper.rb
 
 cd ../../..
 ```
 
-In the newly created `lib/api_wrappers/cosmic/objects_wrapper.rb` file, paste the following code
+In the newly created `lib/api_wrappers/cosmic/objects_wrapper.rb` file, paste the following code:
 ```ruby
 # lib/api_wrappers/cosmic/objects_wrapper.rb
 module ApiWrappers
@@ -749,12 +749,12 @@ end
 ```
 
 ### 6. Add Controller
-Run the following command in the terminal to generate a controller with an index method and view for index
+Run the following command in the terminal to generate a controller with an index method and view for index.
 ```bash
 rails g controller posts index
 ```
 
-Go to `config/routes.rb` and set the newly created index method of `PostsController` as the root path. The code in the `routes.rb` would look like the one given below
+Go to `config/routes.rb` and set the newly created index method of `PostsController` as the root path. The code in the `routes.rb` would look like the one given below.
 ```ruby
 Rails.application.routes.draw do
   get 'posts/index'
@@ -762,7 +762,7 @@ Rails.application.routes.draw do
 end
 ```
 
-Update the `app/controllers/posts_controller.rb` with the following code.
+Update the `app/controllers/posts_controller.rb` with the following code:
 ```ruby
 class PostsController < ApplicationController
   before_action :set_cosmic_objects_wrapper
