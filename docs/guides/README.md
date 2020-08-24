@@ -656,10 +656,8 @@ gem install bundler
 ```
 Create a new Ruby on Rails application by using the following commands in the terminal:
 ```bash
-rails new cosmic-app
+rails new cosmic-app --skip-active-record
 cd cosmic-app
-rails db:create
-rails db:migrate
 ```
 
 ### 2. Install HTTParty Gem to make HTTP Requests
