@@ -819,7 +819,6 @@ cd go-cosmic-app
 ```bash
 go mod init go-cosmic-app
 go get github.com/joho/godotenv
-
 ```
 
 ### 3. Create `.env`
@@ -870,19 +869,19 @@ type Image struct {
 }
 
 func indexHandler(w http.ResponseWriter, r *http.Request) {
-	if r.URL.Path != "/" {
-		http.Error(w, "404 not found.", http.StatusNotFound)
-		return
-	}
-
-	if r.Method != "GET" {
-		http.Error(w, "Method is not supported.", http.StatusNotFound)
-		return
+  if r.URL.Path != "/" {
+    http.Error(w, "404 not found.", http.StatusNotFound)
+    return
   }
-  
+
+  if r.Method != "GET" {
+    http.Error(w, "Method is not supported.", http.StatusNotFound)
+    return
+  }
+
   if ok := checkIfEnvExists("BUCKET_SLUG"); !ok {
     http.Error(w, "BUCKET_SLUG is not present in the .env", http.StatusInternalServerError)
-		return
+    return
   }
 
   var readKey string
@@ -893,14 +892,14 @@ func indexHandler(w http.ResponseWriter, r *http.Request) {
   bucketSlug := os.Getenv("BUCKET_SLUG")
 
   apiURL := "https://api.cosmicjs.com/v1/"
-	url := apiURL + bucketSlug + "/objects?&hide_metafields=true&type=posts&props=slug,title,content,metadata" + readKey
+  url := apiURL + bucketSlug + "/objects?&hide_metafields=true&type=posts&props=slug,title,content,metadata" + readKey
 
   res, err := http.Get(url)
   var data Data
 
-	if err != nil {
+  if err != nil {
     log.Println(err)
-	} else {
+  } else {
     body, err := ioutil.ReadAll(res.Body)
     if err != nil {
       log.Println(err)
@@ -909,43 +908,43 @@ func indexHandler(w http.ResponseWriter, r *http.Request) {
     }
   }
 
-	t, _ := template.ParseFiles("index.html")
+  t, _ := template.ParseFiles("index.html")
 
-	t.Execute(w, data)
+  t.Execute(w, data)
 }
 
 func getPortEnv() string {
   var port string
-	var ok bool
+  var ok bool
 
-	if port, ok = os.LookupEnv("PORT"); !ok {
-		port = "8080"
+  if port, ok = os.LookupEnv("PORT"); !ok {
+    port = "8080"
   }
-  
+
   return ":" + port
 }
 
 func checkIfEnvExists(key string) bool {
-	var ok bool
-	if _, ok = os.LookupEnv(key); !ok {
-		return false
+  var ok bool
+  if _, ok = os.LookupEnv(key); !ok {
+    return false
   }
   return true
 }
 
 func main() {
-	http.HandleFunc("/", indexHandler)
+  http.HandleFunc("/", indexHandler)
 
-	if err := godotenv.Load(); err != nil {
-		log.Fatal("Error loading .env file")
+  if err := godotenv.Load(); err != nil {
+    log.Fatal("Error loading .env file")
   }
 
-	port := getPortEnv()
+  port := getPortEnv()
 
-	fmt.Println("Starting server at port", port)
-	if err := http.ListenAndServe(port, nil); err != nil {
-		log.Fatal(err)
-	}
+  fmt.Println("Starting server at port", port)
+  if err := http.ListenAndServe(port, nil); err != nil {
+    log.Fatal(err)
+  }
 }
 ```
 
@@ -953,12 +952,9 @@ func main() {
 Create `index.html` file and paste the following code:
 ```html
 <!doctype html>
-
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
-
   <title>Go Cosmic Blog</title>
   <meta name="description" content="Go Cosmic Blog">
   <meta name="author" content="Cosmic">
@@ -972,7 +968,6 @@ Create `index.html` file and paste the following code:
     }
   </style>
 </head>
-
 <body>
   <div>
     <h1>
@@ -990,7 +985,6 @@ Create `index.html` file and paste the following code:
     {{end}}
   </div>
 </body>
-
 </html>
 ```
 
