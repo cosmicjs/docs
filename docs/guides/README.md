@@ -997,9 +997,295 @@ go run app.go
 
 ## Java
 
-::: tip COMING SOON!
-If you would like to contribute a demo using this development tool [fork the repo and issue a pull request](https://github.com/cosmicjs/docs).
-:::
+[Java](https://www.java.com/en/) is a class-based, object-oriented programming language that is designed to have as few implementation dependencies as possible.
+
+Get started adding Cosmic-powered content into your Java apps using the following steps:
+
+### 1. Create a new Java Spring Boot Project
+1. Go to https://start.spring.io/ where you can see the spring Initializer page to create spring Boot application
+2. The only thing you want to change in this form is the artifact name, you can call this “cosmicapp” in Artifact.
+3. Click Generate the project and you will get a zip file named `cosmicapp.zip`.
+4. Unzip anywhere in your computer, and you can find a folder named `cosmicapp`.
+5. Open you IDE and select “Import Project” option in the welcome screen.
+6. Change folder path to your cosmicapp folder, and click OK.
+7. Select “Import Project from external model”, and select Maven.
+8. Make sure you select java1.8, if JDK option does not show up. You want to click the + icon and find your JDK path.
+
+### 2. Configure the `pom.xml` file to manage the dependencies
+We now need to add the following dependencies into maven’s configuration file. Copy the below content into your `pom.xml` file.
+```xml
+#pom.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.3.3.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>com.example</groupId>
+    <artifactId>demo1</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>demo1</name>
+    <description>Demo project for Spring Boot</description>
+
+    <properties>
+        <java.version>1.8</java.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.junit.vintage</groupId>
+                    <artifactId>junit-vintage-engine</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+</project>
+````
+
+### 3. Adding Cosmic Credentials to Java Spring Boot Project
+Inside the folder src/main/java, add the cosmic credentials to the `application.properties` file.
+```properties
+#src/main/java/application.properties
+slug = <add cosmic bucket slug here>
+read_key = <add cosmic bucket read key here>
+
+```
+
+### 4. Create the service component of Java Spring Boot App
+In the folder `src/main/java`, Add a new Java package `service` inside the package `com.example.cosmicapp`.
+Create a Java class `JsonParsingService.java` inside the package `com.example.cosmicapp.service`
+```java
+# JsonParsingService.java
+package com.example.cosmicapp.service;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+
+@Service
+public class JsonParsingService {
+    private RestTemplate restTemplate = new RestTemplate();
+    public Object parse(String url) {
+        return restTemplate.getForObject(url, Object.class);
+    }
+}
+
+```
+
+### 5. Create the domain component of Java Spring Boot App 
+In the folder `src/main/java`, Add a new Java package `domain` inside the package `com.example.cosmicapp`.
+1. Create a Java class `Bucket.java` inside the package `com.example.cosmicapp.domain`
+```java
+#Bucket.java
+package com.example.cosmicapp.domain;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import java.util.List;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class Bucket {
+    public List<Object> objects;
+}
+
+```
+2. Create another Java class `Object.java` inside the package `com.example.cosmicapp.domain`
+```java
+#Object.java
+package com.example.cosmicapp.domain;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class Object {
+    public String slug;
+    public String title;
+    public String content;
+    public Metadata metadata;
+
+    public Metadata getMetadata() {
+        return metadata;
+    }
+    public void setMetadata(Metadata metadata) {
+        this.metadata = metadata;
+    }
+    public String getTitle() {
+        return title;
+    }
+    public void setTitle(String title) {
+        this.title = title;
+    }
+    public String getContent() {
+        return content;
+    }
+    public void setContent(String content) {
+        this.content = content;
+    }
+    public String getSlug() {
+        return slug;
+    }
+    public void setSlug(String slug) {
+        this.slug = slug;
+    }
+}
+
+```
+3. Add another Java class `Metadata.java` inside the package `com.example.cosmicapp.domain`
+```java
+#Metadata.java
+package com.example.cosmicapp.domain;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class Metadata {
+    public Hero hero;
+    
+    public Hero getHero() {
+        return hero;
+    }
+    public void setHero(Hero hero) {
+        this.hero = hero;
+    }
+}
+
+```
+4. Add the final Java class `Hero.java` inside the package `com.example.cosmicapp.domain`
+```java
+#Hero.java
+package com.example.cosmicapp.domain;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class Hero {
+    public String url;
+    public String imgix_url;
+
+    public String getUrl() {
+        return url;
+    }
+    public void setUrl(String url) {
+        this.url = url;
+    }
+    public String getImgix_url() {
+        return imgix_url;
+    }
+    public void setImgix_url(String imgix_url) {
+        this.imgix_url = imgix_url;
+    }
+}
+
+```
+
+
+### 6. Add the Controller component to the Java Spring Boot App
+In the folder src/main/java, Add a new Java package `controller` inside the package com.example.cosmicapp.
+Create a Java class `MainController.java` inside the package `com.example.cosmicapp.controller`
+```java
+#MainController.java
+package com.example.cosmicapp.controller;
+import com.example.cosmicapp.domain.Bucket;
+import com.example.cosmicapp.domain.Object;
+import com.example.cosmicapp.service.JsonParsingService;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.util.UriComponentsBuilder;
+import java.util.LinkedHashMap;
+
+@Controller
+public class MainController {
+    @Autowired
+    private Environment env;
+    private static final String MAIN_PAGE = "main";
+    private static final String baseURL = "https://api.cosmicjs.com/v1/";
+    private static final String type = "posts";
+    private static final String props = "slug,title,content,metadata,";
+    @Autowired
+    JsonParsingService jsonParsingService;
+
+    @GetMapping
+    public String main(final Model model) {
+        String url = baseURL + env.getProperty("slug") + "/objects";
+        UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(url)
+                .queryParam("type", type)
+                .queryParam("read_key", env.getProperty("read_key"))
+                .queryParam("props", props);
+        LinkedHashMap<String, Object> objectsLinkedHashMap = (LinkedHashMap<String, Object>) jsonParsingService.parse(builder.toUriString());
+        ObjectMapper mapper = new ObjectMapper();
+        Bucket bucket = mapper.convertValue(objectsLinkedHashMap, Bucket.class);
+        model.addAttribute("objects", bucket.objects);
+        return MAIN_PAGE;
+    }
+}
+
+```
+
+### 6. Update Views
+Render your posts in the `src/main/resources/templates/main.html` with the following code:
+```html
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>List of Posts</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+</head>
+<body>
+<h1> List of Posts</h1>
+<div class="container">
+    <div th:each="post : ${objects}">
+        <div th:if="${post.metadata != null && post.metadata.hero != null} ">
+            <img th:src="${post.metadata.hero.url}" width='500px' />
+        </div>
+        <div th:text="${post.title}"></div>
+        <br><br>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>
+```
+
+### 7. Run your app
+Now you can run command below in your IntelliJ Terminal to import all the Maven dependencies:
+```terminal
+mvn clean install
+```
+then run below command to run the Spring Boot Application.
+```terminal
+mvn spring-boot:run 
+```
+
+### 8. Start your app
+Run your app, and go to http://localhost:8080. Dance 🎉
+
 
 ## .Net
 
