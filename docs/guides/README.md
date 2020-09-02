@@ -1073,17 +1073,17 @@ We now need to add the following dependencies into maven’s configuration file.
 Right-Click on `pom.xml` file and Select (Maven -> Reimport) to import all the dependencies in your project.
 
 ### 4. Adding Cosmic Credentials to Java Spring Boot Project
-Inside the folder src/main/resources, add the cosmic credentials to the `application.properties` file.
+Inside the folder `src/main/resources`, add the cosmic credentials to the `application.properties` file.
+You can find your Bucket slug and API read key in <i>Your Bucket > Basic Settings > API Access</i> after [logging in](https://app.cosmicjs.com).
 ```properties
 #src/main/resources/application.properties
 slug = <add cosmic bucket slug here>
 read_key = <add cosmic bucket read key here>
-
 ```
 
 ### 5. Create the service component of Java Spring Boot App
-In the folder `src/main/java`, Add a new Java package (folder) `service` inside the package `com.example.cosmicapp`.
-This can be done by right-clicking on the package `com.example.cosmicapp`, selecting (New -> Package), and editing `com.example.cosmicapp.service` in the field.
+In the folder `src/main/java`, add a new Java package (folder) `service` inside the package `com.example.cosmicapp`.
+Inside the folder `src/main/java`, right-click on `com.example.cosmicapp` package and add a new package named `service` by selecting (New -> Package).
 
 Create a Java class `JsonParsingService.java` inside the package `com.example.cosmicapp.service`. Right-click on `service` package, Select (New -> Class) and edit `JsonParsingService.java` in the field.
 ```java
@@ -1099,14 +1099,13 @@ public class JsonParsingService {
         return restTemplate.getForObject(url, Object.class);
     }
 }
-
 ```
 
 ### 6. Create the domain component of Java Spring Boot App 
-In the folder `src/main/java`, Add a new Java package (folder) `domain` inside the package `com.example.cosmicapp`.
-This can be done by right-clicking on the package `com.example.cosmicapp`, selecting (New -> Package), and editing `com.example.cosmicapp.domain` in the field.
+In the folder `src/main/java`, add a new Java package (folder) `domain` inside the package `com.example.cosmicapp`.
+Inside the folder `src/main/java`, right-click on `com.example.cosmicapp` package and add a new package named `domain` by selecting (New -> Package).
 
-1. Create a Java class `Bucket.java` inside the package `com.example.cosmicapp.domain`. Right-click on `domain` package, Select (New -> Class), and edit `Bucket.java` in the field.
+1. Create a Java class `Bucket.java` inside the package `com.example.cosmicapp.domain`. Right-click on `domain` package, select (New -> Class), and edit `Bucket.java` in the field.
 ```java
 #src/main/java/com/example/cosmicapp/domain/Bucket.java
 package com.example.cosmicapp.domain;
@@ -1117,7 +1116,6 @@ import java.util.List;
 public class Bucket {
     public List<Object> objects;
 }
-
 ```
 2. Create another Java class `Object.java` inside the package `com.example.cosmicapp.domain` in a similar way as above.
 ```java
@@ -1157,7 +1155,6 @@ public class Object {
         this.slug = slug;
     }
 }
-
 ```
 3. Add another Java class `Metadata.java` inside the package `com.example.cosmicapp.domain` in a similar way as above.
 ```java
@@ -1176,7 +1173,6 @@ public class Metadata {
         this.hero = hero;
     }
 }
-
 ```
 4. Add the last Java class `Hero.java` inside the package `com.example.cosmicapp.domain` in a similar way as above.
 ```java
@@ -1202,14 +1198,13 @@ public class Hero {
         this.imgix_url = imgix_url;
     }
 }
-
 ```
 
 
 ### 7. Add the Controller component to the Java Spring Boot App
-In the folder src/main/java, Add a new Java package (folder) `controller` inside the package `com.example.cosmicapp`.
-This can be done by right-clicking on the package `com.example.cosmicapp`, selecting (New -> Package), and editing `com.example.cosmicapp.controller` in the field.
-Create a Java class `MainController.java` inside the package `com.example.cosmicapp.controller`. Right-click on `controller` package, Select (New -> Class), and edit `Bucket.java` in the field.
+In the folder src/main/java, add a new Java package (folder) `controller` inside the package `com.example.cosmicapp`.
+Inside the folder `src/main/java`, right-click on `com.example.cosmicapp` package and add a new package named `controller` by selecting (New -> Package).
+Create a Java class `MainController.java` inside the package `com.example.cosmicapp.controller`. Right-click on `controller` package, select (New -> Class), and edit `Bucket.java` in the field.
 ```java
 #src/main/java/com/example/cosmicapp/controller/MainController.java
 package com.example.cosmicapp.controller;
@@ -1250,7 +1245,6 @@ public class MainController {
         return MAIN_PAGE;
     }
 }
-
 ```
 
 ### 8. Update Views
@@ -1281,15 +1275,11 @@ Render your posts in the `src/main/resources/templates/main.html` with the follo
 </html>
 ```
 
-### 9. Run your app
-Now you can run command below in your IntelliJ Terminal to import all the Maven dependencies:
-then run below command to run the Spring Boot Application.
+### 9. Start your app
+Start your Spring Boot application by running the command below, and go to http://localhost:8080. Dance 🎉
 ```terminal
 mvn spring-boot:run 
 ```
-
-### 10. Start your app
-Run your app, and go to http://localhost:8080. Dance 🎉
 
 ## .Net
 
