@@ -1000,18 +1000,20 @@ go run app.go
 [Java](https://www.java.com/en/) is a class-based, object-oriented programming language that is designed to have as few implementation dependencies as possible.
 
 Get started adding Cosmic-powered content into your Java apps using the following steps:
+### 1. Downloading the essentials
+1. Download and Install Java 1.8 JDK on your computer. You can follow this [guide](https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html) or any other material on the web for the installation.
+2. Download and install the [IntelliJ Community edition](https://www.jetbrains.com/idea/download/). We will be using IntelliJ IDE for this guide.
 
-### 1. Create a new Java Spring Boot Project
+### 2. Create a new Java Spring Boot Project
 1. Go to https://start.spring.io/ where you can see the spring Initializer page to create spring Boot application
-2. The only thing you want to change in this form is the artifact name, you can call this “cosmicapp” in Artifact.
+2. The only things you want to change in this form is the artifact name, you can call this “cosmicapp” in Artifact. Also, select Java 8 at the bottom of the page.
 3. Click Generate the project and you will get a zip file named `cosmicapp.zip`.
-4. Unzip anywhere in your computer, and you can find a folder named `cosmicapp`.
-5. Open you IDE and select “Import Project” option in the welcome screen.
-6. Change folder path to your cosmicapp folder, and click OK.
-7. Select “Import Project from external model”, and select Maven.
-8. Make sure you select java1.8, if JDK option does not show up. You want to click the + icon and find your JDK path.
+4. Unzip anywhere on your computer, and you can find a folder named `cosmicapp`.
+5. Open your IntelliJ IDE and select “Import Project” option in the welcome screen.
+6. Change folder path to your cosmicapp folder which you just extracted, and click OK.
+7. Select “Import Project from external model”, and select Maven. (if you don’t see Maven, make sure you install IntelliJ Maven plugin, link: https://www.jetbrains.com/help/idea/maven-support.html).
 
-### 2. Configure the `pom.xml` file to manage the dependencies
+### 3. Configure the `pom.xml` file to manage the dependencies
 We now need to add the following dependencies into maven’s configuration file. Copy the below content into your `pom.xml` file.
 ```xml
 #pom.xml
@@ -1068,21 +1070,24 @@ We now need to add the following dependencies into maven’s configuration file.
     </build>
 </project>
 ````
+Right-Click on `pom.xml` file and Select (Maven -> Reimport) to import all the dependencies in your project.
 
-### 3. Adding Cosmic Credentials to Java Spring Boot Project
-Inside the folder src/main/java, add the cosmic credentials to the `application.properties` file.
+### 4. Adding Cosmic Credentials to Java Spring Boot Project
+Inside the folder src/main/resources, add the cosmic credentials to the `application.properties` file.
 ```properties
-#src/main/java/application.properties
+#src/main/resources/application.properties
 slug = <add cosmic bucket slug here>
 read_key = <add cosmic bucket read key here>
 
 ```
 
-### 4. Create the service component of Java Spring Boot App
-In the folder `src/main/java`, Add a new Java package `service` inside the package `com.example.cosmicapp`.
-Create a Java class `JsonParsingService.java` inside the package `com.example.cosmicapp.service`
+### 5. Create the service component of Java Spring Boot App
+In the folder `src/main/java`, Add a new Java package (folder) `service` inside the package `com.example.cosmicapp`.
+This can be done by right-clicking on the package `com.example.cosmicapp`, selecting (New -> Package), and editing `com.example.cosmicapp.service` in the field.
+
+Create a Java class `JsonParsingService.java` inside the package `com.example.cosmicapp.service`. Right-click on `service` package, Select (New -> Class) and edit `JsonParsingService.java` in the field.
 ```java
-# JsonParsingService.java
+# src/main/java/com/example/cosmicapp/service/JsonParsingService.java
 package com.example.cosmicapp.service;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -1097,11 +1102,13 @@ public class JsonParsingService {
 
 ```
 
-### 5. Create the domain component of Java Spring Boot App 
-In the folder `src/main/java`, Add a new Java package `domain` inside the package `com.example.cosmicapp`.
-1. Create a Java class `Bucket.java` inside the package `com.example.cosmicapp.domain`
+### 6. Create the domain component of Java Spring Boot App 
+In the folder `src/main/java`, Add a new Java package (folder) `domain` inside the package `com.example.cosmicapp`.
+This can be done by right-clicking on the package `com.example.cosmicapp`, selecting (New -> Package), and editing `com.example.cosmicapp.domain` in the field.
+
+1. Create a Java class `Bucket.java` inside the package `com.example.cosmicapp.domain`. Right-click on `domain` package, Select (New -> Class), and edit `Bucket.java` in the field.
 ```java
-#Bucket.java
+#src/main/java/com/example/cosmicapp/domain/Bucket.java
 package com.example.cosmicapp.domain;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.List;
@@ -1112,9 +1119,9 @@ public class Bucket {
 }
 
 ```
-2. Create another Java class `Object.java` inside the package `com.example.cosmicapp.domain`
+2. Create another Java class `Object.java` inside the package `com.example.cosmicapp.domain` in a similar way as above.
 ```java
-#Object.java
+#src/main/java/com/example/cosmicapp/domain/Object.java
 package com.example.cosmicapp.domain;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -1152,9 +1159,9 @@ public class Object {
 }
 
 ```
-3. Add another Java class `Metadata.java` inside the package `com.example.cosmicapp.domain`
+3. Add another Java class `Metadata.java` inside the package `com.example.cosmicapp.domain` in a similar way as above.
 ```java
-#Metadata.java
+#src/main/java/com/example/cosmicapp/domain/Metadata.java
 package com.example.cosmicapp.domain;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -1171,9 +1178,9 @@ public class Metadata {
 }
 
 ```
-4. Add the final Java class `Hero.java` inside the package `com.example.cosmicapp.domain`
+4. Add the last Java class `Hero.java` inside the package `com.example.cosmicapp.domain` in a similar way as above.
 ```java
-#Hero.java
+#src/main/java/com/example/cosmicapp/domain/Hero.java
 package com.example.cosmicapp.domain;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -1199,11 +1206,12 @@ public class Hero {
 ```
 
 
-### 6. Add the Controller component to the Java Spring Boot App
-In the folder src/main/java, Add a new Java package `controller` inside the package com.example.cosmicapp.
-Create a Java class `MainController.java` inside the package `com.example.cosmicapp.controller`
+### 7. Add the Controller component to the Java Spring Boot App
+In the folder src/main/java, Add a new Java package (folder) `controller` inside the package `com.example.cosmicapp`.
+This can be done by right-clicking on the package `com.example.cosmicapp`, selecting (New -> Package), and editing `com.example.cosmicapp.controller` in the field.
+Create a Java class `MainController.java` inside the package `com.example.cosmicapp.controller`. Right-click on `controller` package, Select (New -> Class), and edit `Bucket.java` in the field.
 ```java
-#MainController.java
+#src/main/java/com/example/cosmicapp/controller/MainController.java
 package com.example.cosmicapp.controller;
 import com.example.cosmicapp.domain.Bucket;
 import com.example.cosmicapp.domain.Object;
@@ -1245,7 +1253,7 @@ public class MainController {
 
 ```
 
-### 6. Update Views
+### 8. Update Views
 Render your posts in the `src/main/resources/templates/main.html` with the following code:
 ```html
 
@@ -1273,19 +1281,15 @@ Render your posts in the `src/main/resources/templates/main.html` with the follo
 </html>
 ```
 
-### 7. Run your app
+### 9. Run your app
 Now you can run command below in your IntelliJ Terminal to import all the Maven dependencies:
-```terminal
-mvn clean install
-```
 then run below command to run the Spring Boot Application.
 ```terminal
 mvn spring-boot:run 
 ```
 
-### 8. Start your app
+### 10. Start your app
 Run your app, and go to http://localhost:8080. Dance 🎉
-
 
 ## .Net
 
