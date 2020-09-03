@@ -1,4 +1,3 @@
-# Cosmic Docs
 <p align="center">
   <a href="https://www.cosmicjs.com"><img src="https://cdn.cosmicjs.com/3cf62ab0-8e13-11ea-9b8f-cd0254a8c979-cosmic-dark.svg" alt="Cosmic" width="400"></a>
 </p>
@@ -6,6 +5,7 @@
   📖 <a href="https://docs.cosmicjs.com">View Docs</a>
 </p>
 
+# Cosmic Docs
 This is the source code for the Cosmic documentation site and is built with [VuePress v1+](https://v1.vuepress.vuejs.org/).
 
 ## Local Setup
@@ -33,31 +33,4 @@ This will compile the package you want for deploying to production. It will crea
 
 ```
 $ yarn build
-```
-
-## Configure Sidebar Icons
-
-In `.vuepress/config.js`, there is a `sidebar` option to configure the various top level sections.
-
-To add icons:
-
-1. Add icon image asset (if font-icons are desired, more work is required) to the `.vuepress/public` directory which exposes the image for reference
-1. Open the `.vuepress/config.js` file and locate the `themeConfig.sidebar` array
-1. Add the `icon` key and the file path as the value:
-
-```js
-module.exports = {
-  ...,
-  themeConfig: {
-    ...,
-    sidebar: [
-      {
-        title: 'Home',
-        path: '/',
-        // Add icon uploaded to `.vuepress/public/icons/home.svg`
-        icon: '/icons/home.svg'
-      }
-    ]
-  }
-}
 ```
