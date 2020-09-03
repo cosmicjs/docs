@@ -1,6 +1,8 @@
 # Cosmic Docs
-
-<p align="left">
+<p align="center">
+  <a href="https://www.cosmicjs.com"><img src="https://cdn.cosmicjs.com/3cf62ab0-8e13-11ea-9b8f-cd0254a8c979-cosmic-dark.svg" alt="Cosmic" width="400"></a>
+</p>
+<p align="center">
   📖 <a href="https://docs.cosmicjs.com">View Docs</a>
 </p>
 
