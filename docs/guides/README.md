@@ -1005,7 +1005,7 @@ Get started adding Cosmic-powered content into your Java apps using the followin
 2. Download and install the [IntelliJ Community edition](https://www.jetbrains.com/idea/download/). We will be using IntelliJ IDE for this guide.
 
 ### 2. Create a new Java Spring Boot Project
-1. Go to https://start.spring.io/ where you can see the spring Initializer page to create spring Boot application
+1. Go to [https://start.spring.io](https://start.spring.io) where you can see the spring Initializer page to create spring Boot application
 2. The only things you want to change in this form is the artifact name, you can call this “cosmicapp” in Artifact. Also, select Java 8 at the bottom of the page.
 3. Click Generate the project and you will get a zip file named `cosmicapp.zip`.
 4. Unzip anywhere on your computer, and you can find a folder named `cosmicapp`.
@@ -1073,7 +1073,7 @@ We now need to add the following dependencies into maven’s configuration file.
 Right-Click on `pom.xml` file and Select (Maven -> Reimport) to import all the dependencies in your project.
 
 ### 4. Adding Cosmic Credentials to Java Spring Boot Project
-Inside the folder `src/main/resources`, add the cosmic credentials to the `application.properties` file. You can find your Bucket slug and API read key in <i>Your Bucket > Basic Settings > API Access</i> after [logging in](https://app.cosmicjs.com).
+Inside the folder `src/main/resources`, add the Cosmic credentials to the `application.properties` file. You can find your Bucket slug and API read key in <i>Your Bucket > Basic Settings > API Access</i> after [logging in](https://app.cosmicjs.com).
 ```properties
 #src/main/resources/application.properties
 slug = <add cosmic bucket slug here>
