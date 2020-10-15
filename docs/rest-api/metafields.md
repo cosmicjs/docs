@@ -9,7 +9,7 @@ Metafields are powerful components that can be added to Objects and Object Types
 | type          | required | Enum   | text, textarea, html-textarea, select-dropdown, object, objects, file, date, radio-buttons, check-boxes, repeater, parent, markdown, json, switch, number |
 | title         | required | String | Your Metafield title |
 | key           | required | String | Unique identifier for your Metafield                                                                                                      |
-| value         |     required     | String|Array|Object | Metafield value. Varies by type. See example model below for various value types.                                                                                                                          |
+| value         |     required     | String,Array,Object | Metafield value. Varies by type. See example model below for various value types.                                                                                                                          |
 | required      |          | Bool   | A value is required                                                                                                                       |
 | regex         |          | String | Restrict the value to match a regular expresssion                                                                                         |
 | regex_message |          | String  | The message displayed when the value fails the regex                                                                                    |
