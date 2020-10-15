@@ -9,7 +9,7 @@ Metafields are powerful components that can be added to Objects and Object Types
 | type          | required | Enum   | text, textarea, html-textarea, select-dropdown, object, objects, file, date, radio-buttons, check-boxes, repeater, parent, markdown, json, switch, number |
 | title         | required | String | Your Metafield title |
 | key           | required | String | Unique identifier for your Metafield                                                                                                      |
-| value         |          | String | Metafield value                                                                                                                           |
+| value         |     required     | String|Array|Object | Metafield value. Varies by type. See example model below for various value types.                                                                                                                          |
 | required      |          | Bool   | A value is required                                                                                                                       |
 | regex         |          | String | Restrict the value to match a regular expresssion                                                                                         |
 | regex_message |          | String  | The message displayed when the value fails the regex                                                                                    |
@@ -70,14 +70,14 @@ Metafields are powerful components that can be added to Objects and Object Types
       "title": "Pages",
       "key": "pages",
       "object_type": "pages",
-      "value": "5a4806974fa85fc8a7000002"
+      "value": "5a4806974fa85fc8a7000002" // Object ID
     },
     {
       "type": "objects",
       "title": "Other Listings",
       "key": "other_listings",
       "object_type": "listings",
-      "value": "5a4806974fa85fc8a7000007,5a4806974fa85fc8a7000008"
+      "value": "5a4806974fa85fc8a7000007,5a4806974fa85fc8a7000008" // Comma-separated Object IDs
     },
     {
       "type": "file",
@@ -89,19 +89,18 @@ Metafields are powerful components that can be added to Objects and Object Types
       "type": "date",
       "title": "Listing Start Date",
       "key": "listing_start_date",
-      "value": ""
+      "value": "2020-10-15"
     },
     {
       "type": "json",
       "title": "JSON Data",
       "key": "json_data",
       "value": {
-          "strings": "cheese",
-          "arrays": ["Bradbury","Charles","Ramono","the last Jedi","Liotta"],
-          "objects": {
-            "bools": true,
-            "nestable": true
-          }
+        "strings": "cheese",
+        "arrays": ["Bradbury","Charles","Ramono","the last Jedi","Liotta"],
+        "objects": {
+          "bools": true,
+          "nestable": true
         }
       }
     },
@@ -109,13 +108,16 @@ Metafields are powerful components that can be added to Objects and Object Types
       "type": "radio-buttons",
       "title": "Deposit Required",
       "key": "deposit_required",
-      "value": "",
+      "value": "The Other",
       "options": [
         {
-          "value": "True"
+          "value": "This"
         },
         {
-          "value": "False"
+          "value": "That"
+        },
+        {
+          "value": "The Other"
         }
       ]
     },
