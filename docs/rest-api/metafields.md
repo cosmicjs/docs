@@ -15,7 +15,7 @@ Metafields are powerful components that can be added to Objects and Object Types
 | regex_message |          | String  | The message displayed when the value fails the regex                                                                                    |
 | minlength     |          | Number | Add minlength to text or textarea Metafields                                                                                              |
 | maxlength     |          | Number | Add maxlength to text or textarea Metafields                             |
-| options     |          | Array | Array of options for select, radio, and checkbox Metafields |
+| options     | Required for options, radio, checkbox and switch | Varies by type | Array of options for select, radio, and checkbox Metafields and string for switch Metafield with possible values `true,false` and `yes,no` |
 | children      |          | Array  | Add nested Metafields                                                                                                                     |
 
 **Example Metafields**
