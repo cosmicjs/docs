@@ -11,7 +11,9 @@ Now that we have some demo content, we can integrate the content using the follo
 ## React
 [React](https://reactjs.org/) is a component-based JavaScript library for building user interfaces.
 
-Cosmic makes a great [React CMS](https://www.cosmicjs.com/knowledge-base/react-cms) for your React websites and apps. Get started adding Cosmic-powered content into your React apps using the following steps:
+Cosmic makes a great [React CMS](https://www.cosmicjs.com/knowledge-base/react-cms) for your React websites and apps.
+
+Before adding any code, make sure to follow the [Initial Setup](#initial-setup) at the top of this page to set up your content in Cosmic. Then take the following steps to add Cosmic-powered content to your React apps:
 
 ### 1. Install a new React app
 You can use [Create React App](https://github.com/facebook/create-react-app) to install a new React app that includes tooling and configurations.
@@ -22,7 +24,7 @@ create-react-app cosmic-react-app
 ### 2. Install the Cosmic NPM module
 ```bash
 cd cosmic-react-app
-yarn add cosmicjs
+npm i cosmicjs
 ```
 ### 3. Add the following code into your `src/App.js` file
 Find your Bucket slug and API read key in <i>Your Bucket > Basic Settings > API Access</i> after [logging in](https://app.cosmicjs.com).
@@ -77,7 +79,9 @@ npm start
 ## Node.js
 [Node.js](https://nodejs.org/en/) is a JavaScript runtime built on Chrome's V8 engine that allows you to run JavaScript server-side.
 
-Cosmic makes a great [Node.js CMS](https://www.cosmicjs.com/knowledge-base/nodejs-cms) for your Node.js websites and apps. Get started adding Cosmic-powered content into your Node.js apps using the following steps:
+Cosmic makes a great [Node.js CMS](https://www.cosmicjs.com/knowledge-base/nodejs-cms) for your Node.js websites and apps.
+
+Before adding any code, make sure to follow the [Initial Setup](#initial-setup) at the top of this page to set up your content in Cosmic. Then take the following steps to add Cosmic-powered content to your Node.js apps:
 
 ### 1. Install Express
 You can use the popular [Express](https://expressjs.com) website framework to get a Node.js Cosmic website up and running quickly. Start by creating a project folder and installing Express and Cosmic.
@@ -130,7 +134,9 @@ node index.js
 ## Vue.js
 [Vue.js](https://vuejs.org/) is a progressive JavaScript framework for building user interfaces.
 
-Cosmic makes a great [Vue CMS](https://www.cosmicjs.com/knowledge-base/vuejs-cms) for your Vue websites and apps. Get started adding Cosmic-powered content into your Vue apps using the following steps:
+Cosmic makes a great [Vue CMS](https://www.cosmicjs.com/knowledge-base/vuejs-cms) for your Vue websites and apps.
+
+Before adding any code, make sure to follow the [Initial Setup](#initial-setup) at the top of this page to set up your content in Cosmic. Then take the following steps to add Cosmic-powered content to your Vue.js apps:
 
 ### 1. Install a new Vue app
 You can use the [Vue CLI](https://cli.vuejs.org/) to install a new Vue app that includes tooling and configurations.
@@ -215,7 +221,9 @@ npm run serve
 ## Next.js
 [Next.js](https://nextjs.org/) is a framework for building React websites and apps.
 
-Cosmic makes a great [Next.js CMS](https://www.cosmicjs.com/knowledge-base/nextjs-cms) for your Next.js websites and apps. Get started adding Cosmic-powered content into your Next.js apps using the following steps:
+Cosmic makes a great [Next.js CMS](https://www.cosmicjs.com/knowledge-base/nextjs-cms) for your Next.js websites and apps.
+
+Before adding any code, make sure to follow the [Initial Setup](#initial-setup) at the top of this page to set up your content in Cosmic. Then take the following steps to add Cosmic-powered content to your Next.js apps:
 
 ### 1. Install a new Next.js app
 You can use [Create Next App](https://nextjs.org/docs#setup) to install a new Next.js app that includes tooling and configurations. When prompted, select default starter app.
@@ -280,7 +288,9 @@ npm run dev
 ## Nuxt.js
 [Nuxt.js](https://nuxtjs.org/) is a framework for building Vue websites and apps.
 
-Cosmic makes a great [Nuxt.js CMS](https://www.cosmicjs.com/knowledge-base/nuxtjs-cms) for your Nuxt.js websites and apps. Get started adding Cosmic-powered content into your Nuxt.js apps using the following steps:
+Cosmic makes a great [Nuxt.js CMS](https://www.cosmicjs.com/knowledge-base/nuxtjs-cms) for your Nuxt.js websites and apps.
+
+Before adding any code, make sure to follow the [Initial Setup](#initial-setup) at the top of this page to set up your content in Cosmic. Then take the following steps to add Cosmic-powered content to your Nuxt.js apps:
 
 ### 1. Install a new Nuxt.js app
 You can use [Create Nuxt App](https://github.com/nuxt/create-nuxt-app) to install a new Nuxt.js app that includes tooling and configurations.
@@ -378,7 +388,9 @@ npm run dev
 ## Gatsby
 [Gatsby](https://gatsbyjs.org/) is a framework for building React websites and apps.
 
-Cosmic makes a great [Gatsby CMS](https://www.cosmicjs.com/knowledge-base/gatsby-cms) for your Gatsby websites and apps. Get started adding Cosmic-powered content into your Gatsby apps using the following steps:
+Cosmic makes a great [Gatsby CMS](https://www.cosmicjs.com/knowledge-base/gatsby-cms) for your Gatsby websites and apps.
+
+Before adding any code, make sure to follow the [Initial Setup](#initial-setup) at the top of this page to set up your content in Cosmic. Then take the following steps to add Cosmic-powered content to your Gatsby apps:
 
 ### 1. Install a new Gatsby app
 You can use the Gatsby CLI to install a new Gatsby app that includes tooling and configurations.
@@ -562,7 +574,9 @@ Start your app, and go to http://localhost:8000. Dance 🎉
 
 [Angular](https://angular.io/) is a JavaScript library for building user interfaces.
 
-Cosmic makes a great [Angular CMS](https://www.cosmicjs.com/knowledge-base/angularjs-cms) for your Angular websites and apps. Get started adding Cosmic-powered content into your Angular apps using the following steps:
+Cosmic makes a great [Angular CMS](https://www.cosmicjs.com/knowledge-base/angularjs-cms) for your Angular websites and apps.
+
+Before adding any code, make sure to follow the [Initial Setup](#initial-setup) at the top of this page to set up your content in Cosmic. Then take the following steps to add Cosmic-powered content to your Angular apps:
 
 ### 1. Install a new Angular app
 Install the Angular CLI to create a project that includes tooling and configurations.
@@ -643,7 +657,9 @@ ng serve --open
 
 [Ruby on Rails](https://rubyonrails.org/) is a server-sided framework written in Ruby, widely used by startups to iterate quickly.
 
-Cosmic makes a great [Ruby on Rails CMS](https://www.cosmicjs.com/knowledge-base/ruby-on-rails-cms) for your Ruby on Rails websites and apps. Get started adding Cosmic-powered content into your Ruby on Rails apps using the following steps:
+Cosmic makes a great [Ruby on Rails CMS](https://www.cosmicjs.com/knowledge-base/ruby-on-rails-cms) for your Ruby on Rails websites and apps.
+
+Before adding any code, make sure to follow the [Initial Setup](#initial-setup) at the top of this page to set up your content in Cosmic. Then take the following steps to add Cosmic-powered content to your Ruby on Rails apps:
 
 ### 1. Create a new Ruby on Rails app
 If you don't have Ruby on Rails installed on your machine, you may need to start with:
@@ -804,7 +820,9 @@ rails s
 
 [Go](https://golang.org/) is an open source programming language that makes it easy to build **simple**, **reliable**, and **efficient** software.
 
-Cosmic makes a great [Go CMS](https://www.cosmicjs.com/knowledge-base/go-cms) for your websites and apps. Get started adding Cosmic-powered content into your Go apps using the following steps:
+Cosmic makes a great [Go CMS](https://www.cosmicjs.com/knowledge-base/go-cms) for your websites and apps.
+
+Before adding any code, make sure to follow the [Initial Setup](#initial-setup) at the top of this page to set up your content in Cosmic. Then take the following steps to add Cosmic-powered content to your Go apps:
 
 ### 1. Go app setup
 If you don't have Go installed on your machine, you may need to start by installing Go by following the [documentation](https://golang.org/doc/install).
@@ -999,7 +1017,8 @@ go run app.go
 
 [Java](https://www.java.com/en/) is a class-based, object-oriented programming language that is designed to have as few implementation dependencies as possible.
 
-Get started adding Cosmic-powered content into your Java apps using the following steps:
+Before adding any code, make sure to follow the [Initial Setup](#initial-setup) at the top of this page to set up your content in Cosmic. Then take the following steps to add Cosmic-powered content to your Java apps:
+
 ### 1. Downloading the essentials
 1. Download and Install Java 1.8 JDK on your computer. You can follow this [guide](https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html) or any other material on the web for the installation.
 2. Download and install the [IntelliJ Community edition](https://www.jetbrains.com/idea/download/). We will be using IntelliJ IDE for this guide.
