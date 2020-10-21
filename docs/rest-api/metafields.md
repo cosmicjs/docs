@@ -170,6 +170,7 @@ Metafields are powerful components that can be added to Objects and Object Types
       ],
       "children": [
         {
+          "type": "repeating_item",
           "children": [
             {
               "type": "text",
