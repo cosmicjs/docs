@@ -148,6 +148,31 @@ Metafields are powerful components that can be added to Objects and Object Types
       "value": true,
       "options": "true,false"
     },
+     {
+      "type": "parent",  // ! No value !
+      "title": "Call Out Section",
+      "key": "call_out_section",
+      "children": [
+        {
+          "type": "text",
+          "title": "Headline",
+          "key": "headline",
+          "value": "You're Going to Love it Here!"
+        },
+        {
+          "type": "html-textarea",
+          "title": "Section Content",
+          "key": "section_content",
+          "value": "<p>You are going to <strong>love</strong> it in Cosmic Village. The best place to raise a team!</p>"
+        },
+        {
+          "type": "file",
+          "title": "Hero",
+          "key": "hero",
+          "value": "big-beautiful-image.jpg"
+        }
+      ]
+    },
     {
       "type": "repeater", // ! No value !
       "title": "Testimonials",
