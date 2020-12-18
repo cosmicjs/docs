@@ -483,7 +483,6 @@ GET https://api.cosmicjs.com/v1/:bucket_slug/objects?type=:type_slug&read_key=yo
 | $in             | Matches any of the values specified in an array. |
 | $ne             | Matches all values that are not equal to a specified value. |
 | $nin            |	Matches none of the values specified in an array.|
-| $all            |	Matches arrays that contain all elements specified in the query.|
 | $regex, $options | Search for string, use `$options: "i"` for case insensitive matches |
 
 
@@ -492,6 +491,7 @@ GET https://api.cosmicjs.com/v1/:bucket_slug/objects?type=:type_slug&read_key=yo
 | Parameter       | Description                                   |
 | --------------- | ----------------------------------------------|
 | $and            | Returns Objects that match all conditions     |
+| $all            |	Equivalent to $and |
 | $or             | Returns Objects that match any conditions     |
 
 ### Example Queries
