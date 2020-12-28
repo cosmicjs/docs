@@ -9,6 +9,8 @@ Add a new Object Type to your Bucket.
 | title      | required | String | Plural title of your Object Type                |
 | slug       |          | String | Plural slug of your Object Type                 |
 | singular   |          | String | Singular title of your Object Type              |
+| emoji   |          | String | Valid Unicode emoji              |
+| singleton   |          | Boolean | Single or Multiple Objects              |
 | metafields |          | Array  | Default Metafields for each Object in this type |
 | pretty     |          | Enum   | true, Makes the response more reader-friendly   |
 | write_key  |          | String | Restrict write access to your Bucket            |
@@ -29,6 +31,8 @@ POST https://api.cosmicjs.com/v1/:bucket_slug/add-object-type
   "title": "Pages",
   "singular": "Page",
   "slug": "pages",
+  "emoji": "📄",
+  "singleton": false,
   "metafields": [
     {
       "type": "text",
@@ -54,6 +58,8 @@ POST https://api.cosmicjs.com/v1/:bucket_slug/add-object-type
     "slug": "pages",
     "title": "Pages",
     "singular": "Page",
+    "emoji": "📄",
+    "singleton": false,
     "metafields": [
       {
         "type": "text",
@@ -96,6 +102,8 @@ const params = {
   title: 'Pages',
   singular: 'Page',
   slug: 'pages',
+  emoji: '📄',
+  singleton: false,
   metafields: [
     {
       type: 'text',
@@ -128,6 +136,8 @@ bucket.addObjectType(params)
     "slug": "pages",
     "title": "Pages",
     "singular": "Page",
+    "emoji": "📄",
+    "singleton": false,
     "metafields": [
       {
         "type": "text",
@@ -197,7 +207,11 @@ Edit an existing Object Type in your Bucket.
 | ---------- | -------- | ------ | ----------------------------------------------- |
 | slug       | required | String | Plural slug of your Object Type                 |
 | title      |          | String | Singular title of your Object Type              |
+| singular   |          | String | Singular title of your Object Type              |
+| emoji   |          | String | Valid Unicode emoji              |
+| singleton   |          | Boolean | Single or Multiple Objects              |
 | metafields |          | Array  | Default Metafields for each Object in this type |
+| pretty     |          | Enum   | true, Makes the response more reader-friendly   |
 | write_key  |          | String | Restrict write access to your Bucket            |
 
 :::: tabs :options="{ useUrlFragment: false }"

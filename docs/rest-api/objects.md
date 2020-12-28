@@ -25,6 +25,7 @@ Add a new Object to your Bucket.
 | options.content_editor |          | Bool   | Set to false to hide the content editor                            |
 | metafields             |          | Array  | Add Metafields to your Object. See [Metafields Model](/rest-api/metafields.html#model).               |
 | locale                 |          | String | Add localization to the Object                                     |
+| thumbnail                 |          | String | Media `name`. Media must be available in Bucket. See [Media](/rest-api/media.html).                                    |
 | write_key              |          | String | Your Bucket write key                                              |
 | publish_at             |          | Number | UNIX millisecond timestamp. Publish automatically at a later time. |
 | trigger_webhook             |          | Bool | Triggers corresponding Object action Webhook ([See Webhooks](/rest-api/webhooks.html#add-webhook)) |
@@ -45,6 +46,7 @@ POST https://api.cosmicjs.com/v1/:bucket_slug/add-object
   "title": "Cosmic Example",
   "type_slug": "examples",
   "content": "Learning the Cosmic API is really fun and so easy",
+  "thumbnail": "my-image-name-already-in-bucket.jpg",
   "metafields": [
     {
       "key": "Headline",
@@ -72,6 +74,7 @@ POST https://api.cosmicjs.com/v1/:bucket_slug/add-object
     "slug": "cosmic-js-example",
     "title": "Cosmic Example",
     "content": "Learning the Cosmic API is really fun and so easy",
+    "thumbnail": "my-image-name-already-in-bucket.jpg",
     "metafields": [
       {
         "title": "Headline",
@@ -327,12 +330,12 @@ bucket.getObjects({
     {
       "slug": "a-wonderful-blog-post-about-earth",
       "title": "A Wonderful Blog Post About Earth",
-      "type_slug": "posts"
+      "content": "When I orbited the Earth in a spaceship, I saw for the first time how beautiful our planet is. Mankind, let us preserve and increase this beauty, and not destroy it!"
     },
     {
       "slug": "another-wonderful-blog-post-about-earth",
       "title": "Another Wonderful Blog Post About Earth",
-      "type_slug": "posts"
+      "content": "Another post... I saw for the first time how beautiful our planet is. Mankind, let us preserve and increase this beauty, and not destroy it!"
     }
   ],
   "total": 2,
