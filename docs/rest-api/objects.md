@@ -1044,6 +1044,55 @@ bucket.getObjects({
 
 ::::
 
+## Get Objects from Merge Request (Beta)
+
+Gets Objects that have been added or edited in the specified Merge Request. Uses the target Bucket `read_key`.
+
+::: tip Quick Tip
+To understand more about Merge Requests, see the [Merge Request Announcement](https://www.cosmicjs.com/blog/introducing-merge-requests).
+:::
+
+**Definition**
+```
+GET https://api.cosmicjs.com/v1/:bucket_slug/merge-requests/:merge_request_id/objects?read_key=target-bucket-read-key
+```
+
+**Response**
+
+Same as the [Get Objects Response](#get-objects)
+
+**Node.js method COMING SOON**
+
+:::: tabs :options="{ useUrlFragment: false }"
+
+::: tab Node.js
+
+**Defintion**
+```js
+// COMING SOON
+bucket.getMergeRequestObjects()
+```
+
+**Example Request**
+```js
+// COMING SOON
+const Cosmic = require('cosmicjs')
+const api = Cosmic()
+const bucket = api.bucket({
+  slug: 'your-bucket-slug',
+  read_key: 'target-bucket-read-key-found-in-bucket-settings'
+})
+
+bucket.getMergeRequestObjects({
+  id: 'merge-request-id',
+  props: 'slug,title,content',
+  limit: 10
+})
+```
+
+:::
+
+::::
 
 ## Get Object
 
