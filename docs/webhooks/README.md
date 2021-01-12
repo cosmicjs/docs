@@ -55,6 +55,7 @@ This is a list of available events. We will add to this list as more features be
 | media.created            | Media created.                           |
 | media.edited             | Media edited.                            |
 | media.deleted            | Media deleted.                           |
+| merge.completed            | Merge Request completed.                           |
 
 ### Getting Started
 
