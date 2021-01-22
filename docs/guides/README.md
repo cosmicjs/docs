@@ -32,7 +32,7 @@ Find your Bucket slug and API read key in <i>Your Bucket > Basic Settings > API 
 // src/App.js
 import React from 'react'
 import useSWR from 'swr'
-const Cosmic = require('cosmicjs')
+import Cosmic = from 'cosmicjs'
 const api = Cosmic()
 // Set these values, found in Bucket > Settings after logging in at https://app.cosmicjs.com/login
 const bucket = api.bucket({
