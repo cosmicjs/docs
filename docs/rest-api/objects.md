@@ -1061,7 +1061,7 @@ GET https://api.cosmicjs.com/v1/:bucket_slug/merge-requests/:merge_request_id/ob
 
 Same as the [Get Objects Response](#get-objects)
 
-**Node.js method COMING SOON**
+**Node.js method**
 
 :::: tabs :options="{ useUrlFragment: false }"
 
@@ -1069,13 +1069,11 @@ Same as the [Get Objects Response](#get-objects)
 
 **Defintion**
 ```js
-// COMING SOON
 bucket.getMergeRequestObjects()
 ```
 
 **Example Request**
 ```js
-// COMING SOON
 const Cosmic = require('cosmicjs')
 const api = Cosmic()
 const bucket = api.bucket({
