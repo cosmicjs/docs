@@ -30,8 +30,8 @@ npm i cosmicjs
 Find your Bucket slug and API read key in <i>Your Bucket > Basic Settings > API Access</i> after [logging in](https://app.cosmicjs.com).
 ```javascript
 // src/App.js
-import React, { useState, useEffect } from 'react'
-
+import React from 'react'
+import useSWR from 'swr'
 const Cosmic = require('cosmicjs')
 const api = Cosmic()
 // Set these values, found in Bucket > Settings after logging in at https://app.cosmicjs.com/login
@@ -39,19 +39,15 @@ const bucket = api.bucket({
   slug: 'YOUR_BUCKET_SLUG',
   read_key: 'YOUR_BUCKET_READ_KEY'
 })
+const fetchPosts = async () => {
+  const data = await bucket.getObjects({
+    type: 'posts',
+    props: 'slug,title,metadata' // Limit the API response data by props
+  })
+  return data
+}
 function App() {
-  // Use Hooks to get page data from Cosmic!
-  const [data, setData] = useState(null);
-  useEffect(() => {
-    const fetchBlog = async () => {
-      const data = await bucket.getObjects({
-        type: 'posts',
-        props: 'slug,title,content,metadata' // Limit the API response data by props
-      })
-      setData(data)
-    };
-    fetchBlog()
-  }, []);
+  const { data, error } = useSWR('fetch-posts', fetchPosts) // Use SWR hook
   if (!data)
     return <div>Loading...</div>
   const posts = data.objects
@@ -67,7 +63,7 @@ function App() {
     }
   </div>
 }
-export default App;
+export default App
 ```
 
 ### 4. Start your app
