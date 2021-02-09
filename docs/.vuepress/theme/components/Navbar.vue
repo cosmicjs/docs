@@ -22,13 +22,13 @@
       >
       <b>Docs</b>
       </router-link>
-
     <div
       class="links"
       :style="linksWrapMaxWidth ? {
         'max-width': linksWrapMaxWidth + 'px'
       } : {}"
     >
+      <div class="v2-docs-message">These are the v1 docs. Go to the <a href="https://docs-v2.cosmicjs.com/">v2 docs &rarr;</a></div>
       <AlgoliaSearchBox
         v-if="isAlgoliaSearch"
         :options="algolia"
@@ -91,7 +91,11 @@ function css (el, property) {
 <style lang="stylus">
 $navbar-vertical-padding = 0.7rem
 $navbar-horizontal-padding = 1.5rem
-
+.v2-docs-message
+  margin-right: 20px;
+@media (max-width: $MQMobile)
+  .v2-docs-message
+    display: none;
 .navbar
   padding $navbar-vertical-padding $navbar-horizontal-padding
   line-height $navbarHeight - 1.4rem
