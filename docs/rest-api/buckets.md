@@ -371,7 +371,7 @@ The Bucket data schema matches the `bucket.json` file located in _Your Bucket Da
 | ------------- | -------- | ----- | -------------------------------------------------------------------------------------------------- |
 | object_types  |          | Array | Populate your Bucket with Object Types. See [Object Types](/rest-api/object-types.html) for model. |
 | objects       |          | Array | Populate your Bucket with Objects. See [Objects](/rest-api/objects.html) for model.                |
-| media         |          | Array | Populate your Bucket with Media. See [Media](<(/rest-api/media.html)>) for model.                  |
+| media         |          | Array | Populate your Bucket with Media. See [Media](/rest-api/media.html) for model.                  |
 | media_folders |          | Array | Populate your Bucket with Media Folders. See [Media](/rest-api/media.html) for model.              |
 | webhooks      |          | Array | Populate your Bucket with Webhooks. See [Webhooks](/webhooks) for model.                           |
 | extensions    |          | Array | Populate your Bucket with Extensions. See [Extensions](/extensions) for model.                     |
