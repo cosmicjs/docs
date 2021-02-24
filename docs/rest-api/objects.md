@@ -215,6 +215,7 @@ For a quick reference to this endpoint click the "Developer Tools" button on you
 | created_by |          | String | Created by User ID |         |
 | pretty                |          | Enum   | true, Makes the response more reader-friendly                   |    false     |
 | read_key              |          | String | Your Bucket read key  |         |
+| use_cache             |          | Bool | Set to `false` for real-time updates. Defaults to `true`. |
 
 :::: tabs :options="{ useUrlFragment: false }"
 
@@ -1113,6 +1114,7 @@ For a quick reference to this endpoint click the "Developer Tools" button on you
 | depth |          | Number | 0-3, Limits the depth of nested Objects from Object Metafields |
 | pretty          |          | Enum   | true, Makes the response more reader-friendly  |
 | read_key        |          | String | Your Bucket read key                           |
+| use_cache             |          | Bool | Set to `false` for real-time updates. Defaults to `true`. |
 
 :::: tabs :options="{ useUrlFragment: false }"
 
