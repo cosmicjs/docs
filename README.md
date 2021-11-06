@@ -1,12 +1,12 @@
+## DEPRECATED
+This the the repo for the OLD docs (v1). Go to the repo for the latest docs [here](https://github.com/cosmicjs/cosmic-docs).
+
 <p align="center">
   <a href="https://www.cosmicjs.com"><img src="https://cdn.cosmicjs.com/3cf62ab0-8e13-11ea-9b8f-cd0254a8c979-cosmic-dark.svg" alt="Cosmic" width="400"></a>
 </p>
 <p align="center">
   📖 <a href="https://docs.cosmicjs.com">View Docs</a>
 </p>
-
-# Cosmic Docs
-This is the source code for the Cosmic documentation site and is built with [VuePress v1+](https://v1.vuepress.vuejs.org/).
 
 ## Local Setup
 
