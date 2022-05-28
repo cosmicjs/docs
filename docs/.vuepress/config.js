@@ -186,6 +186,13 @@ module.exports = {
         type: 'image/x-icon',
         href: 'https://cosmicjs.com/images/favicons/apple-touch-icon-57x57.png'
       }
+    ],
+    [
+      'meta',
+      {
+        name: 'robots',
+        content: 'noindex'
+      }
     ]
   ],
   plugins: [
