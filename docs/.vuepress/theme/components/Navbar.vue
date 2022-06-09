@@ -28,7 +28,7 @@
         'max-width': linksWrapMaxWidth + 'px'
       } : {}"
     >
-      <div class="v2-docs-message">These are the v1 docs. Go to the <a href="https://docs-v2.cosmicjs.com/">v2 docs &rarr;</a></div>
+      <div class="v2-docs-message"><span class="deprecation-notice">DEPRECATION NOTICE</span> The v1 docs are now deprecated. <a href="https://docs-v2.cosmicjs.com/" class="btn">Go to the v2 docs &rarr;</a></div>
       <AlgoliaSearchBox
         v-if="isAlgoliaSearch"
         :options="algolia"
@@ -93,6 +93,16 @@ $navbar-vertical-padding = 0.7rem
 $navbar-horizontal-padding = 1.5rem
 .v2-docs-message
   margin-right: 20px;
+.deprecation-notice
+  color: #f00;
+  font-weight: bold;
+.btn
+  background-color: #29ABE2
+  color: #fff;
+  padding: 3px 10px;
+  border-radius: 5px;
+  position: relative;
+  top: -3px;
 @media (max-width: $MQMobile)
   .v2-docs-message
     display: none;
