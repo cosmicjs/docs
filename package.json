@@ -31,4 +31,7 @@
     "vuepress-intercom": "^1.0.3",
     "vuepress-plugin-tabs": "^0.2.2"
   }
+   "engines": {
+    "node": ">=8.0.0 <9.0.0"
+  },
 }
