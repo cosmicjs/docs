@@ -28,7 +28,6 @@
         'max-width': linksWrapMaxWidth + 'px'
       } : {}"
     >
-      <div class="v2-docs-message"><span class="deprecation-notice">DEPRECATION NOTICE</span> The v1 docs are now deprecated. <a href="https://docs-v2.cosmicjs.com/" class="btn">Go to the v2 docs &rarr;</a></div>
       <AlgoliaSearchBox
         v-if="isAlgoliaSearch"
         :options="algolia"
