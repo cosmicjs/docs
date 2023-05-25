@@ -5,6 +5,9 @@
     @touchstart="onTouchStart"
     @touchend="onTouchEnd"
   >
+  <a href="https://www.cosmicjs.com/docs" class="deprecation-banner">Please note that this version of our documentaion has been deprecated.
+          Click here to view the new version &rarr;</a>
+
     <Navbar
       v-if="shouldShowNavbar"
       @toggle-sidebar="toggleSidebar"
